@@ -1,4 +1,12 @@
 PODS:
+  - CocoaLumberjack (2.0.0-beta3):
+    - CocoaLumberjack/Default
+    - CocoaLumberjack/Extensions
+  - CocoaLumberjack/Core (2.0.0-beta3)
+  - CocoaLumberjack/Default (2.0.0-beta3):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.0.0-beta3):
+    - CocoaLumberjack/Default
   - MagicalRecord (2.2):
     - MagicalRecord/Core
   - MagicalRecord/Core (2.2)
@@ -16,10 +24,12 @@ PODS:
     - MMDrawerController/Core
 
 DEPENDENCIES:
+  - CocoaLumberjack (= 2.0.0-beta3)
   - MagicalRecord (~> 2.2)
   - MMDrawerController (~> 0.5)
 
 SPEC CHECKSUMS:
+  CocoaLumberjack: 55c22a2b8bde7a29c568ab4015b5874216524d70
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
   MMDrawerController: c3ab7a318ddc7e2bcd133139c3161af08c6e1197
 
