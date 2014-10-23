@@ -50,6 +50,7 @@
 		FAA418BC19F789A000023B25 /* MerchantTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MerchantTests.m; sourceTree = "<group>"; };
 		FAEB496A19F9396800B774EC /* hamburger@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hamburger@2x.png"; path = "../../../Assets/hamburger@2x.png"; sourceTree = "<group>"; };
 		FAEB497419F940B800B774EC /* block_chain_header_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "block_chain_header_logo@2x.png"; path = "../../../Assets/block_chain_header_logo@2x.png"; sourceTree = "<group>"; };
+		FAEB497B19F9589F00B774EC /* Merchant.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Merchant.pch; sourceTree = "<group>"; };
 		FAEB497D19F95E9A00B774EC /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FAEB497F19F95F4F00B774EC /* nav_log_out@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_log_out@2x.png"; path = "../../../Assets/nav_log_out@2x.png"; sourceTree = "<group>"; };
 		FAEB498019F95F4F00B774EC /* nav_news@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_news@2x.png"; path = "../../../Assets/nav_news@2x.png"; sourceTree = "<group>"; };
@@ -382,6 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = Merchant/Merchant.pch;
 				INFOPLIST_FILE = Merchant/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
