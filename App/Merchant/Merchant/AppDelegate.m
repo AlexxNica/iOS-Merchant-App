@@ -8,15 +8,34 @@
 
 #import "AppDelegate.h"
 
+#import "MMDrawerController.h"
+
+#import "UIColor+Utilities.h"
+
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
+static NSString *const kBCMCenterViewControllerId = @"BCMCenterViewControllerId";
+static NSString *const kBCMPOSNavigationId = @"BCMPOSNavigationId";
+static NSString *const kBCMSideNavigationViewControllerId = @"BCMSideNavigationViewControllerId";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *centerViewController = [mainStoryboard instantiateViewControllerWithIdentifier:kBCMPOSNavigationId];
+    UIViewController *leftViewController = [mainStoryboard instantiateViewControllerWithIdentifier:kBCMSideNavigationViewControllerId];
+    
+    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:centerViewController leftDrawerViewController:leftViewController];
+    
+    [self styleNavigationBar];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window setRootViewController:self.drawerController];
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -40,6 +59,13 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+// Global Styling
+- (void)styleNavigationBar
+{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHexValue:BCM_BLUE]];
 }
 
 @end
