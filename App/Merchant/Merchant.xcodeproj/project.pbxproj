@@ -14,6 +14,13 @@
 		FAA418AE19F789A000023B25 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA418AD19F789A000023B25 /* Images.xcassets */; };
 		FAA418B119F789A000023B25 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA418AF19F789A000023B25 /* LaunchScreen.xib */; };
 		FAA418BD19F789A000023B25 /* MerchantTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA418BC19F789A000023B25 /* MerchantTests.m */; };
+		FAEB496B19F9396800B774EC /* hamburger@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEB496A19F9396800B774EC /* hamburger@2x.png */; };
+		FAEB497519F940B800B774EC /* block_chain_header_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEB497419F940B800B774EC /* block_chain_header_logo@2x.png */; };
+		FAEB498319F95F4F00B774EC /* nav_log_out@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEB497F19F95F4F00B774EC /* nav_log_out@2x.png */; };
+		FAEB498419F95F4F00B774EC /* nav_news@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEB498019F95F4F00B774EC /* nav_news@2x.png */; };
+		FAEB498519F95F4F00B774EC /* nav_settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEB498119F95F4F00B774EC /* nav_settings@2x.png */; };
+		FAEB498619F95F4F00B774EC /* nav_transactions@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEB498219F95F4F00B774EC /* nav_transactions@2x.png */; };
+		FAEB498819F95FA000B774EC /* nav_pos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEB498719F95FA000B774EC /* nav_pos@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +47,13 @@
 		FAA418B619F789A000023B25 /* MerchantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MerchantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA418BB19F789A000023B25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAA418BC19F789A000023B25 /* MerchantTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MerchantTests.m; sourceTree = "<group>"; };
+		FAEB496A19F9396800B774EC /* hamburger@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hamburger@2x.png"; path = "../../../Assets/hamburger@2x.png"; sourceTree = "<group>"; };
+		FAEB497419F940B800B774EC /* block_chain_header_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "block_chain_header_logo@2x.png"; path = "../../../Assets/block_chain_header_logo@2x.png"; sourceTree = "<group>"; };
+		FAEB497F19F95F4F00B774EC /* nav_log_out@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_log_out@2x.png"; path = "../../../Assets/nav_log_out@2x.png"; sourceTree = "<group>"; };
+		FAEB498019F95F4F00B774EC /* nav_news@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_news@2x.png"; path = "../../../Assets/nav_news@2x.png"; sourceTree = "<group>"; };
+		FAEB498119F95F4F00B774EC /* nav_settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_settings@2x.png"; path = "../../../Assets/nav_settings@2x.png"; sourceTree = "<group>"; };
+		FAEB498219F95F4F00B774EC /* nav_transactions@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_transactions@2x.png"; path = "../../../Assets/nav_transactions@2x.png"; sourceTree = "<group>"; };
+		FAEB498719F95FA000B774EC /* nav_pos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_pos@2x.png"; path = "../../../Assets/nav_pos@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +131,20 @@
 				FAA418BB19F789A000023B25 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FAEB496919F9396300B774EC /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				FAEB498719F95FA000B774EC /* nav_pos@2x.png */,
+				FAEB497F19F95F4F00B774EC /* nav_log_out@2x.png */,
+				FAEB498019F95F4F00B774EC /* nav_news@2x.png */,
+				FAEB498119F95F4F00B774EC /* nav_settings@2x.png */,
+				FAEB498219F95F4F00B774EC /* nav_transactions@2x.png */,
+				FAEB497419F940B800B774EC /* block_chain_header_logo@2x.png */,
+				FAEB496A19F9396800B774EC /* hamburger@2x.png */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,9 +227,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAEB498819F95FA000B774EC /* nav_pos@2x.png in Resources */,
 				FAA418AC19F789A000023B25 /* Main.storyboard in Resources */,
+				FAEB498319F95F4F00B774EC /* nav_log_out@2x.png in Resources */,
 				FAA418B119F789A000023B25 /* LaunchScreen.xib in Resources */,
+				FAEB496B19F9396800B774EC /* hamburger@2x.png in Resources */,
+				FAEB498519F95F4F00B774EC /* nav_settings@2x.png in Resources */,
+				FAEB498419F95F4F00B774EC /* nav_news@2x.png in Resources */,
 				FAA418AE19F789A000023B25 /* Images.xcassets in Resources */,
+				FAEB497519F940B800B774EC /* block_chain_header_logo@2x.png in Resources */,
+				FAEB498619F95F4F00B774EC /* nav_transactions@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
