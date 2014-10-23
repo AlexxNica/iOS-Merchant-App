@@ -16,6 +16,7 @@
 		FAA418BD19F789A000023B25 /* MerchantTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA418BC19F789A000023B25 /* MerchantTests.m */; };
 		FAEB496B19F9396800B774EC /* hamburger@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEB496A19F9396800B774EC /* hamburger@2x.png */; };
 		FAEB497519F940B800B774EC /* block_chain_header_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEB497419F940B800B774EC /* block_chain_header_logo@2x.png */; };
+		FAEB497E19F95E9A00B774EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAEB497D19F95E9A00B774EC /* Localizable.strings */; };
 		FAEB498319F95F4F00B774EC /* nav_log_out@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEB497F19F95F4F00B774EC /* nav_log_out@2x.png */; };
 		FAEB498419F95F4F00B774EC /* nav_news@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEB498019F95F4F00B774EC /* nav_news@2x.png */; };
 		FAEB498519F95F4F00B774EC /* nav_settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEB498119F95F4F00B774EC /* nav_settings@2x.png */; };
@@ -49,6 +50,7 @@
 		FAA418BC19F789A000023B25 /* MerchantTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MerchantTests.m; sourceTree = "<group>"; };
 		FAEB496A19F9396800B774EC /* hamburger@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hamburger@2x.png"; path = "../../../Assets/hamburger@2x.png"; sourceTree = "<group>"; };
 		FAEB497419F940B800B774EC /* block_chain_header_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "block_chain_header_logo@2x.png"; path = "../../../Assets/block_chain_header_logo@2x.png"; sourceTree = "<group>"; };
+		FAEB497D19F95E9A00B774EC /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FAEB497F19F95F4F00B774EC /* nav_log_out@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_log_out@2x.png"; path = "../../../Assets/nav_log_out@2x.png"; sourceTree = "<group>"; };
 		FAEB498019F95F4F00B774EC /* nav_news@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_news@2x.png"; path = "../../../Assets/nav_news@2x.png"; sourceTree = "<group>"; };
 		FAEB498119F95F4F00B774EC /* nav_settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_settings@2x.png"; path = "../../../Assets/nav_settings@2x.png"; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				FAA418A119F789A000023B25 /* Info.plist */,
 				FAA418A219F789A000023B25 /* main.m */,
+				FAEB497D19F95E9A00B774EC /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			files = (
 				FAEB498819F95FA000B774EC /* nav_pos@2x.png in Resources */,
 				FAA418AC19F789A000023B25 /* Main.storyboard in Resources */,
+				FAEB497E19F95E9A00B774EC /* Localizable.strings in Resources */,
 				FAEB498319F95F4F00B774EC /* nav_log_out@2x.png in Resources */,
 				FAA418B119F789A000023B25 /* LaunchScreen.xib in Resources */,
 				FAEB496B19F9396800B774EC /* hamburger@2x.png in Resources */,
