@@ -1,0 +1,2 @@
+pod 'MMDrawerController', '~> 0.5'
+pod 'MagicalRecord', '~> 2.2'
