@@ -29,7 +29,9 @@ static NSString *const kBCMSideNavigationViewControllerId = @"BCMSideNavigationV
     UIViewController *leftViewController = [mainStoryboard instantiateViewControllerWithIdentifier:kBCMSideNavigationViewControllerId];
     
     self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:centerViewController leftDrawerViewController:leftViewController];
-    
+    self.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+    self.drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
+
     [self styleNavigationBar];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
