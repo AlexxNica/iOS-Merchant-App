@@ -8,6 +8,10 @@
 
 #import "BCMSideNavigationViewController.h"
 
+#import "MMDrawerController.h"
+
+#import "AppDelegate.h"
+
 #import "UIColor+Utilities.h"
 
 typedef NS_ENUM(NSUInteger, BBSideNavigationItem) {
@@ -18,6 +22,11 @@ typedef NS_ENUM(NSUInteger, BBSideNavigationItem) {
     BBSideNavigationItemLogout,
     BBSideNavigationItemCount
 };
+
+static NSString *const kBCMSideNavControllerSalesId = @"BCMPOSNavigationId";
+static NSString *const kBCMSideNavControllerTransactionsId = @"BCMTransactionsNavigationId";
+static NSString *const kBCMSideNavControllerSettingsId = @"BCMSettingsNavigationId";
+static NSString *const kBCMSideNavControllerNewsId = @"BCMNewsNavigationId";
 
 @interface BCMSideNavigationViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -123,7 +132,42 @@ static NSString *const kNavigationCellId = @"navigationCellId";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSUInteger row = indexPath.row;
     
+    NSString *storyboardId = nil;
+    
+    switch (row) {
+        case BBSideNavigationItemPOS: {
+            storyboardId = kBCMSideNavControllerSalesId;
+            break;
+        }
+        case BBSideNavigationItemTransactions: {
+            storyboardId = kBCMSideNavControllerTransactionsId;
+            break;
+        }
+        case BBSideNavigationItemSettings: {
+            storyboardId = kBCMSideNavControllerSettingsId;
+            break;
+        }
+        case BBSideNavigationItemPriceNews: {
+            storyboardId = kBCMSideNavControllerNewsId;
+            break;
+        }
+        case BBSideNavigationItemLogout: {
+            break;
+        }
+        default:
+            break;
+    }
+    
+    if ([storyboardId length] > 0) {
+        AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        MMDrawerController *drawer = delegate.drawerController;
+        
+        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UINavigationController *nextNavController = [mainStoryBoard instantiateViewControllerWithIdentifier:storyboardId];
+        [drawer setCenterViewController:nextNavController withCloseAnimation:YES completion:nil];
+    }
 }
 
 @end
