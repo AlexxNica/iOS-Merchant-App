@@ -8,7 +8,7 @@
 
 #import "BCMSideNavigationViewController.h"
 
-#import "MMDrawerController.h"
+#import "BCMDrawerViewController.h"
 
 #import "AppDelegate.h"
 
@@ -22,11 +22,6 @@ typedef NS_ENUM(NSUInteger, BBSideNavigationItem) {
     BBSideNavigationItemLogout,
     BBSideNavigationItemCount
 };
-
-static NSString *const kBCMSideNavControllerSalesId = @"BCMPOSNavigationId";
-static NSString *const kBCMSideNavControllerTransactionsId = @"BCMTransactionsNavigationId";
-static NSString *const kBCMSideNavControllerSettingsId = @"BCMSettingsNavigationId";
-static NSString *const kBCMSideNavControllerNewsId = @"BCMNewsNavigationId";
 
 @interface BCMSideNavigationViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -61,7 +56,7 @@ static NSString *const kBCMSideNavControllerNewsId = @"BCMNewsNavigationId";
     return BBSideNavigationItemCount;
 }
 
-static NSString *const kNavigationCellId = @"navigationCellId";
+static NSString *const kSideNavigationDefaultCellId = @"navigationCellId";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -69,7 +64,7 @@ static NSString *const kNavigationCellId = @"navigationCellId";
     
     UITableViewCell *cell;
     
-    cell = [tableView dequeueReusableCellWithIdentifier:kNavigationCellId];
+    cell = [tableView dequeueReusableCellWithIdentifier:kSideNavigationDefaultCellId];
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20.0f];
     cell.textLabel.textColor = [UIColor colorWithHexValue:@"a3a3a3"];
 
@@ -123,9 +118,11 @@ static NSString *const kNavigationCellId = @"navigationCellId";
     }
 }
 
+const CGFloat kBBSideNavigationItemDefaultRowHeight = 55.0f;
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 55.0f;
+    return kBBSideNavigationItemDefaultRowHeight;
 }
 
 #pragma mark - UITableViewDelegate
@@ -154,6 +151,7 @@ static NSString *const kNavigationCellId = @"navigationCellId";
             break;
         }
         case BBSideNavigationItemLogout: {
+            // Handle Logout
             break;
         }
         default:
@@ -162,11 +160,8 @@ static NSString *const kNavigationCellId = @"navigationCellId";
     
     if ([storyboardId length] > 0) {
         AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-        MMDrawerController *drawer = delegate.drawerController;
-        
-        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UINavigationController *nextNavController = [mainStoryBoard instantiateViewControllerWithIdentifier:storyboardId];
-        [drawer setCenterViewController:nextNavController withCloseAnimation:YES completion:nil];
+        BCMDrawerViewController *drawer = delegate.drawerController;
+        [drawer showDetailViewControllerWithId:storyboardId];
     }
 }
 

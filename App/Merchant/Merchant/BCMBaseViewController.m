@@ -8,7 +8,7 @@
 
 #import "BCMBaseViewController.h"
 
-#import "MMDrawerController.h"
+#import "BCMDrawerViewController.h"
 
 #import "AppDelegate.h"
 
@@ -69,7 +69,7 @@
     switch (navigationType) {
         case BCMNavigationTypeHamburger: {
             AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            MMDrawerController *drawerController = appDelegate.drawerController;
+            BCMDrawerViewController *drawerController = appDelegate.drawerController;
             [drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
             break;
         }

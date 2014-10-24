@@ -11,6 +11,7 @@
 		FA99820C19FA4F20006C7D2F /* BCMTransactionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99820B19FA4F20006C7D2F /* BCMTransactionsViewController.m */; };
 		FA99820F19FA4F49006C7D2F /* BCMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99820E19FA4F49006C7D2F /* BCMSettingsViewController.m */; };
 		FA99821219FA4F69006C7D2F /* BCMPriceNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99821119FA4F69006C7D2F /* BCMPriceNewsViewController.m */; };
+		FA99821519FAA087006C7D2F /* BCMDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99821419FAA087006C7D2F /* BCMDrawerViewController.m */; };
 		FAA418A319F789A000023B25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA418A219F789A000023B25 /* main.m */; };
 		FAA418A619F789A000023B25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA418A519F789A000023B25 /* AppDelegate.m */; };
 		FAA418AC19F789A000023B25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA418AA19F789A000023B25 /* Main.storyboard */; };
@@ -51,6 +52,8 @@
 		FA99820E19FA4F49006C7D2F /* BCMSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMSettingsViewController.m; sourceTree = "<group>"; };
 		FA99821019FA4F69006C7D2F /* BCMPriceNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMPriceNewsViewController.h; sourceTree = "<group>"; };
 		FA99821119FA4F69006C7D2F /* BCMPriceNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMPriceNewsViewController.m; sourceTree = "<group>"; };
+		FA99821319FAA087006C7D2F /* BCMDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMDrawerViewController.h; sourceTree = "<group>"; };
+		FA99821419FAA087006C7D2F /* BCMDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMDrawerViewController.m; sourceTree = "<group>"; };
 		FAA4189D19F789A000023B25 /* Merchant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Merchant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA418A119F789A000023B25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAA418A219F789A000023B25 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -217,6 +220,8 @@
 		FAEB497619F947C200B774EC /* Primary View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA99821319FAA087006C7D2F /* BCMDrawerViewController.h */,
+				FA99821419FAA087006C7D2F /* BCMDrawerViewController.m */,
 				FAEB496619F9385000B774EC /* BCMBaseViewController.h */,
 				FAEB496719F9385000B774EC /* BCMBaseViewController.m */,
 				FAEB496C19F93B3600B774EC /* BCMPOSViewController.h */,
@@ -378,6 +383,7 @@
 			files = (
 				FA99820F19FA4F49006C7D2F /* BCMSettingsViewController.m in Sources */,
 				FA99820C19FA4F20006C7D2F /* BCMTransactionsViewController.m in Sources */,
+				FA99821519FAA087006C7D2F /* BCMDrawerViewController.m in Sources */,
 				FA99821219FA4F69006C7D2F /* BCMPriceNewsViewController.m in Sources */,
 				FAEB496E19F93B3600B774EC /* BCMPOSViewController.m in Sources */,
 				FAA418A619F789A000023B25 /* AppDelegate.m in Sources */,
@@ -507,10 +513,12 @@
 			baseConfigurationReference = 04DA42D0F37DCEB38EA7DB91 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = Merchant/Merchant.pch;
 				INFOPLIST_FILE = Merchant/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -519,10 +527,12 @@
 			baseConfigurationReference = 2BD1471CFB71554E6214BDCE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_PREFIX_HEADER = Merchant/Merchant.pch;
 				INFOPLIST_FILE = Merchant/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-#import "MMDrawerController.h"
+#import "BCMDrawerViewController.h"
 
 #import "UIColor+Utilities.h"
 
@@ -18,17 +18,9 @@
 
 @implementation AppDelegate
 
-static NSString *const kBCMCenterViewControllerId = @"BCMCenterViewControllerId";
-static NSString *const kBCMPOSNavigationId = @"BCMPOSNavigationId";
-static NSString *const kBCMSideNavigationViewControllerId = @"BCMSideNavigationViewControllerId";
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *centerViewController = [mainStoryboard instantiateViewControllerWithIdentifier:kBCMPOSNavigationId];
-    UIViewController *leftViewController = [mainStoryboard instantiateViewControllerWithIdentifier:kBCMSideNavigationViewControllerId];
-    
-    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:centerViewController leftDrawerViewController:leftViewController];
+    self.drawerController = [[BCMDrawerViewController alloc] init];
     self.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
     self.drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
 
