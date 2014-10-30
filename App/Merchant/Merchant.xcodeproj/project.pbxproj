@@ -12,6 +12,8 @@
 		FA99820F19FA4F49006C7D2F /* BCMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99820E19FA4F49006C7D2F /* BCMSettingsViewController.m */; };
 		FA99821219FA4F69006C7D2F /* BCMPriceNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99821119FA4F69006C7D2F /* BCMPriceNewsViewController.m */; };
 		FA99821519FAA087006C7D2F /* BCMDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99821419FAA087006C7D2F /* BCMDrawerViewController.m */; };
+		FA99821919FE0F16006C7D2F /* Merchant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA99821719FE0F15006C7D2F /* Merchant.xcdatamodeld */; };
+		FA99823119FF3B2F006C7D2F /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99823019FF3B2F006C7D2F /* Item.m */; };
 		FAA418A319F789A000023B25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA418A219F789A000023B25 /* main.m */; };
 		FAA418A619F789A000023B25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA418A519F789A000023B25 /* AppDelegate.m */; };
 		FAA418AC19F789A000023B25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA418AA19F789A000023B25 /* Main.storyboard */; };
@@ -54,6 +56,9 @@
 		FA99821119FA4F69006C7D2F /* BCMPriceNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMPriceNewsViewController.m; sourceTree = "<group>"; };
 		FA99821319FAA087006C7D2F /* BCMDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMDrawerViewController.h; sourceTree = "<group>"; };
 		FA99821419FAA087006C7D2F /* BCMDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMDrawerViewController.m; sourceTree = "<group>"; };
+		FA99821819FE0F15006C7D2F /* Merchant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Merchant.xcdatamodel; sourceTree = "<group>"; };
+		FA99822F19FF3B2F006C7D2F /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		FA99823019FF3B2F006C7D2F /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		FAA4189D19F789A000023B25 /* Merchant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Merchant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA418A119F789A000023B25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAA418A219F789A000023B25 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -121,6 +126,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FA99821619FE0F04006C7D2F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA99821719FE0F15006C7D2F /* Merchant.xcdatamodeld */,
+				FA99822F19FF3B2F006C7D2F /* Item.h */,
+				FA99823019FF3B2F006C7D2F /* Item.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		FAA4189419F789A000023B25 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +159,7 @@
 		FAA4189F19F789A000023B25 /* Merchant */ = {
 			isa = PBXGroup;
 			children = (
+				FA99821619FE0F04006C7D2F /* Model */,
 				FAEB497019F93C3E00B774EC /* Utilities */,
 				FAEB496F19F93C3500B774EC /* Third-Party */,
 				FAEB497619F947C200B774EC /* Primary View Controllers */,
@@ -383,6 +399,7 @@
 			files = (
 				FA99820F19FA4F49006C7D2F /* BCMSettingsViewController.m in Sources */,
 				FA99820C19FA4F20006C7D2F /* BCMTransactionsViewController.m in Sources */,
+				FA99821919FE0F16006C7D2F /* Merchant.xcdatamodeld in Sources */,
 				FA99821519FAA087006C7D2F /* BCMDrawerViewController.m in Sources */,
 				FA99821219FA4F69006C7D2F /* BCMPriceNewsViewController.m in Sources */,
 				FAEB496E19F93B3600B774EC /* BCMPOSViewController.m in Sources */,
@@ -601,6 +618,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FA99821719FE0F15006C7D2F /* Merchant.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FA99821819FE0F15006C7D2F /* Merchant.xcdatamodel */,
+			);
+			currentVersion = FA99821819FE0F15006C7D2F /* Merchant.xcdatamodel */;
+			path = Merchant.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FAA4189519F789A000023B25 /* Project object */;
 }

@@ -11,6 +11,8 @@
 
 #import "BCMConstants.h"
 
+#import "CoreData+MagicalRecord.h"
+
 #define BCM_BLUE @"1b8ac7"
 
 #endif

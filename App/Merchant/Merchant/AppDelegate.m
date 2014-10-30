@@ -24,6 +24,10 @@
     self.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
     self.drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
 
+    // Core Data Setup
+    [self setupDB];
+    
+    // Styling
     [self styleNavigationBar];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -61,5 +65,22 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHexValue:BCM_BLUE]];
 }
+
+#pragma mark - Magical Record
+
+// Magical Record
+
+- (void)setupDB
+{
+    // Magical Record setup
+    [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:[self dbStore]];
+}
+
+- (NSString *)dbStore
+{
+    NSString *bundleID = (NSString *)[[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleIdentifierKey];
+    return [NSString stringWithFormat:@"%@.sqlite", bundleID];
+}
+
 
 @end
