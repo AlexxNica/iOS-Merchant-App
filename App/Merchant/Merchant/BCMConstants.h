@@ -9,5 +9,6 @@
 #ifndef Merchant_BCMConstants_h
 #define Merchant_BCMConstants_h
 
+#define APP_BUILD_VERSION @"00.00.03"
 
 #endif
