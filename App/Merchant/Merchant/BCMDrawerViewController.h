@@ -9,6 +9,7 @@
 #import "MMDrawerController.h"
 
 extern NSString *const kBCMSideNavControllerSalesId;
+extern NSString *const kBCMSideNavControllerItemSetupId;
 extern NSString *const kBCMSideNavControllerTransactionsId;
 extern NSString *const kBCMSideNavControllerSettingsId;
 extern NSString *const kBCMSideNavControllerNewsId;

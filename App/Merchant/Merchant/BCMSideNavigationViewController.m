@@ -16,10 +16,12 @@
 
 typedef NS_ENUM(NSUInteger, BBSideNavigationItem) {
     BBSideNavigationItemPOS,
+    BBSideNavigationItemSetup,
     BBSideNavigationItemTransactions,
     BBSideNavigationItemSettings,
     BBSideNavigationItemPriceNews,
     BBSideNavigationItemLogout,
+    BBSideNavigationItemVersion,
     BBSideNavigationItemCount
 };
 
@@ -77,6 +79,11 @@ static NSString *const kSideNavigationDefaultCellId = @"navigationCellId";
             navigationTitle = NSLocalizedString(@"navigation.pos", nil);
             break;
         }
+        case BBSideNavigationItemSetup: {
+            navigationImageName = @"nav_pos";
+            navigationTitle = NSLocalizedString(@"navigation.item_setup", nil);
+            break;
+        }
         case BBSideNavigationItemTransactions: {
             navigationImageName = @"nav_transactions";
             navigationTitle = NSLocalizedString(@"navigation.transactions", nil);
@@ -96,6 +103,9 @@ static NSString *const kSideNavigationDefaultCellId = @"navigationCellId";
             navigationImageName = @"nav_log_out";
             navigationTitle = NSLocalizedString(@"navigation.logout", nil);
             break;
+        }
+        case BBSideNavigationItemVersion: {
+            navigationTitle = [NSString stringWithFormat:@"v%@", APP_BUILD_VERSION];
         }
         default:
             break;
@@ -136,6 +146,10 @@ const CGFloat kBBSideNavigationItemDefaultRowHeight = 55.0f;
     switch (row) {
         case BBSideNavigationItemPOS: {
             storyboardId = kBCMSideNavControllerSalesId;
+            break;
+        }
+        case BBSideNavigationItemSetup: {
+            storyboardId = kBCMSideNavControllerItemSetupId;
             break;
         }
         case BBSideNavigationItemTransactions: {

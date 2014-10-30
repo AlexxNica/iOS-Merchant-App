@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BCMAddItem">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Item Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SIf-KX-ijq" customClass="BCMTextField">
+                    <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="alphabet"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="29" y="61" width="241" height="36"/>
+                    </variation>
+                    <connections>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="1KW-dc-hxH"/>
+                    </connections>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FjW-zB-6eo">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="116" id="BKx-Ot-g8Z"/>
+                        <constraint firstAttribute="height" constant="84" id="TDn-hl-Txl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="BKx-Ot-g8Z"/>
+                            <exclude reference="TDn-hl-Txl"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="BKx-Ot-g8Z"/>
+                            <include reference="TDn-hl-Txl"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="cancelAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="aDf-Qs-o4Y"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PE1-aV-rKk">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.44705882352941179" green="0.77647058823529413" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="116" id="8X9-0L-w9b"/>
+                        <constraint firstAttribute="height" constant="84" id="JWE-EY-d3l"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                    <state key="normal" title="Save">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="8X9-0L-w9b"/>
+                            <exclude reference="JWE-EY-d3l"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="8X9-0L-w9b"/>
+                            <include reference="JWE-EY-d3l"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="saveAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="u6G-6w-j9h"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Item Price" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wdm-dM-lbT" customClass="BCMTextField">
+                    <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="29" y="142" width="241" height="36"/>
+                    </variation>
+                    <connections>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="kzP-Xz-G3P"/>
+                    </connections>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="PE1-aV-rKk" secondAttribute="bottom" constant="22" id="0W7-oH-0J5"/>
+                <constraint firstItem="FjW-zB-6eo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="ZKn-9J-TvQ"/>
+                <constraint firstAttribute="trailing" secondItem="PE1-aV-rKk" secondAttribute="trailing" constant="21" id="lKC-uV-IBg"/>
+                <constraint firstAttribute="bottom" secondItem="FjW-zB-6eo" secondAttribute="bottom" constant="22" id="xFj-DA-ymS"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="SIf-KX-ijq"/>
+                    <exclude reference="FjW-zB-6eo"/>
+                    <exclude reference="PE1-aV-rKk"/>
+                    <exclude reference="wdm-dM-lbT"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="ZKn-9J-TvQ"/>
+                    <exclude reference="xFj-DA-ymS"/>
+                    <exclude reference="0W7-oH-0J5"/>
+                    <exclude reference="lKC-uV-IBg"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="SIf-KX-ijq"/>
+                    <include reference="FjW-zB-6eo"/>
+                    <include reference="PE1-aV-rKk"/>
+                    <include reference="wdm-dM-lbT"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="ZKn-9J-TvQ"/>
+                    <include reference="xFj-DA-ymS"/>
+                    <include reference="0W7-oH-0J5"/>
+                    <include reference="lKC-uV-IBg"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="itemNameTextField" destination="SIf-KX-ijq" id="LB6-cb-QIp"/>
+                <outlet property="itemPriceTextField" destination="wdm-dM-lbT" id="oCa-an-oiB"/>
+            </connections>
+        </view>
+    </objects>
+</document>

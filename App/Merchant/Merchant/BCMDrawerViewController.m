@@ -12,6 +12,7 @@
 
 NSString *const kBCMSideNavigationViewControllerId = @"BCMSideNavigationViewControllerId";
 NSString *const kBCMSideNavControllerSalesId = @"BCMPOSNavigationId";                   // POS
+NSString *const kBCMSideNavControllerItemSetupId = @"BCMItemSetupNavigationId";                   // POS
 NSString *const kBCMSideNavControllerTransactionsId = @"BCMTransactionsNavigationId";   // Transactions
 NSString *const kBCMSideNavControllerSettingsId = @"BCMSettingsNavigationId";           // Settings
 NSString *const kBCMSideNavControllerNewsId = @"BCMNewsNavigationId";                   // News
@@ -27,13 +28,14 @@ NSString *const kBCMSideNavControllerNewsId = @"BCMNewsNavigationId";           
 - (instancetype)init
 {
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *centerViewController = [mainStoryboard instantiateViewControllerWithIdentifier:kBCMSideNavControllerSalesId];
+    UINavigationController *centerViewController = [mainStoryboard instantiateViewControllerWithIdentifier:kBCMSideNavControllerSalesId];
     UIViewController *leftViewController = [mainStoryboard instantiateViewControllerWithIdentifier:kBCMSideNavigationViewControllerId];
     
     self = [super initWithCenterViewController:centerViewController leftDrawerViewController:leftViewController];
     
     if (self) {
         _viewControllerDict = [[NSMutableDictionary alloc] init];
+        [_viewControllerDict setObject:centerViewController forKey:kBCMSideNavControllerSalesId];
     }
     
     return self;
@@ -53,10 +55,13 @@ NSString *const kBCMSideNavControllerNewsId = @"BCMNewsNavigationId";           
             storyboardId = kBCMSideNavControllerSettingsId;
         } else if ([viewControllerId isEqualToString:kBCMSideNavControllerNewsId]) {
             storyboardId = kBCMSideNavControllerNewsId;
+        } else if ([viewControllerId isEqualToString:kBCMSideNavControllerItemSetupId]) {
+            storyboardId = kBCMSideNavControllerItemSetupId;
         }
         if ([storyboardId length] > 0) {
             UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             viewController = [mainStoryBoard instantiateViewControllerWithIdentifier:storyboardId];
+            [self.viewControllerDict setObject:viewController forKey:storyboardId];
         }
     }
     

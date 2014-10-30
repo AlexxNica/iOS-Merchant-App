@@ -9,6 +9,7 @@
 // Navigation
 
 "navigation.pos" = "POS";
+"navigation.item_setup" = "Item Setup";
 "navigation.transactions" = "Transactions";
 "navigation.settings" = "Settings";
 "navigation.price_news" = "Price & News";

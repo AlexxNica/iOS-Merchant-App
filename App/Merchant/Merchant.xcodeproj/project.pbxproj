@@ -13,7 +13,14 @@
 		FA99821219FA4F69006C7D2F /* BCMPriceNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99821119FA4F69006C7D2F /* BCMPriceNewsViewController.m */; };
 		FA99821519FAA087006C7D2F /* BCMDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99821419FAA087006C7D2F /* BCMDrawerViewController.m */; };
 		FA99821919FE0F16006C7D2F /* Merchant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA99821719FE0F15006C7D2F /* Merchant.xcdatamodeld */; };
+		FA99821F19FE8923006C7D2F /* BCMAddItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA99821E19FE8923006C7D2F /* BCMAddItem.xib */; };
+		FA99822219FE8C67006C7D2F /* BCMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99822119FE8C67006C7D2F /* BCMTextField.m */; };
+		FA99822519FE8D26006C7D2F /* BCMItemSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99822419FE8D26006C7D2F /* BCMItemSetupViewController.m */; };
+		FA99822819FE8D93006C7D2F /* BCMAddItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99822719FE8D93006C7D2F /* BCMAddItem.m */; };
+		FA99822B19FE8ECB006C7D2F /* UIView+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99822A19FE8ECB006C7D2F /* UIView+Utilities.m */; };
 		FA99823119FF3B2F006C7D2F /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99823019FF3B2F006C7D2F /* Item.m */; };
+		FA99823419FF7843006C7D2F /* BCMCustomAmountView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99823319FF7843006C7D2F /* BCMCustomAmountView.m */; };
+		FA99823619FF784F006C7D2F /* BCMCustomAmountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA99823519FF784F006C7D2F /* BCMCustomAmountView.xib */; };
 		FAA418A319F789A000023B25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA418A219F789A000023B25 /* main.m */; };
 		FAA418A619F789A000023B25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA418A519F789A000023B25 /* AppDelegate.m */; };
 		FAA418AC19F789A000023B25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA418AA19F789A000023B25 /* Main.storyboard */; };
@@ -57,8 +64,20 @@
 		FA99821319FAA087006C7D2F /* BCMDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMDrawerViewController.h; sourceTree = "<group>"; };
 		FA99821419FAA087006C7D2F /* BCMDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMDrawerViewController.m; sourceTree = "<group>"; };
 		FA99821819FE0F15006C7D2F /* Merchant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Merchant.xcdatamodel; sourceTree = "<group>"; };
+		FA99821E19FE8923006C7D2F /* BCMAddItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCMAddItem.xib; sourceTree = "<group>"; };
+		FA99822019FE8C67006C7D2F /* BCMTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMTextField.h; sourceTree = "<group>"; };
+		FA99822119FE8C67006C7D2F /* BCMTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMTextField.m; sourceTree = "<group>"; };
+		FA99822319FE8D26006C7D2F /* BCMItemSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMItemSetupViewController.h; sourceTree = "<group>"; };
+		FA99822419FE8D26006C7D2F /* BCMItemSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMItemSetupViewController.m; sourceTree = "<group>"; };
+		FA99822619FE8D93006C7D2F /* BCMAddItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMAddItem.h; sourceTree = "<group>"; };
+		FA99822719FE8D93006C7D2F /* BCMAddItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMAddItem.m; sourceTree = "<group>"; };
+		FA99822919FE8ECB006C7D2F /* UIView+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utilities.h"; sourceTree = "<group>"; };
+		FA99822A19FE8ECB006C7D2F /* UIView+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utilities.m"; sourceTree = "<group>"; };
 		FA99822F19FF3B2F006C7D2F /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		FA99823019FF3B2F006C7D2F /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		FA99823219FF7843006C7D2F /* BCMCustomAmountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMCustomAmountView.h; sourceTree = "<group>"; };
+		FA99823319FF7843006C7D2F /* BCMCustomAmountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMCustomAmountView.m; sourceTree = "<group>"; };
+		FA99823519FF784F006C7D2F /* BCMCustomAmountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCMCustomAmountView.xib; sourceTree = "<group>"; };
 		FAA4189D19F789A000023B25 /* Merchant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Merchant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA418A119F789A000023B25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAA418A219F789A000023B25 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -136,6 +155,21 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		FA99821D19FE88EF006C7D2F /* Views/Controls */ = {
+			isa = PBXGroup;
+			children = (
+				FA99822019FE8C67006C7D2F /* BCMTextField.h */,
+				FA99822119FE8C67006C7D2F /* BCMTextField.m */,
+				FA99822619FE8D93006C7D2F /* BCMAddItem.h */,
+				FA99822719FE8D93006C7D2F /* BCMAddItem.m */,
+				FA99821E19FE8923006C7D2F /* BCMAddItem.xib */,
+				FA99823219FF7843006C7D2F /* BCMCustomAmountView.h */,
+				FA99823319FF7843006C7D2F /* BCMCustomAmountView.m */,
+				FA99823519FF784F006C7D2F /* BCMCustomAmountView.xib */,
+			);
+			name = Views/Controls;
+			sourceTree = "<group>";
+		};
 		FAA4189419F789A000023B25 = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +193,7 @@
 		FAA4189F19F789A000023B25 /* Merchant */ = {
 			isa = PBXGroup;
 			children = (
+				FA99821D19FE88EF006C7D2F /* Views/Controls */,
 				FA99821619FE0F04006C7D2F /* Model */,
 				FAEB497019F93C3E00B774EC /* Utilities */,
 				FAEB496F19F93C3500B774EC /* Third-Party */,
@@ -227,6 +262,8 @@
 		FAEB497019F93C3E00B774EC /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				FA99822919FE8ECB006C7D2F /* UIView+Utilities.h */,
+				FA99822A19FE8ECB006C7D2F /* UIView+Utilities.m */,
 				FAEB497119F93CA800B774EC /* UIColor+Utilities.h */,
 				FAEB497219F93CA800B774EC /* UIColor+Utilities.m */,
 			);
@@ -248,6 +285,8 @@
 				FA99820E19FA4F49006C7D2F /* BCMSettingsViewController.m */,
 				FA99821019FA4F69006C7D2F /* BCMPriceNewsViewController.h */,
 				FA99821119FA4F69006C7D2F /* BCMPriceNewsViewController.m */,
+				FA99822319FE8D26006C7D2F /* BCMItemSetupViewController.h */,
+				FA99822419FE8D26006C7D2F /* BCMItemSetupViewController.m */,
 				FAEB497719F9496000B774EC /* BCMSideNavigationViewController.h */,
 				FAEB497819F9496000B774EC /* BCMSideNavigationViewController.m */,
 			);
@@ -337,11 +376,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAEB498819F95FA000B774EC /* nav_pos@2x.png in Resources */,
+				FA99821F19FE8923006C7D2F /* BCMAddItem.xib in Resources */,
 				FAA418AC19F789A000023B25 /* Main.storyboard in Resources */,
 				FAEB497E19F95E9A00B774EC /* Localizable.strings in Resources */,
 				FAEB498319F95F4F00B774EC /* nav_log_out@2x.png in Resources */,
 				FAA418B119F789A000023B25 /* LaunchScreen.xib in Resources */,
 				FAEB496B19F9396800B774EC /* hamburger@2x.png in Resources */,
+				FA99823619FF784F006C7D2F /* BCMCustomAmountView.xib in Resources */,
 				FAEB498519F95F4F00B774EC /* nav_settings@2x.png in Resources */,
 				FAEB498419F95F4F00B774EC /* nav_news@2x.png in Resources */,
 				FAA418AE19F789A000023B25 /* Images.xcassets in Resources */,
@@ -397,7 +438,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA99823419FF7843006C7D2F /* BCMCustomAmountView.m in Sources */,
+				FA99823119FF3B2F006C7D2F /* Item.m in Sources */,
 				FA99820F19FA4F49006C7D2F /* BCMSettingsViewController.m in Sources */,
+				FA99822519FE8D26006C7D2F /* BCMItemSetupViewController.m in Sources */,
 				FA99820C19FA4F20006C7D2F /* BCMTransactionsViewController.m in Sources */,
 				FA99821919FE0F16006C7D2F /* Merchant.xcdatamodeld in Sources */,
 				FA99821519FAA087006C7D2F /* BCMDrawerViewController.m in Sources */,
@@ -405,7 +449,10 @@
 				FAEB496E19F93B3600B774EC /* BCMPOSViewController.m in Sources */,
 				FAA418A619F789A000023B25 /* AppDelegate.m in Sources */,
 				FAEB496819F9385000B774EC /* BCMBaseViewController.m in Sources */,
+				FA99822819FE8D93006C7D2F /* BCMAddItem.m in Sources */,
+				FA99822219FE8C67006C7D2F /* BCMTextField.m in Sources */,
 				FAEB497319F93CA800B774EC /* UIColor+Utilities.m in Sources */,
+				FA99822B19FE8ECB006C7D2F /* UIView+Utilities.m in Sources */,
 				FAEB497919F9496000B774EC /* BCMSideNavigationViewController.m in Sources */,
 				FAA418A319F789A000023B25 /* main.m in Sources */,
 			);
