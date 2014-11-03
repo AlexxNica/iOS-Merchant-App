@@ -5,11 +5,18 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
     </entity>
-    <entity name="Transaction" syncable="YES">
+    <entity name="PurchasedItem" representedClassName="PurchasedItem" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="transaction" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Transaction" inverseName="purchasedItems" inverseEntity="Transaction" syncable="YES"/>
+    </entity>
+    <entity name="Transaction" representedClassName="Transaction" syncable="YES">
         <attribute name="creation_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="purchasedItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PurchasedItem" inverseName="transaction" inverseEntity="PurchasedItem" syncable="YES"/>
     </entity>
     <elements>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="Transaction" positionX="-54" positionY="18" width="128" height="58"/>
+        <element name="Transaction" positionX="-54" positionY="18" width="128" height="73"/>
+        <element name="PurchasedItem" positionX="-36" positionY="27" width="128" height="88"/>
     </elements>
 </model>
