@@ -20,6 +20,8 @@
 		FA99822B19FE8ECB006C7D2F /* UIView+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99822A19FE8ECB006C7D2F /* UIView+Utilities.m */; };
 		FA99823419FF7843006C7D2F /* BCMCustomAmountView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99823319FF7843006C7D2F /* BCMCustomAmountView.m */; };
 		FA99823619FF784F006C7D2F /* BCMCustomAmountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA99823519FF784F006C7D2F /* BCMCustomAmountView.xib */; };
+		FA9982391A0209F0006C7D2F /* BCMSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9982381A0209F0006C7D2F /* BCMSearchView.m */; };
+		FA99823B1A020A01006C7D2F /* BCMSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA99823A1A020A01006C7D2F /* BCMSearchView.xib */; };
 		FA99823D1A029AED006C7D2F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA99823C1A029AED006C7D2F /* Default-568h@2x.png */; };
 		FA9982411A03B960006C7D2F /* search_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9982401A03B960006C7D2F /* search_icon@2x.png */; };
 		FA9982571A03E63A006C7D2F /* _Item.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99824C1A03E63A006C7D2F /* _Item.m */; };
@@ -84,6 +86,9 @@
 		FA99823219FF7843006C7D2F /* BCMCustomAmountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMCustomAmountView.h; sourceTree = "<group>"; };
 		FA99823319FF7843006C7D2F /* BCMCustomAmountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMCustomAmountView.m; sourceTree = "<group>"; };
 		FA99823519FF784F006C7D2F /* BCMCustomAmountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCMCustomAmountView.xib; sourceTree = "<group>"; };
+		FA9982371A0209F0006C7D2F /* BCMSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMSearchView.h; sourceTree = "<group>"; };
+		FA9982381A0209F0006C7D2F /* BCMSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMSearchView.m; sourceTree = "<group>"; };
+		FA99823A1A020A01006C7D2F /* BCMSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCMSearchView.xib; sourceTree = "<group>"; };
 		FA99823C1A029AED006C7D2F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../../Assets/Default-568h@2x.png"; sourceTree = "<group>"; };
 		FA9982401A03B960006C7D2F /* search_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "search_icon@2x.png"; path = "../../../Assets/search_icon@2x.png"; sourceTree = "<group>"; };
 		FA99824B1A03E63A006C7D2F /* _Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Item.h; path = MogGenModel/_Item.h; sourceTree = "<group>"; };
@@ -189,6 +194,9 @@
 		FA99821D19FE88EF006C7D2F /* Views/Controls */ = {
 			isa = PBXGroup;
 			children = (
+				FA9982371A0209F0006C7D2F /* BCMSearchView.h */,
+				FA9982381A0209F0006C7D2F /* BCMSearchView.m */,
+				FA99823A1A020A01006C7D2F /* BCMSearchView.xib */,
 				FA99822019FE8C67006C7D2F /* BCMTextField.h */,
 				FA99822119FE8C67006C7D2F /* BCMTextField.m */,
 				FA99822619FE8D93006C7D2F /* BCMAddItem.h */,
@@ -420,6 +428,7 @@
 				FA99823619FF784F006C7D2F /* BCMCustomAmountView.xib in Resources */,
 				FA99823D1A029AED006C7D2F /* Default-568h@2x.png in Resources */,
 				FAEB498519F95F4F00B774EC /* nav_settings@2x.png in Resources */,
+				FA99823B1A020A01006C7D2F /* BCMSearchView.xib in Resources */,
 				FAEB498419F95F4F00B774EC /* nav_news@2x.png in Resources */,
 				FAA418AE19F789A000023B25 /* Images.xcassets in Resources */,
 				FA9982411A03B960006C7D2F /* search_icon@2x.png in Resources */,
@@ -486,6 +495,7 @@
 				FA99821219FA4F69006C7D2F /* BCMPriceNewsViewController.m in Sources */,
 				FA9982581A03E63A006C7D2F /* _PurchasedItem.m in Sources */,
 				FAEB496E19F93B3600B774EC /* BCMPOSViewController.m in Sources */,
+				FA9982391A0209F0006C7D2F /* BCMSearchView.m in Sources */,
 				FA99825B1A03E63A006C7D2F /* PurchasedItem.m in Sources */,
 				FAA418A619F789A000023B25 /* AppDelegate.m in Sources */,
 				FAEB496819F9385000B774EC /* BCMBaseViewController.m in Sources */,
