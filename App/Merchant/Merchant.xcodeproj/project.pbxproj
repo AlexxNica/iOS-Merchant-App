@@ -24,12 +24,15 @@
 		FA99823B1A020A01006C7D2F /* BCMSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA99823A1A020A01006C7D2F /* BCMSearchView.xib */; };
 		FA99823D1A029AED006C7D2F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA99823C1A029AED006C7D2F /* Default-568h@2x.png */; };
 		FA9982411A03B960006C7D2F /* search_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9982401A03B960006C7D2F /* search_icon@2x.png */; };
+		FA9982441A03C330006C7D2F /* UIViewController+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9982431A03C330006C7D2F /* UIViewController+Utilities.m */; };
 		FA9982571A03E63A006C7D2F /* _Item.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99824C1A03E63A006C7D2F /* _Item.m */; };
 		FA9982581A03E63A006C7D2F /* _PurchasedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99824E1A03E63A006C7D2F /* _PurchasedItem.m */; };
 		FA9982591A03E63A006C7D2F /* _Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9982501A03E63A006C7D2F /* _Transaction.m */; };
 		FA99825A1A03E63A006C7D2F /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9982521A03E63A006C7D2F /* Item.m */; };
 		FA99825B1A03E63A006C7D2F /* PurchasedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9982541A03E63A006C7D2F /* PurchasedItem.m */; };
 		FA99825C1A03E63A006C7D2F /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9982561A03E63A006C7D2F /* Transaction.m */; };
+		FA99825F1A03E849006C7D2F /* BCMQRCodeTransactionView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99825E1A03E849006C7D2F /* BCMQRCodeTransactionView.m */; };
+		FA9982611A03E855006C7D2F /* BCMQRCodeTransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9982601A03E855006C7D2F /* BCMQRCodeTransactionView.xib */; };
 		FA9982631A03E8FE006C7D2F /* mock_qr_code@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9982621A03E8FE006C7D2F /* mock_qr_code@2x.png */; };
 		FAA418A319F789A000023B25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA418A219F789A000023B25 /* main.m */; };
 		FAA418A619F789A000023B25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA418A519F789A000023B25 /* AppDelegate.m */; };
@@ -91,6 +94,8 @@
 		FA99823A1A020A01006C7D2F /* BCMSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCMSearchView.xib; sourceTree = "<group>"; };
 		FA99823C1A029AED006C7D2F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../../Assets/Default-568h@2x.png"; sourceTree = "<group>"; };
 		FA9982401A03B960006C7D2F /* search_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "search_icon@2x.png"; path = "../../../Assets/search_icon@2x.png"; sourceTree = "<group>"; };
+		FA9982421A03C330006C7D2F /* UIViewController+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Utilities.h"; sourceTree = "<group>"; };
+		FA9982431A03C330006C7D2F /* UIViewController+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Utilities.m"; sourceTree = "<group>"; };
 		FA99824B1A03E63A006C7D2F /* _Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Item.h; path = MogGenModel/_Item.h; sourceTree = "<group>"; };
 		FA99824C1A03E63A006C7D2F /* _Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Item.m; path = MogGenModel/_Item.m; sourceTree = "<group>"; };
 		FA99824D1A03E63A006C7D2F /* _PurchasedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _PurchasedItem.h; path = MogGenModel/_PurchasedItem.h; sourceTree = "<group>"; };
@@ -103,6 +108,9 @@
 		FA9982541A03E63A006C7D2F /* PurchasedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PurchasedItem.m; path = MogGenModel/PurchasedItem.m; sourceTree = "<group>"; };
 		FA9982551A03E63A006C7D2F /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transaction.h; path = MogGenModel/Transaction.h; sourceTree = "<group>"; };
 		FA9982561A03E63A006C7D2F /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Transaction.m; path = MogGenModel/Transaction.m; sourceTree = "<group>"; };
+		FA99825D1A03E849006C7D2F /* BCMQRCodeTransactionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMQRCodeTransactionView.h; sourceTree = "<group>"; };
+		FA99825E1A03E849006C7D2F /* BCMQRCodeTransactionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMQRCodeTransactionView.m; sourceTree = "<group>"; };
+		FA9982601A03E855006C7D2F /* BCMQRCodeTransactionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCMQRCodeTransactionView.xib; sourceTree = "<group>"; };
 		FA9982621A03E8FE006C7D2F /* mock_qr_code@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mock_qr_code@2x.png"; path = "../../../Assets/mock_qr_code@2x.png"; sourceTree = "<group>"; };
 		FAA4189D19F789A000023B25 /* Merchant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Merchant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA418A119F789A000023B25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -205,6 +213,9 @@
 				FA99823219FF7843006C7D2F /* BCMCustomAmountView.h */,
 				FA99823319FF7843006C7D2F /* BCMCustomAmountView.m */,
 				FA99823519FF784F006C7D2F /* BCMCustomAmountView.xib */,
+				FA99825D1A03E849006C7D2F /* BCMQRCodeTransactionView.h */,
+				FA99825E1A03E849006C7D2F /* BCMQRCodeTransactionView.m */,
+				FA9982601A03E855006C7D2F /* BCMQRCodeTransactionView.xib */,
 			);
 			name = Views/Controls;
 			sourceTree = "<group>";
@@ -304,6 +315,8 @@
 		FAEB497019F93C3E00B774EC /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				FA9982421A03C330006C7D2F /* UIViewController+Utilities.h */,
+				FA9982431A03C330006C7D2F /* UIViewController+Utilities.m */,
 				FA99822919FE8ECB006C7D2F /* UIView+Utilities.h */,
 				FA99822A19FE8ECB006C7D2F /* UIView+Utilities.m */,
 				FAEB497119F93CA800B774EC /* UIColor+Utilities.h */,
@@ -421,6 +434,7 @@
 				FA99821F19FE8923006C7D2F /* BCMAddItem.xib in Resources */,
 				FAA418AC19F789A000023B25 /* Main.storyboard in Resources */,
 				FAEB497E19F95E9A00B774EC /* Localizable.strings in Resources */,
+				FA9982611A03E855006C7D2F /* BCMQRCodeTransactionView.xib in Resources */,
 				FAEB498319F95F4F00B774EC /* nav_log_out@2x.png in Resources */,
 				FAA418B119F789A000023B25 /* LaunchScreen.xib in Resources */,
 				FAEB496B19F9396800B774EC /* hamburger@2x.png in Resources */,
@@ -493,6 +507,7 @@
 				FA99825C1A03E63A006C7D2F /* Transaction.m in Sources */,
 				FA99821519FAA087006C7D2F /* BCMDrawerViewController.m in Sources */,
 				FA99821219FA4F69006C7D2F /* BCMPriceNewsViewController.m in Sources */,
+				FA9982441A03C330006C7D2F /* UIViewController+Utilities.m in Sources */,
 				FA9982581A03E63A006C7D2F /* _PurchasedItem.m in Sources */,
 				FAEB496E19F93B3600B774EC /* BCMPOSViewController.m in Sources */,
 				FA9982391A0209F0006C7D2F /* BCMSearchView.m in Sources */,
@@ -502,6 +517,7 @@
 				FA99822819FE8D93006C7D2F /* BCMAddItem.m in Sources */,
 				FA9982571A03E63A006C7D2F /* _Item.m in Sources */,
 				FA99822219FE8C67006C7D2F /* BCMTextField.m in Sources */,
+				FA99825F1A03E849006C7D2F /* BCMQRCodeTransactionView.m in Sources */,
 				FAEB497319F93CA800B774EC /* UIColor+Utilities.m in Sources */,
 				FA99825A1A03E63A006C7D2F /* Item.m in Sources */,
 				FA99822B19FE8ECB006C7D2F /* UIView+Utilities.m in Sources */,

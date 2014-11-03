@@ -7,11 +7,15 @@
 //
 
 #import "BCMPOSViewController.h"
-
+#import "BCMItemSetupViewController.h"
 #import "BCMCustomAmountView.h"
+#import "BCMSearchView.h"
 #import "BCMTextField.h"
+#import "BCMQRCodeTransactionView.h"
 
 #import "Item.h"
+#import "Transaction.h"
+#import "PurchasedItem.h"
 
 #import "UIView+Utilities.h"
 
@@ -21,7 +25,7 @@ typedef NS_ENUM(NSUInteger, BCMPOSSection) {
     BCMPOSSectionCount
 };
 
-@interface BCMPOSViewController () <BCMCustomAmountViewDelegate>
+@interface BCMPOSViewController () <BCMCustomAmountViewDelegate, BCMQRCodeTransactionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *totalTransactionAmountLbl;
 @property (weak, nonatomic) IBOutlet UILabel *transactionItemCountLbl;
@@ -29,11 +33,18 @@ typedef NS_ENUM(NSUInteger, BCMPOSSection) {
 @property (weak, nonatomic) IBOutlet UITableView *itemsTableView;
 
 @property (strong, nonatomic) NSArray *merchantItems;
-@property (strong, nonatomic) NSMutableArray *currentTransaction;
+@property (strong, nonatomic) NSMutableArray *simpleItems;
 
 @property (strong, nonatomic) IBOutlet UIView *customAmountContainerView;
 @property (strong, nonatomic) IBOutlet BCMCustomAmountView *customAmountView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topMarginConstraint;
+
+@property (strong, nonatomic) IBOutlet UIView *searchContainerView;
+@property (strong, nonatomic) BCMSearchView *searchView;
+
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
+@property (strong, nonatomic) BCMQRCodeTransactionView *transactionView;
+@property (strong, nonatomic) UIControl *trasactionOverlay;
 
 @end
 
@@ -43,7 +54,7 @@ typedef NS_ENUM(NSUInteger, BCMPOSSection) {
     
     [super viewDidLoad];
     
-    self.currentTransaction = [[NSMutableArray alloc] init];
+    self.simpleItems = [[NSMutableArray alloc] init];
     
     [self addNavigationType:BCMNavigationTypeHamburger position:BCMNavigationPositionLeft selector:nil];
     
@@ -60,6 +71,19 @@ typedef NS_ENUM(NSUInteger, BCMPOSSection) {
     [self.customAmountContainerView addConstraints:@[ topConstraint, bottomConstraint, leftConstraint, rightConstraint ]];
     
     self.topMarginConstraint.constant = CGRectGetHeight(self.view.frame);
+    
+    self.searchView = [BCMSearchView loadInstanceFromNib];
+    self.searchView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.searchContainerView addSubview:self.searchView];
+    
+    [self.searchContainerView addSubview:self.editButton];
+    
+    NSLayoutConstraint *topSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.searchView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.searchContainerView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0f];
+    NSLayoutConstraint *bottomSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.searchView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.searchContainerView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0f];
+    NSLayoutConstraint *leftSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.searchView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.searchContainerView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0f];
+    NSLayoutConstraint *rightSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.searchView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.editButton attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0f];
+    
+    [self.searchContainerView addConstraints:@[ topSearchViewConstraint, bottomSearchViewConstraint, leftSearchViewConstraint, rightSearchViewConstraint]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -73,30 +97,72 @@ typedef NS_ENUM(NSUInteger, BCMPOSSection) {
     [self.itemsTableView reloadData];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)hideTransactionView
+{
+    [self.trasactionOverlay removeFromSuperview];
+    self.trasactionOverlay.alpha = 0.25f;
+    [self.transactionView removeFromSuperview];
 }
-*/
+
+#pragma mark - Actions
+
+- (void)dismissCharge:(id)sender
+{
+    [self hideTransactionView];
+}
 
 - (IBAction)chargeAction:(id)sender
 {
-    [[[UIAlertView alloc] initWithTitle:@"Patience" message:@"In a future delivery." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-
+    // Create transaction for purchase
+    Transaction *transaction = [Transaction MR_createEntity];
+    transaction.creation_date = [NSDate date];
+    
+    // Create purchased items
+    for (NSDictionary *dict in self.simpleItems) {
+        // Creating purchased items from known items in transactin
+        PurchasedItem *pItem = [PurchasedItem MR_createEntity];
+        pItem.name = [dict objectForKeyedSubscript:kItemNameKey];
+        pItem.price = [dict objectForKeyedSubscript:kItemPriceKey];
+        [transaction addPurchasedItemsObject:pItem];
+    }
+    
+    if (!self.trasactionOverlay) {
+        self.trasactionOverlay = [[UIControl alloc] initWithFrame:self.view.bounds];
+        [self.trasactionOverlay addTarget:self action:@selector(dismissCharge:) forControlEvents:UIControlEventTouchUpInside];
+        self.trasactionOverlay.backgroundColor = [UIColor blackColor];
+        self.trasactionOverlay.alpha = 0.25f;
+        [self.view addSubview:self.trasactionOverlay];
+    } else {
+        [self.view addSubview:self.trasactionOverlay];
+    }
+    [UIView animateWithDuration:0.05f animations:^{
+        self.trasactionOverlay.alpha = 0.65f;
+    }];
+    
+    if (!self.transactionView) {
+        self.transactionView = [BCMQRCodeTransactionView loadInstanceFromNib];
+    }
+    self.transactionView.delegate = self;
+    self.transactionView.activeTransaction = transaction;
+    self.transactionView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:self.transactionView];
+    
+    NSLayoutConstraint *topSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.transactionView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:30.0f];
+    NSLayoutConstraint *bottomSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.transactionView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-30.0f];
+    NSLayoutConstraint *leftSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.transactionView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:30.0f];
+    NSLayoutConstraint *rightSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.transactionView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-30.0f];
+    
+    [self.view addConstraints:@[ topSearchViewConstraint, bottomSearchViewConstraint, leftSearchViewConstraint, rightSearchViewConstraint] ];
 }
 
 - (void)updateTransctionInformation
 {
     NSString *itemCountText = @"";
     
-    if ([self.currentTransaction count] == 1) {
-        itemCountText = [NSString stringWithFormat:@"(%lu item)", (unsigned long)[self.currentTransaction count]];
+    if ([self.simpleItems count] == 1) {
+        itemCountText = [NSString stringWithFormat:@"(%lu item)", (unsigned long)[self.simpleItems count]];
     } else {
-        itemCountText = [NSString stringWithFormat:@"(%lu items)", (unsigned long)[self.currentTransaction count]];
+        itemCountText = [NSString stringWithFormat:@"(%lu items)", (unsigned long)[self.simpleItems count]];
     }
     self.transactionItemCountLbl.text = itemCountText;
     self.totalTransactionAmountLbl.text = [NSString stringWithFormat:@"$%.2f", [self transactionSum]];
@@ -106,7 +172,7 @@ typedef NS_ENUM(NSUInteger, BCMPOSSection) {
 {
     CGFloat sum = 0.00f;
     
-    for (NSDictionary *itemDict in self.currentTransaction) {
+    for (NSDictionary *itemDict in self.simpleItems) {
         NSNumber *itemPrice = [itemDict objectForKey:kItemPriceKey];
         if (itemPrice) {
             sum += [itemPrice floatValue];
@@ -191,7 +257,7 @@ const CGFloat kBBPOSItemDefaultRowHeight = 38.0f;
         Item *item = [self.merchantItems objectAtIndex:row];
 
         NSDictionary *itemDict = [item itemAsDict];
-        [self.currentTransaction addObject:itemDict];
+        [self.simpleItems addObject:itemDict];
         [self updateTransctionInformation];
     }
     
@@ -222,9 +288,21 @@ const CGFloat kBBPOSItemDefaultRowHeight = 38.0f;
 - (void)customAmountView:(BCMCustomAmountView *)amountView addCustomAmount:(CGFloat)amount
 {
     NSDictionary *itemDict = @{ kItemNameKey : @"Custom" , kItemPriceKey : [NSNumber numberWithFloat:amount] };
-    [self.currentTransaction addObject:itemDict];
+    [self.simpleItems addObject:itemDict];
     [self updateTransctionInformation];
     [self hideCustomAmountView];
+}
+
+#pragma mark - BCMQRCodeTransactionViewDelegate
+
+- (void)transactionViewDidComplete:(BCMQRCodeTransactionView *)transactionView
+{
+    
+}
+
+- (void)transactionViewDidClear:(BCMQRCodeTransactionView *)transactionView
+{
+    [self hideTransactionView];
 }
 
 @end

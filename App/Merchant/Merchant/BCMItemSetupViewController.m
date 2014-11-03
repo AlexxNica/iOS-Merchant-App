@@ -27,10 +27,15 @@
 @implementation BCMItemSetupViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
-    [self addNavigationType:BCMNavigationTypeHamburger position:BCMNavigationPositionLeft selector:nil];
-
+    if (![self isModal]) {
+        [self addNavigationType:BCMNavigationTypeHamburger position:BCMNavigationPositionLeft selector:nil];
+    } else {
+        [self addNavigationType:BCMNavigationTypeCancel position:BCMNavigationPositionLeft selector:nil];
+    }
+    
     if (!self.whiteOverlayView) {
         self.whiteOverlayView = [[UIView alloc] initWithFrame:self.view.bounds];
         self.whiteOverlayView.backgroundColor = [UIColor whiteColor];
@@ -78,7 +83,9 @@
 
 - (IBAction)doneAction:(id)sender
 {
-
+    if ([self isModal]) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)dismissAddItemView:(BCMAddItem *)itemView
