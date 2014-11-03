@@ -31,10 +31,14 @@
 - (void)addNavigationType:(BCMNavigationType)type position:(BCMNavigationPosition)position selector:(SEL)selector
 {
     NSString *imageName = nil;
+    NSString *text = nil;
     
     switch (type) {
         case BCMNavigationTypeHamburger:
             imageName = @"hamburger";
+            break;
+        case BCMNavigationTypeCancel:
+            text = @"Cancel";
             break;
         default:
             break;
@@ -44,10 +48,17 @@
     if (selector) {
         barButtonSelector = selector;
     }
-    UIImage *barButtonImage = [UIImage imageNamed:imageName];
-    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithImage:barButtonImage style:UIBarButtonItemStylePlain target:self action:barButtonSelector];
-    barButtonItem.tintColor = [UIColor whiteColor];
     
+    UIBarButtonItem *barButtonItem = nil;
+    if ([imageName length] > 0) {
+        UIImage *barButtonImage = [UIImage imageNamed:imageName];
+        barButtonItem = [[UIBarButtonItem alloc] initWithImage:barButtonImage style:UIBarButtonItemStylePlain target:self action:barButtonSelector];
+    } else if ([text length] > 0) {
+        barButtonItem = [[UIBarButtonItem alloc] initWithTitle:text style:UIBarButtonItemStylePlain target:self action:barButtonSelector];
+    }
+    
+    barButtonItem.tintColor = [UIColor whiteColor];
+
     if (position == BCMNavigationPositionRight) {
         self.rightNavigationType = type;
         self.navigationItem.rightBarButtonItem = barButtonItem;
@@ -71,6 +82,10 @@
             AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             BCMDrawerViewController *drawerController = appDelegate.drawerController;
             [drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+            break;
+        }
+        case BCMNavigationTypeCancel: {
+            [self dismissViewControllerAnimated:YES completion:nil];
             break;
         }
         default:

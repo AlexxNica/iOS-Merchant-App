@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UIViewController+Utilities.h"
+
 typedef NS_ENUM(NSUInteger, BCMNavigationType) {
     BCMNavigationTypeNone,
-    BCMNavigationTypeHamburger
+    BCMNavigationTypeHamburger,
+    BCMNavigationTypeCancel
 };
 
 typedef NS_ENUM(NSUInteger, BCMNavigationPosition) {
