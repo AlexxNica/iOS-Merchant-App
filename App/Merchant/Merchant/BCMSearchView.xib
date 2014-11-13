@@ -21,6 +21,10 @@
                     <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="23"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="textFieldChanged:" destination="iN0-l3-epB" eventType="editingChanged" id="FX5-nV-Fah"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="QM6-kH-urR"/>
+                    </connections>
                 </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -63,7 +67,8 @@
                 </mask>
             </variation>
             <connections>
-                <outlet property="searchTextField" destination="GKn-3l-q9C" id="mlD-Eq-1mn"/>
+                <outlet property="searchIcon" destination="V5z-67-ZBF" id="1jf-bq-Rma"/>
+                <outlet property="searchTextField" destination="GKn-3l-q9C" id="KGg-lx-ZYK"/>
             </connections>
         </view>
     </objects>

@@ -37,7 +37,9 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="hMZ-S3-FTi" secondAttribute="trailing" constant="39" id="Iag-1G-hLD"/>
                 <constraint firstItem="hMZ-S3-FTi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="P2o-je-IBt"/>
-                <constraint firstItem="hMZ-S3-FTi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="QRO-DB-GH9"/>
+                <constraint firstItem="hMZ-S3-FTi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="QRO-DB-GH9">
+                    <variation key="widthClass=compact" constant="10"/>
+                </constraint>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>

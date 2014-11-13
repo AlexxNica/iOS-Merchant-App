@@ -12,7 +12,12 @@
 
 @interface BCMSearchView ()
 
+@property (strong, nonatomic) NSString *searchString;
+
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
+
+@property (strong, nonatomic) UIView *inputAccessoryView;
+@property (weak, nonatomic) IBOutlet UIImageView *searchIcon;
 
 @end
 
@@ -31,5 +36,71 @@
     
     self.backgroundColor = [UIColor colorWithHexValue:@"e5e5e5"];
 }
+
+- (void)clear
+{
+    self.searchTextField.text = @"";
+    self.searchString = @"";
+    if ([self.delegate respondsToSelector:@selector(searchView:didUpdateText:)]) {
+        [self.delegate searchView:self didUpdateText:self.searchTextField.text];
+    }
+}
+
+- (IBAction)textFieldChanged:(id)sender
+{
+    UITextField *textField = (UITextField *)sender;
+    self.searchString = textField.text;
+    if ([self.delegate respondsToSelector:@selector(searchView:didUpdateText:)]) {
+        [self.delegate searchView:self didUpdateText:self.searchTextField.text];
+    }
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    self.searchIcon.alpha = 0.0f;
+    textField.inputAccessoryView = [self inputAccessoryView];
+    
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if ([textField.text length] == 0) {
+        self.searchIcon.alpha = 1.0f;
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
+
+- (UIView *)inputAccessoryView {
+    if (!_inputAccessoryView) {
+        UIView *parentView = [self superview];
+        CGRect accessFrame = CGRectMake(0.0, 0.0, CGRectGetWidth(parentView.frame), 54.0f);
+        self.inputAccessoryView = [[UIView alloc] initWithFrame:accessFrame];
+        self.inputAccessoryView.backgroundColor = [UIColor colorWithHexValue:BCM_BLUE];
+        UIButton *compButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        compButton.frame = CGRectMake(CGRectGetWidth(parentView.frame) - 20.0f, 10.0, 80.0f, 40.0f);
+        [compButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f]];
+        [compButton setTitle: @"Done" forState:UIControlStateNormal];
+        [compButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [compButton addTarget:self action:@selector(accessoryDoneAction:)
+             forControlEvents:UIControlEventTouchUpInside];
+        [self.inputAccessoryView addSubview:compButton];
+    }
+    return _inputAccessoryView;
+}
+
+- (void)accessoryDoneAction:(id)sender
+{
+    [self endEditing:YES];
+}
+
 
 @end

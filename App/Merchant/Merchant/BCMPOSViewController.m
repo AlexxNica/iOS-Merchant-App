@@ -7,15 +7,20 @@
 //
 
 #import "BCMPOSViewController.h"
+
 #import "BCMItemSetupViewController.h"
 #import "BCMCustomAmountView.h"
 #import "BCMSearchView.h"
 #import "BCMTextField.h"
 #import "BCMQRCodeTransactionView.h"
+#import "BCMPaymentReceivedView.h"
+#import "BCMTransactionDetailViewController.h"
 
 #import "Item.h"
 #import "Transaction.h"
 #import "PurchasedItem.h"
+
+#import "BCMMerchantManager.h"
 
 #import "UIView+Utilities.h"
 
@@ -25,14 +30,25 @@ typedef NS_ENUM(NSUInteger, BCMPOSSection) {
     BCMPOSSectionCount
 };
 
+typedef NS_ENUM(NSUInteger, BCMPOSMode) {
+    BCMPOSModeAdd,
+    BCMPOSModeEdit
+};
+
 @interface BCMPOSViewController () <BCMCustomAmountViewDelegate, BCMQRCodeTransactionViewDelegate>
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewToChargeMargin;
+@property (weak, nonatomic) IBOutlet UIButton *clearAllButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *totalTransactionAmountLbl;
 @property (weak, nonatomic) IBOutlet UILabel *transactionItemCountLbl;
 
+@property (weak, nonatomic) IBOutlet UIButton *clearSearchButton;
 @property (weak, nonatomic) IBOutlet UITableView *itemsTableView;
 
 @property (strong, nonatomic) NSArray *merchantItems;
+@property (strong, nonatomic) NSArray *filteredMerchantItems;
+
 @property (strong, nonatomic) NSMutableArray *simpleItems;
 
 @property (strong, nonatomic) IBOutlet UIView *customAmountContainerView;
@@ -41,11 +57,21 @@ typedef NS_ENUM(NSUInteger, BCMPOSSection) {
 
 @property (strong, nonatomic) IBOutlet UIView *searchContainerView;
 @property (strong, nonatomic) BCMSearchView *searchView;
+@property (strong, nonatomic) NSLayoutConstraint *searchViewRightMargin;
 
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (strong, nonatomic) BCMQRCodeTransactionView *transactionView;
 @property (strong, nonatomic) UIControl *trasactionOverlay;
 
+@property (strong, nonatomic) BCMPaymentReceivedView *paymentReceivedView;
+@property (strong, nonatomic) NSLayoutConstraint *paymentReceivedViewOffsetY;
+
+@property (strong, nonatomic) Transaction *activeTransition;
+
+@property (assign, nonatomic) BCMPOSMode posMode;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchContainerToTableMargin;
+
+@property (strong, nonatomic) NSString *currencySign;
 @end
 
 @implementation BCMPOSViewController
@@ -53,6 +79,10 @@ typedef NS_ENUM(NSUInteger, BCMPOSSection) {
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    self.clearAllButton.alpha = 0.0f;
+    self.clearSearchButton.alpha = 0.0f;
+    self.customAmountContainerView.alpha = 0.0f;
     
     self.simpleItems = [[NSMutableArray alloc] init];
     
@@ -108,18 +138,89 @@ typedef NS_ENUM(NSUInteger, BCMPOSSection) {
     [self.itemsTableView reloadData];
 }
 
-- (void)hideTransactionView
+ #pragma mark - Navigation
+ 
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+     
+     NSString *segueId = segue.identifier;
+     
+     if ([segueId isEqualToString:@"transactionDetail"]) {
+         BCMTransactionDetailViewController *transactionDetailVC = (BCMTransactionDetailViewController *)segue.destinationViewController;
+         transactionDetailVC.simpleItems = self.simpleItems;
+     }
+ }
+ 
+
+- (void)hideTransactionViewAndRemoveOverlay:(BOOL)removeOverlay
 {
-    [self.trasactionOverlay removeFromSuperview];
-    self.trasactionOverlay.alpha = 0.25f;
+    if (removeOverlay) {
+        [self.trasactionOverlay removeFromSuperview];
+        self.trasactionOverlay.alpha = 0.25f;
+    }
     [self.transactionView removeFromSuperview];
 }
 
+@synthesize posMode = _posMode;
+
+- (void)setPosMode:(BCMPOSMode)posMode
+{
+    BCMPOSMode previousMode = _posMode;
+    
+    _posMode = posMode;
+    
+    if (previousMode != posMode) {
+        if (self.posMode == BCMPOSModeEdit) {
+            [CATransaction begin];
+            [CATransaction
+             setCompletionBlock:^{
+                 self.tableViewToChargeMargin.constant = 82;
+                 [self.view layoutIfNeeded];
+                 [UIView animateWithDuration:0.0
+                                  animations:^{
+                                      self.clearAllButton.alpha = 1.0f;
+                                      self.searchContainerView.alpha = 0.0f;
+                                      [self.view layoutIfNeeded];
+                                  }];
+             }];
+            
+            self.searchContainerToTableMargin.constant = -1.0f * self.searchContainerView.frame.size.height;
+            [self.itemsTableView beginUpdates];
+            self.itemsTableView.tableFooterView = self.clearAllButton;
+            [self.itemsTableView deleteSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 2)] withRowAnimation:UITableViewRowAnimationNone];
+            [self.itemsTableView insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+            [self.itemsTableView endUpdates];
+            self.clearAllButton.frame = CGRectMake(0.0f, 0.0f, self.itemsTableView.frame.size.width, 46.0f);
+            [CATransaction commit];
+        } else {
+            self.itemsTableView.tableFooterView = [[UIView alloc] init];
+            [self.itemsTableView beginUpdates];
+            [self.itemsTableView deleteSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+            [self.itemsTableView insertSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 2)] withRowAnimation:UITableViewRowAnimationNone];
+            [self.itemsTableView endUpdates];
+            self.clearAllButton.alpha = 0.0f;
+            self.searchContainerView.alpha = 1.0f;
+            self.tableViewToChargeMargin.constant = 8;
+            self.searchContainerToTableMargin.constant = 0.0f;
+        }
+    }
+}
+
 #pragma mark - Actions
+- (IBAction)clearSearchAction:(id)sender
+{
+    [self.searchView clear];
+}
+
+- (IBAction)detailAction:(id)sender
+{
+    self.posMode = !self.posMode;
+}
 
 - (void)dismissCharge:(id)sender
 {
-    [self hideTransactionView];
+    [self hideTransactionViewAndRemoveOverlay:YES];
 }
 
 - (IBAction)chargeAction:(id)sender
@@ -158,12 +259,14 @@ typedef NS_ENUM(NSUInteger, BCMPOSSection) {
     self.transactionView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.transactionView];
     
-    NSLayoutConstraint *topSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.transactionView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:30.0f];
-    NSLayoutConstraint *bottomSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.transactionView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-30.0f];
-    NSLayoutConstraint *leftSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.transactionView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:30.0f];
-    NSLayoutConstraint *rightSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.transactionView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-30.0f];
+    NSLayoutConstraint *topSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.transactionView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:15.0f];
+    NSLayoutConstraint *bottomSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.transactionView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-15.0f];
+    NSLayoutConstraint *leftSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.transactionView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:15.0f];
+    NSLayoutConstraint *rightSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.transactionView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:-15.0f];
     
     [self.view addConstraints:@[ topSearchViewConstraint, bottomSearchViewConstraint, leftSearchViewConstraint, rightSearchViewConstraint] ];
+    
+    self.activeTransition = transaction;
 }
 
 - (void)updateTransctionInformation
@@ -176,7 +279,7 @@ typedef NS_ENUM(NSUInteger, BCMPOSSection) {
         itemCountText = [NSString stringWithFormat:@"(%lu items)", (unsigned long)[self.simpleItems count]];
     }
     self.transactionItemCountLbl.text = itemCountText;
-    self.totalTransactionAmountLbl.text = [NSString stringWithFormat:@"$%.2f", [self transactionSum]];
+    self.totalTransactionAmountLbl.text = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [self transactionSum]];
 }
 
 - (CGFloat)transactionSum
@@ -193,21 +296,50 @@ typedef NS_ENUM(NSUInteger, BCMPOSSection) {
     return sum;
 }
 
+- (IBAction)clearAllAction:(id)sender
+{
+    [self.simpleItems removeAllObjects];
+    
+    [self.itemsTableView reloadData];
+    [self updateTransctionInformation];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return BCMPOSSectionCount;
+    NSInteger numberOfSections = 0;
+    if (self.posMode == BCMPOSModeEdit) {
+        numberOfSections = 1;
+    } else {
+        numberOfSections = BCMPOSSectionCount;
+    }
+    
+    return numberOfSections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger rowCount = 0;
-
-    if (section == BCMPOSSectionCustomItem) {
-        rowCount = 1;
-    } else if (section == BCMPOSSectionItems) {
-        rowCount = [self.merchantItems count];
+    
+    if (self.posMode == BCMPOSModeEdit) {
+        rowCount = [self.simpleItems count];
+        if (!rowCount) {
+            rowCount = 1;
+        }
+    } else {
+        if (section == BCMPOSSectionCustomItem) {
+            rowCount = 1;
+            if ([self.searchView.searchString length] > 0) {
+                rowCount = 0;
+            }
+        } else if (section == BCMPOSSectionItems) {
+            if ([self.searchView.searchString length] > 0) {
+                rowCount = [self.filteredMerchantItems count];
+            } else {
+                rowCount = [self.merchantItems count];
+            }
+        }
     }
     
     return rowCount;
@@ -221,17 +353,35 @@ static NSString *const kPOSItemDefaultCellId = @"POSItemCellId";
     NSUInteger row = indexPath.row;
     
     UITableViewCell *cell;
-
-    if (section == BCMPOSSectionCustomItem) {
-        cell = [tableView dequeueReusableCellWithIdentifier:kPOSItemDefaultCellId];
-        cell.textLabel.text = @"Custom";
-        cell.detailTextLabel.text = @"+";
-    } else if (section == BCMPOSSectionItems) {
-        Item *item = [self.merchantItems objectAtIndex:row];
-        cell = [tableView dequeueReusableCellWithIdentifier:kPOSItemDefaultCellId];
-        
-        cell.textLabel.text = item.name;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"$%.2f", [item.price floatValue]];
+    if (self.posMode == BCMPOSModeEdit) {
+        if ([self.simpleItems count] > 0) {
+            cell = [tableView dequeueReusableCellWithIdentifier:kPOSItemDefaultCellId];
+            NSDictionary *dict = [self.simpleItems objectAtIndex:row];
+            cell.textLabel.text = [dict objectForKey:kItemNameKey];
+            NSNumber *itemPrice = [dict objectForKey:kItemPriceKey];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [itemPrice floatValue]];
+        } else {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"defaultItemCellId"];
+            cell.textLabel.text = @"No Items";
+            cell.detailTextLabel.text = @"";
+        }
+    } else {
+        if (section == BCMPOSSectionCustomItem) {
+            cell = [tableView dequeueReusableCellWithIdentifier:kPOSItemDefaultCellId];
+            cell.textLabel.text = @"Custom";
+            cell.detailTextLabel.text = @"+";
+        } else if (section == BCMPOSSectionItems) {
+            Item *item = nil;
+            if ([self.searchView.searchString length] > 0) {
+                item = [self.filteredMerchantItems objectAtIndex:row];
+            } else {
+                item  = [self.merchantItems objectAtIndex:row];
+            }
+            cell = [tableView dequeueReusableCellWithIdentifier:kPOSItemDefaultCellId];
+            
+            cell.textLabel.text = item.name;
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [item.price floatValue]];
+        }
     }
     
     return cell;
@@ -239,13 +389,6 @@ static NSString *const kPOSItemDefaultCellId = @"POSItemCellId";
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
 }
 
 const CGFloat kBBPOSItemDefaultRowHeight = 38.0f;
@@ -262,31 +405,66 @@ const CGFloat kBBPOSItemDefaultRowHeight = 38.0f;
     NSUInteger section = indexPath.section;
     NSUInteger row = indexPath.row;
     
-    if (section == BCMPOSSectionCustomItem) {
-        [self showCustomAmountView];
-    } else if (section == BCMPOSSectionItems) {
-        Item *item = [self.merchantItems objectAtIndex:row];
-
-        NSDictionary *itemDict = [item itemAsDict];
-        [self.simpleItems addObject:itemDict];
-        [self updateTransctionInformation];
+    if (self.posMode == BCMPOSModeEdit) {
+        
+    } else {
+        if (section == BCMPOSSectionCustomItem) {
+            [self showCustomAmountView];
+        } else if (section == BCMPOSSectionItems) {
+            Item *item = nil;
+            if ([self.searchView.searchString length] > 0) {
+                item = [self.filteredMerchantItems objectAtIndex:row];
+            } else {
+                item  = [self.merchantItems objectAtIndex:row];
+            }
+            
+            NSDictionary *itemDict = [item itemAsDict];
+            [self.simpleItems addObject:itemDict];
+            [self updateTransctionInformation];
+        }
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - BCMSearchViewDelegate
+
+- (void)searchView:(BCMSearchView *)searchView didUpdateText:(NSString *)searchText
+{
+    if ([searchText length] > 0) {
+        [self.view layoutIfNeeded];
+        self.searchViewRightMargin.constant = 0;
+        [UIView animateWithDuration:0.1
+                         animations:^{
+                             [self.view layoutIfNeeded];
+                         }];
+        self.editButton.alpha = 0.0f;
+        self.clearSearchButton.alpha = 1.0f;
+        [self.searchContainerView bringSubviewToFront:self.clearSearchButton];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",searchText];
+        self.filteredMerchantItems = [NSMutableArray arrayWithArray:[self.merchantItems filteredArrayUsingPredicate:predicate]];
+    } else {
+        self.editButton.alpha = 1.0f;
+        self.clearSearchButton.alpha = 0.0f;
+        self.filteredMerchantItems = nil;
+    }
+    [self.itemsTableView reloadData];
 }
 
 #pragma mark - BCMCustomAmountViewDelegate
 
 - (void)showCustomAmountView
 {
+    self.customAmountContainerView.alpha = 1.0f;
     [self.customAmountView clear];
     [self.view bringSubviewToFront:self.customAmountContainerView];
-    self.topMarginConstraint.constant = 8.0f;
+    self.topMarginConstraint.constant = 2.0f;
     [self.customAmountView.customAmountTextField becomeFirstResponder];
 }
 
 - (void)hideCustomAmountView
 {
+    self.customAmountContainerView.alpha = 0.0f;
     [self.view sendSubviewToBack:self.customAmountContainerView];
     self.topMarginConstraint.constant = CGRectGetHeight(self.view.frame);
 }
@@ -298,9 +476,11 @@ const CGFloat kBBPOSItemDefaultRowHeight = 38.0f;
 
 - (void)customAmountView:(BCMCustomAmountView *)amountView addCustomAmount:(CGFloat)amount
 {
-    NSDictionary *itemDict = @{ kItemNameKey : @"Custom" , kItemPriceKey : [NSNumber numberWithFloat:amount] };
-    [self.simpleItems addObject:itemDict];
-    [self updateTransctionInformation];
+    if (amount > 0) {
+        NSDictionary *itemDict = @{ kItemNameKey : @"Custom" , kItemPriceKey : [NSNumber numberWithFloat:amount] };
+        [self.simpleItems addObject:itemDict];
+        [self updateTransctionInformation];
+    }
     [self hideCustomAmountView];
 }
 
@@ -308,12 +488,69 @@ const CGFloat kBBPOSItemDefaultRowHeight = 38.0f;
 
 - (void)transactionViewDidComplete:(BCMQRCodeTransactionView *)transactionView
 {
+    [self hideTransactionViewAndRemoveOverlay:NO];
     
+    if (!self.paymentReceivedView) {
+        self.paymentReceivedView = [BCMPaymentReceivedView loadInstanceFromNib];
+    }
+    self.paymentReceivedView.delegate = self;
+    self.paymentReceivedView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:self.paymentReceivedView];
+    
+    self.paymentReceivedViewOffsetY = [NSLayoutConstraint constraintWithItem:self.paymentReceivedView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:30.0f];
+    NSLayoutConstraint *bottomSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.paymentReceivedView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-30.0f];
+    NSLayoutConstraint *leftSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.paymentReceivedView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:30.0f];
+    NSLayoutConstraint *rightSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.paymentReceivedView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-30.0f];
+    
+    [self.view addConstraints:@[ self.paymentReceivedViewOffsetY, bottomSearchViewConstraint, leftSearchViewConstraint, rightSearchViewConstraint] ];
 }
 
 - (void)transactionViewDidClear:(BCMQRCodeTransactionView *)transactionView
 {
-    [self hideTransactionView];
+    [self.activeTransition MR_deleteEntity];
+    
+    [self hideTransactionViewAndRemoveOverlay:YES];
+    
+    if (self.posMode == BCMPOSModeEdit) {
+        self.posMode = BCMPOSModeAdd;
+    }
+}
+
+#pragma mark - BCMPaymentReceivedViewDelegate
+
+- (void)paymentReceivedView:(BCMPaymentReceivedView *)paymentView emailTextFieldDidBecomeFirstResponder:(BCMTextField *)textField
+{
+    [self.view layoutIfNeeded];
+    self.paymentReceivedViewOffsetY.constant = -100.0f;
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }];
+}
+
+- (void)paymentReceivedView:(BCMPaymentReceivedView *)paymentView emailTextFieldDidResignFirstResponder:(BCMTextField *)textField
+{
+    [self.view layoutIfNeeded];
+    self.paymentReceivedViewOffsetY.constant = 30.0f;
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }];
+}
+
+- (void)dismissPaymentReceivedView:(BCMPaymentReceivedView *)paymentView withEmail:(NSString *)email
+{
+    self.posMode = BCMPOSModeAdd;
+    
+    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+    [localContext MR_saveToPersistentStoreAndWait];
+    
+    [self.trasactionOverlay removeFromSuperview];
+    self.trasactionOverlay.alpha = 0.25f;
+    [self.paymentReceivedView removeFromSuperview];
+    
+    [self.simpleItems removeAllObjects];
+    [self updateTransctionInformation];
 }
 
 @end
