@@ -10,6 +10,11 @@
 
 #import "BCMDrawerViewController.h"
 
+#import "BCMSettingsViewController.h"
+#import "BCMSetupViewController.h"
+
+#import "BCMMerchantManager.h"
+
 #import "BCMNetworking.h"
 
 #import "UIColor+Utilities.h"
@@ -26,12 +31,19 @@
     
     self.drawerController = [[BCMDrawerViewController alloc] init];
     self.drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
-
+    
     // Core Data Setup
     [self setupDB];
     
     // Styling
     [self styleNavigationBar];
+    
+    NSString *merchantAddress = [[NSUserDefaults standardUserDefaults] objectForKey:kBCMWalletSettingsKey];
+    if ([merchantAddress length] == 0) {
+        [[NSUserDefaults standardUserDefaults] setObject:MERCHANT_TEST_ADDRESS forKey:kBCMWalletSettingsKey];
+        [[NSUserDefaults standardUserDefaults] setObject:@"USD" forKey:kBCMCurrencySettingsKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setRootViewController:self.drawerController];
@@ -55,7 +67,23 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    Merchant *merchant = [BCMMerchantManager sharedInstance].activeMerchant;
+    if (!merchant) {
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Setup" bundle:nil];
+        UINavigationController *navSetupVC = [mainStoryboard instantiateViewControllerWithIdentifier:kNavStoryboardSetupVCId];
+        [self.drawerController presentViewController:navSetupVC animated:NO completion:nil];
+    }
+    
+    if ([[BCMMerchantManager sharedInstance] requirePIN]) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pinEntrySuccessful:) name:kBCMPinEntryCompletedSuccessfulNotification object:nil];
+        PEPinEntryController *pinEntryController = [PEPinEntryController pinVerifyController];
+        pinEntryController.navigationBarHidden = YES;
+        pinEntryController.pinDelegate = [BCMMerchantManager sharedInstance];
+        [self.drawerController presentViewController:pinEntryController animated:NO completion:nil];
+    }
+    
+    [self updateCurrencies];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -103,6 +131,14 @@
     } error:^(NSURLRequest *request, NSError *error) {
         NSLog(@"ERROR");
     }];
+}
+
+#pragma mark - PinEntry
+
+- (void)pinEntrySuccessful:(NSNotification *)notification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kBCMPinEntryCompletedSuccessfulNotification object:nil];
+    [self.drawerController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
