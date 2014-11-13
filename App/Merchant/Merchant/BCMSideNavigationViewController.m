@@ -16,7 +16,6 @@
 
 typedef NS_ENUM(NSUInteger, BBSideNavigationItem) {
     BBSideNavigationItemPOS,
-    BBSideNavigationItemSetup,
     BBSideNavigationItemTransactions,
     BBSideNavigationItemSettings,
     BBSideNavigationItemPriceNews,
@@ -36,12 +35,7 @@ typedef NS_ENUM(NSUInteger, BBSideNavigationItem) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.headerContainerView.backgroundColor = [UIColor colorWithHexValue:BCM_BLUE];
-}
 
--(void)viewDidLayoutSubviews
-{
     if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
         [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     }
@@ -49,6 +43,7 @@ typedef NS_ENUM(NSUInteger, BBSideNavigationItem) {
     if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
         [self.tableView setLayoutMargins:UIEdgeInsetsZero];
     }
+    self.headerContainerView.backgroundColor = [UIColor colorWithHexValue:BCM_BLUE];
 }
 
 #pragma mark - UITableViewDataSource
@@ -77,11 +72,6 @@ static NSString *const kSideNavigationDefaultCellId = @"navigationCellId";
         case BBSideNavigationItemPOS: {
             navigationImageName = @"nav_pos";
             navigationTitle = NSLocalizedString(@"navigation.pos", nil);
-            break;
-        }
-        case BBSideNavigationItemSetup: {
-            navigationImageName = @"nav_pos";
-            navigationTitle = NSLocalizedString(@"navigation.item_setup", nil);
             break;
         }
         case BBSideNavigationItemTransactions: {
@@ -117,17 +107,6 @@ static NSString *const kSideNavigationDefaultCellId = @"navigationCellId";
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
-
 const CGFloat kBBSideNavigationItemDefaultRowHeight = 55.0f;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -146,10 +125,6 @@ const CGFloat kBBSideNavigationItemDefaultRowHeight = 55.0f;
     switch (row) {
         case BBSideNavigationItemPOS: {
             storyboardId = kBCMSideNavControllerSalesId;
-            break;
-        }
-        case BBSideNavigationItemSetup: {
-            storyboardId = kBCMSideNavControllerItemSetupId;
             break;
         }
         case BBSideNavigationItemTransactions: {
