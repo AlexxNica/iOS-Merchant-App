@@ -5,7 +5,9 @@
 
 
 extern const struct TransactionAttributes {
+	__unsafe_unretained NSString *bitcoinAmount;
 	__unsafe_unretained NSString *creation_date;
+	__unsafe_unretained NSString *transactionHash;
 } TransactionAttributes;
 
 extern const struct TransactionRelationships {
@@ -16,6 +18,8 @@ extern const struct TransactionFetchedProperties {
 } TransactionFetchedProperties;
 
 @class PurchasedItem;
+
+
 
 
 
@@ -32,11 +36,35 @@ extern const struct TransactionFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSNumber* bitcoinAmount;
+
+
+
+@property float bitcoinAmountValue;
+- (float)bitcoinAmountValue;
+- (void)setBitcoinAmountValue:(float)value_;
+
+//- (BOOL)validateBitcoinAmount:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSDate* creation_date;
 
 
 
 //- (BOOL)validateCreation_date:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* transactionHash;
+
+
+
+//- (BOOL)validateTransactionHash:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -64,8 +92,23 @@ extern const struct TransactionFetchedProperties {
 @interface _Transaction (CoreDataGeneratedPrimitiveAccessors)
 
 
+- (NSNumber*)primitiveBitcoinAmount;
+- (void)setPrimitiveBitcoinAmount:(NSNumber*)value;
+
+- (float)primitiveBitcoinAmountValue;
+- (void)setPrimitiveBitcoinAmountValue:(float)value_;
+
+
+
+
 - (NSDate*)primitiveCreation_date;
 - (void)setPrimitiveCreation_date:(NSDate*)value;
+
+
+
+
+- (NSString*)primitiveTransactionHash;
+- (void)setPrimitiveTransactionHash:(NSString*)value;
 
 
 

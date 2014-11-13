@@ -4,7 +4,9 @@
 #import "_Transaction.h"
 
 const struct TransactionAttributes TransactionAttributes = {
+	.bitcoinAmount = @"bitcoinAmount",
 	.creation_date = @"creation_date",
+	.transactionHash = @"transactionHash",
 };
 
 const struct TransactionRelationships TransactionRelationships = {
@@ -40,6 +42,11 @@ const struct TransactionFetchedProperties TransactionFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"bitcoinAmountValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"bitcoinAmount"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 
 	return keyPaths;
 }
@@ -47,7 +54,40 @@ const struct TransactionFetchedProperties TransactionFetchedProperties = {
 
 
 
+@dynamic bitcoinAmount;
+
+
+
+- (float)bitcoinAmountValue {
+	NSNumber *result = [self bitcoinAmount];
+	return [result floatValue];
+}
+
+- (void)setBitcoinAmountValue:(float)value_ {
+	[self setBitcoinAmount:[NSNumber numberWithFloat:value_]];
+}
+
+- (float)primitiveBitcoinAmountValue {
+	NSNumber *result = [self primitiveBitcoinAmount];
+	return [result floatValue];
+}
+
+- (void)setPrimitiveBitcoinAmountValue:(float)value_ {
+	[self setPrimitiveBitcoinAmount:[NSNumber numberWithFloat:value_]];
+}
+
+
+
+
+
 @dynamic creation_date;
+
+
+
+
+
+
+@dynamic transactionHash;
 
 
 
