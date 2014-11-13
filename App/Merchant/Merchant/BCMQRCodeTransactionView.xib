@@ -53,7 +53,7 @@
                         <action selector="clearAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="xAf-W6-xWp"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="510" verticalHuggingPriority="251" horizontalCompressionResistancePriority="505" text="$10.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYA-7G-nx6">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="550" verticalHuggingPriority="251" horizontalCompressionResistancePriority="520" text="$10.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYA-7G-nx6">
                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" priority="900" constant="55.5" id="9rM-lV-Kuh">
@@ -199,9 +199,9 @@
                     <include reference="JSB-mT-Gj3"/>
                     <include reference="Ne5-eV-CTm"/>
                     <include reference="FgE-Ne-4Xm"/>
-                    <include reference="SO6-R6-cEQ"/>
+                    <exclude reference="SO6-R6-cEQ"/>
                     <include reference="Uow-KO-dn6"/>
-                    <include reference="q10-pg-H1X"/>
+                    <exclude reference="q10-pg-H1X"/>
                     <include reference="Svx-Q7-YOA"/>
                     <include reference="ubj-Ch-3v5"/>
                     <include reference="DON-F9-PKk"/>
