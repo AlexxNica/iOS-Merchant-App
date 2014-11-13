@@ -6,6 +6,23 @@
   Copyright (c) 2014 com. All rights reserved.
 */
 
+// Generics
+
+"alert.ok" = "OK";
+"action.save" = "Save";
+"action.cancel" = "Cancel";
+
+// Sign Up
+"signup.alert.title" = "Try again";
+"signup.warning" = "Business Name, Wallet Address, and Currency are required.";
+"signup.business.name" = "Business Name";
+"signup.wallet.name" = "Wallet Address";
+"signup.currency.name" = "Currency";
+"signup.currency.name" = "Currency";
+
+// Currency Picker
+"currency.picker.title" = "Currency";
+
 // Navigation
 
 "navigation.pos" = "POS";
@@ -15,3 +32,19 @@
 "navigation.price_news" = "Price & News";
 "navigation.logout" = "Logout";
 "navigation.login" = "LogIn";
+
+// Pin Entry
+"Cancel" = "Cancel";
+
+/* No comment provided by engineer. */
+"Please enter your PIN" = "Please enter your PIN";
+
+/* No comment provided by engineer. */
+"Please enter a new PIN" = "Please enter a new PIN";
+
+/* No comment provided by engineer. */
+"Confirm your PIN" = "Confirm your PIN";
+
+/* No comment provided by engineer. */
+"Incorrect PIN. Please retry." = "Incorrect PIN. Please retry.";
+
