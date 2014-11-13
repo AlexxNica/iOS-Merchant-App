@@ -10,12 +10,16 @@
 
 @interface BCMPriceNewsViewController ()
 
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+
 @end
 
 @implementation BCMPriceNewsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://zeroblock.com/mobile"]]];
     
     [self addNavigationType:BCMNavigationTypeHamburger position:BCMNavigationPositionLeft selector:nil];
 }
