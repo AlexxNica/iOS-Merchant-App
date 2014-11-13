@@ -10,9 +10,13 @@
 
 #import "BCMDrawerViewController.h"
 
+#import "BCMNetworking.h"
+
 #import "UIColor+Utilities.h"
 
 @interface AppDelegate ()
+
+@property (strong, nonatomic) BCMNetworking *networking;
 
 @end
 
@@ -81,5 +85,24 @@
     return [NSString stringWithFormat:@"%@.sqlite", bundleID];
 }
 
+#pragma mark - Configuration
+
+- (void)updateCurrencies
+{
+    if (!self.networking) {
+        self.networking = [[BCMNetworking alloc] init];
+    }
+    
+    [self.networking retrieveBitcoinCurrenciesSuccess:^(NSURLRequest *request, NSDictionary *dict) {
+        for (NSString *currency in [dict allKeys]) {
+            NSDictionary *currencyDict = [dict objectForKey:currency];
+            NSString *currencySymbol = [currencyDict objectForKey:@"symbol"];
+            [[NSUserDefaults standardUserDefaults] setObject:currencySymbol forKey:[NSString stringWithFormat:@"%@_symbol", currency]];
+        }
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    } error:^(NSURLRequest *request, NSError *error) {
+        NSLog(@"ERROR");
+    }];
+}
 
 @end
