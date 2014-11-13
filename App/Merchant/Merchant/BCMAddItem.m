@@ -25,6 +25,29 @@
 
 @implementation BCMAddItem
 
+- (void)awakeFromNib
+{
+    [self addObservers];
+}
+
+- (void)addObservers {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:) name:@"UIKeyboardWillShowNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:) name:@"UIKeyboardWillHideNotification" object:nil];
+}
+
+- (void)removeObservers {
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"UIKeyboardWillShowNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"UIKeyboardWillHideNotification" object:nil];
+}
+
+- (void)dealloc
+{
+    [self removeObservers];
+}
 - (IBAction)saveAction:(id)sender
 {
     NSString *itemName = [self.itemNameTextField text];
@@ -85,9 +108,41 @@
     return _inputAccessoryView;
 }
 
-- (void)accessoryDoneAction:(id)sender
+#pragma mark - Keyboard Notifications
+
+- (void)keyboardWillShow:(NSNotification *)notification
 {
-    [self endEditing:YES];
+    if ([self.itemPriceTextField isFirstResponder]) {
+        NSDictionary *dict = notification.userInfo;
+        NSValue *endRectValue = [dict objectForKey:UIKeyboardFrameEndUserInfoKey];
+        CGRect endKeyboardFrame = [endRectValue CGRectValue];
+        CGRect convertedEndKeyboardFrame = [[self superview] convertRect:endKeyboardFrame fromView:nil];
+        CGRect convertedWalletFrame = [[self superview] convertRect:self.itemPriceTextField.frame fromView:self.scrollView];
+        CGFloat lowestPoint = CGRectGetMaxY(convertedWalletFrame);
+        
+        // If the ending keyboard frame overlaps our textfield
+        if (lowestPoint > CGRectGetMinY(convertedEndKeyboardFrame)) {
+            self.scrollView.scrollEnabled = YES;
+            self.scrollView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, CGRectGetMinY(convertedEndKeyboardFrame) + (lowestPoint - CGRectGetMinY(convertedEndKeyboardFrame)), 0.0f);
+        }
+    }
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    if (self.scrollView.scrollEnabled) {
+        self.scrollView.scrollEnabled = NO;
+        
+        NSDictionary *dict = notification.userInfo;
+        NSTimeInterval duration = [[dict objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+        UIViewAnimationCurve curve = [[dict objectForKey:UIKeyboardAnimationCurveUserInfoKey] unsignedIntegerValue];
+        
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:duration];
+        [UIView setAnimationCurve:curve];
+        self.scrollView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
+        [UIView commitAnimations];
+    }
 }
 
 @end

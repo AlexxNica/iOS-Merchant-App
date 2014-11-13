@@ -63,32 +63,43 @@ typedef NS_ENUM(NSUInteger, BCMPOSSection) {
     self.customAmountView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.customAmountContainerView addSubview:self.customAmountView];
     
-    NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:self.customAmountView attribute:NSLayoutAttributeTopMargin relatedBy:NSLayoutRelationEqual toItem:self.customAmountContainerView attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant:0.0f];
-    NSLayoutConstraint *bottomConstraint = [NSLayoutConstraint constraintWithItem:self.customAmountView attribute:NSLayoutAttributeBottomMargin relatedBy:NSLayoutRelationEqual toItem:self.customAmountContainerView attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant:0.0f];
-    NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:self.customAmountView attribute:NSLayoutAttributeLeftMargin relatedBy:NSLayoutRelationEqual toItem:self.customAmountContainerView attribute:NSLayoutAttributeLeftMargin multiplier:1.0 constant:0.0f];
-    NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:self.customAmountView attribute:NSLayoutAttributeRightMargin relatedBy:NSLayoutRelationEqual toItem:self.customAmountContainerView attribute:NSLayoutAttributeRightMargin multiplier:1.0 constant:0.0f];
+    NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:self.customAmountView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.customAmountContainerView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0f];
+    NSLayoutConstraint *bottomConstraint = [NSLayoutConstraint constraintWithItem:self.customAmountView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.customAmountContainerView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0f];
+    NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:self.customAmountView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.customAmountContainerView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0f];
+    NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:self.customAmountView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.customAmountContainerView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0f];
 
     [self.customAmountContainerView addConstraints:@[ topConstraint, bottomConstraint, leftConstraint, rightConstraint ]];
     
-    self.topMarginConstraint.constant = CGRectGetHeight(self.view.frame);
+    //self.topMarginConstraint.constant = CGRectGetHeight(self.view.frame);
     
     self.searchView = [BCMSearchView loadInstanceFromNib];
+    self.searchView.delegate = self;
     self.searchView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.searchContainerView addSubview:self.searchView];
-    
     [self.searchContainerView addSubview:self.editButton];
     
     NSLayoutConstraint *topSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.searchView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.searchContainerView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0f];
     NSLayoutConstraint *bottomSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.searchView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.searchContainerView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0f];
-    NSLayoutConstraint *leftSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.searchView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.searchContainerView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0f];
-    NSLayoutConstraint *rightSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.searchView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.editButton attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0f];
+    NSLayoutConstraint *leftSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.searchView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.searchContainerView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0f];
+    self.searchViewRightMargin = [NSLayoutConstraint constraintWithItem:self.searchView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.searchContainerView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:-1.0f * self.editButton.frame.size.width];
     
-    [self.searchContainerView addConstraints:@[ topSearchViewConstraint, bottomSearchViewConstraint, leftSearchViewConstraint, rightSearchViewConstraint]];
+    [self.searchContainerView addConstraints:@[ topSearchViewConstraint, bottomSearchViewConstraint, leftSearchViewConstraint, self.searchViewRightMargin]];
+    
+    if ([self.itemsTableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.itemsTableView setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    if ([self.itemsTableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self.itemsTableView setLayoutMargins:UIEdgeInsetsZero];
+    }
+    self.itemsTableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    self.currencySign = [[BCMMerchantManager sharedInstance] currencySymbol];
     
     self.merchantItems = [Item MR_findAllSortedBy:@"creation_date" ascending:NO];
 
