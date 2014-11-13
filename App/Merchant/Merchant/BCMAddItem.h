@@ -21,5 +21,6 @@
 @interface BCMAddItem : UIView
 
 @property (weak, nonatomic) id<BCMAddItemViewProtocol> delegate;
+@property (strong, nonatomic) Item *item;
 
 @end

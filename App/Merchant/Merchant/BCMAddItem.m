@@ -18,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet BCMTextField *itemNameTextField;
 @property (weak, nonatomic) IBOutlet BCMTextField *itemPriceTextField;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (strong, nonatomic) UIView *inputAccessoryView;
 
@@ -27,6 +28,12 @@
 
 - (void)awakeFromNib
 {
+    CALayer *layer = self.layer;
+    layer.shadowOpacity = .5;
+    layer.shadowColor = [[UIColor lightGrayColor] CGColor];
+    layer.shadowOffset = CGSizeMake(0,0);
+    layer.shadowRadius = 8;
+    
     [self addObservers];
 }
 
@@ -48,21 +55,50 @@
 {
     [self removeObservers];
 }
+
+@synthesize item = _item;
+
+- (void)setItem:(Item *)item
+{
+    _item = item;
+    
+    NSString *itemName = _item.name;
+    if ([itemName length] > 0) {
+        self.itemNameTextField.text = _item.name;
+    }
+    
+    if ([_item.price floatValue] > 0) {
+        self.itemPriceTextField.text = [NSString stringWithFormat:@"%.2f", [_item.price floatValue]];
+    }
+}
+
+#pragma mark - Actions
+
 - (IBAction)saveAction:(id)sender
 {
-    NSString *itemName = [self.itemNameTextField text];
-    NSString *itemPrice = [self.itemPriceTextField text];
-    if ([itemName length] == 0) {
-        [[[UIAlertView alloc] initWithTitle:@"Missing Name" message:@"Items require a name." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-    } else if ([itemPrice length] == 0) {
-        [[[UIAlertView alloc] initWithTitle:@"Missing Price" message:@"Items require a price." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-    } else {
-        Item *item = [Item MR_createEntity];
-        item.name = itemName;
-        CGFloat floatPrice = [itemPrice floatValue];
-        item.price = [NSNumber numberWithFloat:floatPrice];
+    if (self.item) {
+        NSString *itemName = [self.itemNameTextField text];
+        NSString *itemPrice = [self.itemPriceTextField text];
+        self.item.name = itemName;
+        self.item.priceValue = [itemPrice floatValue];
         if ([self.delegate respondsToSelector:@selector(addItemView:didSaveItem:)]) {
-            [self.delegate addItemView:self didSaveItem:item];
+            [self.delegate addItemView:self didSaveItem:self.item];
+        }
+    } else {
+        NSString *itemName = [self.itemNameTextField text];
+        NSString *itemPrice = [self.itemPriceTextField text];
+        if ([itemName length] == 0) {
+            [[[UIAlertView alloc] initWithTitle:@"Missing Name" message:@"Items require a name." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        } else if ([itemPrice length] == 0) {
+            [[[UIAlertView alloc] initWithTitle:@"Missing Price" message:@"Items require a price." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        } else {
+            Item *item = [Item MR_createEntity];
+            item.name = itemName;
+            CGFloat floatPrice = [itemPrice floatValue];
+            item.price = [NSNumber numberWithFloat:floatPrice];
+            if ([self.delegate respondsToSelector:@selector(addItemView:didSaveItem:)]) {
+                [self.delegate addItemView:self didSaveItem:item];
+            }
         }
     }
 }
@@ -72,6 +108,11 @@
     if ([self.delegate respondsToSelector:@selector(addItemViewDidCancel:)]) {
         [self.delegate addItemViewDidCancel:self];
     }
+}
+
+- (void)accessoryDoneAction:(id)sender
+{
+    [self endEditing:YES];
 }
 
 #pragma mark - UITextFieldDelegate
