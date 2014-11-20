@@ -25,7 +25,4 @@ typedef NS_ENUM(NSUInteger, BCMNavigationPosition) {
 
 - (void)addNavigationType:(BCMNavigationType)type position:(BCMNavigationPosition)position selector:(SEL)selector;
 
-- (void)addObservers;
-- (void)removeObservers;
-
 @end

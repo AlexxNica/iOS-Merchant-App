@@ -10,6 +10,9 @@
 
 #import "BCMQRCodeScannerViewController.h"
 #import "BCPinEntryViewController.h"
+
+#import "BCMMerchantManager.h"
+
 #import "BCMSignUpView.h"
 
 #import "UIView+Utilities.h"
@@ -17,10 +20,11 @@
 NSString *const kNavStoryboardSetupVCId = @"navSetupStoryBoardId";
 NSString *const kStoryboardSetupVCId = @"setupStoryBoardId";
 
-@interface BCMSetupViewController () <BCMSignUpViewDelegate>
 @interface BCMSetupViewController () <BCMSignUpViewDelegate, BCMQRCodeScannerViewControllerDelegate, BCPinEntryViewControllerDelegate>
 
 @property (strong, nonatomic) UIView *whiteOverlayView;
+@property (strong, nonatomic) BCMSignUpView *signUpView;
+
 @property (copy, nonatomic) NSString *temporaryPin;
 
 @end
@@ -49,17 +53,19 @@ NSString *const kStoryboardSetupVCId = @"setupStoryBoardId";
         }];
     }
     
-    BCMSignUpView *signUpView = [BCMSignUpView loadInstanceFromNib];
-    signUpView.translatesAutoresizingMaskIntoConstraints = NO;
-    signUpView.delegate = self;
-    [self.view addSubview:signUpView];
-    
-    NSLayoutConstraint *leadingContrainst = [NSLayoutConstraint constraintWithItem:signUpView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.0f constant:20.0f];
-    NSLayoutConstraint *trailingContrainst = [NSLayoutConstraint constraintWithItem:signUpView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1.0f constant:-20.0f];
-    NSLayoutConstraint *topContrainst = [NSLayoutConstraint constraintWithItem:signUpView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0f constant:20.0f];
-    NSLayoutConstraint *bottomContrainst = [NSLayoutConstraint constraintWithItem:signUpView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0f constant:-20.0f];
-    NSLayoutConstraint *horizontalCenterConstraint = [NSLayoutConstraint constraintWithItem:signUpView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0.0f];
-    NSLayoutConstraint *verticalCenterConstraint = [NSLayoutConstraint constraintWithItem:signUpView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0.0f];
+    if (!self.signUpView) {
+        self.signUpView = [BCMSignUpView loadInstanceFromNib];
+        self.signUpView.translatesAutoresizingMaskIntoConstraints = NO;
+        self.signUpView.delegate = self;
+    }
+    [self.view addSubview:self.signUpView];
+
+    NSLayoutConstraint *leadingContrainst = [NSLayoutConstraint constraintWithItem:self.signUpView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.0f constant:20.0f];
+    NSLayoutConstraint *trailingContrainst = [NSLayoutConstraint constraintWithItem:self.signUpView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1.0f constant:-20.0f];
+    NSLayoutConstraint *topContrainst = [NSLayoutConstraint constraintWithItem:self.signUpView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0f constant:20.0f];
+    NSLayoutConstraint *bottomContrainst = [NSLayoutConstraint constraintWithItem:self.signUpView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0f constant:-20.0f];
+    NSLayoutConstraint *horizontalCenterConstraint = [NSLayoutConstraint constraintWithItem:self.signUpView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0.0f];
+    NSLayoutConstraint *verticalCenterConstraint = [NSLayoutConstraint constraintWithItem:self.signUpView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0.0f];
     
     [self.view addConstraint:leadingContrainst];
     [self.view addConstraint:trailingContrainst];
@@ -69,6 +75,11 @@ NSString *const kStoryboardSetupVCId = @"setupStoryBoardId";
     [self.view addConstraint:verticalCenterConstraint];
 }
 
+- (void)viewDidLayoutSubviews
+{
+    [self.signUpView setNeedsLayout];
+}
+
 - (void)hideSignUpView:(BCMSignUpView *)signUpView
 {
     [signUpView removeFromSuperview];
@@ -76,6 +87,7 @@ NSString *const kStoryboardSetupVCId = @"setupStoryBoardId";
         self.whiteOverlayView.alpha = 0.0f;
     } completion:^(BOOL finished) {
         [self.view sendSubviewToBack:self.whiteOverlayView];
+        self.signUpView = nil;
     }];
 }
 

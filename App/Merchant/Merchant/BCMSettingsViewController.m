@@ -420,15 +420,16 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
         
         // If the ending keyboard frame overlaps our textfield
         if (lowestPoint > CGRectGetMinY(convertedEndKeyboardFrame)) {
-            self.settingsTableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, CGRectGetMinY(convertedEndKeyboardFrame) + (lowestPoint - CGRectGetMinY(convertedEndKeyboardFrame)), 0.0f);
+            self.settingsTableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, CGRectGetMinY(convertedEndKeyboardFrame), 0.0f);
+            [self.settingsTableView setContentOffset:CGPointMake(0.0f, lowestPoint - CGRectGetMinY(convertedEndKeyboardFrame)) animated:NO];
         }
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification
 {
         NSDictionary *dict = notification.userInfo;
-        NSTimeInterval duration = [[dict objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-        UIViewAnimationCurve curve = [[dict objectForKey:UIKeyboardAnimationCurveUserInfoKey] unsignedIntegerValue];
+        NSTimeInterval duration = [[dict safeObjectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+        UIViewAnimationCurve curve = [[dict safeObjectForKey:UIKeyboardAnimationCurveUserInfoKey] unsignedIntegerValue];
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:duration];
         [UIView setAnimationCurve:curve];

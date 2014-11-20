@@ -165,7 +165,8 @@
         // If the ending keyboard frame overlaps our textfield
         if (lowestPoint > CGRectGetMinY(convertedEndKeyboardFrame)) {
             self.scrollView.scrollEnabled = YES;
-            self.scrollView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, CGRectGetMinY(convertedEndKeyboardFrame) + (lowestPoint - CGRectGetMinY(convertedEndKeyboardFrame)), 0.0f);
+            self.scrollView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, lowestPoint - CGRectGetMinY(convertedEndKeyboardFrame), 0.0f);
+            [self.scrollView setContentOffset:CGPointMake(0.0f, lowestPoint - CGRectGetMinY(convertedEndKeyboardFrame)) animated:YES];
         }
     }
 }
