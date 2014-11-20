@@ -8,6 +8,7 @@
 
 #import "BCMSetupViewController.h"
 
+#import "BCPinEntryViewController.h"
 #import "BCMSignUpView.h"
 
 #import "UIView+Utilities.h"
@@ -16,8 +17,10 @@ NSString *const kNavStoryboardSetupVCId = @"navSetupStoryBoardId";
 NSString *const kStoryboardSetupVCId = @"setupStoryBoardId";
 
 @interface BCMSetupViewController () <BCMSignUpViewDelegate>
+@interface BCMSetupViewController () <BCMSignUpViewDelegate, BCMQRCodeScannerViewControllerDelegate, BCPinEntryViewControllerDelegate>
 
 @property (strong, nonatomic) UIView *whiteOverlayView;
+@property (copy, nonatomic) NSString *temporaryPin;
 
 @end
 
@@ -91,7 +94,45 @@ NSString *const kStoryboardSetupVCId = @"setupStoryBoardId";
 
 - (void)signUpViewDidSave:(BCMSignUpView *)signUpView
 {
+    [[BCMMerchantManager sharedInstance] pinEntryViewController:nil successfulEntry:YES pin:self.temporaryPin];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)signUpViewSetPin:(BCMSignUpView *)signUpView
+{
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *pinEntryViewNavController = [mainStoryboard instantiateViewControllerWithIdentifier:kPinEntryStoryboardId];
+    BCPinEntryViewController *entryViewController = (BCPinEntryViewController *)pinEntryViewNavController.topViewController;
+    
+    if ([self.temporaryPin length] > 0) {
+        entryViewController.userMode = PinEntryUserModeReset;
+    } else {
+        entryViewController.userMode = PinEntryUserModeCreate;
+    }
+    entryViewController.delegate = self;
+    [self presentViewController:pinEntryViewNavController animated:YES completion:nil];
+}
+
+- (void)signUpViewRequestScanQRCode:(BCMSignUpView *)signUpView
+{
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *scannerNavigationController = [mainStoryboard instantiateViewControllerWithIdentifier:kBCMQrCodeScannerNavigationId];
+    BCMQRCodeScannerViewController *scannerViewController = (BCMQRCodeScannerViewController *)scannerNavigationController.topViewController;
+    scannerViewController.delegate = self;
+    [self presentViewController:scannerNavigationController animated:YES completion:nil];
+}
+
+#pragma mark - BCPinEntryViewControllerDelegate
+
+- (BOOL)pinEntryViewController:(BCPinEntryViewController *)pinVC validatePin:(NSString *)pin
+{
+    return [self.temporaryPin isEqualToString:pin];
+}
+
+- (void)pinEntryViewController:(BCPinEntryViewController *)pinVC successfulEntry:(BOOL)success pin:(NSString *)pin
+{
+    self.temporaryPin = pin;
+    self.signUpView.pinRequired = [self.temporaryPin length] > 0;
 }
 
 @end

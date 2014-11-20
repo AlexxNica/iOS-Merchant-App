@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "PEPinEntryController.h"
+#import "BCPinEntryViewController.h"
 
 extern NSString *const kBCMBusinessNameSettingsKey;
 extern NSString *const kBCMBusinessAddressSettingsKey;
@@ -24,14 +24,13 @@ extern NSString *const kBCMPinEntryCompletedSuccessfulNotification;
 extern NSString *const kBCMPinEntryCompletedFailNotification;
 extern NSString *const kBCMPinEntryCAddedPinSuccessfulNotification;
 extern NSString *const kBCMPinEntryCAddedPinFailedNotification;
+extern NSString *const kBCMServiceName;
 
 @class Merchant;
 
-@interface BCMMerchantManager : NSObject <PEPinEntryControllerDelegate>
+@interface BCMMerchantManager : NSObject <BCPinEntryViewControllerDelegate>
 
 @property (strong, readonly, nonatomic) Merchant *activeMerchant;
-
-- (BOOL)pinIsSet;
 
 + (instancetype)sharedInstance;
 

@@ -8,7 +8,7 @@
 
 #import "BCMMerchantManager.h"
 
-#import "PEPinEntryController.h"
+#import "BCPinEntryViewController.h"
 
 #import "SSKeyChain.h"
 
@@ -28,6 +28,7 @@ NSString *const kBCMPinEntryCompletedSuccessfulNotification = @"successfulPinEnt
 NSString *const kBCMPinEntryCompletedFailNotification = @"failedPinEntry";
 NSString *const kBCMPinEntryCAddedPinSuccessfulNotification = @"addedPinSuccessful";
 NSString *const kBCMPinEntryCAddedPinFailedNotification = @"addPinFailed";
+NSString *const kBCMPinEntryPromptPinNotification = @"promptForPin";
 
 // Pin Entry
 static NSString *const kBCMPinManagerEncryptedPinKey = @"encryptedPinKey";
@@ -71,7 +72,8 @@ static NSString *const kBCMPinManagerEncryptedPinKey = @"encryptedPinKey";
 
 - (BOOL)requirePIN
 {
-    return [SSKeychain accountsForService:kBCMServiceName] > 0;
+    BOOL require = [[SSKeychain accountsForService:kBCMServiceName] count] > 0;
+    return require;
 }
 
 - (NSString *)currencySymbol
@@ -122,7 +124,7 @@ static NSString *const kBCMPinManagerEncryptedPinKey = @"encryptedPinKey";
     return qrImage;
 }
 
-static NSString *const kBCMServiceName = @"BCMMerchant";
+NSString *const kBCMServiceName = @"BCMMerchant";
 
 - (void)savePIN:(NSString *)pin
 {
@@ -134,31 +136,21 @@ static NSString *const kBCMServiceName = @"BCMMerchant";
     [SSKeychain setPassword:pin forService:kBCMServiceName account:self.activeMerchant.name];
 }
 
-#pragma mark - 
+#pragma mark - BCPinEntryViewControllerDelegate
 
-- (void)pinEntryController:(PEPinEntryController *)c shouldAcceptPin:(NSUInteger)pin callback:(void(^)(BOOL))callback
+- (BOOL)pinEntryViewController:(BCPinEntryViewController *)pinVC validatePin:(NSString *)pin
 {
-    NSString *enteredPassword = [NSString stringWithFormat:@"%lu", (unsigned long)pin];
+    NSString *enteredPassword = pin;
     NSString *currentPassword = [SSKeychain passwordForService:kBCMServiceName account:self.activeMerchant.name];
     
     BOOL validPassword = [enteredPassword isEqualToString:currentPassword];
-    callback(validPassword);
-    if (validPassword) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kBCMPinEntryCompletedSuccessfulNotification object:c];
-    } else {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kBCMPinEntryCompletedFailNotification object:c];
-    }
-}
-
-- (void)pinEntryController:(PEPinEntryController *)c changedPin:(NSUInteger)pin
-{
-    [self savePIN:[NSString stringWithFormat:@"%lu", (unsigned long)pin]];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kBCMPinEntryCAddedPinSuccessfulNotification object:c];
-}
-
-- (void)pinEntryControllerDidCancel:(PEPinEntryController *)c
-{
     
+    return validPassword;
+}
+
+- (void)pinEntryViewController:(BCPinEntryViewController *)pinVC successfulEntry:(BOOL)success pin:(NSString *)pin
+{
+    [self savePIN:pin];
 }
 
 @end

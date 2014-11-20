@@ -10,36 +10,18 @@
 		DB30FC0C0492FD3BCF38E04C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E653431E28EC983287D12D53 /* libPods.a */; };
 		FA0614821A1355C1004F71F4 /* BCMSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0614811A1355C1004F71F4 /* BCMSwitchTableViewCell.m */; };
 		FA0614841A135E09004F71F4 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614831A135E09004F71F4 /* check@2x.png */; };
-		FA0614A51A13BE07004F71F4 /* PENumpadView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0614881A13BE07004F71F4 /* PENumpadView.m */; };
-		FA0614A61A13BE07004F71F4 /* PEPinEntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA06148A1A13BE07004F71F4 /* PEPinEntryController.m */; };
-		FA0614A71A13BE07004F71F4 /* PEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA06148C1A13BE07004F71F4 /* PEViewController.m */; };
-		FA0614A81A13BE07004F71F4 /* PEViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA06148D1A13BE07004F71F4 /* PEViewController.xib */; };
-		FA0614A91A13BE07004F71F4 /* PEKeyboard-1-done.png in Resources */ = {isa = PBXBuildFile; fileRef = FA06148F1A13BE07004F71F4 /* PEKeyboard-1-done.png */; };
-		FA0614AA1A13BE07004F71F4 /* PEKeyboard-1-dot.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614901A13BE07004F71F4 /* PEKeyboard-1-dot.png */; };
-		FA0614AB1A13BE07004F71F4 /* PEKeyboard-1-edit.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614911A13BE07004F71F4 /* PEKeyboard-1-edit.png */; };
-		FA0614AC1A13BE07004F71F4 /* PEKeyboard-1-next.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614921A13BE07004F71F4 /* PEKeyboard-1-next.png */; };
-		FA0614AD1A13BE07004F71F4 /* PEKeyboard-1.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614931A13BE07004F71F4 /* PEKeyboard-1.png */; };
-		FA0614AE1A13BE07004F71F4 /* PEKeyboard-2-done.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614941A13BE07004F71F4 /* PEKeyboard-2-done.png */; };
-		FA0614AF1A13BE07004F71F4 /* PEKeyboard-2-dot.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614951A13BE07004F71F4 /* PEKeyboard-2-dot.png */; };
-		FA0614B01A13BE07004F71F4 /* PEKeyboard-2-edit.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614961A13BE07004F71F4 /* PEKeyboard-2-edit.png */; };
-		FA0614B11A13BE07004F71F4 /* PEKeyboard-2-next.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614971A13BE07004F71F4 /* PEKeyboard-2-next.png */; };
-		FA0614B21A13BE07004F71F4 /* PEKeyboard-2.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614981A13BE07004F71F4 /* PEKeyboard-2.png */; };
-		FA0614B31A13BE07004F71F4 /* PEKeyboard-3-done.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614991A13BE07004F71F4 /* PEKeyboard-3-done.png */; };
-		FA0614B41A13BE07004F71F4 /* PEKeyboard-3-dot.png in Resources */ = {isa = PBXBuildFile; fileRef = FA06149A1A13BE07004F71F4 /* PEKeyboard-3-dot.png */; };
-		FA0614B51A13BE07004F71F4 /* PEKeyboard-3-edit.png in Resources */ = {isa = PBXBuildFile; fileRef = FA06149B1A13BE07004F71F4 /* PEKeyboard-3-edit.png */; };
-		FA0614B61A13BE07004F71F4 /* PEKeyboard-3-next.png in Resources */ = {isa = PBXBuildFile; fileRef = FA06149C1A13BE07004F71F4 /* PEKeyboard-3-next.png */; };
-		FA0614B71A13BE07004F71F4 /* PEKeyboard-3.png in Resources */ = {isa = PBXBuildFile; fileRef = FA06149D1A13BE07004F71F4 /* PEKeyboard-3.png */; };
-		FA0614B81A13BE07004F71F4 /* PEKeyboard-4-done.png in Resources */ = {isa = PBXBuildFile; fileRef = FA06149E1A13BE07004F71F4 /* PEKeyboard-4-done.png */; };
-		FA0614B91A13BE07004F71F4 /* PEKeyboard-4-dot.png in Resources */ = {isa = PBXBuildFile; fileRef = FA06149F1A13BE07004F71F4 /* PEKeyboard-4-dot.png */; };
-		FA0614BA1A13BE07004F71F4 /* PEKeyboard-4-edit.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614A01A13BE07004F71F4 /* PEKeyboard-4-edit.png */; };
-		FA0614BB1A13BE07004F71F4 /* PEKeyboard-4-next.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614A11A13BE07004F71F4 /* PEKeyboard-4-next.png */; };
-		FA0614BC1A13BE07004F71F4 /* PEKeyboard-4.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614A21A13BE07004F71F4 /* PEKeyboard-4.png */; };
-		FA0614BD1A13BE07004F71F4 /* PEPin-off.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614A31A13BE07004F71F4 /* PEPin-off.png */; };
-		FA0614BE1A13BE07004F71F4 /* PEPin-on.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614A41A13BE07004F71F4 /* PEPin-on.png */; };
 		FA0614C11A13BF35004F71F4 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0614C01A13BF35004F71F4 /* UIImage+Utils.m */; };
+		FA0614C61A163EEA004F71F4 /* qr_code@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614C51A163EEA004F71F4 /* qr_code@2x.png */; };
+		FA0614C91A1B84C9004F71F4 /* BCMQRCodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0614C81A1B84C9004F71F4 /* BCMQRCodeScannerViewController.m */; };
+		FA0614CD1A1BADFA004F71F4 /* BCPinEntryView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0614CC1A1BADFA004F71F4 /* BCPinEntryView.m */; };
+		FA0614D21A1C85B8004F71F4 /* BCPinEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0614D11A1C85B8004F71F4 /* BCPinEntryViewController.m */; };
+		FA0614D51A1CD1D4004F71F4 /* BCPinNumberKey.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0614D41A1CD1D4004F71F4 /* BCPinNumberKey.m */; };
+		FA0614D71A1CD1E5004F71F4 /* BCPinNumberKey.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA0614D61A1CD1E5004F71F4 /* BCPinNumberKey.xib */; };
 		FA0614DE1A1CDF1B004F71F4 /* PEPin-off.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614DC1A1CDF1B004F71F4 /* PEPin-off.png */; };
 		FA0614DF1A1CDF1B004F71F4 /* PEPin-on.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614DD1A1CDF1B004F71F4 /* PEPin-on.png */; };
 		FA0614E11A1CE287004F71F4 /* pin_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614E01A1CE287004F71F4 /* pin_delete@2x.png */; };
+		FA0614E41A1E307D004F71F4 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0614E31A1E307D004F71F4 /* Crashlytics.framework */; };
+		FA10E2A91A1E4147005DEB6B /* Foundation-Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10E2A81A1E4147005DEB6B /* Foundation-Utility.m */; };
 		FA74B69C1A08C3B70045A4EF /* BCMPaymentReceivedView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74B69B1A08C3B70045A4EF /* BCMPaymentReceivedView.m */; };
 		FA74B69E1A08C3D20045A4EF /* BCMPaymentReceivedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA74B69D1A08C3D20045A4EF /* BCMPaymentReceivedView.xib */; };
 		FA74B6A01A08C6CC0045A4EF /* green_check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74B69F1A08C6CC0045A4EF /* green_check@2x.png */; };
@@ -142,37 +124,15 @@
 		FA0614801A1355C1004F71F4 /* BCMSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMSwitchTableViewCell.h; sourceTree = "<group>"; };
 		FA0614811A1355C1004F71F4 /* BCMSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMSwitchTableViewCell.m; sourceTree = "<group>"; };
 		FA0614831A135E09004F71F4 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check@2x.png"; path = "../../../Assets/check@2x.png"; sourceTree = "<group>"; };
-		FA0614871A13BE07004F71F4 /* PENumpadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PENumpadView.h; sourceTree = "<group>"; };
-		FA0614881A13BE07004F71F4 /* PENumpadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PENumpadView.m; sourceTree = "<group>"; };
-		FA0614891A13BE07004F71F4 /* PEPinEntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEPinEntryController.h; sourceTree = "<group>"; };
-		FA06148A1A13BE07004F71F4 /* PEPinEntryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEPinEntryController.m; sourceTree = "<group>"; };
-		FA06148B1A13BE07004F71F4 /* PEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEViewController.h; sourceTree = "<group>"; };
-		FA06148C1A13BE07004F71F4 /* PEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEViewController.m; sourceTree = "<group>"; };
-		FA06148D1A13BE07004F71F4 /* PEViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PEViewController.xib; sourceTree = "<group>"; };
-		FA06148F1A13BE07004F71F4 /* PEKeyboard-1-done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-1-done.png"; sourceTree = "<group>"; };
-		FA0614901A13BE07004F71F4 /* PEKeyboard-1-dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-1-dot.png"; sourceTree = "<group>"; };
-		FA0614911A13BE07004F71F4 /* PEKeyboard-1-edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-1-edit.png"; sourceTree = "<group>"; };
-		FA0614921A13BE07004F71F4 /* PEKeyboard-1-next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-1-next.png"; sourceTree = "<group>"; };
-		FA0614931A13BE07004F71F4 /* PEKeyboard-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-1.png"; sourceTree = "<group>"; };
-		FA0614941A13BE07004F71F4 /* PEKeyboard-2-done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-2-done.png"; sourceTree = "<group>"; };
-		FA0614951A13BE07004F71F4 /* PEKeyboard-2-dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-2-dot.png"; sourceTree = "<group>"; };
-		FA0614961A13BE07004F71F4 /* PEKeyboard-2-edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-2-edit.png"; sourceTree = "<group>"; };
-		FA0614971A13BE07004F71F4 /* PEKeyboard-2-next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-2-next.png"; sourceTree = "<group>"; };
-		FA0614981A13BE07004F71F4 /* PEKeyboard-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-2.png"; sourceTree = "<group>"; };
-		FA0614991A13BE07004F71F4 /* PEKeyboard-3-done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-3-done.png"; sourceTree = "<group>"; };
-		FA06149A1A13BE07004F71F4 /* PEKeyboard-3-dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-3-dot.png"; sourceTree = "<group>"; };
-		FA06149B1A13BE07004F71F4 /* PEKeyboard-3-edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-3-edit.png"; sourceTree = "<group>"; };
-		FA06149C1A13BE07004F71F4 /* PEKeyboard-3-next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-3-next.png"; sourceTree = "<group>"; };
-		FA06149D1A13BE07004F71F4 /* PEKeyboard-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-3.png"; sourceTree = "<group>"; };
-		FA06149E1A13BE07004F71F4 /* PEKeyboard-4-done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-4-done.png"; sourceTree = "<group>"; };
-		FA06149F1A13BE07004F71F4 /* PEKeyboard-4-dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-4-dot.png"; sourceTree = "<group>"; };
-		FA0614A01A13BE07004F71F4 /* PEKeyboard-4-edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-4-edit.png"; sourceTree = "<group>"; };
-		FA0614A11A13BE07004F71F4 /* PEKeyboard-4-next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-4-next.png"; sourceTree = "<group>"; };
-		FA0614A21A13BE07004F71F4 /* PEKeyboard-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEKeyboard-4.png"; sourceTree = "<group>"; };
-		FA0614A31A13BE07004F71F4 /* PEPin-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEPin-off.png"; sourceTree = "<group>"; };
-		FA0614A41A13BE07004F71F4 /* PEPin-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEPin-on.png"; sourceTree = "<group>"; };
 		FA0614BF1A13BF35004F71F4 /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Utils.h"; path = "../../../Third-Party/UIImage+Utils.h"; sourceTree = "<group>"; };
 		FA0614C01A13BF35004F71F4 /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Utils.m"; path = "../../../Third-Party/UIImage+Utils.m"; sourceTree = "<group>"; };
+		FA0614CB1A1BADFA004F71F4 /* BCPinEntryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPinEntryView.h; sourceTree = "<group>"; };
+		FA0614CC1A1BADFA004F71F4 /* BCPinEntryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPinEntryView.m; sourceTree = "<group>"; };
+		FA0614D01A1C85B8004F71F4 /* BCPinEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPinEntryViewController.h; sourceTree = "<group>"; };
+		FA0614D11A1C85B8004F71F4 /* BCPinEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPinEntryViewController.m; sourceTree = "<group>"; };
+		FA0614D31A1CD1D4004F71F4 /* BCPinNumberKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPinNumberKey.h; sourceTree = "<group>"; };
+		FA0614D41A1CD1D4004F71F4 /* BCPinNumberKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPinNumberKey.m; sourceTree = "<group>"; };
+		FA0614D61A1CD1E5004F71F4 /* BCPinNumberKey.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCPinNumberKey.xib; sourceTree = "<group>"; };
 		FA0614DC1A1CDF1B004F71F4 /* PEPin-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PEPin-off.png"; path = "../../../Assets/PEPin-off.png"; sourceTree = "<group>"; };
 		FA0614DD1A1CDF1B004F71F4 /* PEPin-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PEPin-on.png"; path = "../../../Assets/PEPin-on.png"; sourceTree = "<group>"; };
 		FA0614E01A1CE287004F71F4 /* pin_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin_delete@2x.png"; path = "../../../Assets/pin_delete@2x.png"; sourceTree = "<group>"; };
@@ -338,59 +298,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FA0614851A13BE07004F71F4 /* PinEntry */ = {
-			isa = PBXGroup;
-			children = (
-				FA0614861A13BE07004F71F4 /* Classes */,
-				FA06148E1A13BE07004F71F4 /* Resources */,
-			);
-			name = PinEntry;
-			path = "../../../Third-Party/PinEntry";
-			sourceTree = "<group>";
-		};
-		FA0614861A13BE07004F71F4 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				FA0614871A13BE07004F71F4 /* PENumpadView.h */,
-				FA0614881A13BE07004F71F4 /* PENumpadView.m */,
-				FA0614891A13BE07004F71F4 /* PEPinEntryController.h */,
-				FA06148A1A13BE07004F71F4 /* PEPinEntryController.m */,
-				FA06148B1A13BE07004F71F4 /* PEViewController.h */,
-				FA06148C1A13BE07004F71F4 /* PEViewController.m */,
-				FA06148D1A13BE07004F71F4 /* PEViewController.xib */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		FA06148E1A13BE07004F71F4 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				FA06148F1A13BE07004F71F4 /* PEKeyboard-1-done.png */,
-				FA0614901A13BE07004F71F4 /* PEKeyboard-1-dot.png */,
-				FA0614911A13BE07004F71F4 /* PEKeyboard-1-edit.png */,
-				FA0614921A13BE07004F71F4 /* PEKeyboard-1-next.png */,
-				FA0614931A13BE07004F71F4 /* PEKeyboard-1.png */,
-				FA0614941A13BE07004F71F4 /* PEKeyboard-2-done.png */,
-				FA0614951A13BE07004F71F4 /* PEKeyboard-2-dot.png */,
-				FA0614961A13BE07004F71F4 /* PEKeyboard-2-edit.png */,
-				FA0614971A13BE07004F71F4 /* PEKeyboard-2-next.png */,
-				FA0614981A13BE07004F71F4 /* PEKeyboard-2.png */,
-				FA0614991A13BE07004F71F4 /* PEKeyboard-3-done.png */,
-				FA06149A1A13BE07004F71F4 /* PEKeyboard-3-dot.png */,
-				FA06149B1A13BE07004F71F4 /* PEKeyboard-3-edit.png */,
-				FA06149C1A13BE07004F71F4 /* PEKeyboard-3-next.png */,
-				FA06149D1A13BE07004F71F4 /* PEKeyboard-3.png */,
-				FA06149E1A13BE07004F71F4 /* PEKeyboard-4-done.png */,
-				FA06149F1A13BE07004F71F4 /* PEKeyboard-4-dot.png */,
-				FA0614A01A13BE07004F71F4 /* PEKeyboard-4-edit.png */,
-				FA0614A11A13BE07004F71F4 /* PEKeyboard-4-next.png */,
-				FA0614A21A13BE07004F71F4 /* PEKeyboard-4.png */,
-				FA0614A31A13BE07004F71F4 /* PEPin-off.png */,
-				FA0614A41A13BE07004F71F4 /* PEPin-on.png */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		FA99821619FE0F04006C7D2F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +325,13 @@
 		FA99821D19FE88EF006C7D2F /* Views/Controls */ = {
 			isa = PBXGroup;
 			children = (
+				FA0614D01A1C85B8004F71F4 /* BCPinEntryViewController.h */,
+				FA0614D11A1C85B8004F71F4 /* BCPinEntryViewController.m */,
+				FA0614CB1A1BADFA004F71F4 /* BCPinEntryView.h */,
+				FA0614CC1A1BADFA004F71F4 /* BCPinEntryView.m */,
+				FA0614D31A1CD1D4004F71F4 /* BCPinNumberKey.h */,
+				FA0614D41A1CD1D4004F71F4 /* BCPinNumberKey.m */,
+				FA0614D61A1CD1E5004F71F4 /* BCPinNumberKey.xib */,
 				FA9982371A0209F0006C7D2F /* BCMSearchView.h */,
 				FA9982381A0209F0006C7D2F /* BCMSearchView.m */,
 				FA99823A1A020A01006C7D2F /* BCMSearchView.xib */,
@@ -536,7 +450,6 @@
 		FAB117181A11D3F600E876BA /* Third-Party */ = {
 			isa = PBXGroup;
 			children = (
-				FA0614851A13BE07004F71F4 /* PinEntry */,
 			);
 			name = "Third-Party";
 			sourceTree = "<group>";
@@ -728,33 +641,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAB117701A11D77800E876BA /* Icon-Small-50.png in Resources */,
-				FA0614AC1A13BE07004F71F4 /* PEKeyboard-1-next.png in Resources */,
-				FA0614BA1A13BE07004F71F4 /* PEKeyboard-4-edit.png in Resources */,
 				FAEB498819F95FA000B774EC /* nav_pos@2x.png in Resources */,
 				FA0614DE1A1CDF1B004F71F4 /* PEPin-off.png in Resources */,
 				FA99821F19FE8923006C7D2F /* BCMAddItem.xib in Resources */,
-				FA0614A81A13BE07004F71F4 /* PEViewController.xib in Resources */,
 				FAA418AC19F789A000023B25 /* Main.storyboard in Resources */,
 				FAB1170B1A10FF8600E876BA /* bitcoin_marker@2x.png in Resources */,
 				FAB117721A11D77800E876BA /* Icon-Small.png in Resources */,
 				FAB116EB1A1092EC00E876BA /* BCMSignUpView.xib in Resources */,
-				FA0614AA1A13BE07004F71F4 /* PEKeyboard-1-dot.png in Resources */,
 				FAEB497E19F95E9A00B774EC /* Localizable.strings in Resources */,
-				FA0614B01A13BE07004F71F4 /* PEKeyboard-2-edit.png in Resources */,
 				FAB117691A11D77800E876BA /* Icon-72.png in Resources */,
 				FA0614E11A1CE287004F71F4 /* pin_delete@2x.png in Resources */,
 				FAB117761A11D77800E876BA /* Icon@2x.png in Resources */,
 				FA9982611A03E855006C7D2F /* BCMQRCodeTransactionView.xib in Resources */,
-				FA0614B71A13BE07004F71F4 /* PEKeyboard-3.png in Resources */,
-				FA0614B81A13BE07004F71F4 /* PEKeyboard-4-done.png in Resources */,
 				FA0614DF1A1CDF1B004F71F4 /* PEPin-on.png in Resources */,
 				FAEB498319F95F4F00B774EC /* nav_log_out@2x.png in Resources */,
 				FAB117671A11D77800E876BA /* Icon-60@2x.png in Resources */,
-				FA0614B11A13BE07004F71F4 /* PEKeyboard-2-next.png in Resources */,
 				FAB1176B1A11D77800E876BA /* Icon-76.png in Resources */,
-				FA0614A91A13BE07004F71F4 /* PEKeyboard-1-done.png in Resources */,
 				FAA418B119F789A000023B25 /* LaunchScreen.xib in Resources */,
-				FA0614B21A13BE07004F71F4 /* PEKeyboard-2.png in Resources */,
 				FAEB496B19F9396800B774EC /* hamburger@2x.png in Resources */,
 				FA9982631A03E8FE006C7D2F /* mock_qr_code@2x.png in Resources */,
 				FAB117681A11D77800E876BA /* Icon-60@3x.png in Resources */,
@@ -763,40 +666,28 @@
 				FA99823D1A029AED006C7D2F /* Default-568h@2x.png in Resources */,
 				FAB117731A11D77800E876BA /* Icon-Small@2x.png in Resources */,
 				FAB117751A11D77800E876BA /* Icon.png in Resources */,
-				FA0614AD1A13BE07004F71F4 /* PEKeyboard-1.png in Resources */,
-				FA0614B61A13BE07004F71F4 /* PEKeyboard-3-next.png in Resources */,
-				FA0614B91A13BE07004F71F4 /* PEKeyboard-4-dot.png in Resources */,
-				FA0614B31A13BE07004F71F4 /* PEKeyboard-3-done.png in Resources */,
 				FA7D9F801A0BACB500B7B5CE /* close_button@2x.png in Resources */,
 				FAB117151A11135200E876BA /* bitcoin_marker_white@2x.png in Resources */,
 				FAEB498519F95F4F00B774EC /* nav_settings@2x.png in Resources */,
 				FAB1176A1A11D77800E876BA /* Icon-72@2x.png in Resources */,
-				FA0614AE1A13BE07004F71F4 /* PEKeyboard-2-done.png in Resources */,
 				FAB116E21A108EF100E876BA /* Setup.storyboard in Resources */,
 				FA99823B1A020A01006C7D2F /* BCMSearchView.xib in Resources */,
 				FAB1176D1A11D77800E876BA /* Icon-Small-40.png in Resources */,
 				FAB1176C1A11D77800E876BA /* Icon-76@2x.png in Resources */,
 				FAB117171A11C3EE00E876BA /* SupportedCurrencies.plist in Resources */,
-				FA0614AF1A13BE07004F71F4 /* PEKeyboard-2-dot.png in Resources */,
 				FAB1176F1A11D77800E876BA /* Icon-Small-40@3x.png in Resources */,
 				FAEB498419F95F4F00B774EC /* nav_news@2x.png in Resources */,
 				FAB117771A11D77800E876BA /* iTunesArtwork@2x.png in Resources */,
 				FAB117741A11D77800E876BA /* Icon-Small@3x.png in Resources */,
-				FA0614BD1A13BE07004F71F4 /* PEPin-off.png in Resources */,
-				FA0614B41A13BE07004F71F4 /* PEKeyboard-3-dot.png in Resources */,
-				FA0614BC1A13BE07004F71F4 /* PEKeyboard-4.png in Resources */,
-				FA0614BB1A13BE07004F71F4 /* PEKeyboard-4-next.png in Resources */,
 				FAB1176E1A11D77800E876BA /* Icon-Small-40@2x.png in Resources */,
 				FA74B69E1A08C3D20045A4EF /* BCMPaymentReceivedView.xib in Resources */,
-				FA0614BE1A13BE07004F71F4 /* PEPin-on.png in Resources */,
-				FA0614AB1A13BE07004F71F4 /* PEKeyboard-1-edit.png in Resources */,
 				FAB1170D1A11018800E876BA /* transaction_check@2x.png in Resources */,
+				FA0614D71A1CD1E5004F71F4 /* BCPinNumberKey.xib in Resources */,
 				FAA418AE19F789A000023B25 /* Images.xcassets in Resources */,
 				FA9982411A03B960006C7D2F /* search_icon@2x.png in Resources */,
 				FAB117711A11D77800E876BA /* Icon-Small-50@2x.png in Resources */,
 				FAEB497519F940B800B774EC /* block_chain_header_logo@2x.png in Resources */,
 				FAEB498619F95F4F00B774EC /* nav_transactions@2x.png in Resources */,
-				FA0614B51A13BE07004F71F4 /* PEKeyboard-3-edit.png in Resources */,
 				FAB117661A11D77800E876BA /* Icon-60.png in Resources */,
 				FA0614841A135E09004F71F4 /* check@2x.png in Resources */,
 			);
@@ -861,14 +752,13 @@
 				FA99820C19FA4F20006C7D2F /* BCMTransactionsViewController.m in Sources */,
 				FA99821919FE0F16006C7D2F /* Merchant.xcdatamodeld in Sources */,
 				FAB117051A10F89100E876BA /* _Transaction.m in Sources */,
-				FA0614A61A13BE07004F71F4 /* PEPinEntryController.m in Sources */,
+				FA0614D51A1CD1D4004F71F4 /* BCPinNumberKey.m in Sources */,
 				FA99821519FAA087006C7D2F /* BCMDrawerViewController.m in Sources */,
 				FAB116E91A1091F700E876BA /* BCMSignUpView.m in Sources */,
 				FA99821219FA4F69006C7D2F /* BCMPriceNewsViewController.m in Sources */,
 				FA9982441A03C330006C7D2F /* UIViewController+Utilities.m in Sources */,
 				FAEB496E19F93B3600B774EC /* BCMPOSViewController.m in Sources */,
 				FAB117061A10F89100E876BA /* Item.m in Sources */,
-				FA0614A71A13BE07004F71F4 /* PEViewController.m in Sources */,
 				FAB116EE1A10F7C600E876BA /* BCMMerchantManager.m in Sources */,
 				FA9982391A0209F0006C7D2F /* BCMSearchView.m in Sources */,
 				FAA418A619F789A000023B25 /* AppDelegate.m in Sources */,
@@ -878,8 +768,8 @@
 				FAB117101A11021500E876BA /* BCMTransactionTableViewCell.m in Sources */,
 				FAB117021A10F89100E876BA /* _Item.m in Sources */,
 				FA99822219FE8C67006C7D2F /* BCMTextField.m in Sources */,
-				FA0614A51A13BE07004F71F4 /* PENumpadView.m in Sources */,
 				FAB117131A1103F800E876BA /* NSDate+Utilities.m in Sources */,
+				FA0614CD1A1BADFA004F71F4 /* BCPinEntryView.m in Sources */,
 				FA99825F1A03E849006C7D2F /* BCMQRCodeTransactionView.m in Sources */,
 				FA0614821A1355C1004F71F4 /* BCMSwitchTableViewCell.m in Sources */,
 				FAB117071A10F89100E876BA /* Merchant.m in Sources */,
@@ -891,6 +781,7 @@
 				FAA418A319F789A000023B25 /* main.m in Sources */,
 				FAB117041A10F89100E876BA /* _PurchasedItem.m in Sources */,
 				FAB117031A10F89100E876BA /* _Merchant.m in Sources */,
+				FA0614D21A1C85B8004F71F4 /* BCPinEntryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -158,6 +158,7 @@ static PEViewController *VerifyController()
 		}
 		case PS_ENTER2:
 			if([controller.pin intValue] != pinEntry1) {
+                [self.pinDelegate pinEntryControllerInvalidSecondPinEntry:self];
 				PEViewController *c = NewController();
 				c.delegate = self;
 				self.viewControllers = [NSArray arrayWithObjects:c, [self.viewControllers objectAtIndex:0], nil];

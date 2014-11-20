@@ -74,6 +74,19 @@
     [self removeObservers];
 }
 
+@synthesize pinRequired = _pinRequired;
+
+- (void)setPinRequired:(BOOL)pinRequired
+{
+    _pinRequired = pinRequired;
+    
+    if (_pinRequired) {
+        self.signupTextField.placeholder = NSLocalizedString(@"signup.pin.reset", nil);
+    } else {
+        self.signupTextField.placeholder = NSLocalizedString(@"signup.pin.set", nil);
+    }
+}
+
 - (IBAction)cancelAction:(id)sender
 {
     if ([self.delegate respondsToSelector:@selector(signUpViewDidCancel:)]) {
@@ -125,6 +138,11 @@
             
         } origin:self];
         [picker showActionSheetPicker];
+    } else if (self.signupTextField == textField) {
+        canEdit = NO;
+        if ([self.delegate respondsToSelector:@selector(signUpViewSetPin:)]) {
+            [self.delegate signUpViewSetPin:self];
+        }
     } else {
         textField.inputAccessoryView = [self inputAccessoryView];
     }

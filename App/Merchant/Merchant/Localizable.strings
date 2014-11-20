@@ -18,7 +18,8 @@
 "signup.business.name" = "Business Name";
 "signup.wallet.name" = "Wallet Address";
 "signup.currency.name" = "Currency";
-"signup.currency.name" = "Currency";
+"signup.pin.set" = "Set Pin";
+"signup.pin.reset" = "Reset Pin";
 
 // Currency Picker
 "currency.picker.title" = "Currency";

@@ -14,11 +14,14 @@
 
 - (void)signUpViewDidCancel:(BCMSignUpView *)signUpView;
 - (void)signUpViewDidSave:(BCMSignUpView *)signUpView;
+- (void)signUpViewSetPin:(BCMSignUpView *)signUpView;
 
 @end
 
 @interface BCMSignUpView : UIView
 
 @property (weak, nonatomic) id <BCMSignUpViewDelegate> delegate;
+
+@property (assign, nonatomic) BOOL pinRequired;
 
 @end

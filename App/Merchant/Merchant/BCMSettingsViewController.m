@@ -18,7 +18,7 @@
 #import "Merchant.h"
 #import "BCMMerchantManager.h"
 
-#import "PEPinEntryController.h"
+#import "BCPinEntryViewController.h"
 
 #import "MBProgressHUD.h"
 
@@ -37,7 +37,7 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
     BCMSettingsRowCount
 };
 
-@interface BCMSettingsViewController () <BCMTextFieldTableViewCellDelegate, BCMSwitchTableViewCellDelegate>
+@interface BCMSettingsViewController () <BCMTextFieldTableViewCellDelegate, BCMSwitchTableViewCellDelegate, BCMQRCodeScannerViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *settingsTableView;
 
@@ -45,15 +45,13 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
 
 @property (strong, nonatomic) NSMutableDictionary *settings;
 
-@property (strong, nonatomic) PEPinEntryController * pinEntryViewController;
-
 @end
 
 @implementation BCMSettingsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+        
     self.settings = [[NSMutableDictionary alloc] init];
     
     self.settingsTableView.contentInset = UIEdgeInsetsMake(20.0f, 0.0f, 0.0f, 0.0f);
@@ -376,20 +374,18 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
         [UIView commitAnimations];
 }
 
-- (void)addedPin:(NSNotification *)notification
+#pragma mark - BCPinEntryViewControllerDelegate
+
+- (BOOL)pinEntryViewController:(BCPinEntryViewController *)pinVC validatePin:(NSString *)pin
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    return [[BCMMerchantManager sharedInstance] pinEntryViewController:pinVC validatePin:pin];
 }
 
-#pragma mark - PinEntry
-
-- (void)pinEntrySuccessful:(NSNotification *)notification
+- (void)pinEntryViewController:(BCPinEntryViewController *)pinVC successfulEntry:(BOOL)success pin:(NSString *)pin
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kBCMPinEntryCompletedSuccessfulNotification object:nil];
-    [self dismissViewControllerAnimated:NO completion:nil];
-    self.pinEntryViewController = [PEPinEntryController pinCreateController];
-    self.pinEntryViewController.navigationBarHidden = YES;
-    self.pinEntryViewController.pinDelegate = [BCMMerchantManager sharedInstance];
-    [self presentViewController:self.pinEntryViewController animated:YES completion:nil];
+    [[BCMMerchantManager sharedInstance] pinEntryViewController:pinVC successfulEntry:success pin:pin];
+    [self.settingsTableView reloadData];
 }
+
+
 @end
