@@ -10,6 +10,8 @@
 
 #import "AppDelegate.h"
 
+#import "Foundation-Utility.h"
+
 NSString *const kBCMSideNavigationViewControllerId = @"BCMSideNavigationViewControllerId";
 NSString *const kBCMSideNavControllerSalesId = @"BCMPOSNavigationId";                   // POS
 NSString *const kBCMSideNavControllerItemSetupId = @"BCMItemSetupNavigationId";                   // POS
@@ -43,7 +45,7 @@ NSString *const kBCMSideNavControllerNewsId = @"BCMNewsNavigationId";           
 
 - (void)showDetailViewControllerWithId:(NSString *)viewControllerId
 {
-    UIViewController *viewController = [self.viewControllerDict objectForKey:viewControllerId];
+    UIViewController *viewController = [self.viewControllerDict safeObjectForKey:viewControllerId];
     // Lazy loading required view controllers
     if (!viewController) {
         NSString *storyboardId = nil;
@@ -61,7 +63,9 @@ NSString *const kBCMSideNavControllerNewsId = @"BCMNewsNavigationId";           
         if ([storyboardId length] > 0) {
             UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             viewController = [mainStoryBoard instantiateViewControllerWithIdentifier:storyboardId];
-            [self.viewControllerDict setObject:viewController forKey:storyboardId];
+            if (![storyboardId isEqualToString:kBCMSideNavControllerSettingsId]) {
+                [self.viewControllerDict setObject:viewController forKey:storyboardId];
+            }
         }
     }
     

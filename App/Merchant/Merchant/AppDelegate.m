@@ -18,6 +18,7 @@
 #import "BCMNetworking.h"
 
 #import "UIColor+Utilities.h"
+#import "Foundation-Utility.h"
 
 @interface AppDelegate ()
 
@@ -123,8 +124,8 @@
     
     [self.networking retrieveBitcoinCurrenciesSuccess:^(NSURLRequest *request, NSDictionary *dict) {
         for (NSString *currency in [dict allKeys]) {
-            NSDictionary *currencyDict = [dict objectForKey:currency];
-            NSString *currencySymbol = [currencyDict objectForKey:@"symbol"];
+            NSDictionary *currencyDict = [dict safeObjectForKey:currency];
+            NSString *currencySymbol = [currencyDict safeObjectForKey:@"symbol"];
             [[NSUserDefaults standardUserDefaults] setObject:currencySymbol forKey:[NSString stringWithFormat:@"%@_symbol", currency]];
         }
         [[NSUserDefaults standardUserDefaults] synchronize];

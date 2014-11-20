@@ -13,6 +13,8 @@
 #import "Item.h"
 #import "Transaction.h"
 
+#import "Foundation-Utility.h"
+
 @interface BCMTransactionDetailViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *totalTransactionAmountLbl;
@@ -87,7 +89,7 @@
     CGFloat sum = 0.00f;
     
     for (NSDictionary *itemDict in self.simpleItems) {
-        NSNumber *itemPrice = [itemDict objectForKey:kItemPriceKey];
+        NSNumber *itemPrice = [itemDict safeObjectForKey:kItemPriceKey];
         if (itemPrice) {
             sum += [itemPrice floatValue];
         }
@@ -148,9 +150,9 @@ static NSString *const kPOSTransactionItemDefaultCellId = @"transactionPOSItemCe
     NSDictionary *dict = [self.simpleItems objectAtIndex:row];
     cell = [tableView dequeueReusableCellWithIdentifier:kPOSTransactionItemDefaultCellId];
     
-    cell.textLabel.text = [dict objectForKey:kItemNameKey];
+    cell.textLabel.text = [dict safeObjectForKey:kItemNameKey];
     
-    NSNumber *itemPrice = [dict objectForKey:kItemPriceKey];
+    NSNumber *itemPrice = [dict safeObjectForKey:kItemPriceKey];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [itemPrice floatValue]];
     
     return cell;

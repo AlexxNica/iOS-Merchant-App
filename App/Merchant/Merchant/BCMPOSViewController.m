@@ -23,6 +23,7 @@
 #import "BCMMerchantManager.h"
 
 #import "UIView+Utilities.h"
+#import "Foundation-Utility.h"
 
 typedef NS_ENUM(NSUInteger, BCMPOSSection) {
     BCMPOSSectionCustomItem,
@@ -233,8 +234,8 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     for (NSDictionary *dict in self.simpleItems) {
         // Creating purchased items from known items in transactin
         PurchasedItem *pItem = [PurchasedItem MR_createEntity];
-        pItem.name = [dict objectForKeyedSubscript:kItemNameKey];
-        pItem.price = [dict objectForKeyedSubscript:kItemPriceKey];
+        pItem.name = [dict safeObjectForKey:kItemNameKey];
+        pItem.price = [dict safeObjectForKey:kItemPriceKey];
         [transaction addPurchasedItemsObject:pItem];
     }
     
@@ -280,6 +281,7 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     }
     self.transactionItemCountLbl.text = itemCountText;
     self.totalTransactionAmountLbl.text = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [self transactionSum]];
+    
 }
 
 - (CGFloat)transactionSum
@@ -287,7 +289,7 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     CGFloat sum = 0.00f;
     
     for (NSDictionary *itemDict in self.simpleItems) {
-        NSNumber *itemPrice = [itemDict objectForKey:kItemPriceKey];
+        NSNumber *itemPrice = [itemDict safeObjectForKey:kItemPriceKey];
         if (itemPrice) {
             sum += [itemPrice floatValue];
         }
@@ -357,8 +359,8 @@ static NSString *const kPOSItemDefaultCellId = @"POSItemCellId";
         if ([self.simpleItems count] > 0) {
             cell = [tableView dequeueReusableCellWithIdentifier:kPOSItemDefaultCellId];
             NSDictionary *dict = [self.simpleItems objectAtIndex:row];
-            cell.textLabel.text = [dict objectForKey:kItemNameKey];
-            NSNumber *itemPrice = [dict objectForKey:kItemPriceKey];
+            cell.textLabel.text = [dict safeObjectForKey:kItemNameKey];
+            NSNumber *itemPrice = [dict safeObjectForKey:kItemPriceKey];
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [itemPrice floatValue]];
         } else {
             cell = [tableView dequeueReusableCellWithIdentifier:@"defaultItemCellId"];

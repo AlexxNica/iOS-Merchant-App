@@ -13,6 +13,7 @@
 #import "Item.h"
 
 #import "UIColor+Utilities.h"
+#import "Foundation-Utility.h"
 
 @interface BCMAddItem ()
 
@@ -155,7 +156,7 @@
 {
     if ([self.itemPriceTextField isFirstResponder]) {
         NSDictionary *dict = notification.userInfo;
-        NSValue *endRectValue = [dict objectForKey:UIKeyboardFrameEndUserInfoKey];
+        NSValue *endRectValue = [dict safeObjectForKey:UIKeyboardFrameEndUserInfoKey];
         CGRect endKeyboardFrame = [endRectValue CGRectValue];
         CGRect convertedEndKeyboardFrame = [[self superview] convertRect:endKeyboardFrame fromView:nil];
         CGRect convertedWalletFrame = [[self superview] convertRect:self.itemPriceTextField.frame fromView:self.scrollView];
@@ -175,8 +176,8 @@
         self.scrollView.scrollEnabled = NO;
         
         NSDictionary *dict = notification.userInfo;
-        NSTimeInterval duration = [[dict objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-        UIViewAnimationCurve curve = [[dict objectForKey:UIKeyboardAnimationCurveUserInfoKey] unsignedIntegerValue];
+        NSTimeInterval duration = [[dict safeObjectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+        UIViewAnimationCurve curve = [[dict safeObjectForKey:UIKeyboardAnimationCurveUserInfoKey] unsignedIntegerValue];
         
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:duration];
