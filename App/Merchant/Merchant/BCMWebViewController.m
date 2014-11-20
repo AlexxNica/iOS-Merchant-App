@@ -29,9 +29,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    NSLog(@"Loading %@", self.transactionURLString);
-    
+        
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.transactionURLString]]];
 }
 

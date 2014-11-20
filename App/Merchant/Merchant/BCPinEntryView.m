@@ -120,8 +120,6 @@ const NSUInteger kKeyboardColumnCount = 3;
                 }
             }
             
-            NSLog(@"Horizontal Constraint: %@", horizontalConstraint);
-            
             [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:horizontalConstraint options:0 metrics:nil views:self.constraintsDict]];
         }
 
@@ -138,7 +136,6 @@ const NSUInteger kKeyboardColumnCount = 3;
                 }
             }
             
-            NSLog(@"Vertical Constraint: %@", verticalConstraint);
             [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:verticalConstraint options:0 metrics:nil views:self.constraintsDict]];
         }
     }
