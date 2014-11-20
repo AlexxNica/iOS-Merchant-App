@@ -43,7 +43,7 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
     BCMSettingsRowCount
 };
 
-@interface BCMSettingsViewController () <BCMTextFieldTableViewCellDelegate, BCMSwitchTableViewCellDelegate, BCMQRCodeScannerViewControllerDelegate>
+@interface BCMSettingsViewController () <BCMTextFieldTableViewCellDelegate, BCMSwitchTableViewCellDelegate, BCMQRCodeScannerViewControllerDelegate, BCPinEntryViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *settingsTableView;
 
