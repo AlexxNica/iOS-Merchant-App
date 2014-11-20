@@ -126,6 +126,9 @@
 		FA0614831A135E09004F71F4 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check@2x.png"; path = "../../../Assets/check@2x.png"; sourceTree = "<group>"; };
 		FA0614BF1A13BF35004F71F4 /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Utils.h"; path = "../../../Third-Party/UIImage+Utils.h"; sourceTree = "<group>"; };
 		FA0614C01A13BF35004F71F4 /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Utils.m"; path = "../../../Third-Party/UIImage+Utils.m"; sourceTree = "<group>"; };
+		FA0614C51A163EEA004F71F4 /* qr_code@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qr_code@2x.png"; path = "../../../Assets/qr_code@2x.png"; sourceTree = "<group>"; };
+		FA0614C71A1B84C9004F71F4 /* BCMQRCodeScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMQRCodeScannerViewController.h; sourceTree = "<group>"; };
+		FA0614C81A1B84C9004F71F4 /* BCMQRCodeScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMQRCodeScannerViewController.m; sourceTree = "<group>"; };
 		FA0614CB1A1BADFA004F71F4 /* BCPinEntryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPinEntryView.h; sourceTree = "<group>"; };
 		FA0614CC1A1BADFA004F71F4 /* BCPinEntryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPinEntryView.m; sourceTree = "<group>"; };
 		FA0614D01A1C85B8004F71F4 /* BCPinEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPinEntryViewController.h; sourceTree = "<group>"; };
@@ -267,6 +270,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA0614E41A1E307D004F71F4 /* Crashlytics.framework in Frameworks */,
 				DB30FC0C0492FD3BCF38E04C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +297,7 @@
 		8926809DB7CF39BDF91E1B56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA0614E31A1E307D004F71F4 /* Crashlytics.framework */,
 				E653431E28EC983287D12D53 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -493,6 +498,7 @@
 				FA7D9F7F1A0BACB500B7B5CE /* close_button@2x.png */,
 				FAB1170C1A11018800E876BA /* transaction_check@2x.png */,
 				FA74B69F1A08C6CC0045A4EF /* green_check@2x.png */,
+				FA0614C51A163EEA004F71F4 /* qr_code@2x.png */,
 				FA9982621A03E8FE006C7D2F /* mock_qr_code@2x.png */,
 				FA9982401A03B960006C7D2F /* search_icon@2x.png */,
 				FAEB498719F95FA000B774EC /* nav_pos@2x.png */,
@@ -554,6 +560,8 @@
 				FAEB497819F9496000B774EC /* BCMSideNavigationViewController.m */,
 				FAB116DE1A0D30E000E876BA /* BCMWebViewController.h */,
 				FAB116DF1A0D30E000E876BA /* BCMWebViewController.m */,
+				FA0614C71A1B84C9004F71F4 /* BCMQRCodeScannerViewController.h */,
+				FA0614C81A1B84C9004F71F4 /* BCMQRCodeScannerViewController.m */,
 			);
 			name = "Primary View Controllers";
 			sourceTree = "<group>";
@@ -663,6 +671,7 @@
 				FAB117681A11D77800E876BA /* Icon-60@3x.png in Resources */,
 				FA74B6A01A08C6CC0045A4EF /* green_check@2x.png in Resources */,
 				FA99823619FF784F006C7D2F /* BCMCustomAmountView.xib in Resources */,
+				FA0614C61A163EEA004F71F4 /* qr_code@2x.png in Resources */,
 				FA99823D1A029AED006C7D2F /* Default-568h@2x.png in Resources */,
 				FAB117731A11D77800E876BA /* Icon-Small@2x.png in Resources */,
 				FAB117751A11D77800E876BA /* Icon.png in Resources */,
@@ -740,6 +749,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA0614C91A1B84C9004F71F4 /* BCMQRCodeScannerViewController.m in Sources */,
 				FA9FF3C61A07F5C600D732EC /* BCMNetworking.m in Sources */,
 				FAB116E61A108F4E00E876BA /* BCMSetupViewController.m in Sources */,
 				FA74B69C1A08C3B70045A4EF /* BCMPaymentReceivedView.m in Sources */,

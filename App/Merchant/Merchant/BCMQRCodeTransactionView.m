@@ -17,6 +17,8 @@
 
 #import "SRWebSocket.h"
 
+#import "Foundation-Utility.h"
+
 static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"addr_sub\",\"addr\":\"%@\"}";
 
 
@@ -77,10 +79,10 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
     NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
 
     // Check to see if we have new transaction
-    NSString *operationType = [jsonDict objectForKey:@"op"];
+    NSString *operationType = [jsonDict safeObjectForKey:@"op"];
     if ([operationType isEqualToString:@"utx"]) {
-        NSDictionary *transtionDict = [jsonDict objectForKey:@"x"];
-        NSString *transactionHash = [transtionDict objectForKey:@"hash"];
+        NSDictionary *transtionDict = [jsonDict safeObjectForKey:@"x"];
+        NSString *transactionHash = [transtionDict safeObjectForKey:@"hash"];
         self.activeTransaction.transactionHash = transactionHash;
         [self transactionCompleted];
     }
@@ -112,7 +114,7 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.spinner stopAnimating];
             // Need to set bitcoin price
-            NSString *bitcoinValue = [NSString stringWithFormat:@"%@ BTC", [dict objectForKey:@"btcValue"]];
+            NSString *bitcoinValue = [NSString stringWithFormat:@"%@ BTC", [dict safeObjectForKey:@"btcValue"]];
             ;
             self.bitcoinPriceLbl.text = bitcoinValue;
             NSString *merchantAddress = [[NSUserDefaults standardUserDefaults] objectForKey:kBCMWalletSettingsKey];

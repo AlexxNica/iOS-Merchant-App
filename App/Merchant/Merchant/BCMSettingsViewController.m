@@ -140,7 +140,8 @@ static NSString *const kSettingsSwitchCellId = @"settingSwitchCellId";
             break;
         case BCMSettingsRowWalletAddress:
             settingTitle = @"Address";
-            settingValue = merchant.walletAddress;
+            settingKey = kBCMWalletSettingsKey;
+            accessoryImage = [UIImage imageNamed:@"qr_code"];
             break;
         case BCMSettingsRowSetPin:
             if ([[BCMMerchantManager sharedInstance] requirePIN]) {
@@ -165,19 +166,20 @@ static NSString *const kSettingsSwitchCellId = @"settingSwitchCellId";
         
         BCMTextFieldTableViewCell *textFieldCell = [tableView dequeueReusableCellWithIdentifier:kSettingsTextFieldCellId];
         textFieldCell.delegate = self;
-        textFieldCell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20.0f];
+        textFieldCell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:30.0f];
         textFieldCell.textLabel.textColor = [UIColor colorWithHexValue:@"a3a3a3"];
+        textFieldCell.textFieldImage = accessoryImage;
         
         NSString *text = nil;
         if ([settingKey length] > 0) {
-            if (![self.settings objectForKey:settingKey]) {
+            if (![self.settings safeObjectForKey:settingKey]) {
                 text = [[NSUserDefaults standardUserDefaults] objectForKey:settingKey];
                 if ([text length] == 0) {
                     text = @"";
                 }
                 [self.settings setObject:text forKey:settingKey];
             } else {
-                text = [self.settings objectForKey:settingKey];
+                text = [self.settings safeObjectForKey:settingKey];
             }
         }
         
@@ -301,6 +303,44 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
     }
     
     [self.settings setObject:text forKey:settingKey];
+}
+
+- (void)textFieldTableViewCellDidBeingEditing:(BCMTextFieldTableViewCell *)cell
+{
+    self.activeTextFieldCell = cell;
+}
+
+- (void)textFieldTableViewCell:(BCMTextFieldTableViewCell *)cell didEndEditingWithText:(NSString *)text
+{
+    NSIndexPath *indexPath = [self.settingsTableView indexPathForCell:cell];
+    [self updateSettingsIfNeededForIndexPath:indexPath withText:text];
+    [self.settingsTableView reloadData];
+}
+
+- (void)textFieldTableViewCellAccesssoryAction:(BCMTextFieldTableViewCell *)cell
+{
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *scannerNavigationController = [mainStoryboard instantiateViewControllerWithIdentifier:kBCMQrCodeScannerNavigationId];
+    BCMQRCodeScannerViewController *scannerViewController = (BCMQRCodeScannerViewController *)scannerNavigationController.topViewController;
+    scannerViewController.delegate = self;
+    [self presentViewController:scannerNavigationController animated:YES completion:nil];
+}
+
+#pragma mark - BCMQRCodeScannerViewControllerDelegate
+
+- (void)bcmscannerViewController:(BCMQRCodeScannerViewController *)vc didScanString:(NSString *)scanString
+{
+    [self.settings setObject:scanString forKey:kBCMWalletSettingsKey];
+    [vc dismissViewControllerAnimated:YES completion:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.settingsTableView reloadData];
+        });
+    }];
+}
+
+- (void)bcmscannerViewControllerCancel:(BCMQRCodeScannerViewController *)vc
+{
+    [vc dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Actions

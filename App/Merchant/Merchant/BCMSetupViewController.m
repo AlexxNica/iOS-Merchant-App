@@ -8,6 +8,7 @@
 
 #import "BCMSetupViewController.h"
 
+#import "BCMQRCodeScannerViewController.h"
 #import "BCPinEntryViewController.h"
 #import "BCMSignUpView.h"
 
@@ -120,6 +121,19 @@ NSString *const kStoryboardSetupVCId = @"setupStoryBoardId";
     BCMQRCodeScannerViewController *scannerViewController = (BCMQRCodeScannerViewController *)scannerNavigationController.topViewController;
     scannerViewController.delegate = self;
     [self presentViewController:scannerNavigationController animated:YES completion:nil];
+}
+
+#pragma mark - BCMQRCodeScannerViewControllerDelegate
+
+- (void)bcmscannerViewController:(BCMQRCodeScannerViewController *)vc didScanString:(NSString *)scanString
+{
+    self.signUpView.scannedWalletAddress = scanString;
+    [vc dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)bcmscannerViewControllerCancel:(BCMQRCodeScannerViewController *)vc
+{
+    [vc dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - BCPinEntryViewControllerDelegate
