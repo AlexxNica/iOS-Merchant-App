@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BCMSideNavigationViewController : UIViewController
+#import "BCMBaseViewController.h"
+
+@interface BCMSideNavigationViewController : BCMBaseViewController
 
 @end

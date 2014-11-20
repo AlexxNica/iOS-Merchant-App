@@ -8,6 +8,8 @@
 
 #import "BCMSettingsViewController.h"
 
+#import "BCMQRCodeScannerViewController.h"
+
 #import "BCMTextFieldTableViewCell.h"
 #import "BCMSwitchTableViewCell.h"
 #import "BCMTextField.h"
@@ -22,7 +24,11 @@
 
 #import "MBProgressHUD.h"
 
+#import "AppDelegate.h"
+#import "BCMDrawerViewController.h"
+
 #import "UIColor+Utilities.h"
+#import "Foundation-Utility.h"
 
 typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
     BCMSettingsRowBusinessName,

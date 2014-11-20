@@ -59,7 +59,6 @@ static const NSString *kBCConvertToBitcoin = @"tobtc";
         if (connectionError) {
             failure(urlRequest, connectionError);
         } else {
-            NSError *error = nil;
             NSString *btcValue = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             success(urlRequest, @{ @"btcValue" : btcValue });
         }
