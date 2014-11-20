@@ -20,10 +20,6 @@ extern NSString *const kBCMWalletSettingsKey;
 extern NSString *const kBCMPinSettingsKey;
 extern NSString *const kBCMDirectoryListingSettingsKey;
 
-extern NSString *const kBCMPinEntryCompletedSuccessfulNotification;
-extern NSString *const kBCMPinEntryCompletedFailNotification;
-extern NSString *const kBCMPinEntryCAddedPinSuccessfulNotification;
-extern NSString *const kBCMPinEntryCAddedPinFailedNotification;
 extern NSString *const kBCMServiceName;
 
 @class Merchant;

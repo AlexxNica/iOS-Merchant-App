@@ -36,7 +36,7 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     BCMPOSModeEdit
 };
 
-@interface BCMPOSViewController () <BCMCustomAmountViewDelegate, BCMQRCodeTransactionViewDelegate>
+@interface BCMPOSViewController () <BCMCustomAmountViewDelegate, BCMQRCodeTransactionViewDelegate, BCMSearchViewDelegate, BCMPaymentReceivedViewDelegate>
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewToChargeMargin;
 @property (weak, nonatomic) IBOutlet UIButton *clearAllButton;

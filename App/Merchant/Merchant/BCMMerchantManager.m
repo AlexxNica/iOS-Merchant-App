@@ -24,12 +24,6 @@ NSString *const kBCMWalletSettingsKey = @"MerchantAddress";
 NSString *const kBCMPinSettingsKey = @"BCMPinSettings";
 NSString *const kBCMDirectoryListingSettingsKey = @"BCMDirectoryListingSettings";
 
-NSString *const kBCMPinEntryCompletedSuccessfulNotification = @"successfulPinEntry";
-NSString *const kBCMPinEntryCompletedFailNotification = @"failedPinEntry";
-NSString *const kBCMPinEntryCAddedPinSuccessfulNotification = @"addedPinSuccessful";
-NSString *const kBCMPinEntryCAddedPinFailedNotification = @"addPinFailed";
-NSString *const kBCMPinEntryPromptPinNotification = @"promptForPin";
-
 // Pin Entry
 static NSString *const kBCMPinManagerEncryptedPinKey = @"encryptedPinKey";
 

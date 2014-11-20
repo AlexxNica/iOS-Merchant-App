@@ -66,13 +66,18 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
     
     [self addNavigationType:BCMNavigationTypeHamburger position:BCMNavigationPositionLeft selector:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addedPin:) name:kBCMPinEntryCAddedPinSuccessfulNotification object:nil];
+    Merchant *merchant = [BCMMerchantManager sharedInstance].activeMerchant;
+    
+    [self.settings setObject:merchant.name forKey:kBCMBusinessNameSettingsKey];
+    [self.settings setObject:merchant.walletAddress forKey:kBCMWalletSettingsKey];
+    
+    [self displayPinEntry];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+
     [self addObservers];
 }
 
@@ -86,6 +91,32 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
 - (void)dealloc
 {
     [self removeObservers];
+}
+
+- (void)addObservers {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:) name:@"UIKeyboardWillShowNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:) name:@"UIKeyboardWillHideNotification" object:nil];
+}
+
+- (void)removeObservers {
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"UIKeyboardWillShowNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"UIKeyboardWillHideNotification" object:nil];
+}
+
+- (void)displayPinEntry
+{    
+    if ([[BCMMerchantManager sharedInstance] requirePIN]) {
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UINavigationController *pinEntryViewNavController = [mainStoryboard instantiateViewControllerWithIdentifier:kPinEntryStoryboardId];
+        BCPinEntryViewController *entryViewController = (BCPinEntryViewController *)pinEntryViewNavController.topViewController;
+        entryViewController.userMode = PinEntryUserModeAccess;
+        entryViewController.delegate = self;
+        [self presentViewController:pinEntryViewNavController animated:YES completion:nil];
+    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -109,13 +140,12 @@ static NSString *const kSettingsSwitchCellId = @"settingSwitchCellId";
     NSString *settingValue = nil;
     NSString *settingKey = nil;
     BOOL canEdit = YES;
-    
-    Merchant *merchant = [BCMMerchantManager sharedInstance].activeMerchant;
+    UIImage *accessoryImage = nil;
     
     switch (row) {
         case BCMSettingsRowBusinessName:
             settingTitle = @"Business Name";
-            settingValue = merchant.name;
+            settingKey = kBCMBusinessNameSettingsKey;
             break;
         case BCMSettingsRowBusinessAddress:
             settingTitle = @"Business Address";
@@ -239,19 +269,17 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
             
         } origin:self.view];
         [picker showActionSheetPicker];
-    } else {
+    } else if (indexPath.row == BCMSettingsRowSetPin) {
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UINavigationController *pinEntryViewNavController = [mainStoryboard instantiateViewControllerWithIdentifier:kPinEntryStoryboardId];
+        BCPinEntryViewController *entryViewController = (BCPinEntryViewController *)pinEntryViewNavController.topViewController;
+        entryViewController.delegate = self;        
         if ([[BCMMerchantManager sharedInstance] requirePIN]) {
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pinEntrySuccessful:) name:kBCMPinEntryCompletedSuccessfulNotification object:nil];
-            PEPinEntryController *pinEntryController = [PEPinEntryController pinVerifyController];
-            pinEntryController.navigationBarHidden = YES;
-            pinEntryController.pinDelegate = [BCMMerchantManager sharedInstance];
-            [self presentViewController:pinEntryController animated:YES completion:nil];
+            entryViewController.userMode = PinEntryUserModeReset;
         } else {
-            self.pinEntryViewController = [PEPinEntryController pinCreateController];
-            self.pinEntryViewController.navigationBarHidden = YES;
-            self.pinEntryViewController.pinDelegate = [BCMMerchantManager sharedInstance];
-            [self presentViewController:self.pinEntryViewController animated:YES completion:nil];
+            entryViewController.userMode = PinEntryUserModeCreate;
         }
+        [self presentViewController:pinEntryViewNavController animated:YES completion:nil];
     }
 }
 
@@ -262,14 +290,8 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
 
 #pragma mark - BCMTextFieldTableViewCellDelegate
 
-- (void)textFieldTableViewCellDidBeingEditing:(BCMTextFieldTableViewCell *)cell
+- (void)updateSettingsIfNeededForIndexPath:(NSIndexPath *)indexPath withText:(NSString *)text
 {
-    self.activeTextFieldCell = cell;
-}
-
-- (void)textFieldTableViewCell:(BCMTextFieldTableViewCell *)cell didEndEditingWithText:(NSString *)text
-{
-    NSIndexPath *indexPath = [self.settingsTableView indexPathForCell:cell];
     NSUInteger row = indexPath.row;
     
     NSString *settingKey = nil;
@@ -361,14 +383,14 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
     [hud hide:YES afterDelay:1.0f];
     
     for (NSString *settingsKey in [self.settings allKeys]) {
-        NSString *settingValue = [self.settings objectForKey:settingsKey];
+        NSString *settingValue = [self.settings safeObjectForKey:settingsKey];
         
         [[NSUserDefaults standardUserDefaults] setObject:settingValue forKey:settingsKey];
     }
     
     Merchant *merchant = [BCMMerchantManager sharedInstance].activeMerchant;
-    merchant.name = [self.settings objectForKey:kBCMBusinessNameSettingsKey];
-    merchant.walletAddress = [self.settings objectForKey:kBCMWalletSettingsKey];
+    merchant.name = [self.settings safeObjectForKey:kBCMBusinessNameSettingsKey];
+    merchant.walletAddress = [self.settings safeObjectForKey:kBCMWalletSettingsKey];
 
     [[NSUserDefaults standardUserDefaults] synchronize];
 
@@ -389,7 +411,7 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
 - (void)keyboardWillShow:(NSNotification *)notification
 {
     NSDictionary *dict = notification.userInfo;
-    NSValue *endRectValue = [dict objectForKey:UIKeyboardFrameEndUserInfoKey];
+    NSValue *endRectValue = [dict safeObjectForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect endKeyboardFrame = [endRectValue CGRectValue];
     CGRect convertedEndKeyboardFrame = [self.view convertRect:endKeyboardFrame fromView:nil];
     

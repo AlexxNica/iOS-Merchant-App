@@ -15,9 +15,11 @@
 
 #import "BCMMerchantManager.h"
 
+#import "SSKeyChain.h"
 #import "BCMNetworking.h"
 
 #import "UIColor+Utilities.h"
+#import "NSDate+Utilities.h"
 #import "Foundation-Utility.h"
 
 @interface AppDelegate ()
@@ -32,6 +34,17 @@
     
     self.drawerController = [[BCMDrawerViewController alloc] init];
     self.drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
+    
+    NSString *firstRun = [[NSUserDefaults standardUserDefaults] objectForKey:@"firstTimeRun"];
+    
+    if ([firstRun length] == 0) {
+        NSArray *accounts = [SSKeychain accountsForService:kBCMServiceName];
+        for (NSDictionary *accountDict in accounts) {
+            [SSKeychain deletePasswordForService:kBCMServiceName account:[accountDict safeObjectForKey:kSSKeychainAccountKey]];
+        }
+        [[NSUserDefaults standardUserDefaults] setObject:[[NSDate date] shortDateString] forKey:@"firstTimeRun"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     
     // Core Data Setup
     [self setupDB];
@@ -74,14 +87,6 @@
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Setup" bundle:nil];
         UINavigationController *navSetupVC = [mainStoryboard instantiateViewControllerWithIdentifier:kNavStoryboardSetupVCId];
         [self.drawerController presentViewController:navSetupVC animated:NO completion:nil];
-    }
-    
-    if ([[BCMMerchantManager sharedInstance] requirePIN]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pinEntrySuccessful:) name:kBCMPinEntryCompletedSuccessfulNotification object:nil];
-        PEPinEntryController *pinEntryController = [PEPinEntryController pinVerifyController];
-        pinEntryController.navigationBarHidden = YES;
-        pinEntryController.pinDelegate = [BCMMerchantManager sharedInstance];
-        [self.drawerController presentViewController:pinEntryController animated:NO completion:nil];
     }
     
     [self updateCurrencies];
@@ -132,14 +137,6 @@
     } error:^(NSURLRequest *request, NSError *error) {
         NSLog(@"ERROR");
     }];
-}
-
-#pragma mark - PinEntry
-
-- (void)pinEntrySuccessful:(NSNotification *)notification
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kBCMPinEntryCompletedSuccessfulNotification object:nil];
-    [self.drawerController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
