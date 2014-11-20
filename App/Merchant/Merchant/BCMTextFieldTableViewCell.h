@@ -17,6 +17,8 @@
 - (void)textFieldTableViewCellDidBeingEditing:(BCMTextFieldTableViewCell *)cell;
 - (void)textFieldTableViewCell:(BCMTextFieldTableViewCell *)cell didEndEditingWithText:(NSString *)text;
 
+- (void)textFieldTableViewCellAccesssoryAction:(BCMTextFieldTableViewCell *)cell;
+
 @end
 
 @interface BCMTextFieldTableViewCell : UITableViewCell

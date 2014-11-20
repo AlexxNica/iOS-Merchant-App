@@ -15,7 +15,10 @@
 @interface BCMTextFieldTableViewCell ()
 
 @property (strong, nonatomic) UIView *inputAccessoryView;
-@property (weak, nonatomic) IBOutlet UIView *textFieldImageView;
+@property (weak, nonatomic) IBOutlet UIButton *accessoryButton;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *accessoryWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *accessoryTrailingOffset;
 
 @end
 
@@ -37,6 +40,35 @@
         [self.inputAccessoryView addSubview:compButton];
     }
     return _inputAccessoryView;
+}
+
+@synthesize textFieldImage = _textFieldImage;
+
+- (void)setTextFieldImage:(UIImage *)textFieldImage
+{
+    _textFieldImage = textFieldImage;
+    
+    if (_textFieldImage.size.width == 0) {
+        self.accessoryButton.hidden = YES;
+        self.textField.textInset = UIEdgeInsetsZero;
+        self.textField.textEditingInset = UIEdgeInsetsZero;
+    } else {
+        self.accessoryButton.hidden = NO;
+        [self.accessoryButton setImage:textFieldImage forState:UIControlStateNormal];
+        self.textField.textInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, (self.accessoryTrailingOffset.constant + self.accessoryWidthConstraint.constant));
+        self.textField.textEditingInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f,(self.accessoryTrailingOffset.constant + self.accessoryWidthConstraint.constant));
+    }
+
+    [self setNeedsUpdateConstraints];
+}
+
+#pragma mark - Actions
+
+- (IBAction)accessoryAction:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(textFieldTableViewCellAccesssoryAction:)]) {
+        [self.delegate textFieldTableViewCellAccesssoryAction:self];
+    }
 }
 
 - (void)accessoryDoneAction:(id)sender

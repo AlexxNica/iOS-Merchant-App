@@ -8,6 +8,8 @@
 
 #import "BCMSignUpView.h"
 
+#import "BCMQRCodeScannerViewController.h"
+
 #import "BCMTextField.h"
 
 #import "BCMMerchantManager.h"
@@ -17,19 +19,23 @@
 #import "ActionSheetStringPicker.h"
 
 #import "UIColor+Utilities.h"
+#import "Foundation-Utility.h"
 
 @interface BCMSignUpView ()
 
 @property (weak, nonatomic) IBOutlet BCMTextField *nameTextField;
 @property (weak, nonatomic) IBOutlet BCMTextField *currencyTextField;
 @property (weak, nonatomic) IBOutlet BCMTextField *walletTextField;
+@property (weak, nonatomic) IBOutlet BCMTextField *signupTextField;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIButton *qrCodeScanButton;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewBottomConstraint;
 
 @property (strong, nonatomic) UIView *inputAccessoryView;
+
 
 @end
 
@@ -48,7 +54,10 @@
     self.nameTextField.placeholder = NSLocalizedString(@"signup.business.name", nil);
     self.walletTextField.placeholder = NSLocalizedString(@"signup.wallet.name", nil);
     self.currencyTextField.placeholder = NSLocalizedString(@"signup.currency.name", nil);
-    
+    self.signupTextField.placeholder = NSLocalizedString(@"signup.pin.set", nil);
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+
     [self.cancelButton setTitle:NSLocalizedString(@"action.cancel", nil) forState:UIControlStateNormal];
     [self.saveButton setTitle:NSLocalizedString(@"action.save", nil) forState:UIControlStateNormal];
     
@@ -69,9 +78,26 @@
                                                     name:@"UIKeyboardWillHideNotification" object:nil];
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    self.walletTextField.textEditingInset = UIEdgeInsetsMake(0.0f, CGRectGetMaxX(self.walletTextField.frame) - CGRectGetMinX(self.qrCodeScanButton.frame), 0.0f, CGRectGetMaxX(self.walletTextField.frame) - CGRectGetMinX(self.qrCodeScanButton.frame));
+    self.walletTextField.textInset = UIEdgeInsetsMake(0.0f, CGRectGetMaxX(self.walletTextField.frame) - CGRectGetMinX(self.qrCodeScanButton.frame), 0.0f, CGRectGetMaxX(self.walletTextField.frame) - CGRectGetMinX(self.qrCodeScanButton.frame));
+}
+
 - (void)dealloc
 {
     [self removeObservers];
+}
+
+@synthesize scannedWalletAddress = _scannedWalletAddress;
+
+- (void)setScannedWalletAddress:(NSString *)scannedWalletAddress
+{
+    _scannedWalletAddress = [scannedWalletAddress copy];
+    
+    self.walletTextField.text = _scannedWalletAddress;
 }
 
 @synthesize pinRequired = _pinRequired;
@@ -86,6 +112,8 @@
         self.signupTextField.placeholder = NSLocalizedString(@"signup.pin.set", nil);
     }
 }
+
+#pragma mark - Actions
 
 - (IBAction)cancelAction:(id)sender
 {
@@ -147,6 +175,11 @@
         textField.inputAccessoryView = [self inputAccessoryView];
     }
     
+    if (textField == self.walletTextField) {
+        self.walletTextField.textEditingInset = UIEdgeInsetsMake(0.0f, CGRectGetMaxX(self.walletTextField.frame) - CGRectGetMinX(self.qrCodeScanButton.frame), 0.0f, CGRectGetMaxX(self.walletTextField.frame) - CGRectGetMinX(self.qrCodeScanButton.frame));
+        self.walletTextField.textInset = UIEdgeInsetsMake(0.0f, CGRectGetMaxX(self.walletTextField.frame) - CGRectGetMinX(self.qrCodeScanButton.frame), 0.0f, CGRectGetMaxX(self.walletTextField.frame) - CGRectGetMinX(self.qrCodeScanButton.frame));
+    }
+    
     return canEdit;
 }
 
@@ -175,6 +208,13 @@
     return _inputAccessoryView;
 }
 
+- (IBAction)qrCodeScanAction:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(signUpViewRequestScanQRCode:)]) {
+        [self.delegate signUpViewRequestScanQRCode:self];
+    }
+}
+
 - (void)accessoryDoneAction:(id)sender
 {
     [self endEditing:YES];
@@ -186,7 +226,7 @@
 {
     if ([self.walletTextField isFirstResponder]) {
         NSDictionary *dict = notification.userInfo;
-        NSValue *endRectValue = [dict objectForKey:UIKeyboardFrameEndUserInfoKey];
+        NSValue *endRectValue = [dict safeObjectForKey:UIKeyboardFrameEndUserInfoKey];
         CGRect endKeyboardFrame = [endRectValue CGRectValue];
         CGRect convertedEndKeyboardFrame = [[self superview] convertRect:endKeyboardFrame fromView:nil];
         CGRect convertedWalletFrame = [[self superview] convertRect:self.walletTextField.frame fromView:self.scrollView];
@@ -195,7 +235,8 @@
         // If the ending keyboard frame overlaps our
         if (lowestPoint > CGRectGetMinY(convertedEndKeyboardFrame)) {
             self.scrollView.scrollEnabled = YES;
-            self.scrollView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, CGRectGetMinY(convertedEndKeyboardFrame) + (lowestPoint - CGRectGetMinY(convertedEndKeyboardFrame)), 0.0f);
+            self.scrollView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, lowestPoint - CGRectGetMinY(convertedEndKeyboardFrame), 0.0f);
+            [self.scrollView setContentOffset:CGPointMake(0.0f, lowestPoint - CGRectGetMinY(convertedEndKeyboardFrame)) animated:YES];
         }
     }
 }
@@ -206,8 +247,8 @@
         self.scrollView.scrollEnabled = NO;
         
         NSDictionary *dict = notification.userInfo;
-        NSTimeInterval duration = [[dict objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-        UIViewAnimationCurve curve = [[dict objectForKey:UIKeyboardAnimationCurveUserInfoKey] unsignedIntegerValue];
+        NSTimeInterval duration = [[dict safeObjectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+        UIViewAnimationCurve curve = [[dict safeObjectForKey:UIKeyboardAnimationCurveUserInfoKey] unsignedIntegerValue];
         
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:duration];

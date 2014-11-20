@@ -21,7 +21,7 @@
                                 <constraint firstAttribute="height" constant="36" id="mkv-qc-jmt"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="F6i-zd-3k4"/>
@@ -69,7 +69,7 @@
                                 <constraint firstAttribute="height" constant="36" id="HM1-b6-bwx"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="8WM-a8-ylD"/>
@@ -86,14 +86,75 @@
                                 <outlet property="delegate" destination="iN0-l3-epB" id="cf2-Hc-ghE"/>
                             </connections>
                         </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zmi-69-Lwe">
+                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="36" id="IcU-rM-upC">
+                                    <variation key="widthClass=compact" constant="34"/>
+                                </constraint>
+                                <constraint firstAttribute="height" constant="36" id="ury-7q-aHQ">
+                                    <variation key="widthClass=compact" constant="34"/>
+                                </constraint>
+                            </constraints>
+                            <state key="normal" image="qr_code.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="IcU-rM-upC"/>
+                                    <exclude reference="ury-7q-aHQ"/>
+                                </mask>
+                            </variation>
+                            <variation key="widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="IcU-rM-upC"/>
+                                    <include reference="ury-7q-aHQ"/>
+                                </mask>
+                            </variation>
+                            <connections>
+                                <action selector="qrCodeScanAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="1DU-9A-fFm"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Currency" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ubt-h7-mDy" customClass="BCMTextField">
+                            <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="5dM-mO-raj"/>
+                                <constraint firstAttribute="width" constant="248" id="lEr-8C-kDO"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="5dM-mO-raj"/>
+                                    <exclude reference="lEr-8C-kDO"/>
+                                </mask>
+                            </variation>
+                            <variation key="widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="5dM-mO-raj"/>
+                                    <include reference="lEr-8C-kDO"/>
+                                </mask>
+                            </variation>
+                            <connections>
+                                <outlet property="delegate" destination="iN0-l3-epB" id="yqP-Z0-Vd2"/>
+                            </connections>
+                        </textField>
                     </subviews>
                     <constraints>
                         <constraint firstItem="F90-nZ-E1b" firstAttribute="top" secondItem="ZRb-eb-sIp" secondAttribute="top" constant="13" id="4gJ-E9-Z6m"/>
                         <constraint firstAttribute="centerX" secondItem="DGd-gc-hwI" secondAttribute="centerX" id="5aM-a7-Pof"/>
                         <constraint firstAttribute="centerX" secondItem="GXN-SC-nDD" secondAttribute="centerX" id="6MV-xC-bWn"/>
                         <constraint firstAttribute="centerX" secondItem="F90-nZ-E1b" secondAttribute="centerX" id="6uk-jG-h1a"/>
+                        <constraint firstAttribute="centerX" secondItem="ubt-h7-mDy" secondAttribute="centerX" id="Oh6-tC-5ki"/>
                         <constraint firstItem="GXN-SC-nDD" firstAttribute="top" secondItem="DGd-gc-hwI" secondAttribute="bottom" constant="13" id="ct0-o5-zIv"/>
+                        <constraint firstItem="Zmi-69-Lwe" firstAttribute="trailing" secondItem="GXN-SC-nDD" secondAttribute="trailing" constant="-14" id="iqT-WE-oHR">
+                            <variation key="widthClass=compact" constant="-1"/>
+                        </constraint>
                         <constraint firstItem="DGd-gc-hwI" firstAttribute="top" secondItem="F90-nZ-E1b" secondAttribute="bottom" constant="14" id="mgM-s3-eZh"/>
+                        <constraint firstItem="ubt-h7-mDy" firstAttribute="top" secondItem="GXN-SC-nDD" secondAttribute="bottom" constant="14" id="nPu-b5-d7P"/>
+                        <constraint firstItem="Zmi-69-Lwe" firstAttribute="centerY" secondItem="GXN-SC-nDD" secondAttribute="centerY" constant="-2.5" id="nxX-8x-JkD">
+                            <variation key="widthClass=compact" constant="0.0"/>
+                        </constraint>
                         <constraint firstAttribute="trailing" secondItem="F90-nZ-E1b" secondAttribute="trailing" id="rtg-Dx-rKU"/>
                         <constraint firstAttribute="bottom" secondItem="GXN-SC-nDD" secondAttribute="bottom" constant="309" id="wCO-Dh-1c9">
                             <variation key="widthClass=compact" constant="0.0"/>
@@ -104,6 +165,8 @@
                             <exclude reference="F90-nZ-E1b"/>
                             <exclude reference="DGd-gc-hwI"/>
                             <exclude reference="GXN-SC-nDD"/>
+                            <exclude reference="Zmi-69-Lwe"/>
+                            <exclude reference="ubt-h7-mDy"/>
                         </mask>
                         <mask key="constraints">
                             <exclude reference="5aM-a7-Pof"/>
@@ -114,6 +177,10 @@
                             <exclude reference="6MV-xC-bWn"/>
                             <exclude reference="ct0-o5-zIv"/>
                             <exclude reference="wCO-Dh-1c9"/>
+                            <exclude reference="Oh6-tC-5ki"/>
+                            <exclude reference="nPu-b5-d7P"/>
+                            <exclude reference="iqT-WE-oHR"/>
+                            <exclude reference="nxX-8x-JkD"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=compact">
@@ -121,6 +188,8 @@
                             <include reference="F90-nZ-E1b"/>
                             <include reference="DGd-gc-hwI"/>
                             <include reference="GXN-SC-nDD"/>
+                            <include reference="Zmi-69-Lwe"/>
+                            <include reference="ubt-h7-mDy"/>
                         </mask>
                         <mask key="constraints">
                             <include reference="5aM-a7-Pof"/>
@@ -131,12 +200,17 @@
                             <include reference="6MV-xC-bWn"/>
                             <include reference="ct0-o5-zIv"/>
                             <include reference="wCO-Dh-1c9"/>
+                            <include reference="Oh6-tC-5ki"/>
+                            <include reference="nPu-b5-d7P"/>
+                            <include reference="iqT-WE-oHR"/>
+                            <include reference="nxX-8x-JkD"/>
                         </mask>
                     </variation>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1O-g5-OqL">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
                     <state key="normal" title="Cancel">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -151,6 +225,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="62" id="dzd-Az-R43"/>
                     </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
                     <state key="normal" title="Save">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -235,11 +310,16 @@
                 <outlet property="cancelButton" destination="g1O-g5-OqL" id="dul-Fw-tfL"/>
                 <outlet property="currencyTextField" destination="DGd-gc-hwI" id="gWr-zd-rWu"/>
                 <outlet property="nameTextField" destination="F90-nZ-E1b" id="Gdl-H4-uwf"/>
+                <outlet property="qrCodeScanButton" destination="Zmi-69-Lwe" id="Knt-hx-eQh"/>
                 <outlet property="saveButton" destination="knx-TJ-WN2" id="URK-Fl-yH7"/>
                 <outlet property="scrollView" destination="ZRb-eb-sIp" id="mzX-lC-qxC"/>
                 <outlet property="scrollViewBottomConstraint" destination="cTS-a9-3l9" id="KR4-ZG-fYO"/>
+                <outlet property="signupTextField" destination="ubt-h7-mDy" id="5lW-Wu-vCI"/>
                 <outlet property="walletTextField" destination="GXN-SC-nDD" id="7dE-my-bP6"/>
             </connections>
         </view>
     </objects>
+    <resources>
+        <image name="qr_code.png" width="44" height="43"/>
+    </resources>
 </document>

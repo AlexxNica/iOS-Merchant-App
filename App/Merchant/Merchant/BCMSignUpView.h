@@ -16,11 +16,15 @@
 - (void)signUpViewDidSave:(BCMSignUpView *)signUpView;
 - (void)signUpViewSetPin:(BCMSignUpView *)signUpView;
 
+- (void)signUpViewRequestScanQRCode:(BCMSignUpView *)signUpView;
+
 @end
 
 @interface BCMSignUpView : UIView
 
 @property (weak, nonatomic) id <BCMSignUpViewDelegate> delegate;
+
+@property (copy, nonatomic) NSString *scannedWalletAddress;
 
 @property (assign, nonatomic) BOOL pinRequired;
 
