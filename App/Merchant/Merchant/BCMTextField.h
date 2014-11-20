@@ -10,4 +10,7 @@
 
 @interface BCMTextField : UITextField
 
+@property (assign, nonatomic) UIEdgeInsets textEditingInset;
+@property (assign, nonatomic) UIEdgeInsets textInset;
+
 @end

@@ -18,4 +18,19 @@
     self.layer.borderColor = [[UIColor colorWithHexValue:@"cecece"] CGColor];
 }
 
+- (CGRect)borderRectForBounds:(CGRect)bounds
+{
+    return bounds;
+}
+
+- (CGRect)textRectForBounds:(CGRect)bounds
+{
+    return UIEdgeInsetsInsetRect(bounds, self.textInset);
+}
+
+- (CGRect)editingRectForBounds:(CGRect)bounds
+{
+    return UIEdgeInsetsInsetRect(bounds, self.textEditingInset);
+}
+
 @end
