@@ -37,6 +37,9 @@
 		FA0614BD1A13BE07004F71F4 /* PEPin-off.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614A31A13BE07004F71F4 /* PEPin-off.png */; };
 		FA0614BE1A13BE07004F71F4 /* PEPin-on.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614A41A13BE07004F71F4 /* PEPin-on.png */; };
 		FA0614C11A13BF35004F71F4 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0614C01A13BF35004F71F4 /* UIImage+Utils.m */; };
+		FA0614DE1A1CDF1B004F71F4 /* PEPin-off.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614DC1A1CDF1B004F71F4 /* PEPin-off.png */; };
+		FA0614DF1A1CDF1B004F71F4 /* PEPin-on.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614DD1A1CDF1B004F71F4 /* PEPin-on.png */; };
+		FA0614E11A1CE287004F71F4 /* pin_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614E01A1CE287004F71F4 /* pin_delete@2x.png */; };
 		FA74B69C1A08C3B70045A4EF /* BCMPaymentReceivedView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74B69B1A08C3B70045A4EF /* BCMPaymentReceivedView.m */; };
 		FA74B69E1A08C3D20045A4EF /* BCMPaymentReceivedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA74B69D1A08C3D20045A4EF /* BCMPaymentReceivedView.xib */; };
 		FA74B6A01A08C6CC0045A4EF /* green_check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74B69F1A08C6CC0045A4EF /* green_check@2x.png */; };
@@ -170,6 +173,9 @@
 		FA0614A41A13BE07004F71F4 /* PEPin-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEPin-on.png"; sourceTree = "<group>"; };
 		FA0614BF1A13BF35004F71F4 /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Utils.h"; path = "../../../Third-Party/UIImage+Utils.h"; sourceTree = "<group>"; };
 		FA0614C01A13BF35004F71F4 /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Utils.m"; path = "../../../Third-Party/UIImage+Utils.m"; sourceTree = "<group>"; };
+		FA0614DC1A1CDF1B004F71F4 /* PEPin-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PEPin-off.png"; path = "../../../Assets/PEPin-off.png"; sourceTree = "<group>"; };
+		FA0614DD1A1CDF1B004F71F4 /* PEPin-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PEPin-on.png"; path = "../../../Assets/PEPin-on.png"; sourceTree = "<group>"; };
+		FA0614E01A1CE287004F71F4 /* pin_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin_delete@2x.png"; path = "../../../Assets/pin_delete@2x.png"; sourceTree = "<group>"; };
 		FA74B69A1A08C3B70045A4EF /* BCMPaymentReceivedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMPaymentReceivedView.h; sourceTree = "<group>"; };
 		FA74B69B1A08C3B70045A4EF /* BCMPaymentReceivedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMPaymentReceivedView.m; sourceTree = "<group>"; };
 		FA74B69D1A08C3D20045A4EF /* BCMPaymentReceivedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCMPaymentReceivedView.xib; sourceTree = "<group>"; };
@@ -565,7 +571,10 @@
 			isa = PBXGroup;
 			children = (
 				FAB117531A11D77800E876BA /* Icons */,
+				FA0614E01A1CE287004F71F4 /* pin_delete@2x.png */,
 				FAB117141A11135200E876BA /* bitcoin_marker_white@2x.png */,
+				FA0614DC1A1CDF1B004F71F4 /* PEPin-off.png */,
+				FA0614DD1A1CDF1B004F71F4 /* PEPin-on.png */,
 				FAB1170A1A10FF8600E876BA /* bitcoin_marker@2x.png */,
 				FA0614831A135E09004F71F4 /* check@2x.png */,
 				FA7D9F7F1A0BACB500B7B5CE /* close_button@2x.png */,
@@ -722,6 +731,7 @@
 				FA0614AC1A13BE07004F71F4 /* PEKeyboard-1-next.png in Resources */,
 				FA0614BA1A13BE07004F71F4 /* PEKeyboard-4-edit.png in Resources */,
 				FAEB498819F95FA000B774EC /* nav_pos@2x.png in Resources */,
+				FA0614DE1A1CDF1B004F71F4 /* PEPin-off.png in Resources */,
 				FA99821F19FE8923006C7D2F /* BCMAddItem.xib in Resources */,
 				FA0614A81A13BE07004F71F4 /* PEViewController.xib in Resources */,
 				FAA418AC19F789A000023B25 /* Main.storyboard in Resources */,
@@ -732,10 +742,12 @@
 				FAEB497E19F95E9A00B774EC /* Localizable.strings in Resources */,
 				FA0614B01A13BE07004F71F4 /* PEKeyboard-2-edit.png in Resources */,
 				FAB117691A11D77800E876BA /* Icon-72.png in Resources */,
+				FA0614E11A1CE287004F71F4 /* pin_delete@2x.png in Resources */,
 				FAB117761A11D77800E876BA /* Icon@2x.png in Resources */,
 				FA9982611A03E855006C7D2F /* BCMQRCodeTransactionView.xib in Resources */,
 				FA0614B71A13BE07004F71F4 /* PEKeyboard-3.png in Resources */,
 				FA0614B81A13BE07004F71F4 /* PEKeyboard-4-done.png in Resources */,
+				FA0614DF1A1CDF1B004F71F4 /* PEPin-on.png in Resources */,
 				FAEB498319F95F4F00B774EC /* nav_log_out@2x.png in Resources */,
 				FAB117671A11D77800E876BA /* Icon-60@2x.png in Resources */,
 				FA0614B11A13BE07004F71F4 /* PEKeyboard-2-next.png in Resources */,
