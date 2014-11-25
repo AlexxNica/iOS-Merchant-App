@@ -14,6 +14,7 @@
 #import "BCMSetupViewController.h"
 
 #import "BCMMerchantManager.h"
+#import "Merchant.h"
 
 #import "SSKeyChain.h"
 #import "BCMNetworking.h"
