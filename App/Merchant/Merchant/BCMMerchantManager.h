@@ -10,16 +10,8 @@
 
 #import "BCPinEntryViewController.h"
 
-extern NSString *const kBCMBusinessNameSettingsKey;
-extern NSString *const kBCMBusinessAddressSettingsKey;
-extern NSString *const kBCMTelephoneSettingsKey;
-extern NSString *const kBCMDescriptionSettingsKey;
-extern NSString *const kBCMWebsiteSettingsKey;
-extern NSString *const kBCMCurrencySettingsKey;
-extern NSString *const kBCMWalletSettingsKey;
+// Pin Related Values
 extern NSString *const kBCMPinSettingsKey;
-extern NSString *const kBCMDirectoryListingSettingsKey;
-
 extern NSString *const kBCMServiceName;
 
 @class Merchant;
@@ -30,10 +22,10 @@ extern NSString *const kBCMServiceName;
 
 + (instancetype)sharedInstance;
 
-@property (assign, nonatomic) BOOL directoryListing;
-
 - (BOOL)requirePIN;
+
 - (NSString *)currencySymbol;
+
 - (UIImage *)merchantQRCodeImage;
 
 @end

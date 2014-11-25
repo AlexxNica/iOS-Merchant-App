@@ -73,9 +73,7 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
     [self addNavigationType:BCMNavigationTypeHamburger position:BCMNavigationPositionLeft selector:nil];
     
     Merchant *merchant = [BCMMerchantManager sharedInstance].activeMerchant;
-    
-    [self.settings setObject:merchant.name forKey:kBCMBusinessNameSettingsKey];
-    [self.settings setObject:merchant.walletAddress forKey:kBCMWalletSettingsKey];
+    [self loadSettingsDictWithMerchant:merchant];
     
     [self displayPinEntry];
 }
@@ -111,6 +109,25 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
                                                     name:@"UIKeyboardWillShowNotification" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:@"UIKeyboardWillHideNotification" object:nil];
+}
+
+- (void)loadSettingsDictWithMerchant:(Merchant *)merchant
+{
+    [self.settings setObjectOrNil:merchant.name forKey:kBCMBusinessName];
+    [self.settings setObjectOrNil:merchant.businessCategory forKey:kBCMBusinessCategory];
+
+    [self.settings setObjectOrNil:merchant.streetAddress forKey:kBCMBusinessStreetAddress];
+
+    [self.settings setObjectOrNil:merchant.city forKey:kBCMBusinessCityAddress];
+    [self.settings setObjectOrNil:merchant.zipcode forKey:kBCMBusinessZipcodeAddress];
+    [self.settings setObjectOrNil:merchant.latitude forKey:kBCMBusinessLatitude];
+    [self.settings setObjectOrNil:merchant.longitude forKey:kBCMBusinessLongitude];
+    [self.settings setObjectOrNil:merchant.telephone forKey:kBCMBusinessTelephone];
+    [self.settings setObjectOrNil:merchant.webURL forKey:kBCMBusinessWebURL];
+    [self.settings setObjectOrNil:merchant.businessDescription forKey:kBCMBusinessDescription];
+    
+    [self.settings setObjectOrNil:merchant.walletAddress forKey:kBCMBusinessWalletAddress];
+    [self.settings setObjectOrNil:merchant.currency forKey:kBCMBusinessCurrency];
 }
 
 - (void)displayPinEntry
@@ -151,32 +168,32 @@ static NSString *const kSettingsSwitchCellId = @"settingSwitchCellId";
     switch (row) {
         case BCMSettingsRowBusinessName:
             settingTitle = @"Business Name";
-            settingKey = kBCMBusinessNameSettingsKey;
+            settingKey = kBCMBusinessName;
             break;
         case BCMSettingsRowBusinessAddress:
             settingTitle = @"Business Address";
-            settingKey = kBCMBusinessAddressSettingsKey;
+            settingKey = kBCMBusinessStreetAddress;
             break;
         case BCMSettingsRowTelephone:
             settingTitle = @"Telephone";
-            settingKey = kBCMTelephoneSettingsKey;
+            settingKey = kBCMBusinessTelephone;
             break;
         case BCMSettingsRowDescription:
             settingTitle = @"Description";
-            settingKey = kBCMDescriptionSettingsKey;
+            settingKey = kBCMBusinessDescription;
             break;
         case BCMSettingsRowWebsite:
             settingTitle = @"Website";
-            settingKey = kBCMWebsiteSettingsKey;
+            settingKey = kBCMBusinessWebURL;
             break;
         case BCMSettingsRowCurrency:
             settingTitle = @"Currency";
             canEdit = NO;
-            settingKey = kBCMCurrencySettingsKey;
+            settingKey = kBCMBusinessCurrency;
             break;
         case BCMSettingsRowWalletAddress:
             settingTitle = @"Address";
-            settingKey = kBCMWalletSettingsKey;
+            settingKey = kBCMBusinessWalletAddress;
             accessoryImage = [UIImage imageNamed:@"qr_code"];
             break;
         case BCMSettingsRowSetPin:
@@ -190,7 +207,7 @@ static NSString *const kSettingsSwitchCellId = @"settingSwitchCellId";
             break;
         case BCMSettingsRowDirectoryListing:
             settingTitle = @"Directory Listing";
-            settingKey = kBCMDirectoryListingSettingsKey;
+            settingKey = kBCMBusinessDirectoryListing;
             reuseCellId = kSettingsSwitchCellId;
             break;
         default:
@@ -236,7 +253,7 @@ static NSString *const kSettingsSwitchCellId = @"settingSwitchCellId";
         BCMSwitchTableViewCell *switchCell = [tableView dequeueReusableCellWithIdentifier:kSettingsSwitchCellId];
         switchCell.delegate = self;
         switchCell.switchTitle = settingTitle;
-        switchCell.switchStateOn = [BCMMerchantManager sharedInstance].directoryListing;
+        switchCell.switchStateOn = [BCMMerchantManager sharedInstance].activeMerchant.directoryListingValue;
         cell = switchCell;
     }
 
@@ -261,13 +278,11 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
         NSString *currencyPath = [mainBundle pathForResource:@"SupportedCurrencies" ofType:@"plist"];
         NSArray *currencies = [NSArray arrayWithContentsOfFile:currencyPath];
         
-        NSString *currentCurrency = [[NSUserDefaults standardUserDefaults] objectForKey:kBCMCurrencySettingsKey];
+        NSString *currentCurrency = [BCMMerchantManager sharedInstance].activeMerchant.currency;
         NSUInteger selectedCurrencyIndex = [currencies indexOfObject:currentCurrency];
         
         ActionSheetStringPicker *picker = [[ActionSheetStringPicker alloc] initWithTitle:@"Currency" rows:currencies initialSelection:selectedCurrencyIndex doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
-            [self.settings setObject:[currencies objectAtIndex:selectedIndex] forKey:kBCMCurrencySettingsKey];
-            [[NSUserDefaults standardUserDefaults] setObject:[currencies objectAtIndex:selectedIndex] forKey:kBCMCurrencySettingsKey];
-            [[NSUserDefaults standardUserDefaults] synchronize];
+            [self.settings setObject:[currencies objectAtIndex:selectedIndex] forKey:kBCMBusinessCurrency];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.settingsTableView reloadData];
             });
@@ -303,25 +318,25 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
     NSString *settingKey = nil;
     switch (row) {
         case BCMSettingsRowBusinessName:
-            settingKey = kBCMBusinessNameSettingsKey;
+            settingKey = kBCMBusinessName;
             break;
         case BCMSettingsRowBusinessAddress:
-            settingKey = kBCMBusinessAddressSettingsKey;
+            settingKey = kBCMBusinessStreetAddress;
             break;
         case BCMSettingsRowTelephone:
-            settingKey = kBCMTelephoneSettingsKey;
+            settingKey = kBCMBusinessTelephone;
             break;
         case BCMSettingsRowDescription:
-            settingKey = kBCMDescriptionSettingsKey;
+            settingKey = kBCMBusinessDescription;
             break;
         case BCMSettingsRowWebsite:
-            settingKey = kBCMWebsiteSettingsKey;
+            settingKey = kBCMBusinessWebURL;
             break;
         case BCMSettingsRowCurrency:
-            settingKey = kBCMCurrencySettingsKey;
+            settingKey = kBCMBusinessCurrency;
             break;
         case BCMSettingsRowWalletAddress:
-            settingKey = kBCMWalletSettingsKey;
+            settingKey = kBCMBusinessWalletAddress;
             break;
         case BCMSettingsRowSetPin:
             settingKey = kBCMPinSettingsKey;
@@ -358,7 +373,7 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
 
 - (void)bcmscannerViewController:(BCMQRCodeScannerViewController *)vc didScanString:(NSString *)scanString
 {
-    [self.settings setObject:scanString forKey:kBCMWalletSettingsKey];
+    [self.settings setObject:scanString forKey:kBCMBusinessWalletAddress];
     [vc dismissViewControllerAnimated:YES completion:^{
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.settingsTableView reloadData];
@@ -376,6 +391,7 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
 - (IBAction)cancelAction:(id)sender
 {
     [self.settings removeAllObjects];
+    [self loadSettingsDictWithMerchant:[BCMMerchantManager sharedInstance].activeMerchant];
     [self.settingsTableView reloadData];
 }
 
@@ -388,18 +404,22 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
     [hud show:YES];
     [hud hide:YES afterDelay:1.0f];
     
-    for (NSString *settingsKey in [self.settings allKeys]) {
-        NSString *settingValue = [self.settings safeObjectForKey:settingsKey];
-        
-        [[NSUserDefaults standardUserDefaults] setObject:settingValue forKey:settingsKey];
-    }
-    
     Merchant *merchant = [BCMMerchantManager sharedInstance].activeMerchant;
-    merchant.name = [self.settings safeObjectForKey:kBCMBusinessNameSettingsKey];
-    merchant.walletAddress = [self.settings safeObjectForKey:kBCMWalletSettingsKey];
+    merchant.name = [self.settings safeObjectForKey:kBCMBusinessName];
+    merchant.streetAddress = [self.settings safeObjectForKey:kBCMBusinessStreetAddress];
+    merchant.city = [self.settings safeObjectForKey:kBCMBusinessCityAddress];
+    merchant.zipcode = [self.settings safeObjectForKey:kBCMBusinessZipcodeAddress];
+    
+    merchant.telephone = [self.settings safeObjectForKey:kBCMBusinessTelephone];
+    merchant.webURL = [self.settings safeObjectForKey:kBCMBusinessWebURL];
+    merchant.businessDescription = [self.settings safeObjectForKey:kBCMBusinessDescription];
 
-    [[NSUserDefaults standardUserDefaults] synchronize];
-
+    merchant.currency =  [self.settings safeObjectForKey:kBCMBusinessCurrency];
+    merchant.walletAddress = [self.settings safeObjectForKey:kBCMBusinessWalletAddress];
+    
+    NSNumber *directoryListing = [self.settings safeObjectForKey:kBCMBusinessDirectoryListing];
+    merchant.directoryListingValue = [directoryListing boolValue];
+    
     NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
     [localContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
     }];
@@ -409,7 +429,7 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
 
 - (void)switchCell:(BCMSwitchTableViewCell *)cell isOn:(BOOL)on
 {
-    [BCMMerchantManager sharedInstance].directoryListing = on;
+    [self.settings setObject:[NSNumber numberWithBool:on] forKey:kBCMBusinessDirectoryListing];
 }
 
 #pragma mark - Keyboard Notifications

@@ -14,15 +14,7 @@
 
 #import "Merchant.h"
 
-NSString *const kBCMBusinessNameSettingsKey = @"BCMBusinessNameSettings";
-NSString *const kBCMBusinessAddressSettingsKey = @"BCMBusinessAddressSettings";
-NSString *const kBCMTelephoneSettingsKey = @"BCMTelephoneSettings";
-NSString *const kBCMDescriptionSettingsKey = @"BCMDescriptionSettings";
-NSString *const kBCMWebsiteSettingsKey = @"BCMWebsiteSettings";
-NSString *const kBCMCurrencySettingsKey = @"BCMCurrencySettings";
-NSString *const kBCMWalletSettingsKey = @"MerchantAddress";
 NSString *const kBCMPinSettingsKey = @"BCMPinSettings";
-NSString *const kBCMDirectoryListingSettingsKey = @"BCMDirectoryListingSettings";
 
 // Pin Entry
 static NSString *const kBCMPinManagerEncryptedPinKey = @"encryptedPinKey";
@@ -50,20 +42,6 @@ static NSString *const kBCMPinManagerEncryptedPinKey = @"encryptedPinKey";
     return [merchants firstObject];
 }
 
-@synthesize directoryListing = _directoryListing;
-
-- (void)setDirectoryListing:(BOOL)directoryListing
-{
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:directoryListing] forKey:kBCMDirectoryListingSettingsKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-- (BOOL)directoryListing
-{
-    NSNumber *number = [[NSUserDefaults standardUserDefaults] objectForKey:kBCMCurrencySettingsKey];
-    return [number boolValue];
-}
-
 - (BOOL)requirePIN
 {
     BOOL require = [[SSKeychain accountsForService:kBCMServiceName] count] > 0;
@@ -72,7 +50,7 @@ static NSString *const kBCMPinManagerEncryptedPinKey = @"encryptedPinKey";
 
 - (NSString *)currencySymbol
 {
-    NSString *currencyKey = [[NSUserDefaults standardUserDefaults] objectForKey:kBCMCurrencySettingsKey];
+    NSString *currencyKey = self.activeMerchant.currency;
     if ([currencyKey length] == 0) {
         currencyKey = @"USD";
     }
