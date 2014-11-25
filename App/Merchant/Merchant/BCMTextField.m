@@ -14,8 +14,8 @@
 
 - (void)awakeFromNib
 {
-    self.layer.borderWidth = 2.0f;
-    self.layer.borderColor = [[UIColor colorWithHexValue:@"cecece"] CGColor];
+    self.layer.borderWidth = 1.0f;
+    self.layer.borderColor = [[UIColor colorWithHexValue:@"b2b2b2"] CGColor];
 }
 
 - (CGRect)borderRectForBounds:(CGRect)bounds
