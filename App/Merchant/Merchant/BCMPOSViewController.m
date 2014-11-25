@@ -19,11 +19,15 @@
 #import "Item.h"
 #import "Transaction.h"
 #import "PurchasedItem.h"
+#import "Merchant.h"
 
 #import "BCMMerchantManager.h"
 
 #import "UIView+Utilities.h"
 #import "Foundation-Utility.h"
+#import "NSDate+Utilities.h"
+
+#import <MessageUI/MessageUI.h>
 
 typedef NS_ENUM(NSUInteger, BCMPOSSection) {
     BCMPOSSectionCustomItem,
@@ -161,6 +165,21 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
         self.trasactionOverlay.alpha = 0.25f;
     }
     [self.transactionView removeFromSuperview];
+}
+
+- (void)hideTransactionViewAndUpdateModel
+{
+    self.posMode = BCMPOSModeAdd;
+    
+    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+    [localContext MR_saveToPersistentStoreAndWait];
+    
+    [self.trasactionOverlay removeFromSuperview];
+    self.trasactionOverlay.alpha = 0.25f;
+    [self.paymentReceivedView removeFromSuperview];
+    
+    [self.simpleItems removeAllObjects];
+    [self updateTransctionInformation];
 }
 
 @synthesize posMode = _posMode;
@@ -542,17 +561,80 @@ const CGFloat kBBPOSItemDefaultRowHeight = 38.0f;
 
 - (void)dismissPaymentReceivedView:(BCMPaymentReceivedView *)paymentView withEmail:(NSString *)email
 {
-    self.posMode = BCMPOSModeAdd;
-    
-    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-    [localContext MR_saveToPersistentStoreAndWait];
-    
-    [self.trasactionOverlay removeFromSuperview];
-    self.trasactionOverlay.alpha = 0.25f;
-    [self.paymentReceivedView removeFromSuperview];
-    
-    [self.simpleItems removeAllObjects];
-    [self updateTransctionInformation];
+    if ([MFMailComposeViewController canSendMail]) {
+        if ([email length] > 0) {
+            MFMailComposeViewController *mailComposeViewController = [[MFMailComposeViewController alloc] init];
+            mailComposeViewController.mailComposeDelegate = self;
+            mailComposeViewController.navigationBar.barStyle = UIBarStyleDefault;
+            mailComposeViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+            
+            
+            NSMutableString *messageBody = [[NSMutableString alloc] init];
+            [messageBody appendFormat:@"Hi %@,\n\n", email];
+            
+            NSString *total = @"N/A";
+            NSString *currencySymbol = [[BCMMerchantManager sharedInstance] currencySymbol];
+            Transaction *activeTransaction = self.activeTransition;
+            if ([activeTransaction.purchasedItems count] > 0) {
+                total = [NSString stringWithFormat:@"%@%0.2f", currencySymbol,[activeTransaction transactionTotal]];
+            }
+            
+            [messageBody appendFormat:@"Here is your receipt for your %@ at %@ on %@.", total, [BCMMerchantManager sharedInstance].activeMerchant.name, [activeTransaction.creation_date shortDateString]];
+            [messageBody appendString:@"\n\n\n Thanks for using Blockchain Merchant!"];
+            [mailComposeViewController setMessageBody:messageBody isHTML:NO];
+            [mailComposeViewController setToRecipients: @[email] ];
+            NSString *subjectTitle = [NSString stringWithFormat:@"Receipt from %@", [BCMMerchantManager sharedInstance].activeMerchant.name];
+            
+            [mailComposeViewController setSubject:subjectTitle];
+            // Present the composition view
+            [self presentViewController:mailComposeViewController animated:YES completion:^{
+            }];
+        }
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Email Not Supported" message:@"This device does not support sending an email." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
+    }
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    BOOL dismissTransactionView = NO;
+    NSString *alertMessage = @"";
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            dismissTransactionView = NO;
+            break;
+        case MFMailComposeResultSaved:
+            dismissTransactionView = NO;
+            break;
+        case MFMailComposeResultSent:
+            dismissTransactionView = YES;
+            break;
+        case MFMailComposeResultFailed:
+            alertMessage = @"Error sending Email.  Please check your email and send again.";
+            break;
+        default:
+            break;
+    }
+
+    if (dismissTransactionView) {
+        [self hideTransactionViewAndUpdateModel];
+    } else {
+        if ([alertMessage length] > 0) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops" message:alertMessage delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            [alert show];
+        }
+    }
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self hideTransactionViewAndUpdateModel];
 }
 
 @end
