@@ -52,13 +52,6 @@
     // Styling
     [self styleNavigationBar];
     
-    NSString *merchantAddress = [[NSUserDefaults standardUserDefaults] objectForKey:kBCMWalletSettingsKey];
-    if ([merchantAddress length] == 0) {
-        [[NSUserDefaults standardUserDefaults] setObject:MERCHANT_TEST_ADDRESS forKey:kBCMWalletSettingsKey];
-        [[NSUserDefaults standardUserDefaults] setObject:@"USD" forKey:kBCMCurrencySettingsKey];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setRootViewController:self.drawerController];
     [self.window makeKeyAndVisible];
