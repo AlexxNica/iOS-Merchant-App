@@ -14,7 +14,7 @@
 
 NSString *const kBCMSideNavigationViewControllerId = @"BCMSideNavigationViewControllerId";
 NSString *const kBCMSideNavControllerSalesId = @"BCMPOSNavigationId";                   // POS
-NSString *const kBCMSideNavControllerItemSetupId = @"BCMItemSetupNavigationId";                   // POS
+NSString *const kBCMSideNavControllerItemSetupId = @"BCMItemSetupNavigationId";         // POS
 NSString *const kBCMSideNavControllerTransactionsId = @"BCMTransactionsNavigationId";   // Transactions
 NSString *const kBCMSideNavControllerSettingsId = @"BCMSettingsNavigationId";           // Settings
 NSString *const kBCMSideNavControllerNewsId = @"BCMNewsNavigationId";                   // News
@@ -61,7 +61,7 @@ NSString *const kBCMSideNavControllerNewsId = @"BCMNewsNavigationId";           
             storyboardId = kBCMSideNavControllerItemSetupId;
         }
         if ([storyboardId length] > 0) {
-            UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:MAIN_STORYBOARD_NAME bundle:nil];
             viewController = [mainStoryBoard instantiateViewControllerWithIdentifier:storyboardId];
             if (![storyboardId isEqualToString:kBCMSideNavControllerSettingsId]) {
                 [self.viewControllerDict setObject:viewController forKey:storyboardId];

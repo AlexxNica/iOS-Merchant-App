@@ -133,7 +133,7 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
 - (void)displayPinEntry
 {    
     if ([[BCMMerchantManager sharedInstance] requirePIN]) {
-        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:MAIN_STORYBOARD_NAME bundle:nil];
         UINavigationController *pinEntryViewNavController = [mainStoryboard instantiateViewControllerWithIdentifier:kPinEntryStoryboardId];
         BCPinEntryViewController *entryViewController = (BCPinEntryViewController *)pinEntryViewNavController.topViewController;
         entryViewController.userMode = PinEntryUserModeAccess;
@@ -291,7 +291,7 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
         } origin:self.view];
         [picker showActionSheetPicker];
     } else if (indexPath.row == BCMSettingsRowSetPin) {
-        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:MAIN_STORYBOARD_NAME bundle:nil];
         UINavigationController *pinEntryViewNavController = [mainStoryboard instantiateViewControllerWithIdentifier:kPinEntryStoryboardId];
         BCPinEntryViewController *entryViewController = (BCPinEntryViewController *)pinEntryViewNavController.topViewController;
         entryViewController.delegate = self;        
@@ -362,7 +362,7 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
 
 - (void)textFieldTableViewCellAccesssoryAction:(BCMTextFieldTableViewCell *)cell
 {
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:MAIN_STORYBOARD_NAME bundle:nil];
     UINavigationController *scannerNavigationController = [mainStoryboard instantiateViewControllerWithIdentifier:kBCMQrCodeScannerNavigationId];
     BCMQRCodeScannerViewController *scannerViewController = (BCMQRCodeScannerViewController *)scannerNavigationController.topViewController;
     scannerViewController.delegate = self;

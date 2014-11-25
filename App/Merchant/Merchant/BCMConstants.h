@@ -12,6 +12,8 @@
 #define APP_BUILD_VERSION @"00.00.18"
 #define MERCHANT_TEST_ADDRESS @"123H9LYYaBvuf97EqbJpSYPCjDmu5C1btH"
 
+#define MAIN_STORYBOARD_NAME @"Main"
+
 //#define MOCK_BTC_TRANSACTION 1
 
 #endif
