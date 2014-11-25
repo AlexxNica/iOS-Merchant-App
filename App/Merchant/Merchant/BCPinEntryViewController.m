@@ -140,7 +140,7 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
     if (key.keyTag == PinKeyEntryButtonDelete) {
         if (self.entryCounter > 0) {
             self.entryCounter--;
-            [self.pin substringWithRange:NSMakeRange(0, self.entryCounter)];
+            [self.pin deleteCharactersInRange:NSMakeRange(self.entryCounter, [self.pin length] - self.entryCounter)];
         }
     } else {
         self.entryCounter++;
