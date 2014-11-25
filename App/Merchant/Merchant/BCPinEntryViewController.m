@@ -202,14 +202,14 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
 
     if (_createState == PinEntryModeCreateStateEnter) {
         // We need the user to enter it twice
-        self.titleLbl.text = @"Enter your passcode";
+        self.titleLbl.text = NSLocalizedString(@"pin.entry.enter_passcode", nil);
         self.pin = [[NSMutableString alloc] init];
         self.firstEnteredPin = @"";
         self.secondEnteredPin = @"";
         self.entryCounter = 0;
         [self clearPinImageViews];
     } else if (_createState == PinEntryModeCreateStateValidate) {
-        self.titleLbl.text = @"Re-enter your passcode";
+        self.titleLbl.text = NSLocalizedString(@"pin.entry.re_enter_passcode", nil);
         self.firstEnteredPin = self.pin;
         self.pin = [[NSMutableString alloc] init];
         [self clearPinImageViews];
@@ -221,8 +221,9 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
         }];
     } else if (_createState == PinEntryModeCreateStateFail) {
         _createState = PinEntryModeCreateStateEnter;
+
         // We need the user to enter it twice
-        self.titleLbl.text = @"Enter your passcode";
+        self.titleLbl.text = NSLocalizedString(@"pin.entry.enter_passcode", nil);
         self.pin = [[NSMutableString alloc] init];
         self.firstEnteredPin = @"";
         self.secondEnteredPin = @"";
@@ -242,36 +243,36 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
     self.infoLbl.text = @"";
 
     if (_resetState == PinEntryModeResetStateEnter) {
-        self.titleLbl.text = @"Enter current passcode";
+        self.titleLbl.text = NSLocalizedString(@"pin.entry.enter_passcode", nil);
         self.pin = [[NSMutableString alloc] init];
         self.firstEnteredPin = @"";
         self.secondEnteredPin = @"";
         [self clearPinImageViews];
     } else if (_resetState == PinEntryModeResetStateEnterCurrentFail) {
-        self.infoLbl.text = @"Passcode Validation Failed";
+        self.infoLbl.text = NSLocalizedString(@"pin.entry.validation_failed", nil);
         self.pin = [[NSMutableString alloc] init];
         self.firstEnteredPin = @"";
         self.secondEnteredPin = @"";
         _resetState = PinEntryModeResetStateEnter;
         [self clearPinImageViews];
     } else if (_resetState == PinEntryModeResetStateEnterNew) {
-        self.titleLbl.text = @"Enter new passcode";
+        self.titleLbl.text = NSLocalizedString(@"pin.entry.enter_passcode", nil);
         self.firstEnteredPin = @"";
         self.secondEnteredPin = @"";
         self.pin = [[NSMutableString alloc] init];
         [self clearPinImageViews];
     } else if (_resetState == PinEntryModeResetStateValidate) {
-        self.titleLbl.text = @"Re-enter passcode";
+        self.titleLbl.text = NSLocalizedString(@"pin.entry.re_enter_passcode", nil);
         self.firstEnteredPin = self.pin;
         self.pin = [[NSMutableString alloc] init];
         [self clearPinImageViews];
     }  else if (_resetState == PinEntryModeResetStateFail) {
-        self.titleLbl.text = @"Enter new passcode";
+        self.titleLbl.text = NSLocalizedString(@"pin.entry.enter_new_passcode", nil);
         self.pin = [[NSMutableString alloc] init];
         self.firstEnteredPin = @"";
         self.secondEnteredPin = @"";
         _resetState = PinEntryModeResetStateEnterNew;
-        self.infoLbl.text = @"Passcode Validation Failed";
+        self.infoLbl.text = NSLocalizedString(@"pin.entry.validation_failed", nil);
         [self clearPinImageViews];
     } else if (_resetState == PinEntryModeResetStateComplete) {
         if ([self.delegate respondsToSelector:@selector(pinEntryViewController:successfulEntry:pin:)]) {
@@ -289,18 +290,18 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
     self.infoLbl.text = @"";
 
     if(_entryState == PinEntryModeAccessEnter) {
-        self.titleLbl.text = @"Enter your passcode";
+        self.titleLbl.text = NSLocalizedString(@"pin.entry.enter_passcode", nil);
         self.pin = [[NSMutableString alloc] init];
         self.firstEnteredPin = @"";
         self.secondEnteredPin = @"";
         [self clearPinImageViews];
     } else if (_entryState == PinEntryModeAccessFail) {
-        self.titleLbl.text = @"Enter your passcode";
+        self.titleLbl.text = NSLocalizedString(@"pin.entry.enter_passcode", nil);
         self.pin = [[NSMutableString alloc] init];
         self.firstEnteredPin = @"";
         self.secondEnteredPin = @"";
         [self clearPinImageViews];
-        self.infoLbl.text = @"Passcode Incorrect";
+        self.infoLbl.text = NSLocalizedString(@"pin.entry.password_incorrect", nil);
     } else if (_entryState == PinEntryModeAccessComplete) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }

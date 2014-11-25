@@ -71,7 +71,7 @@
         UIButton *compButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         compButton.frame = CGRectMake(CGRectGetWidth(parentView.frame) - 80.0f, 10.0, 80.0f, 40.0f);
         [compButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f]];
-        [compButton setTitle: @"Done" forState:UIControlStateNormal];
+        [compButton setTitle:NSLocalizedString(@"general.done", nil) forState:UIControlStateNormal];
         [compButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [compButton addTarget:self action:@selector(accessoryDoneAction:)
              forControlEvents:UIControlEventTouchUpInside];
@@ -79,7 +79,7 @@
         UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         cancelButton.frame = CGRectMake(0, 10.0, 80.0f, 40.0f);
         [cancelButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f]];
-        [cancelButton setTitle: @"Cancel" forState:UIControlStateNormal];
+        [cancelButton setTitle:NSLocalizedString(@"action.cancel", nil) forState:UIControlStateNormal];
         [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [cancelButton addTarget:self action:@selector(accessoryCancelAction:)
                forControlEvents:UIControlEventTouchUpInside];

@@ -33,7 +33,7 @@
         UIButton *compButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         compButton.frame = CGRectMake(CGRectGetWidth(parentView.frame) - 80.0f, 10.0, 80.0f, 40.0f);
         [compButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f]];
-        [compButton setTitle: @"Done" forState:UIControlStateNormal];
+        [compButton setTitle:NSLocalizedString(@"general.done", nil) forState:UIControlStateNormal];
         [compButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [compButton addTarget:self action:@selector(accessoryDoneAction:)
              forControlEvents:UIControlEventTouchUpInside];

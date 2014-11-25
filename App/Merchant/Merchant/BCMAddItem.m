@@ -89,9 +89,9 @@
         NSString *itemName = [self.itemNameTextField text];
         NSString *itemPrice = [self.itemPriceTextField text];
         if ([itemName length] == 0) {
-            [[[UIAlertView alloc] initWithTitle:@"Missing Name" message:@"Items require a name." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"addItem.error.missing.name", nil) message:NSLocalizedString(@"addItem.error.missing.name.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil] show];
         } else if ([itemPrice length] == 0) {
-            [[[UIAlertView alloc] initWithTitle:@"Missing Price" message:@"Items require a price." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"addItem.error.missing.price", nil) message:NSLocalizedString(@"addItem.error.missing.price.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil] show];
         } else {
             Item *item = [Item MR_createEntity];
             item.name = itemName;
@@ -141,7 +141,7 @@
         UIButton *compButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         compButton.frame = CGRectMake(CGRectGetWidth(parentView.frame) - 80.0f, 10.0, 80.0f, 40.0f);
         [compButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f]];
-        [compButton setTitle: @"Done" forState:UIControlStateNormal];
+        [compButton setTitle:NSLocalizedString(@"general.done", nil) forState:UIControlStateNormal];
         [compButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [compButton addTarget:self action:@selector(accessoryDoneAction:)
              forControlEvents:UIControlEventTouchUpInside];

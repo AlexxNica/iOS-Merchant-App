@@ -8,6 +8,8 @@
 
 #import "BCMNetworking.h"
 
+NSString *kBlockChainTxURL = @"https://blockchain.info/tx";
+
 static const NSString *kBCBaseURL = @"https://blockchain.info";
 static const NSString *kBCDevBaseURL = @"http://192.64.115.86";
 

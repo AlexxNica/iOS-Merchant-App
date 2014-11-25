@@ -11,6 +11,8 @@
 typedef void(^BCMNetworkingSuccess)(NSURLRequest *request, NSDictionary *dict);
 typedef void(^BCMNetworkingFailure)(NSURLRequest *request, NSError* error);
 
+extern NSString *kBlockChainTxURL;
+
 @class Merchant;
 
 @interface BCMNetworking : NSObject

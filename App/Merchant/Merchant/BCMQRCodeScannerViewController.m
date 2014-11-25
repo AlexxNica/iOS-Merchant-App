@@ -64,8 +64,7 @@ NSString *const kBCMQrCodeScannerViewControllerId = @"qrCodeScannerViewControlle
     if (!result) return;
     
     // We got a result. Display information about the result onscreen.
-    NSString *formatString = @"QR Code";
-    NSString *qrString = [NSString stringWithFormat:@"Scanned!\n\nFormat: %@\n\nContents:\n%@", formatString, result.text];
+    NSString *qrString = result.text;
     
     if ([self.delegate respondsToSelector:@selector(bcmscannerViewController:didScanString:)]) {
         [self.delegate bcmscannerViewController:self didScanString:qrString];

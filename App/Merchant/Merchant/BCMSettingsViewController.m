@@ -167,60 +167,62 @@ static NSString *const kSettingsSwitchCellId = @"settingSwitchCellId";
     
     switch (row) {
         case BCMSettingsRowBusinessName:
-            settingTitle = @"Business Name";
+            settingTitle = NSLocalizedString(@"setting.name.title", nil);
             settingKey = kBCMBusinessName;
             break;
         case BCMSettingsRowBusinessAddress:
-            settingTitle = @"Business Address";
+            settingTitle = NSLocalizedString(@"setting.business_address.title", nil);
             settingKey = kBCMBusinessStreetAddress;
             break;
         case BCMSettingsRowTelephone:
-            settingTitle = @"Telephone";
+            settingTitle = NSLocalizedString(@"setting.telephone.title", nil);
             settingKey = kBCMBusinessTelephone;
             break;
         case BCMSettingsRowDescription:
-            settingTitle = @"Description";
+            settingTitle = NSLocalizedString(@"setting.description.title", nil);
             settingKey = kBCMBusinessDescription;
             break;
         case BCMSettingsRowWebsite:
-            settingTitle = @"Website";
+            settingTitle = NSLocalizedString(@"setting.website.title", nil);
             settingKey = kBCMBusinessWebURL;
             break;
         case BCMSettingsRowCurrency:
-            settingTitle = @"Currency";
+            settingTitle = NSLocalizedString(@"setting.currency.title", nil);
             canEdit = NO;
             settingKey = kBCMBusinessCurrency;
             break;
         case BCMSettingsRowWalletAddress:
-            settingTitle = @"Address";
+            settingTitle = NSLocalizedString(@"setting.wallet_address.title", nil);
             settingKey = kBCMBusinessWalletAddress;
             accessoryImage = [UIImage imageNamed:@"qr_code"];
             break;
         case BCMSettingsRowSetPin:
             if ([[BCMMerchantManager sharedInstance] requirePIN]) {
-                settingTitle = @"Reset Pin";
+                settingTitle = NSLocalizedString(@"pin.info.reset_pin", nil);
             } else {
-                settingTitle = @"Set Pin";
+                settingTitle = NSLocalizedString(@"pin.info.set_pin", nil);
             }
             canEdit = NO;
             settingKey = kBCMPinSettingsKey;
             break;
         case BCMSettingsRowDirectoryListing:
-            settingTitle = @"Directory Listing";
+            settingTitle = NSLocalizedString(@"setting.directory_listing.title", nil);
             settingKey = kBCMBusinessDirectoryListing;
             reuseCellId = kSettingsSwitchCellId;
             break;
         default:
-            settingTitle = @"Address";
+            settingTitle = NSLocalizedString(@"setting.wallet_address.title", nil);
             break;
     }
     
     if ([reuseCellId isEqualToString:kSettingsTextFieldCellId]) {
         
         BCMTextFieldTableViewCell *textFieldCell = [tableView dequeueReusableCellWithIdentifier:kSettingsTextFieldCellId];
-        textFieldCell.delegate = self;
-        textFieldCell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:30.0f];
-        textFieldCell.textLabel.textColor = [UIColor colorWithHexValue:@"a3a3a3"];
+        if (!textFieldCell) {
+            textFieldCell.delegate = self;
+            textFieldCell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:30.0f];
+            textFieldCell.textLabel.textColor = [UIColor colorWithHexValue:@"a3a3a3"];
+        }
         textFieldCell.textFieldImage = accessoryImage;
         
         NSString *text = nil;
@@ -281,7 +283,7 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
         NSString *currentCurrency = [BCMMerchantManager sharedInstance].activeMerchant.currency;
         NSUInteger selectedCurrencyIndex = [currencies indexOfObject:currentCurrency];
         
-        ActionSheetStringPicker *picker = [[ActionSheetStringPicker alloc] initWithTitle:@"Currency" rows:currencies initialSelection:selectedCurrencyIndex doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
+        ActionSheetStringPicker *picker = [[ActionSheetStringPicker alloc] initWithTitle:NSLocalizedString(@"action_picker.currency", nil) rows:currencies initialSelection:selectedCurrencyIndex doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
             [self.settings setObject:[currencies objectAtIndex:selectedIndex] forKey:kBCMBusinessCurrency];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.settingsTableView reloadData];
@@ -302,11 +304,6 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
         }
         [self presentViewController:pinEntryViewNavController animated:YES completion:nil];
     }
-}
-
-- (void)actionSheetPicker:(AbstractActionSheetPicker *)actionSheetPicker configurePickerView:(UIPickerView *)pickerView
-{
-    
 }
 
 #pragma mark - BCMTextFieldTableViewCellDelegate
@@ -400,7 +397,7 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeCustomView;
     hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check"]];
-    hud.labelText = @"Saved";
+    hud.labelText = NSLocalizedString(@"general.save", nil);
     [hud show:YES];
     [hud hide:YES afterDelay:1.0f];
     
@@ -475,6 +472,5 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
     [[BCMMerchantManager sharedInstance] pinEntryViewController:pinVC successfulEntry:success pin:pin];
     [self.settingsTableView reloadData];
 }
-
 
 @end

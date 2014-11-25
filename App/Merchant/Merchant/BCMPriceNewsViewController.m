@@ -14,12 +14,13 @@
 
 @end
 
+static NSString *const kZeroBlockURL = @"https://zeroblock.com/mobile";
 @implementation BCMPriceNewsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://zeroblock.com/mobile"]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:kZeroBlockURL]]];
     
     [self addNavigationType:BCMNavigationTypeHamburger position:BCMNavigationPositionLeft selector:nil];
 }

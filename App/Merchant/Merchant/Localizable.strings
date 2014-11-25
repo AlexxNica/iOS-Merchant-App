@@ -12,8 +12,16 @@
 "action.save" = "Save";
 "action.cancel" = "Cancel";
 
+
 "general.NA" = "N/A";
 "general.Oops" = "Oops";
+"general.save" = "Saved";
+"general.done" = "Done";
+
+// Transaction Detail
+"transaction.detail.seconds" = "seconds";
+"transaction.detail.minutes" = "minutes";
+"transaction.detail.time.ago" = "%ld %@ ago";
 
 // Sign Up
 "signup.alert.title" = "Try again";
@@ -28,7 +36,6 @@
 "currency.picker.title" = "Currency";
 
 // Navigation
-
 "navigation.pos" = "POS";
 "navigation.item_setup" = "Item Setup";
 "navigation.transactions" = "Transactions";
@@ -37,15 +44,27 @@
 "navigation.logout" = "Logout";
 "navigation.login" = "LogIn";
 
-// POS
+// Add Item
+"addItem.error.missing.name" = "Missing Name";
+"addItem.error.missing.name.detail" = "Item requires a name.";
+"addItem.error.missing.price" = "Missing Price";
+"addItem.error.missing.price.detail" = "Item requires a price.";
 
+// POS
 "item.list.noitems" = "No Items";
-"item.list.custom" = "Custom"";
+"item.list.custom" = "Custom";
 "item.list.number_of_item" = "(%lu item)";
 "item.list.number_of_items" = "(%lu items)";
 
 // Pin Entry
 "Cancel" = "Cancel";
+"pin.entry.enter_passcode" = "Enter your passcode";
+"pin.entry.enter_new_passcode" = "Enter new passcode";
+"pin.entry.re_enter_passcode" = "Re-enter your passcode";
+"pin.entry.validation_failed" = "Passcode Validation Failed";
+"pin.entry.password_incorrect" = "Passcode Incorrect";
+"pin.info.reset_pin" = "Reset Pin";
+"pin.info.set_pin" = "Set Pin";
 
 // Merchant Email
 "merchant.email.hi" = "Hi";
@@ -55,3 +74,17 @@
 "merchant.email.error_not_supported" = "Email Not Supported";
 "merchant.email.error_not_supported_detail" = "This device does not support sending an email.";
 "merchant.email.error_sending_message" = "Error sending Email.  Please check your email and send again.";
+
+// Currency
+"action_picker.currency" = "Currency";
+
+// Settings
+"setting.name.title" = "Business Name";
+"setting.business_address.title" = "Business Address";
+"setting.telephone.title" = "Telephone";
+"setting.description.title" = "Description";
+"setting.website.title" = "Website";
+"setting.currency.title" = "Currency";
+"setting.wallet_address.title" = "Address";
+"setting.directory_listing.title" = "Directory Listing";
+

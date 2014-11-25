@@ -10,6 +10,8 @@
 
 #import "Transaction.h"
 
+#import "BCMNetworking.h"
+
 @interface BCMWebViewController ()
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -44,7 +46,7 @@
 {
     _transaction = transaction;
     
-    self.transactionURLString = [NSString stringWithFormat:@"https://blockchain.info/tx/%@", transaction.transactionHash];
+    self.transactionURLString = [NSString stringWithFormat:@"%@/%@", kBlockChainTxURL, transaction.transactionHash];
 }
 
 #pragma mark - Actions

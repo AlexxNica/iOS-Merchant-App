@@ -42,11 +42,11 @@
     NSString *timeValue = nil;
 
     if (secondsBeforeNow < 60) {
-        timeUnit = @"seconds";
-        timeValue = [NSString stringWithFormat:@"%ld %@ ago", (long)secondsBeforeNow, timeUnit];
+        timeUnit = NSLocalizedString(@"transaction.detail.seconds", nil);
+        timeValue = [NSString stringWithFormat:NSLocalizedString(@"transaction.detail.time.ago", nil), (long)secondsBeforeNow, timeUnit];
     } else if (secondsBeforeNow >= 60 && secondsBeforeNow < 3600) {
-        timeUnit = @"minutes";
-        timeValue = [NSString stringWithFormat:@"%0.0f %@ ago", secondsBeforeNow / 60, timeUnit];
+        timeUnit = NSLocalizedString(@"transaction.detail.minutes", nil);
+        timeValue = [NSString stringWithFormat:NSLocalizedString(@"transaction.detail.time.ago", nil), secondsBeforeNow / 60, timeUnit];
     } else {
         timeUnit = @"";
         timeValue = [transactionDate shortDateString];

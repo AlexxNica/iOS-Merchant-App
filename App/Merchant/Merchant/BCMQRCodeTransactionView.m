@@ -98,13 +98,15 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
     }
 }
 
+static NSString *const kBlockChainSockURL = @"ws://ws.blockchain.info/inv";
+
 @synthesize activeTransaction = _activeTransaction;
 
 - (void)setActiveTransaction:(Transaction *)activeTransaction
 {
     _activeTransaction = activeTransaction;
     
-    NSString *total = @"N/A";
+    NSString *total = NSLocalizedString(@"general.NA", nil);
     NSString *currencySymbol = [[BCMMerchantManager sharedInstance] currencySymbol];
     if ([activeTransaction.purchasedItems count] > 0) {
         total = [NSString stringWithFormat:@"%@%0.2f", currencySymbol,[activeTransaction transactionTotal]];
@@ -137,7 +139,7 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
     
     self.currencyPriceLbl.text = total;
     
-    NSString *urlString = @"ws://ws.blockchain.info/inv";
+    NSString *urlString = kBlockChainSockURL;
     self.transactionSocket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:urlString]];
     self.transactionSocket.delegate = self;
     [self.transactionSocket open];

@@ -13,6 +13,8 @@
 #import "Item.h"
 #import "Transaction.h"
 
+#import "BCMNetworking.h"
+
 #import "Foundation-Utility.h"
 
 @interface BCMTransactionDetailViewController ()
@@ -48,7 +50,7 @@
     self.doneButton.alpha = self.transaction ? 0.0f : 1.0f;
 
     if (self.transaction) {
-        NSString *transactionURLString = [NSString stringWithFormat:@"https://blockchain.info/tx/%@", self.transaction.transactionHash];
+        NSString *transactionURLString = [NSString stringWithFormat:@"%@/%@", kBlockChainTxURL, self.transaction.transactionHash];
         [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:transactionURLString]]];
 
         UIBarButtonItem *barButtonItem = nil;
@@ -76,9 +78,9 @@
     NSString *itemCountText = @"";
     
     if ([self.simpleItems count] == 1) {
-        itemCountText = [NSString stringWithFormat:@"(%lu item)", (unsigned long)[self.simpleItems count]];
+        itemCountText = [NSString stringWithFormat:NSLocalizedString(@"item.list.number_of_item", nil), (unsigned long)[self.simpleItems count]];
     } else {
-        itemCountText = [NSString stringWithFormat:@"(%lu items)", (unsigned long)[self.simpleItems count]];
+        itemCountText = [NSString stringWithFormat:NSLocalizedString(@"item.list.number_of_items", nil), (unsigned long)[self.simpleItems count]];
     }
     self.transactionItemCountLbl.text = itemCountText;
     self.totalTransactionAmountLbl.text = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [self transactionSum]];
@@ -98,6 +100,7 @@
     return sum;
 }
 
+// This will show a webview to display BTC web information about the transaction
 - (void)showTransactionWebDetail
 {
     UIBarButtonItem *barButtonItem = nil;
@@ -114,6 +117,7 @@
                     } completion:nil];
 }
 
+// This will show basic information we have differently
 - (void)showTransactionDetail
 {
     UIBarButtonItem *barButtonItem = nil;
