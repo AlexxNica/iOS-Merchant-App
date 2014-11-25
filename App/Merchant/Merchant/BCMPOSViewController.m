@@ -295,9 +295,9 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     NSString *itemCountText = @"";
     
     if ([self.simpleItems count] == 1) {
-        itemCountText = [NSString stringWithFormat:@"(%lu item)", (unsigned long)[self.simpleItems count]];
+        itemCountText = [NSString stringWithFormat:NSLocalizedString(@"item.list.number_of_item", nil), (unsigned long)[self.simpleItems count]];
     } else {
-        itemCountText = [NSString stringWithFormat:@"(%lu items)", (unsigned long)[self.simpleItems count]];
+        itemCountText = [NSString stringWithFormat:NSLocalizedString(@"item.list.number_of_items", nil), (unsigned long)[self.simpleItems count]];
     }
     self.transactionItemCountLbl.text = itemCountText;
     self.totalTransactionAmountLbl.text = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [self transactionSum]];
@@ -377,22 +377,28 @@ static NSString *const kPOSItemDefaultCellId = @"POSItemCellId";
     if (self.posMode == BCMPOSModeEdit) {
         if ([self.simpleItems count] > 0) {
             cell = [tableView dequeueReusableCellWithIdentifier:kPOSItemDefaultCellId];
-            cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f];
+            if (!cell) {
+                cell.textLabel.font = HELVETICA_NEUE_LIGHT_15;
+            }
             NSDictionary *dict = [self.simpleItems objectAtIndex:row];
             cell.textLabel.text = [dict safeObjectForKey:kItemNameKey];
             NSNumber *itemPrice = [dict safeObjectForKey:kItemPriceKey];
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [itemPrice floatValue]];
         } else {
             cell = [tableView dequeueReusableCellWithIdentifier:@"defaultItemCellId"];
-            cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f];
-            cell.textLabel.text = @"No Items";
+            if (!cell) {
+                cell.textLabel.font = HELVETICA_NEUE_LIGHT_15;
+            }
+            cell.textLabel.text = NSLocalizedString(@"item.list.noitems", nil);
             cell.detailTextLabel.text = @"";
         }
     } else {
         if (section == BCMPOSSectionCustomItem) {
             cell = [tableView dequeueReusableCellWithIdentifier:kPOSItemDefaultCellId];
-            cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f];
-            cell.textLabel.text = @"Custom";
+            if (!cell) {
+                cell.textLabel.font = HELVETICA_NEUE_LIGHT_15;
+            }
+            cell.textLabel.text = NSLocalizedString(@"item.list.custom", nil);
             cell.detailTextLabel.text = @"+";
         } else if (section == BCMPOSSectionItems) {
             Item *item = nil;
@@ -411,10 +417,6 @@ static NSString *const kPOSItemDefaultCellId = @"POSItemCellId";
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-}
-
 const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -430,7 +432,7 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
     NSUInteger row = indexPath.row;
     
     if (self.posMode == BCMPOSModeEdit) {
-        
+        // Can't really do anything when we're in this edit mode and you select an item
     } else {
         if (section == BCMPOSSectionCustomItem) {
             [self showCustomAmountView];
@@ -573,28 +575,31 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
             
             
             NSMutableString *messageBody = [[NSMutableString alloc] init];
-            [messageBody appendFormat:@"Hi %@,\n\n", email];
             
-            NSString *total = @"N/A";
+            NSString *messageHi = NSLocalizedString(@"merchant.email.hi", nil);
+            [messageBody appendFormat:@"%@ %@,\n\n", messageHi, email];
+            
+            NSString *total = NSLocalizedString(@"general.NA", nil);
             NSString *currencySymbol = [[BCMMerchantManager sharedInstance] currencySymbol];
             Transaction *activeTransaction = self.activeTransition;
             if ([activeTransaction.purchasedItems count] > 0) {
                 total = [NSString stringWithFormat:@"%@%0.2f", currencySymbol,[activeTransaction transactionTotal]];
             }
             
-            [messageBody appendFormat:@"Here is your receipt for your %@ at %@ on %@.", total, [BCMMerchantManager sharedInstance].activeMerchant.name, [activeTransaction.creation_date shortDateString]];
-            [messageBody appendString:@"\n\n\n Thanks for using Blockchain Merchant!"];
+            [messageBody appendFormat:NSLocalizedString(@"merchant.email.receiptInfo", nil), total, [BCMMerchantManager sharedInstance].activeMerchant.name, [activeTransaction.creation_date shortDateString]];
+            [messageBody appendString:@"\n\n\n"];
+            [messageBody appendString:NSLocalizedString(@"merchant.email.thanks", nil)];
             [mailComposeViewController setMessageBody:messageBody isHTML:NO];
             [mailComposeViewController setToRecipients: @[email] ];
-            NSString *subjectTitle = [NSString stringWithFormat:@"Receipt from %@", [BCMMerchantManager sharedInstance].activeMerchant.name];
             
+            NSString *subjectTitle = [NSString stringWithFormat:NSLocalizedString(@"merchant.email.subject", nil), [BCMMerchantManager sharedInstance].activeMerchant.name];
             [mailComposeViewController setSubject:subjectTitle];
             // Present the composition view
             [self presentViewController:mailComposeViewController animated:YES completion:^{
             }];
         }
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Email Not Supported" message:@"This device does not support sending an email." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"merchant.email.error_not_supported", nil) message:NSLocalizedString(@"merchant.email.error_not_supported_detail", nil) delegate:self cancelButtonTitle:nil otherButtonTitles:LOCALIZED_ALERT_OK, nil];
         [alert show];
     }
 }
@@ -617,7 +622,7 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
             dismissTransactionView = YES;
             break;
         case MFMailComposeResultFailed:
-            alertMessage = @"Error sending Email.  Please check your email and send again.";
+            alertMessage = NSLocalizedString(@"merchant.email.error_sending_message", nil);
             break;
         default:
             break;
@@ -627,7 +632,7 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
         [self hideTransactionViewAndUpdateModel];
     } else {
         if ([alertMessage length] > 0) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops" message:alertMessage delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"general.Oops", nil) message:alertMessage delegate:self cancelButtonTitle:nil otherButtonTitles:LOCALIZED_ALERT_OK, nil];
             [alert show];
         }
     }

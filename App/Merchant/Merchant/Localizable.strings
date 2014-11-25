@@ -12,6 +12,9 @@
 "action.save" = "Save";
 "action.cancel" = "Cancel";
 
+"general.NA" = "N/A";
+"general.Oops" = "Oops";
+
 // Sign Up
 "signup.alert.title" = "Try again";
 "signup.warning" = "Business Name, Wallet Address, and Currency are required.";
@@ -34,18 +37,21 @@
 "navigation.logout" = "Logout";
 "navigation.login" = "LogIn";
 
+// POS
+
+"item.list.noitems" = "No Items";
+"item.list.custom" = "Custom"";
+"item.list.number_of_item" = "(%lu item)";
+"item.list.number_of_items" = "(%lu items)";
+
 // Pin Entry
 "Cancel" = "Cancel";
 
-/* No comment provided by engineer. */
-"Please enter your PIN" = "Please enter your PIN";
-
-/* No comment provided by engineer. */
-"Please enter a new PIN" = "Please enter a new PIN";
-
-/* No comment provided by engineer. */
-"Confirm your PIN" = "Confirm your PIN";
-
-/* No comment provided by engineer. */
-"Incorrect PIN. Please retry." = "Incorrect PIN. Please retry.";
-
+// Merchant Email
+"merchant.email.hi" = "Hi";
+"merchant.email.receiptInfo" = "Here is your receipt for your %@ at %@ on %@.";
+"merchant.email.thanks" = "Thanks for using Blockchain Merchant!";
+"merchant.email.subject" = "Receipt from %@";
+"merchant.email.error_not_supported" = "Email Not Supported";
+"merchant.email.error_not_supported_detail" = "This device does not support sending an email.";
+"merchant.email.error_sending_message" = "Error sending Email.  Please check your email and send again.";

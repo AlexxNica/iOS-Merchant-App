@@ -14,6 +14,12 @@
 
 #define MAIN_STORYBOARD_NAME @"Main"
 
+#define HELVETICA_NEUE_LIGHT_15 [UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f]
+
+// Localized Constants
+
+#define LOCALIZED_ALERT_OK NSLocalizedString(@"alert.OK", nil)
+
 //#define MOCK_BTC_TRANSACTION 1
 
 #endif
