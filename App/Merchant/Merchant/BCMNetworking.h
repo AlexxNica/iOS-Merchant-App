@@ -11,11 +11,17 @@
 typedef void(^BCMNetworkingSuccess)(NSURLRequest *request, NSDictionary *dict);
 typedef void(^BCMNetworkingFailure)(NSURLRequest *request, NSError* error);
 
+@class Merchant;
+
 @interface BCMNetworking : NSObject
 
 - (NSURLRequest *)retrieveBitcoinCurrenciesSuccess:(BCMNetworkingSuccess)success error:(BCMNetworkingFailure)failure;
 
 - (NSURLRequest *)convertToBitcoinFromAmount:(CGFloat)amount fromCurrency:(NSString *)currency success:(BCMNetworkingSuccess)success error:(BCMNetworkingFailure)failure;
+
+// Merchant Listing
+- (NSURLRequest *)retrieveSuggestMerchantsSuccess:(BCMNetworkingSuccess)success error:(BCMNetworkingFailure)failure;
+- (NSURLRequest *)postSuggestMerchant:(Merchant *)merchant success:(BCMNetworkingSuccess)success error:(BCMNetworkingFailure)failure;
 
 - (instancetype)init;
 
