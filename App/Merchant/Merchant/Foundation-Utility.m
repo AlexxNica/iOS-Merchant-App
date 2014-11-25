@@ -22,3 +22,14 @@
 }
 
 @end
+
+@implementation NSMutableDictionary (Utility)
+
+- (void)setObjectOrNil:(id)object forKey:(id)key
+{
+    if (object) {
+        [self setObject:object forKey:key];
+    }
+}
+
+@end

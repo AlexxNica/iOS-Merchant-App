@@ -12,3 +12,9 @@
 - (id)safeObjectForKey:(id)key ofClass:(Class)class;
 
 @end
+
+@interface NSMutableDictionary (Utility)
+
+- (void)setObjectOrNil:(id)object forKey:(id)key;
+
+@end
