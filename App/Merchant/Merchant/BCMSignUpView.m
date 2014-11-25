@@ -35,6 +35,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewBottomConstraint;
 
 @property (strong, nonatomic) UIView *inputAccessoryView;
+@property (copy, nonatomic) NSString *tempCurrency;
 
 
 @end
@@ -133,6 +134,7 @@
         Merchant *merchant = [Merchant MR_createEntity];
         merchant.name = self.nameTextField.text;
         merchant.walletAddress = self.walletTextField.text;
+        merchant.currency = self.tempCurrency;
         
         NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
         [localContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
@@ -150,18 +152,25 @@
     BOOL canEdit = YES;
     
     if (textField == self.currencyTextField) {
+        
+        // Hide the keyboard if necessary
+        [self endEditing:YES];
+        
         canEdit = NO;
         NSBundle *mainBundle = [NSBundle mainBundle];
         NSString *currencyPath = [mainBundle pathForResource:@"SupportedCurrencies" ofType:@"plist"];
         NSArray *currencies = [NSArray arrayWithContentsOfFile:currencyPath];
         
-        NSString *currentCurrency = [[NSUserDefaults standardUserDefaults] objectForKey:kBCMCurrencySettingsKey];
-        NSUInteger selectedCurrencyIndex = [currencies indexOfObject:currentCurrency];
+        NSString *currentCurrency = self.tempCurrency;
+        
+        NSUInteger selectedCurrencyIndex = 0;
+        if ([self.tempCurrency length] > 0) {
+            selectedCurrencyIndex = [currencies indexOfObject:currentCurrency];
+        }
         
         ActionSheetStringPicker *picker = [[ActionSheetStringPicker alloc] initWithTitle:NSLocalizedString(@"currency.picker.title", nil) rows:currencies initialSelection:selectedCurrencyIndex doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
-            [[NSUserDefaults standardUserDefaults] setObject:[currencies objectAtIndex:selectedIndex] forKey:kBCMCurrencySettingsKey];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            self.currencyTextField.text = [currencies objectAtIndex:selectedIndex];
+            self.tempCurrency = [currencies objectAtIndex:selectedIndex];
+            self.currencyTextField.text = self.tempCurrency;
         } cancelBlock:^(ActionSheetStringPicker *picker) {
             
         } origin:self];

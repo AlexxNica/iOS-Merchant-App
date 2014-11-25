@@ -10,6 +10,7 @@
 
 
 #import "Transaction.h"
+#import "Merchant.h"
 
 #import "BCMMerchantManager.h"
 
@@ -109,7 +110,7 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
         total = [NSString stringWithFormat:@"%@%0.2f", currencySymbol,[activeTransaction transactionTotal]];
     }
     
-    NSString *currency = [[NSUserDefaults standardUserDefaults] objectForKey:kBCMCurrencySettingsKey];
+    NSString *currency = [BCMMerchantManager sharedInstance].activeMerchant.currency;
     [self.networking convertToBitcoinFromAmount:activeTransaction.transactionTotal fromCurrency:[currency uppercaseString] success:^(NSURLRequest *request, NSDictionary *dict) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.spinner stopAnimating];
@@ -117,7 +118,7 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
             NSString *bitcoinValue = [NSString stringWithFormat:@"%@ BTC", [dict safeObjectForKey:@"btcValue"]];
             ;
             self.bitcoinPriceLbl.text = bitcoinValue;
-            NSString *merchantAddress = [[NSUserDefaults standardUserDefaults] objectForKey:kBCMWalletSettingsKey];
+            NSString *merchantAddress = [BCMMerchantManager sharedInstance].activeMerchant.walletAddress;
             NSString *qrEncodeString = [NSString stringWithFormat:@"bitcoin://%@?amount:=%@", merchantAddress, bitcoinValue];
             self.qrCodeImageView.image = [self generateQRCodeWithString:qrEncodeString scale:4 * [[UIScreen mainScreen] scale]];
             self.activeTransaction.bitcoinAmountValue = [bitcoinValue floatValue];
