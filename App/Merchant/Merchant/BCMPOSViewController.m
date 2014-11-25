@@ -228,6 +228,7 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
 }
 
 #pragma mark - Actions
+
 - (IBAction)clearSearchAction:(id)sender
 {
     [self.searchView clear];
@@ -300,7 +301,6 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     }
     self.transactionItemCountLbl.text = itemCountText;
     self.totalTransactionAmountLbl.text = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [self transactionSum]];
-    
 }
 
 - (CGFloat)transactionSum
@@ -377,18 +377,21 @@ static NSString *const kPOSItemDefaultCellId = @"POSItemCellId";
     if (self.posMode == BCMPOSModeEdit) {
         if ([self.simpleItems count] > 0) {
             cell = [tableView dequeueReusableCellWithIdentifier:kPOSItemDefaultCellId];
+            cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f];
             NSDictionary *dict = [self.simpleItems objectAtIndex:row];
             cell.textLabel.text = [dict safeObjectForKey:kItemNameKey];
             NSNumber *itemPrice = [dict safeObjectForKey:kItemPriceKey];
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [itemPrice floatValue]];
         } else {
             cell = [tableView dequeueReusableCellWithIdentifier:@"defaultItemCellId"];
+            cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f];
             cell.textLabel.text = @"No Items";
             cell.detailTextLabel.text = @"";
         }
     } else {
         if (section == BCMPOSSectionCustomItem) {
             cell = [tableView dequeueReusableCellWithIdentifier:kPOSItemDefaultCellId];
+            cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f];
             cell.textLabel.text = @"Custom";
             cell.detailTextLabel.text = @"+";
         } else if (section == BCMPOSSectionItems) {
@@ -412,7 +415,7 @@ static NSString *const kPOSItemDefaultCellId = @"POSItemCellId";
 {
 }
 
-const CGFloat kBBPOSItemDefaultRowHeight = 38.0f;
+const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
