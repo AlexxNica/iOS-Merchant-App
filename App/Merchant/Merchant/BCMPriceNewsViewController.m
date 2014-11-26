@@ -14,7 +14,7 @@
 
 @end
 
-static NSString *const kZeroBlockURL = @"https://zeroblock.com/mobile";
+static NSString *const kZeroBlockURL = @"https://zeroblock.com";
 @implementation BCMPriceNewsViewController
 
 - (void)viewDidLoad {
