@@ -88,6 +88,9 @@
 // Settings
 "setting.name.title" = "Business Name";
 "setting.business_address.title" = "Business Address";
+"setting.business_address.city" = "Business City";
+"setting.business_address.zipcode" = "Business Zipcode";
+"setting.business_address.category" = "Category";
 "setting.telephone.title" = "Telephone";
 "setting.description.title" = "Description";
 "setting.website.title" = "Website";
@@ -95,3 +98,11 @@
 "setting.wallet_address.title" = "Address";
 "setting.directory_listing.title" = "Directory Listing";
 
+"setting.location_services.trouble_finding.title" = "Error Finding Location";
+"setting.location_services.trouble_finding.detail" = "Please try again";
+
+"setting.location_services.disabled.title" = "Location Servivces Disabled";
+"setting.location_services.disabled.detail" = "Go to your Privacy Settings and enable location services for BlockChain Merchant.";
+"setting.location_services.locating" = "Locating";
+
+"action_picker.categories" = "Category";

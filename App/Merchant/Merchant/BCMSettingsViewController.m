@@ -30,9 +30,17 @@
 #import "UIColor+Utilities.h"
 #import "Foundation-Utility.h"
 
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import <AddressBook/AddressBook.h>
+
 typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
     BCMSettingsRowBusinessName,
     BCMSettingsRowBusinessAddress,
+    BCMSettingsRowBusinessCity,
+    BCMSettingsRowBusinessZipCode,
+    BCMSettingsRowCurrentLocation,
+    BCMSettingsRowBusinessCategory,
     BCMSettingsRowTelephone,
     BCMSettingsRowDescription,
     BCMSettingsRowWebsite,
@@ -43,7 +51,7 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
     BCMSettingsRowCount
 };
 
-@interface BCMSettingsViewController () <BCMTextFieldTableViewCellDelegate, BCMSwitchTableViewCellDelegate, BCMQRCodeScannerViewControllerDelegate, BCPinEntryViewControllerDelegate>
+@interface BCMSettingsViewController () <BCMTextFieldTableViewCellDelegate, BCMSwitchTableViewCellDelegate, BCMQRCodeScannerViewControllerDelegate, BCPinEntryViewControllerDelegate, CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *settingsTableView;
 
@@ -52,6 +60,10 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
 @property (strong, nonatomic) NSMutableDictionary *settings;
 
 @property (strong, nonatomic) NSDictionary *businessCategories;
+
+@property (strong, nonatomic) MBProgressHUD *locationHUD;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+
 @end
 
 @implementation BCMSettingsViewController
@@ -87,12 +99,16 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
 {
     [super viewWillAppear:animated];
 
+    [self.locationHUD hide:YES];
+    
     [self addObservers];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    
+    [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
     
     [self removeObservers];
 }
@@ -147,6 +163,35 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
     }
 }
 
+#pragma mark - CCLocationManagerDelegate
+
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    if (status != kCLAuthorizationStatusDenied) {
+        [self.locationHUD show:YES];
+        [self.locationManager startUpdatingLocation];
+    }
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"error: %@", error.description);
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation
+          fromLocation:(CLLocation *)oldLocation
+{
+    [self.settings setObject:@"" forKey:kBCMBusinessLongitude];
+    [self.settings setObject:@"" forKey:kBCMBusinessLatitude];
+    [self.settings setObject:[NSNumber numberWithLong:newLocation.coordinate.longitude] forKey:kBCMBusinessLongitude];
+    [self.settings setObject:[NSNumber numberWithLong:newLocation.coordinate.latitude] forKey:kBCMBusinessLatitude];
+    
+    [self reverseGeocode:newLocation];
+    
+    [manager stopUpdatingLocation];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -156,6 +201,7 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
 
 static NSString *const kSettingsTextFieldCellId = @"settingTextFieldCellId";
 static NSString *const kSettingsSwitchCellId = @"settingSwitchCellId";
+static NSString *const kSettingsCurrentLocationCellId = @"currentLocationCellId";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -179,6 +225,17 @@ static NSString *const kSettingsSwitchCellId = @"settingSwitchCellId";
             settingTitle = NSLocalizedString(@"setting.business_address.title", nil);
             settingKey = kBCMBusinessStreetAddress;
             break;
+        case BCMSettingsRowBusinessCity:
+            settingTitle = NSLocalizedString(@"setting.business_address.city", nil);
+            settingKey = kBCMBusinessCityAddress;
+            break;
+        case BCMSettingsRowBusinessZipCode:
+            settingTitle = NSLocalizedString(@"setting.business_address.zipcode", nil);
+            settingKey = kBCMBusinessZipcodeAddress;
+            break;
+        case BCMSettingsRowCurrentLocation:
+            settingTitle = @"";
+            reuseCellId = kSettingsCurrentLocationCellId;
         case BCMSettingsRowBusinessCategory: {
             settingTitle = NSLocalizedString(@"setting.business_address.category", nil);
             canEdit = NO;
@@ -264,6 +321,9 @@ static NSString *const kSettingsSwitchCellId = @"settingSwitchCellId";
         textFieldCell.canEdit = canEdit;
         
         cell = textFieldCell;
+    } else if ([reuseCellId isEqualToString:kSettingsCurrentLocationCellId]) {
+        // We don't do anything other than grab the cell
+        cell = [tableView dequeueReusableCellWithIdentifier:kSettingsCurrentLocationCellId];
     } else {
         BCMSwitchTableViewCell *switchCell = [tableView dequeueReusableCellWithIdentifier:kSettingsSwitchCellId];
         switchCell.delegate = self;
@@ -335,7 +395,70 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
             entryViewController.userMode = PinEntryUserModeCreate;
         }
         [self presentViewController:pinEntryViewNavController animated:YES completion:nil];
+    } else if (indexPath.row == BCMSettingsRowCurrentLocation) {
+        if (!self.locationManager) {
+            self.locationManager = [[CLLocationManager alloc] init];
+            self.locationManager.delegate = self;
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+        }
+        if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"setting.location_services.disabled.title", nil) message:NSLocalizedString(@"setting.location_services.disabled.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
+            [alertView show];
+        } else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways) {
+            [self.view addSubview:self.locationHUD];
+            [self.locationHUD show:YES];
+            [self.locationManager startUpdatingLocation];
+        } else {
+            if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+                [self.locationManager requestWhenInUseAuthorization];
+            } else {
+                [self.view addSubview:self.locationHUD];
+                [self.locationHUD show:YES];
+                [self.locationManager startUpdatingLocation];
+            }
+        }
     }
+}
+
+@synthesize locationHUD = _locationHUD;
+
+- (MBProgressHUD *)locationHUD
+{
+    if (!_locationHUD) {
+        _locationHUD = [[MBProgressHUD alloc] initWithView:self.view];
+        _locationHUD.mode = MBProgressHUDModeIndeterminate;
+        _locationHUD.labelText = NSLocalizedString(@"setting.location_services.locating", nil);
+    }
+    
+    return _locationHUD;
+}
+
+- (void)reverseGeocode:(CLLocation *)location {
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        if (error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+            [self.locationHUD hide:YES];
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"setting.location_services.trouble_finding.title", nil) message:NSLocalizedString(@"setting.location_services.trouble_finding.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
+                [alertView show];
+            });
+        } else {
+            // Clear out current values so there is no confusion
+            [self.settings setObject:@"" forKey:kBCMBusinessStreetAddress];
+            [self.settings setObject:@"" forKey:kBCMBusinessCityAddress];
+            [self.settings setObject:@"" forKey:kBCMBusinessZipcodeAddress];
+
+            CLPlacemark *placemark = [placemarks lastObject];
+            NSDictionary *addressDictionary = placemark.addressDictionary;
+            [self.settings setObjectOrNil:(NSString *)[addressDictionary safeObjectForKey:(NSString *)kABPersonAddressStreetKey] forKey:kBCMBusinessStreetAddress];
+            [self.settings setObjectOrNil:(NSString *)[addressDictionary safeObjectForKey:(NSString *)kABPersonAddressCityKey] forKey:kBCMBusinessCityAddress];
+            [self.settings setObjectOrNil:(NSString *)[addressDictionary safeObjectForKey:(NSString *)kABPersonAddressZIPKey] forKey:kBCMBusinessZipcodeAddress];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.locationHUD hide:YES];
+                [self.settingsTableView reloadData];
+            });
+        }
+    }];
 }
 
 #pragma mark - BCMTextFieldTableViewCellDelegate
@@ -351,6 +474,15 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
             break;
         case BCMSettingsRowBusinessAddress:
             settingKey = kBCMBusinessStreetAddress;
+            break;
+        case BCMSettingsRowBusinessCity:
+            settingKey = kBCMBusinessCityAddress;
+            break;
+        case BCMSettingsRowBusinessZipCode:
+            settingKey = kBCMBusinessZipcodeAddress;
+            break;
+        case BCMSettingsRowBusinessCategory:
+            settingKey = kBCMBusinessCategory;
             break;
         case BCMSettingsRowTelephone:
             settingKey = kBCMBusinessTelephone;
@@ -444,6 +576,9 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
     merchant.webURL = [self.settings safeObjectForKey:kBCMBusinessWebURL];
     merchant.businessDescription = [self.settings safeObjectForKey:kBCMBusinessDescription];
 
+    merchant.longitude = [self.settings safeObjectForKey:kBCMBusinessLongitude];
+    merchant.longitude = [self.settings safeObjectForKey:kBCMBusinessLatitude];
+    
     merchant.currency =  [self.settings safeObjectForKey:kBCMBusinessCurrency];
     merchant.walletAddress = [self.settings safeObjectForKey:kBCMBusinessWalletAddress];
     
