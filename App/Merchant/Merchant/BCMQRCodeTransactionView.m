@@ -30,6 +30,7 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
 @property (weak, nonatomic) IBOutlet UILabel *currencyPriceLbl;
 @property (weak, nonatomic) IBOutlet UILabel *bitcoinPriceLbl;
 @property (weak, nonatomic) IBOutlet UIImageView *qrCodeImageView;
+@property (weak, nonatomic) IBOutlet UILabel *infoLbl;
 
 @property (strong, nonatomic) BCMNetworking *networking;
 @property (strong, nonatomic) SRWebSocket *transactionSocket;
@@ -47,10 +48,7 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
     
     self.networking = [[BCMNetworking alloc] init];
     [self.spinner startAnimating];
-    [self.networking retrieveBitcoinCurrenciesSuccess:^(NSURLRequest *request, NSDictionary *dict) {
-    } error:^(NSURLRequest *request, NSError *error) {
-        NSLog(@"ERROR");
-    }];
+    self.infoLbl.text = NSLocalizedString(@"qr.trasnasction.info.waiting", nil);
 }
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket
@@ -69,7 +67,6 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean
 {
     NSLog(@"Socket Closed");
-    
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message
@@ -95,6 +92,15 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
     if ([self.delegate respondsToSelector:@selector(transactionViewDidComplete:)]) {
         [self.transactionSocket close];
         [self.delegate transactionViewDidComplete:self];
+    }
+}
+
+- (void)cancelTransactionAndDismiss
+{
+    [self.transactionSocket close];
+    
+    if ([self.delegate respondsToSelector:@selector(transactionViewDidClear:)]) {
+        [self.delegate transactionViewDidClear:self];
     }
 }
 
@@ -134,6 +140,9 @@ static NSString *const kBlockChainSockURL = @"ws://ws.blockchain.info/inv";
 #ifdef MOCK_BTC_TRANSACTION
             [self performSelector:@selector(transactionCompleted) withObject:nil afterDelay:1.0f];
 #endif
+            // Display alert to prevent the user from continuing
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"network.problem.title", nil) message:NSLocalizedString(@"network.problem.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
+            [alertView show];
         });
     }];
     
@@ -178,10 +187,15 @@ static NSString *const kBlockChainSockURL = @"ws://ws.blockchain.info/inv";
 
 - (IBAction)clearAction:(id)sender
 {
-    [self.transactionSocket close];
-    
-    if ([self.delegate respondsToSelector:@selector(transactionViewDidClear:)]) {
-        [self.delegate transactionViewDidClear:self];
+    [self cancelTransactionAndDismiss];
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if ([alertView.title isEqualToString:NSLocalizedString(@"network.problem.title", nil)]) {
+        [self cancelTransactionAndDismiss];
     }
 }
 

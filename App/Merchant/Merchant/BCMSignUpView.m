@@ -59,6 +59,10 @@
     [self setNeedsLayout];
     [self layoutIfNeeded];
 
+    // Default to USD
+    self.tempCurrency = @"USD";
+    self.currencyTextField.text = self.tempCurrency;
+    
     [self.cancelButton setTitle:NSLocalizedString(@"action.cancel", nil) forState:UIControlStateNormal];
     [self.saveButton setTitle:NSLocalizedString(@"action.save", nil) forState:UIControlStateNormal];
     

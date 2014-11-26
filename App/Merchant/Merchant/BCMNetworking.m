@@ -10,7 +10,7 @@
 
 NSString *kBlockChainTxURL = @"https://blockchain.info/tx";
 
-static const NSString *kBCBaseURL = @"https://blockchain.info";
+static const NSString *kBCBaseURL = @"http://blockchain.info";
 static const NSString *kBCDevBaseURL = @"http://192.64.115.86";
 
 static const NSString *kBCExchangeRatesRoute = @"ticker";
@@ -57,7 +57,7 @@ static const NSString *kBCMerchangeSuggestRoute = @"suggest_merchant.php";
 
 - (NSURLRequest *)convertToBitcoinFromAmount:(CGFloat)amount fromCurrency:(NSString *)currency success:(BCMNetworkingSuccess)success error:(BCMNetworkingFailure)failure
 {
-    NSString *urlString = [NSString stringWithFormat:@"%@/api/%@?currency=%@&value=%.2f", kBCDevBaseURL, kBCConvertToBitcoin, currency, amount];
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@?currency=%@&value=%.2f", kBCBaseURL, kBCConvertToBitcoin, currency, amount];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     
     [NSURLConnection sendAsynchronousRequest:urlRequest queue:self.mediumPriorityRequestQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {

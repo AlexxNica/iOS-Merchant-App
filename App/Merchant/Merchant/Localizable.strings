@@ -18,6 +18,10 @@
 "general.save" = "Saved";
 "general.done" = "Done";
 
+// Networking
+"network.problem.title" = "Network Error";
+"network.problem.detail" = "We encountered a networking issue.  Please try again.";
+
 // Transaction Detail
 "transaction.detail.seconds" = "seconds";
 "transaction.detail.minutes" = "minutes";
@@ -55,6 +59,9 @@
 "item.list.custom" = "Custom";
 "item.list.number_of_item" = "(%lu item)";
 "item.list.number_of_items" = "(%lu items)";
+
+// Transaction
+"qr.trasnasction.info.waiting" = "Waiting For Payment";
 
 // Pin Entry
 "Cancel" = "Cancel";
