@@ -59,6 +59,7 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
 @property (strong, nonatomic) IBOutlet UIView *customAmountContainerView;
 @property (strong, nonatomic) IBOutlet BCMCustomAmountView *customAmountView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topMarginConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *chargeButton;
 
 @property (strong, nonatomic) IBOutlet UIView *searchContainerView;
 @property (strong, nonatomic) BCMSearchView *searchView;
@@ -301,6 +302,14 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     }
     self.transactionItemCountLbl.text = itemCountText;
     self.totalTransactionAmountLbl.text = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [self transactionSum]];
+    
+    if ([self transactionSum] > 0) {
+        self.chargeButton.alpha = 1.0f;
+        self.chargeButton.userInteractionEnabled = YES;
+    } else {
+        self.chargeButton.alpha = 0.50f;
+        self.chargeButton.userInteractionEnabled = NO;
+    }
 }
 
 - (CGFloat)transactionSum
