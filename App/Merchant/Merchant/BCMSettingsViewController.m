@@ -51,13 +51,18 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
 
 @property (strong, nonatomic) NSMutableDictionary *settings;
 
+@property (strong, nonatomic) NSDictionary *businessCategories;
 @end
 
 @implementation BCMSettingsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        
+    
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSString *categoryPath = [mainBundle pathForResource:@"BusinessCategories" ofType:@"plist"];
+    self.businessCategories = [NSDictionary dictionaryWithContentsOfFile:categoryPath];
+    
     self.settings = [[NSMutableDictionary alloc] init];
     
     self.settingsTableView.contentInset = UIEdgeInsetsMake(20.0f, 0.0f, 0.0f, 0.0f);
@@ -174,6 +179,14 @@ static NSString *const kSettingsSwitchCellId = @"settingSwitchCellId";
             settingTitle = NSLocalizedString(@"setting.business_address.title", nil);
             settingKey = kBCMBusinessStreetAddress;
             break;
+        case BCMSettingsRowBusinessCategory: {
+            settingTitle = NSLocalizedString(@"setting.business_address.category", nil);
+            canEdit = NO;
+            NSNumber *businessCategoryNumber = [self.settings safeObjectForKey:kBCMBusinessCategory];
+            settingValue = [self.businessCategories safeObjectForKey:[businessCategoryNumber stringValue]];
+            settingKey = kBCMBusinessCategory;
+            break;
+        }
         case BCMSettingsRowTelephone:
             settingTitle = NSLocalizedString(@"setting.telephone.title", nil);
             settingKey = kBCMBusinessTelephone;
@@ -292,6 +305,25 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
             
         } origin:self.view];
         [picker showActionSheetPicker];
+    } else if (indexPath.row == BCMSettingsRowBusinessCategory) {
+        NSMutableArray *categories = [NSMutableArray array];
+        for (int i = 0; i < [[self.businessCategories allKeys] count]; i++) {
+            NSString *name = [self.businessCategories safeObjectForKey:[NSString stringWithFormat:@"%d", i]];
+            if ([name length] > 0) {
+                [categories addObject:name];
+            }
+        }
+
+        NSUInteger selectedCategoryId = [[self.settings safeObjectForKey:kBCMBusinessCategory] integerValue];
+        
+        ActionSheetStringPicker *picker = [[ActionSheetStringPicker alloc] initWithTitle:NSLocalizedString(@"action_picker.categories", nil) rows:categories initialSelection:selectedCategoryId - 1 doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
+            [self.settings setObject:[NSNumber numberWithInteger:selectedIndex + 1] forKey:kBCMBusinessCategory];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.settingsTableView reloadData];
+            });
+        } cancelBlock:^(ActionSheetStringPicker *picker) {
+        } origin:self.view];
+        [picker showActionSheetPicker];
     } else if (indexPath.row == BCMSettingsRowSetPin) {
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:MAIN_STORYBOARD_NAME bundle:nil];
         UINavigationController *pinEntryViewNavController = [mainStoryboard instantiateViewControllerWithIdentifier:kPinEntryStoryboardId];
@@ -402,6 +434,7 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
     [hud hide:YES afterDelay:1.0f];
     
     Merchant *merchant = [BCMMerchantManager sharedInstance].activeMerchant;
+    merchant.businessCategory = [self.settings safeObjectForKey:kBCMBusinessCategory];
     merchant.name = [self.settings safeObjectForKey:kBCMBusinessName];
     merchant.streetAddress = [self.settings safeObjectForKey:kBCMBusinessStreetAddress];
     merchant.city = [self.settings safeObjectForKey:kBCMBusinessCityAddress];
