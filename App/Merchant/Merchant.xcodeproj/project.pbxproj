@@ -22,6 +22,8 @@
 		FA0614E11A1CE287004F71F4 /* pin_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614E01A1CE287004F71F4 /* pin_delete@2x.png */; };
 		FA0614E41A1E307D004F71F4 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0614E31A1E307D004F71F4 /* Crashlytics.framework */; };
 		FA10E2A91A1E4147005DEB6B /* Foundation-Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10E2A81A1E4147005DEB6B /* Foundation-Utility.m */; };
+		FA20E67E1A2644C400B70DCF /* current_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA20E67D1A2644C400B70DCF /* current_location@2x.png */; };
+		FA26249A1A261B3F006C824A /* BusinessCategories.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA2624991A261B3F006C824A /* BusinessCategories.plist */; };
 		FA74B69C1A08C3B70045A4EF /* BCMPaymentReceivedView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74B69B1A08C3B70045A4EF /* BCMPaymentReceivedView.m */; };
 		FA74B69E1A08C3D20045A4EF /* BCMPaymentReceivedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA74B69D1A08C3D20045A4EF /* BCMPaymentReceivedView.xib */; };
 		FA74B6A01A08C6CC0045A4EF /* green_check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74B69F1A08C6CC0045A4EF /* green_check@2x.png */; };
@@ -93,6 +95,8 @@
 		FAB117751A11D77800E876BA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB117631A11D77800E876BA /* Icon.png */; };
 		FAB117761A11D77800E876BA /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB117641A11D77800E876BA /* Icon@2x.png */; };
 		FAB117771A11D77800E876BA /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB117651A11D77800E876BA /* iTunesArtwork@2x.png */; };
+		FAC3A1FA1A2657F900ADA872 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3A1F91A2657F900ADA872 /* MapKit.framework */; };
+		FAC3A1FC1A2657FE00ADA872 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3A1FB1A2657FE00ADA872 /* CoreLocation.framework */; };
 		FAEB496819F9385000B774EC /* BCMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEB496719F9385000B774EC /* BCMBaseViewController.m */; };
 		FAEB496B19F9396800B774EC /* hamburger@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEB496A19F9396800B774EC /* hamburger@2x.png */; };
 		FAEB496E19F93B3600B774EC /* BCMPOSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEB496D19F93B3600B774EC /* BCMPOSViewController.m */; };
@@ -139,8 +143,11 @@
 		FA0614DC1A1CDF1B004F71F4 /* PEPin-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PEPin-off.png"; path = "../../../Assets/PEPin-off.png"; sourceTree = "<group>"; };
 		FA0614DD1A1CDF1B004F71F4 /* PEPin-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PEPin-on.png"; path = "../../../Assets/PEPin-on.png"; sourceTree = "<group>"; };
 		FA0614E01A1CE287004F71F4 /* pin_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin_delete@2x.png"; path = "../../../Assets/pin_delete@2x.png"; sourceTree = "<group>"; };
+		FA0614E31A1E307D004F71F4 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		FA10E2A71A1E4147005DEB6B /* Foundation-Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Foundation-Utility.h"; sourceTree = "<group>"; };
 		FA10E2A81A1E4147005DEB6B /* Foundation-Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation-Utility.m"; sourceTree = "<group>"; };
+		FA20E67D1A2644C400B70DCF /* current_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "current_location@2x.png"; path = "../../../Assets/current_location@2x.png"; sourceTree = "<group>"; };
+		FA2624991A261B3F006C824A /* BusinessCategories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BusinessCategories.plist; sourceTree = "<group>"; };
 		FA74B69A1A08C3B70045A4EF /* BCMPaymentReceivedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMPaymentReceivedView.h; sourceTree = "<group>"; };
 		FA74B69B1A08C3B70045A4EF /* BCMPaymentReceivedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMPaymentReceivedView.m; sourceTree = "<group>"; };
 		FA74B69D1A08C3D20045A4EF /* BCMPaymentReceivedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCMPaymentReceivedView.xib; sourceTree = "<group>"; };
@@ -247,6 +254,8 @@
 		FAB117631A11D77800E876BA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		FAB117641A11D77800E876BA /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		FAB117651A11D77800E876BA /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		FAC3A1F91A2657F900ADA872 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FAC3A1FB1A2657FE00ADA872 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FAEB496619F9385000B774EC /* BCMBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMBaseViewController.h; sourceTree = "<group>"; };
 		FAEB496719F9385000B774EC /* BCMBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMBaseViewController.m; sourceTree = "<group>"; };
 		FAEB496A19F9396800B774EC /* hamburger@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hamburger@2x.png"; path = "../../../Assets/hamburger@2x.png"; sourceTree = "<group>"; };
@@ -272,6 +281,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC3A1FC1A2657FE00ADA872 /* CoreLocation.framework in Frameworks */,
+				FAC3A1FA1A2657F900ADA872 /* MapKit.framework in Frameworks */,
 				FA0614E41A1E307D004F71F4 /* Crashlytics.framework in Frameworks */,
 				DB30FC0C0492FD3BCF38E04C /* libPods.a in Frameworks */,
 			);
@@ -299,6 +310,8 @@
 		8926809DB7CF39BDF91E1B56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAC3A1FB1A2657FE00ADA872 /* CoreLocation.framework */,
+				FAC3A1F91A2657F900ADA872 /* MapKit.framework */,
 				FA0614E31A1E307D004F71F4 /* Crashlytics.framework */,
 				E653431E28EC983287D12D53 /* libPods.a */,
 			);
@@ -421,6 +434,7 @@
 				FAA418A219F789A000023B25 /* main.m */,
 				FAEB497D19F95E9A00B774EC /* Localizable.strings */,
 				FAB117161A11C3EE00E876BA /* SupportedCurrencies.plist */,
+				FA2624991A261B3F006C824A /* BusinessCategories.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -492,6 +506,7 @@
 			children = (
 				FAB117531A11D77800E876BA /* Icons */,
 				FA0614E01A1CE287004F71F4 /* pin_delete@2x.png */,
+				FA20E67D1A2644C400B70DCF /* current_location@2x.png */,
 				FAB117141A11135200E876BA /* bitcoin_marker_white@2x.png */,
 				FA0614DC1A1CDF1B004F71F4 /* PEPin-off.png */,
 				FA0614DD1A1CDF1B004F71F4 /* PEPin-on.png */,
@@ -582,6 +597,7 @@
 				FAA4189A19F789A000023B25 /* Frameworks */,
 				FAA4189B19F789A000023B25 /* Resources */,
 				F54FA44F4398475CE7B28781 /* Copy Pods Resources */,
+				FA0614E21A1E3043004F71F4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -656,6 +672,7 @@
 				FAEB498819F95FA000B774EC /* nav_pos@2x.png in Resources */,
 				FA0614DE1A1CDF1B004F71F4 /* PEPin-off.png in Resources */,
 				FA99821F19FE8923006C7D2F /* BCMAddItem.xib in Resources */,
+				FA26249A1A261B3F006C824A /* BusinessCategories.plist in Resources */,
 				FAA418AC19F789A000023B25 /* Main.storyboard in Resources */,
 				FAB1170B1A10FF8600E876BA /* bitcoin_marker@2x.png in Resources */,
 				FAB117721A11D77800E876BA /* Icon-Small.png in Resources */,
@@ -669,6 +686,7 @@
 				FAEB498319F95F4F00B774EC /* nav_log_out@2x.png in Resources */,
 				FAB117671A11D77800E876BA /* Icon-60@2x.png in Resources */,
 				FAB1176B1A11D77800E876BA /* Icon-76.png in Resources */,
+				FA20E67E1A2644C400B70DCF /* current_location@2x.png in Resources */,
 				FAA418B119F789A000023B25 /* LaunchScreen.xib in Resources */,
 				FAEB496B19F9396800B774EC /* hamburger@2x.png in Resources */,
 				FA9982631A03E8FE006C7D2F /* mock_qr_code@2x.png in Resources */,
@@ -745,6 +763,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		FA0614E21A1E3043004F71F4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run e4052ba66bf266894230326a68ab42984f1037f3 3f6e1f5b12527f88cb3ad32d268b5118e3f3d0008a8d806c5d8cac87c60c69a7";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -920,6 +951,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = Merchant/Merchant.pch;
 				INFOPLIST_FILE = Merchant/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -935,6 +970,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = Merchant/Merchant.pch;
 				INFOPLIST_FILE = Merchant/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
