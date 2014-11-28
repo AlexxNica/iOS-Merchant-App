@@ -8,6 +8,8 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.0.0-beta3):
     - CocoaLumberjack/Default
+  - CoreBitcoin (0.5.2):
+    - OpenSSL-Universal (= 1.0.1.h)
   - MagicalRecord (2.2):
     - MagicalRecord/Core
   - MagicalRecord/Core (2.2)
@@ -24,6 +26,7 @@ PODS:
     - MMDrawerController/Core
   - MMDrawerController/Subclass (0.5.7):
     - MMDrawerController/Core
+  - OpenSSL-Universal (1.0.1.h)
   - SocketRocket (0.3.1-beta2)
   - SSKeychain (1.2.2)
   - ZXingObjC (3.0.3):
@@ -33,6 +36,7 @@ PODS:
 DEPENDENCIES:
   - ActionSheetPicker-3.0 (~> 1.3.1)
   - CocoaLumberjack (= 2.0.0-beta3)
+  - CoreBitcoin (from `https://raw.github.com/oleganza/CoreBitcoin/master/CoreBitcoin.podspec`)
   - MagicalRecord (~> 2.2)
   - MBProgressHUD (~> 0.8)
   - MMDrawerController (~> 0.5)
@@ -40,12 +44,18 @@ DEPENDENCIES:
   - SSKeychain (~> 1.2)
   - ZXingObjC (~> 3.0)
 
+EXTERNAL SOURCES:
+  CoreBitcoin:
+    :podspec: https://raw.github.com/oleganza/CoreBitcoin/master/CoreBitcoin.podspec
+
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: ec60ac4f9a026d962c55997be2fd537e97fd9b4c
   CocoaLumberjack: 55c22a2b8bde7a29c568ab4015b5874216524d70
+  CoreBitcoin: a7e50270716f2fb8ef4f248132bfde5c49fa64e9
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
   MMDrawerController: c3ab7a318ddc7e2bcd133139c3161af08c6e1197
+  OpenSSL-Universal: 9c112508615ed33bb35f730eed820e93175a9dec
   SocketRocket: 79a68ae186063c65e1fe6f638b1ae2927aa5f304
   SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
   ZXingObjC: 1eebdf4334b7de660ae42ddd23bd97b6d777b07d

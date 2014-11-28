@@ -19,7 +19,6 @@ typedef NS_ENUM(NSUInteger, BBSideNavigationItem) {
     BBSideNavigationItemTransactions,
     BBSideNavigationItemSettings,
     BBSideNavigationItemPriceNews,
-    BBSideNavigationItemLogout,
     BBSideNavigationItemVersion,
     BBSideNavigationItemCount
 };
@@ -64,6 +63,7 @@ static NSString *const kSideNavigationDefaultCellId = @"navigationCellId";
     cell = [tableView dequeueReusableCellWithIdentifier:kSideNavigationDefaultCellId];
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20.0f];
     cell.textLabel.textColor = [UIColor colorWithHexValue:@"a3a3a3"];
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
 
     NSString *navigationImageName = nil;
     NSString *navigationTitle = nil;
@@ -89,13 +89,9 @@ static NSString *const kSideNavigationDefaultCellId = @"navigationCellId";
             navigationTitle = NSLocalizedString(@"navigation.price_news", nil);
             break;
         }
-        case BBSideNavigationItemLogout: {
-            navigationImageName = @"nav_log_out";
-            navigationTitle = NSLocalizedString(@"navigation.logout", nil);
-            break;
-        }
         case BBSideNavigationItemVersion: {
             navigationTitle = [NSString stringWithFormat:@"v%@", APP_BUILD_VERSION];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         default:
             break;
@@ -137,10 +133,6 @@ const CGFloat kBBSideNavigationItemDefaultRowHeight = 55.0f;
         }
         case BBSideNavigationItemPriceNews: {
             storyboardId = kBCMSideNavControllerNewsId;
-            break;
-        }
-        case BBSideNavigationItemLogout: {
-            // Handle Logout
             break;
         }
         default:

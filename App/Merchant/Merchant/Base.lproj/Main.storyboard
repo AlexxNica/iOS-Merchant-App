@@ -1002,19 +1002,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3A-CM-1mO" customClass="BCPinEntryView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="uwu-zT-UCb"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="uwu-zT-UCb"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="uwu-zT-UCb"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="PEPin-off.png" translatesAutoresizingMaskIntoConstraints="NO" id="za8-mh-WSz">
                                 <rect key="frame" x="26" y="146" width="61" height="53"/>
@@ -1176,6 +1163,7 @@
                             <constraint firstAttribute="centerX" secondItem="za8-mh-WSz" secondAttribute="centerX" constant="103.5" id="GDj-Kt-IaN"/>
                             <constraint firstItem="koY-xk-dgu" firstAttribute="top" secondItem="qXX-BP-oLa" secondAttribute="top" id="Msv-Gq-YBg"/>
                             <constraint firstItem="FwA-1F-4CK" firstAttribute="top" secondItem="UQx-en-gew" secondAttribute="bottom" id="NJh-ae-xEs"/>
+                            <constraint firstItem="M3A-CM-1mO" firstAttribute="top" secondItem="j6j-lN-KoU" secondAttribute="bottom" constant="47" id="Oqa-YO-ceu"/>
                             <constraint firstItem="M3A-CM-1mO" firstAttribute="leading" secondItem="zj5-hO-NOl" secondAttribute="leading" id="Q0l-Qc-QaF"/>
                             <constraint firstItem="za8-mh-WSz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zj5-hO-NOl" secondAttribute="leadingMargin" constant="50" id="R0d-ji-Mv8"/>
                             <constraint firstItem="FwA-1F-4CK" firstAttribute="centerY" secondItem="za8-mh-WSz" secondAttribute="centerY" constant="-8.5" id="TLc-Am-RjB"/>
@@ -1198,28 +1186,29 @@
                                 <exclude reference="j6j-lN-KoU"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="5uz-OP-k1T"/>
-                                <exclude reference="yo7-qQ-fTs"/>
-                                <exclude reference="ECe-kG-RsM"/>
-                                <exclude reference="iam-wM-SFx"/>
+                                <exclude reference="NJh-ae-xEs"/>
+                                <exclude reference="TLc-Am-RjB"/>
+                                <exclude reference="oOo-MB-cNJ"/>
                                 <exclude reference="6Ea-df-RTe"/>
                                 <exclude reference="GDj-Kt-IaN"/>
                                 <exclude reference="R0d-ji-Mv8"/>
                                 <exclude reference="Zw4-Tv-xeL"/>
+                                <exclude reference="5uz-OP-k1T"/>
+                                <exclude reference="yo7-qQ-fTs"/>
                                 <exclude reference="3Dg-1S-vdR"/>
                                 <exclude reference="A6v-lf-bDc"/>
                                 <exclude reference="voB-YE-FZM"/>
                                 <exclude reference="cTa-wi-CE2"/>
-                                <exclude reference="4yQ-a6-9ck"/>
-                                <exclude reference="Fxs-k9-OeC"/>
-                                <exclude reference="Msv-Gq-YBg"/>
-                                <exclude reference="NJh-ae-xEs"/>
-                                <exclude reference="TLc-Am-RjB"/>
-                                <exclude reference="oOo-MB-cNJ"/>
                                 <exclude reference="3ST-t7-edg"/>
                                 <exclude reference="EHG-ZF-1O5"/>
                                 <exclude reference="Eww-iN-Vjd"/>
+                                <exclude reference="Oqa-YO-ceu"/>
                                 <exclude reference="Q0l-Qc-QaF"/>
+                                <exclude reference="4yQ-a6-9ck"/>
+                                <exclude reference="Fxs-k9-OeC"/>
+                                <exclude reference="Msv-Gq-YBg"/>
+                                <exclude reference="ECe-kG-RsM"/>
+                                <exclude reference="iam-wM-SFx"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1234,28 +1223,29 @@
                                 <include reference="j6j-lN-KoU"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="5uz-OP-k1T"/>
-                                <include reference="yo7-qQ-fTs"/>
-                                <include reference="ECe-kG-RsM"/>
-                                <include reference="iam-wM-SFx"/>
+                                <include reference="NJh-ae-xEs"/>
+                                <include reference="TLc-Am-RjB"/>
+                                <include reference="oOo-MB-cNJ"/>
                                 <include reference="6Ea-df-RTe"/>
                                 <include reference="GDj-Kt-IaN"/>
                                 <exclude reference="R0d-ji-Mv8"/>
                                 <exclude reference="Zw4-Tv-xeL"/>
+                                <exclude reference="5uz-OP-k1T"/>
+                                <include reference="yo7-qQ-fTs"/>
                                 <include reference="3Dg-1S-vdR"/>
                                 <include reference="A6v-lf-bDc"/>
                                 <include reference="voB-YE-FZM"/>
                                 <include reference="cTa-wi-CE2"/>
-                                <include reference="4yQ-a6-9ck"/>
-                                <exclude reference="Fxs-k9-OeC"/>
-                                <include reference="Msv-Gq-YBg"/>
-                                <include reference="NJh-ae-xEs"/>
-                                <include reference="TLc-Am-RjB"/>
-                                <include reference="oOo-MB-cNJ"/>
                                 <include reference="3ST-t7-edg"/>
                                 <include reference="EHG-ZF-1O5"/>
                                 <include reference="Eww-iN-Vjd"/>
+                                <include reference="Oqa-YO-ceu"/>
                                 <include reference="Q0l-Qc-QaF"/>
+                                <include reference="4yQ-a6-9ck"/>
+                                <exclude reference="Fxs-k9-OeC"/>
+                                <include reference="Msv-Gq-YBg"/>
+                                <include reference="ECe-kG-RsM"/>
+                                <include reference="iam-wM-SFx"/>
                             </mask>
                         </variation>
                     </view>
