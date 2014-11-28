@@ -28,6 +28,7 @@ NSString *const kBCMQrCodeScannerViewControllerId = @"qrCodeScannerViewControlle
     [super viewDidLoad];
     
     self.capture = [[ZXCapture alloc] init];
+    [self.capture stop];
     self.capture.camera = self.capture.back;
     self.capture.focusMode = AVCaptureFocusModeContinuousAutoFocus;
     self.capture.rotation = 90.0f;
@@ -35,20 +36,58 @@ NSString *const kBCMQrCodeScannerViewControllerId = @"qrCodeScannerViewControlle
     self.capture.layer.frame = self.view.bounds;
     [self.view.layer addSublayer:self.capture.layer];
     
-    [self.view bringSubviewToFront:self.scanView];
-    
     [self addNavigationType:BCMNavigationTypeCancel position:BCMNavigationPositionLeft selector:@selector(cancelAction:)];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
     
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
+    
+    [self requestCameraPermissionIfNeeded];
+}
+
+- (void)prepareForScanning
+{
+    [self.view bringSubviewToFront:self.scanView];
     
     self.capture.delegate = self;
     self.capture.layer.frame = self.view.bounds;
     
     CGAffineTransform captureSizeTransform = CGAffineTransformMakeScale(320 / self.view.frame.size.width, 480 / self.view.frame.size.height);
     self.capture.scanRect = CGRectApplyAffineTransform(self.scanView.frame, captureSizeTransform);
+    
+    [self.capture start];
+}
+
+- (void)requestCameraPermissionIfNeeded
+{
+    if ([AVCaptureDevice respondsToSelector:@selector(requestAccessForMediaType: completionHandler:)]) {
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+            if (granted) {
+                // Okay
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self prepareForScanning];
+                });
+            } else {
+                // Denied
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"qr.scanning.permission.title", nil) message:NSLocalizedString(@"qr.scanning.permission.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
+                    [alertView show];
+                });
+            }
+        }];
+    } else {
+        // Prior iOS7
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self prepareForScanning];
+        });
+
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Actions

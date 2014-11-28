@@ -46,7 +46,7 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
 {
     [super awakeFromNib];
     
-    self.networking = [[BCMNetworking alloc] init];
+    self.networking = [BCMNetworking sharedInstance];
     [self.spinner startAnimating];
     self.infoLbl.text = NSLocalizedString(@"qr.trasnasction.info.waiting", nil);
 }
