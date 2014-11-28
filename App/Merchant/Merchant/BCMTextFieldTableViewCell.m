@@ -106,6 +106,19 @@
     }
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    BOOL shouldChange = NO;
+    
+    if ([self.delegate respondsToSelector:@selector(textFieldTableViewCell:shouldChangeCharactersInRange:replacementString:)]) {
+       shouldChange = [self.delegate textFieldTableViewCell:self shouldChangeCharactersInRange:range replacementString:string];
+    } else {
+        shouldChange = YES;
+    }
+    
+    return shouldChange;
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];

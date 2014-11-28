@@ -16,7 +16,7 @@
 
 - (void)textFieldTableViewCellDidBeingEditing:(BCMTextFieldTableViewCell *)cell;
 - (void)textFieldTableViewCell:(BCMTextFieldTableViewCell *)cell didEndEditingWithText:(NSString *)text;
-
+- (BOOL)textFieldTableViewCell:(BCMTextFieldTableViewCell *)cell shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
 - (void)textFieldTableViewCellAccesssoryAction:(BCMTextFieldTableViewCell *)cell;
 
 @end

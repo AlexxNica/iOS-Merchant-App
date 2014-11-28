@@ -18,8 +18,14 @@
 
 #import "ActionSheetStringPicker.h"
 
+#import "BTCAddress.h"
+#import "NSData+BTCData.h"
+#import "NS+BTCBase58.h"
+
 #import "UIColor+Utilities.h"
 #import "Foundation-Utility.h"
+
+#import <CoreBitcoin/CoreBitcoin.h>
 
 @interface BCMSignUpView ()
 
@@ -31,8 +37,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *qrCodeScanButton;
+@property (weak, nonatomic) IBOutlet UIImageView *addressValidateImageView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewBottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *greenCheckContrainst;
 
 @property (strong, nonatomic) UIView *inputAccessoryView;
 @property (copy, nonatomic) NSString *tempCurrency;
@@ -67,6 +75,8 @@
     [self.saveButton setTitle:NSLocalizedString(@"action.save", nil) forState:UIControlStateNormal];
     
     [self addObservers];
+    
+    self.addressValidateImageView.hidden = YES;
 }
 
 - (void)addObservers {
@@ -129,7 +139,14 @@
 
 - (IBAction)saveAction:(id)sender
 {
-    if ([self.nameTextField.text length] == 0 || [self.walletTextField.text length] == 0) {
+    BOOL validAddress = NO;
+    if ([self.walletTextField.text length] > 0) {
+        if ([BTCAddress addressWithBase58String:self.walletTextField.text]) {
+            validAddress = YES;
+        }
+    }
+    
+    if ([self.nameTextField.text length] == 0 || [self.walletTextField.text length] == 0 || !validAddress) {
         NSString *alertTitle = NSLocalizedString(@"signup.alert.title", nil);
         NSString *alertMessage = NSLocalizedString(@"signup.warning", nil);
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertTitle message:alertMessage delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
@@ -194,6 +211,27 @@
     }
     
     return canEdit;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField == self.walletTextField) {
+        self.greenCheckContrainst.constant = -1.0f * CGRectGetWidth(self.addressValidateImageView.frame);
+        self.addressValidateImageView.hidden = NO;
+        NSString *walletAddress = [self.walletTextField.text stringByReplacingCharactersInRange:range withString:string];
+        if ([walletAddress length] > 0) {
+            if ([BTCAddress addressWithBase58String:walletAddress]) {
+                self.addressValidateImageView.image = [UIImage imageNamed:@"green_check"];
+            } else {
+                self.addressValidateImageView.image = [UIImage imageNamed:@"red_check"];
+            }
+        } else {
+            self.greenCheckContrainst.constant = 0.0f;
+            self.addressValidateImageView.image = nil;
+        }
+    }
+    
+    return YES;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

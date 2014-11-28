@@ -27,12 +27,17 @@
 #import "AppDelegate.h"
 #import "BCMDrawerViewController.h"
 
+#import "BTCAddress.h"
+#import "NSData+BTCData.h"
+#import "NS+BTCBase58.h"
+
 #import "UIColor+Utilities.h"
 #import "Foundation-Utility.h"
 
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <AddressBook/AddressBook.h>
+#import <CoreBitcoin/CoreBitcoin.h>
 
 typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
     BCMSettingsRowBusinessName,
@@ -64,13 +69,18 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
 @property (strong, nonatomic) MBProgressHUD *locationHUD;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
+@property (strong, nonatomic) UIImageView *checkBoxImageView;
+
 @end
 
 @implementation BCMSettingsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+        
+    self.checkBoxImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green_check"]];
+    self.checkBoxImageView.frame = CGRectMake(0.0f, 0.0f, 20.0f, 20.0f);
+
     NSBundle *mainBundle = [NSBundle mainBundle];
     NSString *categoryPath = [mainBundle pathForResource:@"BusinessCategories" ofType:@"plist"];
     self.businessCategories = [NSDictionary dictionaryWithContentsOfFile:categoryPath];
@@ -320,6 +330,22 @@ static NSString *const kSettingsCurrentLocationCellId = @"currentLocationCellId"
         }
         textFieldCell.canEdit = canEdit;
         
+        if (indexPath.row != BCMSettingsRowWalletAddress) {
+            textFieldCell.accessoryView = nil;
+        } else {
+            if (indexPath.row == BCMSettingsRowWalletAddress) {
+                NSString *walletAddress = [self.settings safeObjectForKey:kBCMBusinessWalletAddress];
+                if ([walletAddress length] > 0) {
+                    if ([BTCAddress addressWithBase58String:walletAddress]) {
+                        self.checkBoxImageView.image = [UIImage imageNamed:@"green_check"];
+                    } else {
+                        self.checkBoxImageView.image = [UIImage imageNamed:@"red_check"];
+                    }
+                    textFieldCell.accessoryView = self.checkBoxImageView;
+                }
+            }
+        }
+        
         cell = textFieldCell;
     } else if ([reuseCellId isEqualToString:kSettingsCurrentLocationCellId]) {
         // We don't do anything other than grab the cell
@@ -528,6 +554,23 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
     BCMQRCodeScannerViewController *scannerViewController = (BCMQRCodeScannerViewController *)scannerNavigationController.topViewController;
     scannerViewController.delegate = self;
     [self presentViewController:scannerNavigationController animated:YES completion:nil];
+}
+
+- (BOOL)textFieldTableViewCell:(BCMTextFieldTableViewCell *)cell shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSIndexPath *indexPath = [self.settingsTableView indexPathForCell:cell];
+    if (indexPath.row == BCMSettingsRowWalletAddress) {
+        NSString *walletAddress = [cell.textField.text stringByReplacingCharactersInRange:range withString:string];
+        if ([walletAddress length] > 0) {
+            if ([BTCAddress addressWithBase58String:walletAddress]) {
+                self.checkBoxImageView.image = [UIImage imageNamed:@"green_check"];
+            } else {
+                self.checkBoxImageView.image = [UIImage imageNamed:@"red_check"];
+            }
+        }
+    }
+    
+    return YES;
 }
 
 #pragma mark - BCMQRCodeScannerViewControllerDelegate
