@@ -70,6 +70,11 @@
 
 - (void)navigationSelector:(id)sender
 {
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    BCMDrawerViewController *drawerViewController = appDelegate.drawerController;
+    UIViewController *centerViewController = (UIViewController *)drawerViewController.centerViewController;
+    [centerViewController.view endEditing:YES];
+    
     BCMNavigationType navigationType = BCMNavigationTypeNone;
     if (self.navigationItem.rightBarButtonItem == sender) {
         navigationType = self.rightNavigationType;
