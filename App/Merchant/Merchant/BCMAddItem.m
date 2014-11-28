@@ -77,21 +77,22 @@
 
 - (IBAction)saveAction:(id)sender
 {
-    if (self.item) {
-        NSString *itemName = [self.itemNameTextField text];
-        NSString *itemPrice = [self.itemPriceTextField text];
-        self.item.name = itemName;
-        self.item.priceValue = [itemPrice floatValue];
-        if ([self.delegate respondsToSelector:@selector(addItemView:didSaveItem:)]) {
-            [self.delegate addItemView:self didSaveItem:self.item];
-        }
+    NSString *itemName = [self.itemNameTextField text];
+    NSString *itemPrice = [self.itemPriceTextField text];
+    if ([itemName length] == 0) {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"addItem.error.missing.name", nil) message:NSLocalizedString(@"addItem.error.missing.name.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil] show];
+    } else if ([itemPrice length] == 0) {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"addItem.error.missing.price", nil) message:NSLocalizedString(@"addItem.error.missing.price.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil] show];
     } else {
-        NSString *itemName = [self.itemNameTextField text];
-        NSString *itemPrice = [self.itemPriceTextField text];
-        if ([itemName length] == 0) {
-            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"addItem.error.missing.name", nil) message:NSLocalizedString(@"addItem.error.missing.name.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil] show];
-        } else if ([itemPrice length] == 0) {
-            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"addItem.error.missing.price", nil) message:NSLocalizedString(@"addItem.error.missing.price.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil] show];
+        
+        if (self.item) {
+            NSString *itemName = [self.itemNameTextField text];
+            NSString *itemPrice = [self.itemPriceTextField text];
+            self.item.name = itemName;
+            self.item.priceValue = [itemPrice floatValue];
+            if ([self.delegate respondsToSelector:@selector(addItemView:didSaveItem:)]) {
+                [self.delegate addItemView:self didSaveItem:self.item];
+            }
         } else {
             Item *item = [Item MR_createEntity];
             item.name = itemName;
