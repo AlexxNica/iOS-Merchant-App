@@ -120,7 +120,7 @@
 - (void)updateCurrencies
 {
     if (!self.networking) {
-        self.networking = [[BCMNetworking alloc] init];
+        self.networking = [BCMNetworking sharedInstance];
     }
     
     [self.networking retrieveBitcoinCurrenciesSuccess:^(NSURLRequest *request, NSDictionary *dict) {

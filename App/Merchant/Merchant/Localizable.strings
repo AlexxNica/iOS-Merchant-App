@@ -27,9 +27,13 @@
 "transaction.detail.minutes" = "minutes";
 "transaction.detail.time.ago" = "%ld %@ ago";
 
+// QR Code Scanning
+"qr.scanning.permission.title" = "Enable Camera Access";
+"qr.scanning.permission.detail" = "Go to Settings and Enable Camera Access for Blockchain Merchant.";
+
 // Sign Up
 "signup.alert.title" = "Try again";
-"signup.warning" = "Business Name, Wallet Address, and Currency are required.";
+"signup.warning" = "Business Name, Valid Wallet Address, and Currency are required.";
 "signup.business.name" = "Business Name";
 "signup.wallet.name" = "Wallet Address";
 "signup.currency.name" = "Currency";
@@ -101,8 +105,11 @@
 "setting.location_services.trouble_finding.title" = "Error Finding Location";
 "setting.location_services.trouble_finding.detail" = "Please try again";
 
-"setting.location_services.disabled.title" = "Location Servivces Disabled";
-"setting.location_services.disabled.detail" = "Go to your Privacy Settings and enable location services for BlockChain Merchant.";
+"setting.location_services.disabled.title" = "Location Services Disabled";
+"setting.location_services.disabled.detail" = "Go to your Privacy Settings and enable location services for Blockchain Merchant.";
 "setting.location_services.locating" = "Locating";
 
 "action_picker.categories" = "Category";
+
+// Errors
+"networking.post_merchant.fail" = "Merchant Post Failure";

@@ -18,5 +18,7 @@ extern NSString *const kBCMBusinessWalletAddress;
 
 
 @interface Merchant : _Merchant {}
-// Custom logic goes here.
+
+- (NSDictionary *)merchantAsSuggestionDict;
+
 @end

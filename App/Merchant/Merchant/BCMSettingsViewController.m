@@ -34,6 +34,8 @@
 #import "UIColor+Utilities.h"
 #import "Foundation-Utility.h"
 
+#import "BCMNetworking.h"
+
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <AddressBook/AddressBook.h>
@@ -298,11 +300,10 @@ static NSString *const kSettingsCurrentLocationCellId = @"currentLocationCellId"
     if ([reuseCellId isEqualToString:kSettingsTextFieldCellId]) {
         
         BCMTextFieldTableViewCell *textFieldCell = [tableView dequeueReusableCellWithIdentifier:kSettingsTextFieldCellId];
-        if (!textFieldCell) {
-            textFieldCell.delegate = self;
-            textFieldCell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:30.0f];
-            textFieldCell.textLabel.textColor = [UIColor colorWithHexValue:@"a3a3a3"];
-        }
+        textFieldCell.delegate = self;
+        textFieldCell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:30.0f];
+        textFieldCell.textLabel.textColor = [UIColor colorWithHexValue:@"a3a3a3"];
+
         textFieldCell.textFieldImage = accessoryImage;
         
         NSString *text = nil;
@@ -439,7 +440,6 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
                 [self.locationManager requestWhenInUseAuthorization];
             } else {
                 [self.view addSubview:self.locationHUD];
-                [self.locationHUD show:YES];
                 [self.locationManager startUpdatingLocation];
             }
         }
@@ -601,36 +601,117 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
 
 - (IBAction)saveAction:(id)sender
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeCustomView;
-    hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check"]];
-    hud.labelText = NSLocalizedString(@"general.save", nil);
-    [hud show:YES];
-    [hud hide:YES afterDelay:1.0f];
+    NSString *businessName = [self.settings safeObjectForKey:kBCMBusinessName];
+    NSString *walletAddress = [self.settings safeObjectForKey:kBCMBusinessWalletAddress];
     
-    Merchant *merchant = [BCMMerchantManager sharedInstance].activeMerchant;
-    merchant.businessCategory = [self.settings safeObjectForKey:kBCMBusinessCategory];
-    merchant.name = [self.settings safeObjectForKey:kBCMBusinessName];
-    merchant.streetAddress = [self.settings safeObjectForKey:kBCMBusinessStreetAddress];
-    merchant.city = [self.settings safeObjectForKey:kBCMBusinessCityAddress];
-    merchant.zipcode = [self.settings safeObjectForKey:kBCMBusinessZipcodeAddress];
+    BOOL validAddress = NO;
+    if ([walletAddress length] > 0) {
+        if ([BTCAddress addressWithBase58String:walletAddress]) {
+            validAddress = YES;
+        }
+    }
     
-    merchant.telephone = [self.settings safeObjectForKey:kBCMBusinessTelephone];
-    merchant.webURL = [self.settings safeObjectForKey:kBCMBusinessWebURL];
-    merchant.businessDescription = [self.settings safeObjectForKey:kBCMBusinessDescription];
+    if ([businessName length] > 0 && [walletAddress length] > 0 && validAddress) {
+        
+        Merchant *activeMerchant = [BCMMerchantManager sharedInstance].activeMerchant;
 
-    merchant.longitude = [self.settings safeObjectForKey:kBCMBusinessLongitude];
-    merchant.longitude = [self.settings safeObjectForKey:kBCMBusinessLatitude];
-    
-    merchant.currency =  [self.settings safeObjectForKey:kBCMBusinessCurrency];
-    merchant.walletAddress = [self.settings safeObjectForKey:kBCMBusinessWalletAddress];
-    
-    NSNumber *directoryListing = [self.settings safeObjectForKey:kBCMBusinessDirectoryListing];
-    merchant.directoryListingValue = [directoryListing boolValue];
-    
-    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-    [localContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
-    }];
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeCustomView;
+        hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check"]];
+        hud.labelText = NSLocalizedString(@"general.save", nil);
+        [hud show:YES];
+        [hud hide:YES afterDelay:1.0f];
+        
+        NSNumber *businessCategory = [self.settings safeObjectForKey:kBCMBusinessCategory];
+        NSString *businessName = [self.settings safeObjectForKey:kBCMBusinessName];
+        NSString *businessStreetAddress = [self.settings safeObjectForKey:kBCMBusinessStreetAddress];
+        NSString *businessCity = [self.settings safeObjectForKey:kBCMBusinessCityAddress];
+        NSString *businessZipcode = [self.settings safeObjectForKey:kBCMBusinessZipcodeAddress];
+        
+        NSString *businessTelephone = [self.settings safeObjectForKey:kBCMBusinessTelephone];
+        NSString *businessWebURL = [self.settings safeObjectForKey:kBCMBusinessWebURL];
+        NSString *businessDescription = [self.settings safeObjectForKey:kBCMBusinessDescription];
+        
+        NSNumber *businessLongitude = [self.settings safeObjectForKey:kBCMBusinessLongitude];
+        NSNumber *businessLatitude = [self.settings safeObjectForKey:kBCMBusinessLatitude];
+        
+        NSString *businessCurrency =  [self.settings safeObjectForKey:kBCMBusinessCurrency];
+        NSString *businessWalletAddress = [self.settings safeObjectForKey:kBCMBusinessWalletAddress];
+        
+        NSNumber *directoryListing = [self.settings safeObjectForKey:kBCMBusinessDirectoryListing];
+        
+        // If the directory listing switch is active we were previously not active we force a submission to the backend
+        BOOL forceNetworkUpdate = [directoryListing boolValue] && ([directoryListing boolValue] != activeMerchant.directoryListingValue);
+        
+        BOOL merchantRequiresUpdate = NO;
+        // Check to see if we actually need to updates the values
+        if ([activeMerchant.businessCategory integerValue] != [businessCategory integerValue]) {
+            merchantRequiresUpdate = YES;
+        }
+        if (!merchantRequiresUpdate && ![activeMerchant.name isEqualToString:businessName]) {
+            merchantRequiresUpdate = YES;
+        }
+        if (!merchantRequiresUpdate && ![activeMerchant.streetAddress isEqualToString:businessStreetAddress]) {
+            merchantRequiresUpdate = YES;
+        }
+        if (!merchantRequiresUpdate && ![activeMerchant.city isEqualToString:businessCity]) {
+            merchantRequiresUpdate = YES;
+        }
+        if (!merchantRequiresUpdate && ![activeMerchant.zipcode isEqualToString:businessZipcode]) {
+            merchantRequiresUpdate = YES;
+        }
+        if (!merchantRequiresUpdate && ![activeMerchant.telephone isEqualToString:businessTelephone]) {
+            merchantRequiresUpdate = YES;
+        }
+        if (!merchantRequiresUpdate && ![activeMerchant.webURL isEqualToString:businessWebURL]) {
+            merchantRequiresUpdate = YES;
+        }
+        if (!merchantRequiresUpdate && ![activeMerchant.businessDescription isEqualToString:businessDescription]) {
+            merchantRequiresUpdate = YES;
+        }
+        if (!merchantRequiresUpdate && [activeMerchant.longitude floatValue] != [businessLongitude floatValue]) {
+            merchantRequiresUpdate = YES;
+        }
+        if (!merchantRequiresUpdate && [activeMerchant.latitude floatValue] != [businessLatitude floatValue]) {
+            merchantRequiresUpdate = YES;
+        }
+        if (!merchantRequiresUpdate && ![activeMerchant.currency isEqualToString:businessCurrency]) {
+            merchantRequiresUpdate = YES;
+        }
+        
+        Merchant *merchant = [BCMMerchantManager sharedInstance].activeMerchant;
+        merchant.businessCategory = businessCategory;
+        merchant.name = businessName;
+        merchant.streetAddress = businessStreetAddress;
+        merchant.city = businessCity;
+        merchant.zipcode = businessZipcode;
+        merchant.telephone = businessTelephone;
+        merchant.webURL = businessWebURL;
+        merchant.businessDescription = businessDescription;
+        merchant.longitude = businessLongitude;
+        merchant.longitude = businessLatitude;
+        merchant.currency =  businessCurrency;
+        merchant.walletAddress = businessWalletAddress;
+        merchant.directoryListingValue = [directoryListing boolValue];
+        
+        NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+        [localContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+        }];
+        
+        // Only upload to the backend if needed
+        if ([directoryListing boolValue]) {
+            // Update backend only if needed unless we have to update it
+            if (merchantRequiresUpdate || forceNetworkUpdate) {
+                [[BCMNetworking sharedInstance] postSuggestMerchant:activeMerchant success:^(NSURLRequest *request, NSDictionary *dict) {
+                    // We won't do anything since this is a passive operation
+                } error:^(NSURLRequest *request, NSError *error) {
+                }];
+            }
+        }
+    } else {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"signup.alert.title", nil) message:NSLocalizedString(@"signup.warning", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
+        [alertView show];
+    }
 }
 
 #pragma mark - BCMSwitchTableViewCellDelegate
@@ -645,18 +726,24 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
 - (void)keyboardWillShow:(NSNotification *)notification
 {
     NSDictionary *dict = notification.userInfo;
+    NSTimeInterval duration = [[dict safeObjectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    UIViewAnimationCurve curve = [[dict safeObjectForKey:UIKeyboardAnimationCurveUserInfoKey] unsignedIntegerValue];
+    
     NSValue *endRectValue = [dict safeObjectForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect endKeyboardFrame = [endRectValue CGRectValue];
     CGRect convertedEndKeyboardFrame = [self.view convertRect:endKeyboardFrame fromView:nil];
     
     CGRect convertedWalletFrame = [self.view convertRect:self.activeTextFieldCell.frame fromView:self.settingsTableView];
     CGFloat lowestPoint = CGRectGetMaxY(convertedWalletFrame);
-        
-        // If the ending keyboard frame overlaps our textfield
-        if (lowestPoint > CGRectGetMinY(convertedEndKeyboardFrame)) {
-            self.settingsTableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, CGRectGetMinY(convertedEndKeyboardFrame), 0.0f);
-            [self.settingsTableView setContentOffset:CGPointMake(0.0f, lowestPoint - CGRectGetMinY(convertedEndKeyboardFrame)) animated:NO];
-        }
+    
+    // If the ending keyboard frame overlaps our textfield
+    if (lowestPoint > CGRectGetMinY(convertedEndKeyboardFrame)) {
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:duration];
+        [UIView setAnimationCurve:curve];
+        self.settingsTableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, CGRectGetMaxY(self.settingsTableView.frame) - CGRectGetMinY(convertedEndKeyboardFrame), 0.0f);
+        [UIView commitAnimations];
+    }
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification
