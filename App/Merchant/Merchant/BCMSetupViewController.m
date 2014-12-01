@@ -16,6 +16,7 @@
 #import "BCMSignUpView.h"
 
 #import "UIView+Utilities.h"
+#import "UIColor+Utilities.h"
 
 NSString *const kNavStoryboardSetupVCId = @"navSetupStoryBoardId";
 NSString *const kStoryboardSetupVCId = @"setupStoryBoardId";
@@ -24,6 +25,7 @@ NSString *const kStoryboardSetupVCId = @"setupStoryBoardId";
 
 @property (strong, nonatomic) UIView *whiteOverlayView;
 @property (strong, nonatomic) BCMSignUpView *signUpView;
+@property (weak, nonatomic) IBOutlet UIButton *goButton;
 
 @property (copy, nonatomic) NSString *temporaryPin;
 
@@ -34,6 +36,8 @@ NSString *const kStoryboardSetupVCId = @"setupStoryBoardId";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.goButton setBackgroundColor:[UIColor colorWithHexValue:BCM_BLUE]];
     
     // Adding initial overlay view so we can animate the alpha when needed
     if (!self.whiteOverlayView) {

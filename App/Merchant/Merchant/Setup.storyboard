@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -33,14 +34,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blockchain_header.png" translatesAutoresizingMaskIntoConstraints="NO" id="vKJ-42-dyk">
+                                <rect key="frame" x="46" y="55" width="227" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Hef-Ll-6ss"/>
+                                    <constraint firstAttribute="width" constant="227" id="ct0-3G-qm3"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="510" verticalHuggingPriority="251" horizontalCompressionResistancePriority="505" text="Hi!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mZ-0f-LkL">
+                                <rect key="frame" x="148" y="188.5" width="24" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="500" constant="42" id="GVj-Ub-gGy"/>
+                                    <constraint firstAttribute="height" constant="21" id="bn7-B3-smM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the button below to set up your merchant account!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCq-Dc-drR">
+                                <rect key="frame" x="62" y="217" width="196" height="69"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="196" id="n3D-ec-NOH"/>
+                                    <constraint firstAttribute="height" constant="69" id="uLX-A4-yXp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roQ-aI-gKD">
-                                <rect key="frame" x="23" y="223" width="274" height="57"/>
-                                <color key="backgroundColor" red="0.098039215686274508" green="0.45882352941176469" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="20" y="397" width="280" height="57"/>
+                                <color key="backgroundColor" red="0.070588235294117646" green="0.44313725490196076" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="57" id="jAi-fz-hih"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="34"/>
-                                <state key="normal" title="Sign Up">
+                                <state key="normal" title="Lets Go!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -51,17 +79,44 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="roQ-aI-gKD" secondAttribute="centerX" id="2go-Vt-hIJ"/>
-                            <constraint firstAttribute="trailing" secondItem="roQ-aI-gKD" secondAttribute="trailing" constant="23" id="702-jK-JG8"/>
-                            <constraint firstAttribute="centerY" secondItem="roQ-aI-gKD" secondAttribute="centerY" id="A9X-2d-CDK"/>
-                            <constraint firstItem="roQ-aI-gKD" firstAttribute="leading" secondItem="EU9-a3-8GX" secondAttribute="leading" constant="23" id="skR-vz-pg4"/>
+                            <constraint firstAttribute="centerX" secondItem="roQ-aI-gKD" secondAttribute="centerX" constant="-0.5" id="2go-Vt-hIJ"/>
+                            <constraint firstItem="9mZ-0f-LkL" firstAttribute="top" secondItem="vKJ-42-dyk" secondAttribute="bottom" constant="29" id="3um-xt-e6T"/>
+                            <constraint firstAttribute="centerX" secondItem="9mZ-0f-LkL" secondAttribute="centerX" id="6W9-j7-I3o"/>
+                            <constraint firstAttribute="trailing" secondItem="roQ-aI-gKD" secondAttribute="trailing" constant="41" id="702-jK-JG8"/>
+                            <constraint firstItem="vCq-Dc-drR" firstAttribute="top" secondItem="9mZ-0f-LkL" secondAttribute="bottom" constant="8" id="79S-Bf-DVZ"/>
+                            <constraint firstAttribute="centerY" secondItem="roQ-aI-gKD" secondAttribute="centerY" constant="-74.5" id="A9X-2d-CDK"/>
+                            <constraint firstItem="G26-H0-Snf" firstAttribute="top" secondItem="roQ-aI-gKD" secondAttribute="bottom" constant="50" id="JqG-2o-OKu"/>
+                            <constraint firstAttribute="centerY" secondItem="vCq-Dc-drR" secondAttribute="centerY" id="Kov-vV-N0q"/>
+                            <constraint firstItem="roQ-aI-gKD" firstAttribute="leading" secondItem="EU9-a3-8GX" secondAttribute="leading" constant="20" id="PKJ-EK-q3y"/>
+                            <constraint firstItem="vKJ-42-dyk" firstAttribute="top" secondItem="31e-j7-fbK" secondAttribute="bottom" constant="55" id="Tan-Ac-jpF"/>
+                            <constraint firstAttribute="trailing" secondItem="roQ-aI-gKD" secondAttribute="trailing" constant="20" id="aiq-5X-KAY"/>
+                            <constraint firstAttribute="centerX" secondItem="roQ-aI-gKD" secondAttribute="centerX" id="dQL-Zz-b0U"/>
+                            <constraint firstAttribute="centerX" secondItem="vCq-Dc-drR" secondAttribute="centerX" id="gKv-IV-R90"/>
+                            <constraint firstItem="roQ-aI-gKD" firstAttribute="leading" secondItem="EU9-a3-8GX" secondAttribute="leading" constant="42" id="skR-vz-pg4"/>
+                            <constraint firstAttribute="centerX" secondItem="vKJ-42-dyk" secondAttribute="centerX" id="x7Y-gq-nGg"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="3um-xt-e6T"/>
+                                <exclude reference="2go-Vt-hIJ"/>
+                                <exclude reference="702-jK-JG8"/>
+                                <exclude reference="A9X-2d-CDK"/>
+                                <exclude reference="dQL-Zz-b0U"/>
+                                <exclude reference="skR-vz-pg4"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="JCY-zI-PMH"/>
+                    <connections>
+                        <outlet property="goButton" destination="roQ-aI-gKD" id="Rfi-IW-JQ3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q13-fE-6tT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-62" y="179"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="blockchain_header.png" width="320" height="89"/>
+    </resources>
 </document>

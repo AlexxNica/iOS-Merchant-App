@@ -29,6 +29,7 @@
 		FA74B6A01A08C6CC0045A4EF /* green_check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74B69F1A08C6CC0045A4EF /* green_check@2x.png */; };
 		FA74B6A31A0923490045A4EF /* BCMTransactionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74B6A21A0923490045A4EF /* BCMTransactionDetailViewController.m */; };
 		FA7900211A26ADFC001FCB3D /* red_check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7900201A26ADFC001FCB3D /* red_check@2x.png */; };
+		FA7900231A295D32001FCB3D /* blockchain_header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7900221A295D32001FCB3D /* blockchain_header@2x.png */; };
 		FA7D9F801A0BACB500B7B5CE /* close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7D9F7F1A0BACB500B7B5CE /* close_button@2x.png */; };
 		FA99820C19FA4F20006C7D2F /* BCMTransactionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99820B19FA4F20006C7D2F /* BCMTransactionsViewController.m */; };
 		FA99820F19FA4F49006C7D2F /* BCMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99820E19FA4F49006C7D2F /* BCMSettingsViewController.m */; };
@@ -156,6 +157,7 @@
 		FA74B6A11A0923490045A4EF /* BCMTransactionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMTransactionDetailViewController.h; sourceTree = "<group>"; };
 		FA74B6A21A0923490045A4EF /* BCMTransactionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMTransactionDetailViewController.m; sourceTree = "<group>"; };
 		FA7900201A26ADFC001FCB3D /* red_check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red_check@2x.png"; path = "../../../Assets/red_check@2x.png"; sourceTree = "<group>"; };
+		FA7900221A295D32001FCB3D /* blockchain_header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blockchain_header@2x.png"; path = "../../../Assets/blockchain_header@2x.png"; sourceTree = "<group>"; };
 		FA7D9F7F1A0BACB500B7B5CE /* close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "close_button@2x.png"; path = "../../../Assets/close_button@2x.png"; sourceTree = "<group>"; };
 		FA99820A19FA4F20006C7D2F /* BCMTransactionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMTransactionsViewController.h; sourceTree = "<group>"; };
 		FA99820B19FA4F20006C7D2F /* BCMTransactionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMTransactionsViewController.m; sourceTree = "<group>"; };
@@ -508,6 +510,7 @@
 			children = (
 				FAB117531A11D77800E876BA /* Icons */,
 				FA0614E01A1CE287004F71F4 /* pin_delete@2x.png */,
+				FA7900221A295D32001FCB3D /* blockchain_header@2x.png */,
 				FA20E67D1A2644C400B70DCF /* current_location@2x.png */,
 				FAB117141A11135200E876BA /* bitcoin_marker_white@2x.png */,
 				FA0614DC1A1CDF1B004F71F4 /* PEPin-off.png */,
@@ -703,6 +706,7 @@
 				FA7D9F801A0BACB500B7B5CE /* close_button@2x.png in Resources */,
 				FAB117151A11135200E876BA /* bitcoin_marker_white@2x.png in Resources */,
 				FAEB498519F95F4F00B774EC /* nav_settings@2x.png in Resources */,
+				FA7900231A295D32001FCB3D /* blockchain_header@2x.png in Resources */,
 				FAB1176A1A11D77800E876BA /* Icon-72@2x.png in Resources */,
 				FAB116E21A108EF100E876BA /* Setup.storyboard in Resources */,
 				FA99823B1A020A01006C7D2F /* BCMSearchView.xib in Resources */,
