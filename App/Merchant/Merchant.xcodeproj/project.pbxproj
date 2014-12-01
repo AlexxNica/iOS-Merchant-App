@@ -20,7 +20,6 @@
 		FA0614DE1A1CDF1B004F71F4 /* PEPin-off.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614DC1A1CDF1B004F71F4 /* PEPin-off.png */; };
 		FA0614DF1A1CDF1B004F71F4 /* PEPin-on.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614DD1A1CDF1B004F71F4 /* PEPin-on.png */; };
 		FA0614E11A1CE287004F71F4 /* pin_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614E01A1CE287004F71F4 /* pin_delete@2x.png */; };
-		FA0614E41A1E307D004F71F4 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0614E31A1E307D004F71F4 /* Crashlytics.framework */; };
 		FA10E2A91A1E4147005DEB6B /* Foundation-Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10E2A81A1E4147005DEB6B /* Foundation-Utility.m */; };
 		FA20E67E1A2644C400B70DCF /* current_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA20E67D1A2644C400B70DCF /* current_location@2x.png */; };
 		FA26249A1A261B3F006C824A /* BusinessCategories.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA2624991A261B3F006C824A /* BusinessCategories.plist */; };
@@ -287,7 +286,6 @@
 			files = (
 				FAC3A1FC1A2657FE00ADA872 /* CoreLocation.framework in Frameworks */,
 				FAC3A1FA1A2657F900ADA872 /* MapKit.framework in Frameworks */,
-				FA0614E41A1E307D004F71F4 /* Crashlytics.framework in Frameworks */,
 				DB30FC0C0492FD3BCF38E04C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -783,7 +781,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run e4052ba66bf266894230326a68ab42984f1037f3 3f6e1f5b12527f88cb3ad32d268b5118e3f3d0008a8d806c5d8cac87c60c69a7";
+			shellScript = "#./Crashlytics.framework/run e4052ba66bf266894230326a68ab42984f1037f3 3f6e1f5b12527f88cb3ad32d268b5118e3f3d0008a8d806c5d8cac87c60c69a7";
 		};
 /* End PBXShellScriptBuildPhase section */
 

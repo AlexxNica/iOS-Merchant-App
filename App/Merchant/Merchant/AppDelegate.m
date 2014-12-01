@@ -23,7 +23,7 @@
 #import "NSDate+Utilities.h"
 #import "Foundation-Utility.h"
 
-#import <Crashlytics/Crashlytics.h>
+//#import <Crashlytics/Crashlytics.h>
 
 @interface AppDelegate ()
 
@@ -35,7 +35,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [Crashlytics startWithAPIKey:@"e4052ba66bf266894230326a68ab42984f1037f3"];
+//    [Crashlytics startWithAPIKey:@"e4052ba66bf266894230326a68ab42984f1037f3"];
     
     self.drawerController = [[BCMDrawerViewController alloc] init];
     self.drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
