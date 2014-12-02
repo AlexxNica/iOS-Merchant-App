@@ -83,6 +83,8 @@
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"addItem.error.missing.name", nil) message:NSLocalizedString(@"addItem.error.missing.name.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil] show];
     } else if ([itemPrice length] == 0) {
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"addItem.error.missing.price", nil) message:NSLocalizedString(@"addItem.error.missing.price.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil] show];
+    } else if ([itemPrice floatValue] == 0) {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"addItem.error.zero.price", nil) message:NSLocalizedString(@"addItem.error.zero.price.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil] show];
     } else {
         
         if (self.item) {
