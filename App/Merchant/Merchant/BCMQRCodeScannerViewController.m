@@ -8,16 +8,16 @@
 
 #import "BCMQRCodeScannerViewController.h"
 
-#import <ZXingObjC/ZXingObjC.h>
+#import <CoreBitcoin/CoreBitcoin.h>
+@import AVFoundation;
 
 NSString *const kBCMQrCodeScannerNavigationId = @"qrCodeScannerNavigationId";
 NSString *const kBCMQrCodeScannerViewControllerId = @"qrCodeScannerViewControllerId";
 
-@interface BCMQRCodeScannerViewController () <ZXCaptureDelegate>
+@interface BCMQRCodeScannerViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *scanView;
-
-@property (strong, nonatomic) ZXCapture *capture;
+@property (strong, nonatomic) UIView *btcScanView;
 
 @end
 
@@ -26,15 +26,6 @@ NSString *const kBCMQrCodeScannerViewControllerId = @"qrCodeScannerViewControlle
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
-    self.capture = [[ZXCapture alloc] init];
-    [self.capture stop];
-    self.capture.camera = self.capture.back;
-    self.capture.focusMode = AVCaptureFocusModeContinuousAutoFocus;
-    self.capture.rotation = 90.0f;
-    
-    self.capture.layer.frame = self.view.bounds;
-    [self.view.layer addSublayer:self.capture.layer];
     
     [self addNavigationType:BCMNavigationTypeCancel position:BCMNavigationPositionLeft selector:@selector(cancelAction:)];
 }
@@ -48,15 +39,15 @@ NSString *const kBCMQrCodeScannerViewControllerId = @"qrCodeScannerViewControlle
 
 - (void)prepareForScanning
 {
-    [self.view bringSubviewToFront:self.scanView];
-    
-    self.capture.delegate = self;
-    self.capture.layer.frame = self.view.bounds;
-    
-    CGAffineTransform captureSizeTransform = CGAffineTransformMakeScale(320 / self.view.frame.size.width, 480 / self.view.frame.size.height);
-    self.capture.scanRect = CGRectApplyAffineTransform(self.scanView.frame, captureSizeTransform);
-    
-    [self.capture start];
+    if (!self.btcScanView) {
+        self.btcScanView = [BTCQRCode scannerViewWithBlock:^(NSString *message) {
+            if ([self.delegate respondsToSelector:@selector(bcmscannerViewController:didScanString:)]) {
+                [self.delegate bcmscannerViewController:self didScanString:message];
+            }
+        }];
+        self.btcScanView.frame = self.view.bounds;
+        [self.view addSubview:self.btcScanView];
+    }
 }
 
 - (void)requestCameraPermissionIfNeeded
@@ -95,19 +86,6 @@ NSString *const kBCMQrCodeScannerViewControllerId = @"qrCodeScannerViewControlle
 - (void)cancelAction:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-#pragma mark - ZXCapturewDelegate
-
-- (void)captureResult:(ZXCapture *)capture result:(ZXResult *)result {
-    if (!result) return;
-    
-    // We got a result. Display information about the result onscreen.
-    NSString *qrString = result.text;
-    
-    if ([self.delegate respondsToSelector:@selector(bcmscannerViewController:didScanString:)]) {
-        [self.delegate bcmscannerViewController:self didScanString:qrString];
-    }
 }
 
 @end
