@@ -243,6 +243,7 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
 - (void)dismissCharge:(id)sender
 {
     [self hideTransactionViewAndRemoveOverlay:YES];
+    [self hideTransactionViewAndUpdateModel];
 }
 
 - (IBAction)chargeAction:(id)sender
@@ -606,9 +607,11 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
             // Present the composition view
             [self presentViewController:mailComposeViewController animated:YES completion:^{
             }];
+        } else {
+            [self hideTransactionViewAndUpdateModel];
         }
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"merchant.email.error_not_supported", nil) message:NSLocalizedString(@"merchant.email.error_not_supported_detail", nil) delegate:self cancelButtonTitle:nil otherButtonTitles:LOCALIZED_ALERT_OK, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"merchant.email.error_not_supported", nil) message:NSLocalizedString(@"merchant.email.error_not_supported_detail", nil) delegate:self cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"alert.ok", nil), nil];
         [alert show];
     }
 }
@@ -641,8 +644,10 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
         [self hideTransactionViewAndUpdateModel];
     } else {
         if ([alertMessage length] > 0) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"general.Oops", nil) message:alertMessage delegate:self cancelButtonTitle:nil otherButtonTitles:LOCALIZED_ALERT_OK, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"general.Oops", nil) message:alertMessage delegate:self cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"alert.ok", nil), nil];
             [alert show];
+        } else {
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
     }
 }

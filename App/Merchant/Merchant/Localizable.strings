@@ -57,6 +57,8 @@
 "addItem.error.missing.name.detail" = "Item requires a name.";
 "addItem.error.missing.price" = "Missing Price";
 "addItem.error.missing.price.detail" = "Item requires a price.";
+"addItem.error.zero.price" = "Invalid Price";
+"addItem.error.zero.price.detail" = "Price value must be greater than 0";
 
 // POS
 "item.list.noitems" = "No Items";
@@ -85,6 +87,9 @@
 "merchant.email.error_not_supported" = "Email Not Supported";
 "merchant.email.error_not_supported_detail" = "This device does not support sending an email.";
 "merchant.email.error_sending_message" = "Error sending Email.  Please check your email and send again.";
+
+"merchant.email.invalid" = "Invalid Email";
+"merchant.email.invalid.detail" = "Please enter a valid email address.";
 
 // Currency
 "action_picker.currency" = "Currency";
