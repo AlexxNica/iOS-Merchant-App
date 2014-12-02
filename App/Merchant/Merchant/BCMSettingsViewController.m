@@ -340,7 +340,7 @@ static NSString *const kSettingsCurrentLocationCellId = @"currentLocationCellId"
                     if ([BTCAddress addressWithBase58String:walletAddress]) {
                         self.checkBoxImageView.image = [UIImage imageNamed:@"green_check"];
                     } else {
-                        self.checkBoxImageView.image = [UIImage imageNamed:@"red_check"];
+                        self.checkBoxImageView.image = [UIImage imageNamed:@"red_x"];
                     }
                     textFieldCell.accessoryView = self.checkBoxImageView;
                 }
@@ -565,7 +565,7 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
             if ([BTCAddress addressWithBase58String:walletAddress]) {
                 self.checkBoxImageView.image = [UIImage imageNamed:@"green_check"];
             } else {
-                self.checkBoxImageView.image = [UIImage imageNamed:@"red_check"];
+                self.checkBoxImageView.image = [UIImage imageNamed:@"red_x"];
             }
         }
     }
@@ -587,6 +587,7 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
 
 - (void)bcmscannerViewControllerCancel:(BCMQRCodeScannerViewController *)vc
 {
+    
     [vc dismissViewControllerAnimated:YES completion:nil];
 }
 
