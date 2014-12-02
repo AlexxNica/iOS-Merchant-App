@@ -20,6 +20,8 @@
 
 #import "Foundation-Utility.h"
 
+#import <CoreBitcoin/CoreBitcoin.h>
+
 static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"addr_sub\",\"addr\":\"%@\"}";
 
 
@@ -54,7 +56,7 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket
 {
     NSLog(@"Connected");
-    NSString *merchantAddress = [[NSUserDefaults standardUserDefaults] objectForKey:@"MerchantAddress"];
+    NSString *merchantAddress = [BCMMerchantManager sharedInstance].activeMerchant.walletAddress;
     NSString *subscribeToAddress = [NSString stringWithFormat:kBlockChainWebSocketSubscribeAddressFormat,merchantAddress];
     [self.transactionSocket send:subscribeToAddress];
 }
@@ -123,12 +125,13 @@ static NSString *const kBlockChainSockURL = @"ws://ws.blockchain.info/inv";
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.spinner stopAnimating];
             // Need to set bitcoin price
-            NSString *bitcoinValue = [NSString stringWithFormat:@"%@ BTC", [dict safeObjectForKey:@"btcValue"]];
+            NSString *bitcoinValue = [dict safeObjectForKey:@"btcValue"];
+            NSString *bitcoinAmount = [NSString stringWithFormat:@"%@ BTC", bitcoinValue];
             ;
-            self.bitcoinPriceLbl.text = bitcoinValue;
+            self.bitcoinPriceLbl.text = bitcoinAmount;
             NSString *merchantAddress = [BCMMerchantManager sharedInstance].activeMerchant.walletAddress;
-            NSString *qrEncodeString = [NSString stringWithFormat:@"bitcoin://%@?amount:=%@", merchantAddress, bitcoinValue];
-            self.qrCodeImageView.image = [self generateQRCodeWithString:qrEncodeString scale:4 * [[UIScreen mainScreen] scale]];
+            NSString *qrEncodeString = [NSString stringWithFormat:@"bitcoin://%@?amount=%@", merchantAddress, bitcoinValue];
+            self.qrCodeImageView.image = [BTCQRCode imageForString:qrEncodeString size:self.qrCodeImageView.frame.size scale:[[UIScreen mainScreen] scale]];
             self.activeTransaction.bitcoinAmountValue = [bitcoinValue floatValue];
 #ifdef MOCK_BTC_TRANSACTION
             [self performSelector:@selector(transactionCompleted) withObject:nil afterDelay:1.0f];
