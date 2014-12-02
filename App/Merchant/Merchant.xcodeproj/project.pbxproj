@@ -21,6 +21,7 @@
 		FA0614DF1A1CDF1B004F71F4 /* PEPin-on.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614DD1A1CDF1B004F71F4 /* PEPin-on.png */; };
 		FA0614E11A1CE287004F71F4 /* pin_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614E01A1CE287004F71F4 /* pin_delete@2x.png */; };
 		FA10E2A91A1E4147005DEB6B /* Foundation-Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10E2A81A1E4147005DEB6B /* Foundation-Utility.m */; };
+		FA11B4801A2E1D2100E56310 /* red_x@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA11B47F1A2E1D2100E56310 /* red_x@2x.png */; };
 		FA20E67E1A2644C400B70DCF /* current_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA20E67D1A2644C400B70DCF /* current_location@2x.png */; };
 		FA26249A1A261B3F006C824A /* BusinessCategories.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA2624991A261B3F006C824A /* BusinessCategories.plist */; };
 		FA74B69C1A08C3B70045A4EF /* BCMPaymentReceivedView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74B69B1A08C3B70045A4EF /* BCMPaymentReceivedView.m */; };
@@ -147,6 +148,7 @@
 		FA0614E31A1E307D004F71F4 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		FA10E2A71A1E4147005DEB6B /* Foundation-Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Foundation-Utility.h"; sourceTree = "<group>"; };
 		FA10E2A81A1E4147005DEB6B /* Foundation-Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation-Utility.m"; sourceTree = "<group>"; };
+		FA11B47F1A2E1D2100E56310 /* red_x@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red_x@2x.png"; path = "../../../Assets/red_x@2x.png"; sourceTree = "<group>"; };
 		FA20E67D1A2644C400B70DCF /* current_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "current_location@2x.png"; path = "../../../Assets/current_location@2x.png"; sourceTree = "<group>"; };
 		FA2624991A261B3F006C824A /* BusinessCategories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BusinessCategories.plist; sourceTree = "<group>"; };
 		FA74B69A1A08C3B70045A4EF /* BCMPaymentReceivedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMPaymentReceivedView.h; sourceTree = "<group>"; };
@@ -518,6 +520,7 @@
 				FA7D9F7F1A0BACB500B7B5CE /* close_button@2x.png */,
 				FAB1170C1A11018800E876BA /* transaction_check@2x.png */,
 				FA7900201A26ADFC001FCB3D /* red_check@2x.png */,
+				FA11B47F1A2E1D2100E56310 /* red_x@2x.png */,
 				FA74B69F1A08C6CC0045A4EF /* green_check@2x.png */,
 				FA0614C51A163EEA004F71F4 /* qr_code@2x.png */,
 				FA9982621A03E8FE006C7D2F /* mock_qr_code@2x.png */,
@@ -641,6 +644,7 @@
 				TargetAttributes = {
 					FAA4189C19F789A000023B25 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = NZ6PH75U7K;
 					};
 					FAA418B519F789A000023B25 = {
 						CreatedOnToolsVersion = 6.0;
@@ -699,6 +703,7 @@
 				FA99823619FF784F006C7D2F /* BCMCustomAmountView.xib in Resources */,
 				FA0614C61A163EEA004F71F4 /* qr_code@2x.png in Resources */,
 				FA99823D1A029AED006C7D2F /* Default-568h@2x.png in Resources */,
+				FA11B4801A2E1D2100E56310 /* red_x@2x.png in Resources */,
 				FAB117731A11D77800E876BA /* Icon-Small@2x.png in Resources */,
 				FAB117751A11D77800E876BA /* Icon.png in Resources */,
 				FA7D9F801A0BACB500B7B5CE /* close_button@2x.png in Resources */,

@@ -113,6 +113,8 @@
     _scannedWalletAddress = [scannedWalletAddress copy];
     
     self.walletTextField.text = _scannedWalletAddress;
+    
+    [self updateAddressStatusForAddress:scannedWalletAddress];
 }
 
 @synthesize pinRequired = _pinRequired;
@@ -219,19 +221,26 @@
         self.greenCheckContrainst.constant = -1.0f * CGRectGetWidth(self.addressValidateImageView.frame);
         self.addressValidateImageView.hidden = NO;
         NSString *walletAddress = [self.walletTextField.text stringByReplacingCharactersInRange:range withString:string];
-        if ([walletAddress length] > 0) {
-            if ([BTCAddress addressWithBase58String:walletAddress]) {
-                self.addressValidateImageView.image = [UIImage imageNamed:@"green_check"];
-            } else {
-                self.addressValidateImageView.image = [UIImage imageNamed:@"red_check"];
-            }
-        } else {
-            self.greenCheckContrainst.constant = 0.0f;
-            self.addressValidateImageView.image = nil;
-        }
+        [self updateAddressStatusForAddress:walletAddress];
     }
     
     return YES;
+}
+
+- (void)updateAddressStatusForAddress:(NSString *)address
+{
+    self.greenCheckContrainst.constant = -1.0f * CGRectGetWidth(self.addressValidateImageView.frame);
+    self.addressValidateImageView.hidden = NO;
+    if ([address length] > 0) {
+        if ([BTCAddress addressWithBase58String:address]) {
+            self.addressValidateImageView.image = [UIImage imageNamed:@"green_check"];
+        } else {
+            self.addressValidateImageView.image = [UIImage imageNamed:@"red_x"];
+        }
+    } else {
+        self.greenCheckContrainst.constant = 0.0f;
+        self.addressValidateImageView.image = nil;
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
