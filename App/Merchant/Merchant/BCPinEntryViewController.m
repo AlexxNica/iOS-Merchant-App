@@ -256,7 +256,7 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
         _resetState = PinEntryModeResetStateEnter;
         [self clearPinImageViews];
     } else if (_resetState == PinEntryModeResetStateEnterNew) {
-        self.titleLbl.text = NSLocalizedString(@"pin.entry.enter_passcode", nil);
+        self.titleLbl.text = NSLocalizedString(@"pin.entry.enter_new_passcode", nil);
         self.firstEnteredPin = @"";
         self.secondEnteredPin = @"";
         self.pin = [[NSMutableString alloc] init];
