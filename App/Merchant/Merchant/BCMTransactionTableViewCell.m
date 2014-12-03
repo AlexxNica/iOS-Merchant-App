@@ -31,7 +31,7 @@
 {
     _transaction = transaction;
     
-    self.amountLbl.text = [NSString stringWithFormat:@"%1.2f", transaction.bitcoinAmountValue];
+    self.amountLbl.text = [NSString stringWithFormat:@"%1.4f", transaction.bitcoinAmountValue];
     
     
     NSDate *transactionDate = _transaction.creation_date;
