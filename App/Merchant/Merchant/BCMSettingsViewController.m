@@ -55,6 +55,7 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
     BCMSettingsRowWalletAddress,
     BCMSettingsRowSetPin,
     BCMSettingsRowDirectoryListing,
+    BCMSettingsRowSortOrder,
     BCMSettingsRowCount
 };
 
@@ -148,6 +149,7 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
 {
     [self.settings setObjectOrNil:merchant.name forKey:kBCMBusinessName];
     [self.settings setObjectOrNil:merchant.businessCategory forKey:kBCMBusinessCategory];
+    [self.settings setObjectOrNil:[NSNumber numberWithUnsignedInteger:[BCMMerchantManager sharedInstance].sortOrder] forKey:kBCMItemSortOrderSettingsKey];
 
     [self.settings setObjectOrNil:merchant.streetAddress forKey:kBCMBusinessStreetAddress];
 
@@ -214,6 +216,7 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
 static NSString *const kSettingsTextFieldCellId = @"settingTextFieldCellId";
 static NSString *const kSettingsSwitchCellId = @"settingSwitchCellId";
 static NSString *const kSettingsCurrentLocationCellId = @"currentLocationCellId";
+static NSString *const kSettingsWithDetailCellId = @"settingWithDetailCellId";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -254,6 +257,14 @@ static NSString *const kSettingsCurrentLocationCellId = @"currentLocationCellId"
             NSNumber *businessCategoryNumber = [self.settings safeObjectForKey:kBCMBusinessCategory];
             settingValue = [self.businessCategories safeObjectForKey:[businessCategoryNumber stringValue]];
             settingKey = kBCMBusinessCategory;
+            break;
+        }
+        case BCMSettingsRowSortOrder: {
+            reuseCellId = kSettingsWithDetailCellId;
+            NSNumber *sortOrder = [self.settings safeObjectForKey:kBCMItemSortOrderSettingsKey];
+            settingTitle = NSLocalizedString(@"setting.sort_order.title", nil);
+            settingValue = [[BCMMerchantManager sharedInstance] sortOrderTitle:[sortOrder unsignedIntegerValue]];
+            canEdit = NO;
             break;
         }
         case BCMSettingsRowTelephone:
@@ -351,6 +362,15 @@ static NSString *const kSettingsCurrentLocationCellId = @"currentLocationCellId"
     } else if ([reuseCellId isEqualToString:kSettingsCurrentLocationCellId]) {
         // We don't do anything other than grab the cell
         cell = [tableView dequeueReusableCellWithIdentifier:kSettingsCurrentLocationCellId];
+    } else if ([reuseCellId isEqualToString:kSettingsWithDetailCellId]) {
+        // We don't do anything other than grab the cell
+        cell = [tableView dequeueReusableCellWithIdentifier:kSettingsWithDetailCellId];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:kSettingsWithDetailCellId];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        cell.textLabel.text = settingTitle;
+        cell.detailTextLabel.text = settingValue;
     } else {
         BCMSwitchTableViewCell *switchCell = [tableView dequeueReusableCellWithIdentifier:kSettingsSwitchCellId];
         switchCell.delegate = self;
@@ -411,7 +431,19 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
         } cancelBlock:^(ActionSheetStringPicker *picker) {
         } origin:self.view];
         [picker showActionSheetPicker];
-    } else if (indexPath.row == BCMSettingsRowSetPin) {
+    } else if (indexPath.row == BCMSettingsRowSortOrder) {
+        NSUInteger sortOrder = [[self.settings safeObjectForKey:kBCMItemSortOrderSettingsKey] unsignedIntegerValue];
+        NSArray *sortOrderChoices = @[ [[BCMMerchantManager sharedInstance] sortOrderTitle:BCMMerchantItemSortTypeCreation], [[BCMMerchantManager sharedInstance] sortOrderTitle:BCMMerchantItemSortTypeName], [[BCMMerchantManager sharedInstance] sortOrderTitle:BCMMerchantItemSortTypeEditTime] ];
+        
+        ActionSheetStringPicker *picker = [[ActionSheetStringPicker alloc] initWithTitle:NSLocalizedString(@"action_picker.sort_order", nil) rows:sortOrderChoices initialSelection:sortOrder doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
+            [self.settings setObject:[NSNumber numberWithInteger:selectedIndex] forKey:kBCMItemSortOrderSettingsKey];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.settingsTableView reloadData];
+            });
+        } cancelBlock:^(ActionSheetStringPicker *picker) {
+        } origin:self.view];
+        [picker showActionSheetPicker];
+    }  else if (indexPath.row == BCMSettingsRowSetPin) {
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:MAIN_STORYBOARD_NAME bundle:nil];
         UINavigationController *pinEntryViewNavController = [mainStoryboard instantiateViewControllerWithIdentifier:kPinEntryStoryboardId];
         BCPinEntryViewController *entryViewController = (BCPinEntryViewController *)pinEntryViewNavController.topViewController;
@@ -640,7 +672,8 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
         NSString *businessWalletAddress = [self.settings safeObjectForKey:kBCMBusinessWalletAddress];
         
         NSNumber *directoryListing = [self.settings safeObjectForKey:kBCMBusinessDirectoryListing];
-        
+        NSNumber *sortOrder = [self.settings safeObjectForKey:kBCMItemSortOrderSettingsKey];
+
         // If the directory listing switch is active we were previously not active we force a submission to the backend
         BOOL forceNetworkUpdate = [directoryListing boolValue] && ([directoryListing boolValue] != activeMerchant.directoryListingValue);
         
@@ -679,6 +712,9 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
         if (!merchantRequiresUpdate && ![activeMerchant.currency isEqualToString:businessCurrency]) {
             merchantRequiresUpdate = YES;
         }
+        if (!merchantRequiresUpdate && [BCMMerchantManager sharedInstance].sortOrder != [sortOrder unsignedIntegerValue]) {
+            merchantRequiresUpdate = YES;
+        }
         
         Merchant *merchant = [BCMMerchantManager sharedInstance].activeMerchant;
         merchant.businessCategory = businessCategory;
@@ -694,7 +730,8 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
         merchant.currency =  businessCurrency;
         merchant.walletAddress = businessWalletAddress;
         merchant.directoryListingValue = [directoryListing boolValue];
-        
+        [BCMMerchantManager sharedInstance].sortOrder = [sortOrder unsignedIntegerValue];
+
         NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
         [localContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
         }];

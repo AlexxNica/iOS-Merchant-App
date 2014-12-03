@@ -8,6 +8,8 @@
 
 #import "BCMMerchantManager.h"
 
+#import "Item.h"
+
 #import "BCPinEntryViewController.h"
 
 #import "SSKeyChain.h"
@@ -15,9 +17,13 @@
 #import "Merchant.h"
 
 NSString *const kBCMPinSettingsKey = @"BCMPinSettings";
+NSString *const kBCMItemSortOrderSettingsKey = @"BCMItemSortOrderSettings";
 
 // Pin Entry
 static NSString *const kBCMPinManagerEncryptedPinKey = @"encryptedPinKey";
+
+// Sort Order
+static NSString *const kBCMSortOrderKey = @"sortOrderKey";
 
 @interface BCMMerchantManager ()
 
@@ -40,6 +46,23 @@ static NSString *const kBCMPinManagerEncryptedPinKey = @"encryptedPinKey";
     NSArray *merchants = [Merchant MR_findAll];
     
     return [merchants firstObject];
+}
+
+@synthesize sortOrder = _sortOrder;
+
+- (void)setSortOrder:(BCMMerchantItemSortType)sortOrder
+{
+    _sortOrder = sortOrder;
+    
+    [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithUnsignedInt:sortOrder] forKey:kBCMSortOrderKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (BCMMerchantItemSortType)sortOrder
+{
+    NSNumber *sortValue = [[NSUserDefaults standardUserDefaults] valueForKey:kBCMSortOrderKey];
+    
+    return [sortValue unsignedIntegerValue];
 }
 
 - (BOOL)requirePIN
@@ -65,35 +88,50 @@ static NSString *const kBCMPinManagerEncryptedPinKey = @"encryptedPinKey";
     return symbol;
 }
 
-- (UIImage *)merchantQRCodeImage
+- (NSString *)sortOrderTitle:(BCMMerchantItemSortType)sortType
 {
-    CGFloat scale = 4 * [[UIScreen mainScreen] scale];
-    NSString *mechantName = self.activeMerchant.name;
-    NSData *stringData = [mechantName dataUsingEncoding:NSUTF8StringEncoding ];
+    NSString *sortOrderTitle = @"";
     
-    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
-    [filter setValue:stringData forKey:@"inputMessage"];
-    [filter setValue:@"M" forKey:@"inputCorrectionLevel"];
+    switch (sortType) {
+        case BCMMerchantItemSortTypeCreation:
+            sortOrderTitle = NSLocalizedString(@"setting.sort_order.creation.title", nil);
+            break;
+        case BCMMerchantItemSortTypeName:
+            sortOrderTitle = NSLocalizedString(@"setting.sort_order.alphabetical.title", nil);
+            break;
+        case BCMMerchantItemSortTypeEditTime:
+            sortOrderTitle = NSLocalizedString(@"setting.sort_order.recent.title", nil);
+            break;
+        default:
+            break;
+    }
     
-    // Render the image into a CoreGraphics image
-    CGImageRef cgImage = [[CIContext contextWithOptions:nil] createCGImage:[filter outputImage] fromRect:[[filter outputImage] extent]];
+    return sortOrderTitle;
+}
+
+- (NSArray *)itemsSortedByCurrentSortType
+{
+    NSString *sortProperty = @"";
+    BOOL ascending = YES;
     
-    //Scale the image usign CoreGraphics
-    UIGraphicsBeginImageContext(CGSizeMake([[filter outputImage] extent].size.width * scale, [filter outputImage].extent.size.width * scale));
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetInterpolationQuality(context, kCGInterpolationNone);
-    CGContextDrawImage(context, CGContextGetClipBoundingBox(context), cgImage);
-    UIImage *preImage = UIGraphicsGetImageFromCurrentImageContext();
+    switch (self.sortOrder) {
+        case BCMMerchantItemSortTypeCreation:
+            ascending = NO;
+            sortProperty = @"creation_date";
+            break;
+        case BCMMerchantItemSortTypeEditTime:
+            ascending = NO;
+            sortProperty = @"active_date";
+            break;
+        case BCMMerchantItemSortTypeName:
+            ascending = YES;
+            sortProperty = @"name";
+            break;
+        default:
+            break;
+    }
     
-    //Cleaning up .
-    UIGraphicsEndImageContext();
-    CGImageRelease(cgImage);
-    
-    // Rotate the image
-    UIImage *qrImage = [UIImage imageWithCGImage:[preImage CGImage]
-                                           scale:[preImage scale]
-                                     orientation:UIImageOrientationDownMirrored];
-    return qrImage;
+    return [Item MR_findAllSortedBy:sortProperty ascending:ascending];
 }
 
 NSString *const kBCMServiceName = @"BCMMerchant";

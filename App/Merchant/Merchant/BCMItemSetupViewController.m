@@ -78,7 +78,7 @@
         [self.itemsTableView setLayoutMargins:UIEdgeInsetsZero];
     }
     
-    self.merchantItems = [Item MR_findAllSortedBy:@"creation_date" ascending:NO];
+    self.merchantItems = [[BCMMerchantManager sharedInstance] itemsSortedByCurrentSortType];
     self.itemsTableView.tableFooterView = [[UIView alloc] init];
 }
 

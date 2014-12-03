@@ -100,12 +100,17 @@
 "setting.business_address.city" = "Business City";
 "setting.business_address.zipcode" = "Business Zipcode";
 "setting.business_address.category" = "Category";
+"setting.sort_order.title" = "Item Sort Order";
 "setting.telephone.title" = "Telephone";
 "setting.description.title" = "Description";
 "setting.website.title" = "Website";
 "setting.currency.title" = "Currency";
 "setting.wallet_address.title" = "Address";
 "setting.directory_listing.title" = "Directory Listing";
+
+"setting.sort_order.creation.title" = "Date Added";
+"setting.sort_order.recent.title" = "Recently Added To Transaction";
+"setting.sort_order.alphabetical.title" = "Alphabetical";
 
 "setting.location_services.trouble_finding.title" = "Error Finding Location";
 "setting.location_services.trouble_finding.detail" = "Please try again";
@@ -115,6 +120,7 @@
 "setting.location_services.locating" = "Locating";
 
 "action_picker.categories" = "Category";
+"action_picker.sort_order" = "Item Sort Order";
 
 // Errors
 "networking.post_merchant.fail" = "Merchant Post Failure";

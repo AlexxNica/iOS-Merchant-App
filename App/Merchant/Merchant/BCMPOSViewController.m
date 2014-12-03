@@ -137,7 +137,7 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     
     self.currencySign = [[BCMMerchantManager sharedInstance] currencySymbol];
     
-    self.merchantItems = [Item MR_findAllSortedBy:@"creation_date" ascending:NO];
+    self.merchantItems = [[BCMMerchantManager sharedInstance] itemsSortedByCurrentSortType];
 
     [self updateTransctionInformation];
     
@@ -453,6 +453,8 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
             } else {
                 item  = [self.merchantItems objectAtIndex:row];
             }
+            
+            item.active_date = [NSDate date];
             
             NSDictionary *itemDict = [item itemAsDict];
             [self.simpleItems addObject:itemDict];

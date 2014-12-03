@@ -10,8 +10,16 @@
 
 #import "BCPinEntryViewController.h"
 
+typedef NS_ENUM(NSUInteger, BCMMerchantItemSortType) {
+    BCMMerchantItemSortTypeCreation,
+    BCMMerchantItemSortTypeName,
+    BCMMerchantItemSortTypeEditTime
+};
+
 // Pin Related Values
 extern NSString *const kBCMPinSettingsKey;
+extern NSString *const kBCMItemSortOrderSettingsKey;
+
 extern NSString *const kBCMServiceName;
 
 @class Merchant;
@@ -19,13 +27,14 @@ extern NSString *const kBCMServiceName;
 @interface BCMMerchantManager : NSObject <BCPinEntryViewControllerDelegate>
 
 @property (strong, readonly, nonatomic) Merchant *activeMerchant;
+@property (assign, nonatomic) BCMMerchantItemSortType sortOrder;
 
 + (instancetype)sharedInstance;
 
 - (BOOL)requirePIN;
 
 - (NSString *)currencySymbol;
-
-- (UIImage *)merchantQRCodeImage;
+- (NSString *)sortOrderTitle:(BCMMerchantItemSortType)sortType;
+- (NSArray *)itemsSortedByCurrentSortType;
 
 @end
