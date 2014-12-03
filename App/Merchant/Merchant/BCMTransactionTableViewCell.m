@@ -43,7 +43,7 @@
 
     if (secondsBeforeNow < 60) {
         timeUnit = NSLocalizedString(@"transaction.detail.seconds", nil);
-        timeValue = [NSString stringWithFormat:NSLocalizedString(@"transaction.detail.time.ago", nil), (long)secondsBeforeNow, timeUnit];
+        timeValue = [NSString stringWithFormat:NSLocalizedString(@"transaction.detail.time.ago", nil), (float)secondsBeforeNow, timeUnit];
     } else if (secondsBeforeNow >= 60 && secondsBeforeNow < 3600) {
         timeUnit = NSLocalizedString(@"transaction.detail.minutes", nil);
         timeValue = [NSString stringWithFormat:NSLocalizedString(@"transaction.detail.time.ago", nil), ceilf(secondsBeforeNow / 60), timeUnit];

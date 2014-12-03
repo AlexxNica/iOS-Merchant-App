@@ -1662,7 +1662,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="ks2-AS-M7j" detailTextLabel="cQe-R6-hla" rowHeight="71" style="IBUITableViewCellStyleValue1" id="TqA-7g-3hb">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingWithDetailCellId" textLabel="ks2-AS-M7j" detailTextLabel="cQe-R6-hla" rowHeight="71" style="IBUITableViewCellStyleValue1" id="TqA-7g-3hb">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TqA-7g-3hb" id="2Lh-sJ-p9W">
