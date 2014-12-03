@@ -643,6 +643,7 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
     }
 
     if (dismissTransactionView) {
+        [self dismissViewControllerAnimated:YES completion:nil];
         [self hideTransactionViewAndUpdateModel];
     } else {
         if ([alertMessage length] > 0) {
