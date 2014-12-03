@@ -5,6 +5,7 @@
 
 
 extern const struct ItemAttributes {
+	__unsafe_unretained NSString *active_date;
 	__unsafe_unretained NSString *creation_date;
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *price;
@@ -21,6 +22,7 @@ extern const struct ItemFetchedProperties {
 
 
 
+
 @interface ItemID : NSManagedObjectID {}
 @end
 
@@ -29,6 +31,16 @@ extern const struct ItemFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (ItemID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSDate* active_date;
+
+
+
+//- (BOOL)validateActive_date:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -76,6 +88,12 @@ extern const struct ItemFetchedProperties {
 @end
 
 @interface _Item (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSDate*)primitiveActive_date;
+- (void)setPrimitiveActive_date:(NSDate*)value;
+
+
 
 
 - (NSDate*)primitiveCreation_date;

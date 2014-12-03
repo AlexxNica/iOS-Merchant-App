@@ -151,6 +151,7 @@
 		FA11B47F1A2E1D2100E56310 /* red_x@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red_x@2x.png"; path = "../../../Assets/red_x@2x.png"; sourceTree = "<group>"; };
 		FA20E67D1A2644C400B70DCF /* current_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "current_location@2x.png"; path = "../../../Assets/current_location@2x.png"; sourceTree = "<group>"; };
 		FA2624991A261B3F006C824A /* BusinessCategories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BusinessCategories.plist; sourceTree = "<group>"; };
+		FA51BBE21A2EFEB000AE880B /* Merchant_Sort_Order.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Merchant_Sort_Order.xcdatamodel; sourceTree = "<group>"; };
 		FA74B69A1A08C3B70045A4EF /* BCMPaymentReceivedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMPaymentReceivedView.h; sourceTree = "<group>"; };
 		FA74B69B1A08C3B70045A4EF /* BCMPaymentReceivedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMPaymentReceivedView.m; sourceTree = "<group>"; };
 		FA74B69D1A08C3D20045A4EF /* BCMPaymentReceivedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCMPaymentReceivedView.xib; sourceTree = "<group>"; };
@@ -1064,9 +1065,10 @@
 		FA99821719FE0F15006C7D2F /* Merchant.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				FA51BBE21A2EFEB000AE880B /* Merchant_Sort_Order.xcdatamodel */,
 				FA99821819FE0F15006C7D2F /* Merchant.xcdatamodel */,
 			);
-			currentVersion = FA99821819FE0F15006C7D2F /* Merchant.xcdatamodel */;
+			currentVersion = FA51BBE21A2EFEB000AE880B /* Merchant_Sort_Order.xcdatamodel */;
 			path = Merchant.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

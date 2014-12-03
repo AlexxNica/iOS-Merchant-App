@@ -4,6 +4,7 @@
 #import "_Item.h"
 
 const struct ItemAttributes ItemAttributes = {
+	.active_date = @"active_date",
 	.creation_date = @"creation_date",
 	.name = @"name",
 	.price = @"price",
@@ -49,6 +50,13 @@ const struct ItemFetchedProperties ItemFetchedProperties = {
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic active_date;
+
+
 
 
 
