@@ -25,7 +25,7 @@
 // Transaction Detail
 "transaction.detail.seconds" = "seconds";
 "transaction.detail.minutes" = "minutes";
-"transaction.detail.time.ago" = "%ld %@ ago";
+"transaction.detail.time.ago" = "%.0f %@ ago";
 
 // QR Code Scanning
 "qr.scanning.permission.title" = "Enable Camera Access";
