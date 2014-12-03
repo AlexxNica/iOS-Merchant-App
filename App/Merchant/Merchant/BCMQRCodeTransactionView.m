@@ -112,7 +112,17 @@ static NSString *const kBlockChainSockURL = @"ws://ws.blockchain.info/inv";
 
 - (void)setActiveTransaction:(Transaction *)activeTransaction
 {
+    Transaction *previousTransaction = _activeTransaction;
+    
     _activeTransaction = activeTransaction;
+    
+    if (previousTransaction != _activeTransaction) {
+        self.qrCodeImageView.image = nil;
+        self.bitcoinPriceLbl.text = @"...";
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.spinner startAnimating];
+        });
+    }
     
     NSString *total = NSLocalizedString(@"general.NA", nil);
     NSString *currencySymbol = [[BCMMerchantManager sharedInstance] currencySymbol];
