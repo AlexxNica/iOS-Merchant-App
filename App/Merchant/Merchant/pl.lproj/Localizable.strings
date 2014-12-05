@@ -1,0 +1,183 @@
+/* 
+  Localizable.strings
+  Merchant
+  Created by User on 10/23/14.
+  Copyright (c) 2014 com. All rights reserved.
+*/
+// Generics
+"alert.ok" = "Ok";
+
+"action.save" = "Zapisz";
+
+"action.cancel" = "Anuluj";
+
+"general.NA" = "N/D!";
+
+"general.Oops" = "UPS";
+
+"general.save" = "Zapisane";
+
+"general.done" = "Zrobić";
+
+// Networking
+"network.problem.title" = "Błąd sieciowy";
+
+"network.problem.detail" = "Mamy napotkał problem z siecią.  Proszę spróbować ponownie.";
+
+// Transaction Detail
+"transaction.detail.seconds" = "sekund";
+
+"transaction.detail.minutes" = "minut";
+
+"transaction.detail.time.ago" = "%.0f %@ temu";
+
+// QR Code Scanning
+"qr.scanning.permission.title" = "Umożliwiać dostęp do kamery";
+
+"qr.scanning.permission.detail" = "Przejdź do ustawienia i włączyć aparat dostępu dla kupca Blockchain.";
+
+// Sign Up
+"signup.alert.title" = "Próbuj ponownie";
+
+"signup.warning" = "Nazwa firmy, prawidłowy adres portfel i waluty.";
+
+"signup.business.name" = "Nazwa firmy";
+
+"signup.wallet.name" = "Portfel adres";
+
+"signup.currency.name" = "Waluty";
+
+"signup.pin.set" = "Zestaw Pin";
+
+"signup.pin.reset" = "Zresetować kod Pin";
+
+// Currency Picker
+"currency.picker.title" = "Waluty";
+
+// Navigation
+"navigation.pos" = "POS";
+
+"navigation.item_setup" = "Element konfiguracji";
+
+"navigation.transactions" = "Transakcje";
+
+"navigation.settings" = "Ustawienia";
+
+"navigation.price_news" = "Cena & News";
+
+"navigation.logout" = "Wyloguj";
+
+"navigation.login" = "Zgłoś się do systemu";
+
+// Add Item
+"addItem.error.missing.name" = "Brak nazwy";
+
+"addItem.error.missing.name.detail" = "Element wymaga nazwy.";
+
+"addItem.error.missing.price" = "Brakuje cena";
+
+"addItem.error.missing.price.detail" = "Element wymaga cenę.";
+
+"addItem.error.zero.price" = "Nieprawidłowy";
+
+"addItem.error.zero.price.detail" = "Cena wartość musi być większa niż 0";
+
+// POS
+"item.list.noitems" = "Brak elementów";
+
+"item.list.custom" = "Niestandardowe";
+
+"item.list.number_of_item" = "(pozycja%lu)";
+
+"item.list.number_of_items" = "(pozycje%lu)";
+
+// Transaction
+"qr.trasnasction.info.waiting" = "Oczekiwanie na opłatę";
+
+// Pin Entry
+"Cancel" = "Anuluj";
+
+"pin.entry.enter_passcode" = "Wpisz swoje hasło";
+
+"pin.entry.enter_new_passcode" = "Wprowadź nowe hasło";
+
+"pin.entry.re_enter_passcode" = "Wprowadź ponownie hasło";
+
+"pin.entry.validation_failed" = "Nie można sprawdzić poprawności hasła";
+
+"pin.entry.password_incorrect" = "Nieprawidłowe hasło";
+
+"pin.info.reset_pin" = "Zresetować kod Pin";
+
+"pin.info.set_pin" = "Zestaw Pin";
+
+// Merchant Email
+"merchant.email.hi" = "Cześć";
+
+"merchant.email.receiptInfo" = "Tutaj jest przyjęcie dla swojej %@ w %@ na %@.";
+
+"merchant.email.thanks" = "Dzięki za Blockchain kupca!";
+
+"merchant.email.subject" = "Otrzymania od %@";
+
+"merchant.email.error_not_supported" = "E-mail nie obsługiwane";
+
+"merchant.email.error_not_supported_detail" = "To urządzenie nie obsługuje wysyłania wiadomości e-mail.";
+
+"merchant.email.error_sending_message" = "Wystąpił błąd podczas wysyłania wiadomości E-mail.  Proszę sprawdzić twój poczta elektroniczna i Wyślij ponownie.";
+
+"merchant.email.invalid" = "Nieprawidłowy adres E-mail";
+
+"merchant.email.invalid.detail" = "Podaj poprawny adres e-mail.";
+
+// Currency
+"action_picker.currency" = "Waluty";
+
+// Settings
+"setting.name.title" = "Nazwa firmy";
+
+"setting.business_address.title" = "Adres firmy";
+
+"setting.business_address.city" = "Miasto biznesu";
+
+"setting.business_address.zipcode" = "Kod pocztowy firmy";
+
+"setting.business_address.category" = "Kategoria";
+
+"setting.sort_order.title" = "Kolejność sortowania elementu";
+
+"setting.telephone.title" = "Telefon";
+
+"setting.description.title" = "Opis";
+
+"setting.website.title" = "Strona internetowa";
+
+"setting.currency.title" = "Waluty";
+
+"setting.wallet_address.title" = "Adres";
+
+"setting.directory_listing.title" = "Katalog aukcji";
+
+"setting.sort_order.creation.title" = "Data dodania";
+
+"setting.sort_order.recent.title" = "Ostatnio dodane do transakcji";
+
+"setting.sort_order.alphabetical.title" = "Alfabetyczne";
+
+"setting.location_services.trouble_finding.title" = "Znalezienie lokalizacji błędu";
+
+"setting.location_services.trouble_finding.detail" = "Spróbuj ponownie";
+
+"setting.location_services.disabled.title" = "Lokalizacja usług osób niepełnosprawnych";
+
+"setting.location_services.disabled.detail" = "Przejdź do ustawienia prywatności i włączanie usług lokalizacyjnych dla kupca Blockchain.";
+
+"setting.location_services.locating" = "Lokalizowanie";
+
+"action_picker.categories" = "Kategoria";
+
+"action_picker.sort_order" = "Kolejność sortowania elementu";
+
+// Errors
+"networking.post_merchant.fail" = "Kupiec po awarii";
+

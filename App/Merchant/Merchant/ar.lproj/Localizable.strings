@@ -1,0 +1,183 @@
+/* 
+  Localizable.strings
+  Merchant
+  Created by User on 10/23/14.
+  Copyright (c) 2014 com. All rights reserved.
+*/
+// Generics
+"alert.ok" = "موافق";
+
+"action.save" = "حفظ";
+
+"action.cancel" = "إلغاء الأمر";
+
+"general.NA" = "N/A";
+
+"general.Oops" = "عفوا";
+
+"general.save" = "حفظ";
+
+"general.done" = "عمله";
+
+// Networking
+"network.problem.title" = "خطأ في شبكة الاتصال";
+
+"network.problem.detail" = "واجهنا مشكلة شبكات.  الرجاء المحاولة مرة أخرى.";
+
+// Transaction Detail
+"transaction.detail.seconds" = "ثانية";
+
+"transaction.detail.minutes" = "دقيقة";
+
+"transaction.detail.time.ago" = "%@ %.0f قبل";
+
+// QR Code Scanning
+"qr.scanning.permission.title" = "تمكين الوصول إلى الكاميرا";
+
+"qr.scanning.permission.detail" = "اذهب إلى الإعدادات وتمكين الوصول للكاميرا للتاجر بلوكتشين.";
+
+// Sign Up
+"signup.alert.title" = "حاول مرة أخرى";
+
+"signup.warning" = "اسم الشركة وعنوان صالح المحفظة والعملة المطلوبة.";
+
+"signup.business.name" = "اسم الشركة";
+
+"signup.wallet.name" = "عنوان المحفظة";
+
+"signup.currency.name" = "تحويل العملات";
+
+"signup.pin.set" = "تعيين رقم التعريف الشخصي";
+
+"signup.pin.reset" = "إعادة تعيين رقم Pin";
+
+// Currency Picker
+"currency.picker.title" = "تحويل العملات";
+
+// Navigation
+"navigation.pos" = "نقاط البيع";
+
+"navigation.item_setup" = "إعداد العنصر";
+
+"navigation.transactions" = "المعاملات";
+
+"navigation.settings" = "إعدادات";
+
+"navigation.price_news" = "أخبار آند الأسعار";
+
+"navigation.logout" = "تسجيل الخروج";
+
+"navigation.login" = "تسجيل الدخول";
+
+// Add Item
+"addItem.error.missing.name" = "اسم مفقود";
+
+"addItem.error.missing.name.detail" = "ويتطلب البند اسماً.";
+
+"addItem.error.missing.price" = "السعر مفقود";
+
+"addItem.error.missing.price.detail" = "البند يتطلب ثمناً.";
+
+"addItem.error.zero.price" = "الأسعار غير صحيحة";
+
+"addItem.error.zero.price.detail" = "سعر القيمة يجب أن تكون أكبر من 0";
+
+// POS
+"item.list.noitems" = "لا توجد عناصر";
+
+"item.list.custom" = "مخصص";
+
+"item.list.number_of_item" = "(البند%lu)";
+
+"item.list.number_of_items" = "(مواد%lu)";
+
+// Transaction
+"qr.trasnasction.info.waiting" = "في انتظار الدفع";
+
+// Pin Entry
+"Cancel" = "إلغاء الأمر";
+
+"pin.entry.enter_passcode" = "أدخل رمز المرور الخاص بك";
+
+"pin.entry.enter_new_passcode" = "أدخل رمز مرور جديد";
+
+"pin.entry.re_enter_passcode" = "أعد إدخال رمز المرور الخاص بك";
+
+"pin.entry.validation_failed" = "فشل التحقق من صحة رمز المرور";
+
+"pin.entry.password_incorrect" = "رمز مرور غير صحيحة";
+
+"pin.info.reset_pin" = "إعادة تعيين رقم Pin";
+
+"pin.info.set_pin" = "تعيين رقم التعريف الشخصي";
+
+// Merchant Email
+"merchant.email.hi" = "مرحبا";
+
+"merchant.email.receiptInfo" = "هنا هو الإيصال الخاص بك للخاص بك %@ في %@ في %@.";
+
+"merchant.email.thanks" = "شكرا لاستخدام التاجر بلوكتشين!";
+
+"merchant.email.subject" = "استلام من %@";
+
+"merchant.email.error_not_supported" = "البريد الإلكتروني غير معتمد";
+
+"merchant.email.error_not_supported_detail" = "لا يدعم هذا الجهاز إرسال رسالة بالبريد إلكتروني.";
+
+"merchant.email.error_sending_message" = "حدث خطأ أثناء إرسال البريد الإلكتروني.  الرجاء التحقق من البريد الإلكتروني الخاص بك، وإرسال مرة أخرى.";
+
+"merchant.email.invalid" = "بريد إلكتروني غير صالح";
+
+"merchant.email.invalid.detail" = "الرجاء إدخال عنوان بريد إلكتروني صالح.";
+
+// Currency
+"action_picker.currency" = "تحويل العملات";
+
+// Settings
+"setting.name.title" = "اسم الشركة";
+
+"setting.business_address.title" = "عنوان العمل";
+
+"setting.business_address.city" = "مدينة العمل";
+
+"setting.business_address.zipcode" = "الرمز البريدي الأعمال";
+
+"setting.business_address.category" = "الفئة";
+
+"setting.sort_order.title" = "ترتيب فرز العناصر";
+
+"setting.telephone.title" = "الهاتف";
+
+"setting.description.title" = "الوصف";
+
+"setting.website.title" = "موقع على شبكة الإنترنت";
+
+"setting.currency.title" = "تحويل العملات";
+
+"setting.wallet_address.title" = "عنوان";
+
+"setting.directory_listing.title" = "سرد الدليل";
+
+"setting.sort_order.creation.title" = "تاريخ الإضافة";
+
+"setting.sort_order.recent.title" = "أضيف مؤخرا للحركة";
+
+"setting.sort_order.alphabetical.title" = "أبجدي";
+
+"setting.location_services.trouble_finding.title" = "خطأ في البحث عن موقع";
+
+"setting.location_services.trouble_finding.detail" = "الرجاء المحاولة مرة أخرى";
+
+"setting.location_services.disabled.title" = "موقع لخدمات المعوقين";
+
+"setting.location_services.disabled.detail" = "اذهب إلى \"إعدادات الخصوصية\" الخاصة بك، وتمكين خدمات الموقع للتاجر بلوكتشين.";
+
+"setting.location_services.locating" = "تحديد موقع";
+
+"action_picker.categories" = "الفئة";
+
+"action_picker.sort_order" = "ترتيب فرز العناصر";
+
+// Errors
+"networking.post_merchant.fail" = "فشل وظيفة التاجر";
+

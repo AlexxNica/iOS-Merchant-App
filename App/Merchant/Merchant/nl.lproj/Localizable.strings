@@ -1,0 +1,183 @@
+/* 
+  Localizable.strings
+  Merchant
+  Created by User on 10/23/14.
+  Copyright (c) 2014 com. All rights reserved.
+*/
+// Generics
+"alert.ok" = "OK";
+
+"action.save" = "Opslaan";
+
+"action.cancel" = "Annuleren";
+
+"general.NA" = "N/B";
+
+"general.Oops" = "Oeps";
+
+"general.save" = "Opgeslagen";
+
+"general.done" = "Gedaan";
+
+// Networking
+"network.problem.title" = "Netwerkfout";
+
+"network.problem.detail" = "Er is een netwerk probleem opgetreden.  Probeer het opnieuw.";
+
+// Transaction Detail
+"transaction.detail.seconds" = "seconden";
+
+"transaction.detail.minutes" = "minuten";
+
+"transaction.detail.time.ago" = "%.0f %@ geleden";
+
+// QR Code Scanning
+"qr.scanning.permission.title" = "Camera toegang inschakelen";
+
+"qr.scanning.permission.detail" = "Ga naar instellingen en Camera toegang voor Blockchain handelaar.";
+
+// Sign Up
+"signup.alert.title" = "&Opnieuw";
+
+"signup.warning" = "Bedrijfsnaam, geldig portemonnee adres en valuta zijn vereist.";
+
+"signup.business.name" = "Bedrijfsnaam";
+
+"signup.wallet.name" = "Portemonnee adres";
+
+"signup.currency.name" = "Valuta";
+
+"signup.pin.set" = "Set Pin";
+
+"signup.pin.reset" = "Pincode opnieuw instellen";
+
+// Currency Picker
+"currency.picker.title" = "Valuta";
+
+// Navigation
+"navigation.pos" = "POS";
+
+"navigation.item_setup" = "Artikelen instellen";
+
+"navigation.transactions" = "Transacties";
+
+"navigation.settings" = "Instellingen";
+
+"navigation.price_news" = "Prijs & nieuws";
+
+"navigation.logout" = "Logout";
+
+"navigation.login" = "LogIn";
+
+// Add Item
+"addItem.error.missing.name" = "Ontbrekende naam";
+
+"addItem.error.missing.name.detail" = "Object vereist een naam.";
+
+"addItem.error.missing.price" = "Ontbrekende prijs";
+
+"addItem.error.missing.price.detail" = "Object vereist een prijs.";
+
+"addItem.error.zero.price" = "Ongeldige prijs";
+
+"addItem.error.zero.price.detail" = "Prijs waarde moet groter zijn dan 0";
+
+// POS
+"item.list.noitems" = "Geen Items";
+
+"item.list.custom" = "Aangepaste";
+
+"item.list.number_of_item" = "(%lu-opdracht)";
+
+"item.list.number_of_items" = "(%lu artikelen)";
+
+// Transaction
+"qr.trasnasction.info.waiting" = "Wachten op betaling";
+
+// Pin Entry
+"Cancel" = "Annuleren";
+
+"pin.entry.enter_passcode" = "Voer uw toegangscode";
+
+"pin.entry.enter_new_passcode" = "Voer nieuwe toegangscode";
+
+"pin.entry.re_enter_passcode" = "Voer uw wachtwoord opnieuw in";
+
+"pin.entry.validation_failed" = "Wachtwoord validatie mislukt";
+
+"pin.entry.password_incorrect" = "Onjuiste toegangscode";
+
+"pin.info.reset_pin" = "Pincode opnieuw instellen";
+
+"pin.info.set_pin" = "Set Pin";
+
+// Merchant Email
+"merchant.email.hi" = "Hallo";
+
+"merchant.email.receiptInfo" = "Hier is uw aankoopbewijs van uw %@ op %@ op %@.";
+
+"merchant.email.thanks" = "Bedankt voor het gebruiken van Blockchain handelaar!";
+
+"merchant.email.subject" = "Ontvangst van %@";
+
+"merchant.email.error_not_supported" = "E-mail niet ondersteund";
+
+"merchant.email.error_not_supported_detail" = "Dit apparaat biedt geen ondersteuning voor het verzenden van een e-mail.";
+
+"merchant.email.error_sending_message" = "Fout bij verzenden van E-mail.  Controleer uw e-mailadres en verzend opnieuw.";
+
+"merchant.email.invalid" = "Ongeldig e-mailadres";
+
+"merchant.email.invalid.detail" = "Voer een geldig e-mailadres.";
+
+// Currency
+"action_picker.currency" = "Valuta";
+
+// Settings
+"setting.name.title" = "Bedrijfsnaam";
+
+"setting.business_address.title" = "Zakelijk adres";
+
+"setting.business_address.city" = "Werkadres, plaats";
+
+"setting.business_address.zipcode" = "Bedrijf postcode";
+
+"setting.business_address.category" = "Categorie";
+
+"setting.sort_order.title" = "Volgorde van items sorteren";
+
+"setting.telephone.title" = "Telefoon";
+
+"setting.description.title" = "Beschrijving";
+
+"setting.website.title" = "Website";
+
+"setting.currency.title" = "Valuta";
+
+"setting.wallet_address.title" = "Adres";
+
+"setting.directory_listing.title" = "Directory Listing";
+
+"setting.sort_order.creation.title" = "Datum toegevoegd";
+
+"setting.sort_order.recent.title" = "Onlangs toegevoegd aan de transactie";
+
+"setting.sort_order.alphabetical.title" = "Alfabetische";
+
+"setting.location_services.trouble_finding.title" = "Fout vinden locatie";
+
+"setting.location_services.trouble_finding.detail" = "Probeer het a.u.b. opnieuw";
+
+"setting.location_services.disabled.title" = "Locatie diensten gehandicapten";
+
+"setting.location_services.disabled.detail" = "Ga naar uw Privacy-instellingen en locatieservices voor Blockchain handelaar in te schakelen.";
+
+"setting.location_services.locating" = "Zoeken";
+
+"action_picker.categories" = "Categorie";
+
+"action_picker.sort_order" = "Volgorde van items sorteren";
+
+// Errors
+"networking.post_merchant.fail" = "Zakelijke Post mislukking";
+

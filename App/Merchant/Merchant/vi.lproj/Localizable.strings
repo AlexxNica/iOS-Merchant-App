@@ -1,0 +1,183 @@
+/* 
+  Localizable.strings
+  Merchant
+  Created by User on 10/23/14.
+  Copyright (c) 2014 com. All rights reserved.
+*/
+// Generics
+"alert.ok" = "Ok";
+
+"action.save" = "Tiết kiệm";
+
+"action.cancel" = "Hủy bỏ";
+
+"general.NA" = "N/A";
+
+"general.Oops" = "Rất tiếc";
+
+"general.save" = "Lưu";
+
+"general.done" = "Thực hiện";
+
+// Networking
+"network.problem.title" = "Lỗi mạng";
+
+"network.problem.detail" = "Chúng tôi gặp phải một vấn đề mạng.  Xin vui lòng thử lại.";
+
+// Transaction Detail
+"transaction.detail.seconds" = "giây";
+
+"transaction.detail.minutes" = "phút";
+
+"transaction.detail.time.ago" = "%.0f %@ trước";
+
+// QR Code Scanning
+"qr.scanning.permission.title" = "Cho phép truy nhập máy ảnh";
+
+"qr.scanning.permission.detail" = "Đi để cài đặt và kích hoạt tính năng Camera truy cập cho thương gia Blockchain.";
+
+// Sign Up
+"signup.alert.title" = "Thử lại";
+
+"signup.warning" = "Tên doanh nghiệp, địa chỉ hợp lệ ví và thu được yêu cầu.";
+
+"signup.business.name" = "Tên doanh nghiệp";
+
+"signup.wallet.name" = "Ví địa chỉ";
+
+"signup.currency.name" = "Thu";
+
+"signup.pin.set" = "Đặt Pin";
+
+"signup.pin.reset" = "Đặt lại mã Pin";
+
+// Currency Picker
+"currency.picker.title" = "Thu";
+
+// Navigation
+"navigation.pos" = "POS";
+
+"navigation.item_setup" = "Thiết lập mục";
+
+"navigation.transactions" = "Giao dịch";
+
+"navigation.settings" = "Cài đặt";
+
+"navigation.price_news" = "Giá & tin tức";
+
+"navigation.logout" = "Đăng xuất";
+
+"navigation.login" = "Đăng nhập";
+
+// Add Item
+"addItem.error.missing.name" = "Thiếu tên";
+
+"addItem.error.missing.name.detail" = "Mục yêu cầu một tên.";
+
+"addItem.error.missing.price" = "Bảng giá";
+
+"addItem.error.missing.price.detail" = "Mục yêu cầu một mức giá.";
+
+"addItem.error.zero.price" = "Giá không hợp lệ";
+
+"addItem.error.zero.price.detail" = "Giá trị giá phải lớn hơn 0";
+
+// POS
+"item.list.noitems" = "Không có khoản mục";
+
+"item.list.custom" = "Tuỳ chỉnh";
+
+"item.list.number_of_item" = "(%lu mục)";
+
+"item.list.number_of_items" = "(%lu mục)";
+
+// Transaction
+"qr.trasnasction.info.waiting" = "Chờ đợi cho thanh toán";
+
+// Pin Entry
+"Cancel" = "Hủy bỏ";
+
+"pin.entry.enter_passcode" = "Nhập mã khóa của bạn";
+
+"pin.entry.enter_new_passcode" = "Nhập mã truyền mới";
+
+"pin.entry.re_enter_passcode" = "Nhập lại mật mã của bạn";
+
+"pin.entry.validation_failed" = "Mã xác nhận không thành công";
+
+"pin.entry.password_incorrect" = "Mật mã không chính xác";
+
+"pin.info.reset_pin" = "Đặt lại mã Pin";
+
+"pin.info.set_pin" = "Đặt Pin";
+
+// Merchant Email
+"merchant.email.hi" = "Chào bạn";
+
+"merchant.email.receiptInfo" = "Đây là biên nhận của bạn cho của bạn %@ tại %@ ngày %@.";
+
+"merchant.email.thanks" = "Cảm ơn bạn đã sử dụng Blockchain thương gia!";
+
+"merchant.email.subject" = "Nhận từ %@";
+
+"merchant.email.error_not_supported" = "Thư điện tử không được hỗ trợ";
+
+"merchant.email.error_not_supported_detail" = "Thiết bị này không hỗ trợ việc gửi một email.";
+
+"merchant.email.error_sending_message" = "Lỗi gửi Email.  Hãy kiểm tra email của bạn và gửi một lần nữa.";
+
+"merchant.email.invalid" = "Email không hợp lệ";
+
+"merchant.email.invalid.detail" = "Vui lòng nhập một địa chỉ email hợp lệ.";
+
+// Currency
+"action_picker.currency" = "Thu";
+
+// Settings
+"setting.name.title" = "Tên doanh nghiệp";
+
+"setting.business_address.title" = "Địa chỉ doanh nghiệp";
+
+"setting.business_address.city" = "Thành phố kinh doanh";
+
+"setting.business_address.zipcode" = "Kinh doanh Zipcode";
+
+"setting.business_address.category" = "Thể loại";
+
+"setting.sort_order.title" = "Thứ tự sắp xếp mục";
+
+"setting.telephone.title" = "Điện thoại";
+
+"setting.description.title" = "Mô tả";
+
+"setting.website.title" = "Trang web";
+
+"setting.currency.title" = "Thu";
+
+"setting.wallet_address.title" = "Địa chỉ";
+
+"setting.directory_listing.title" = "Danh sách thư mục";
+
+"setting.sort_order.creation.title" = "Ngày thêm vào";
+
+"setting.sort_order.recent.title" = "Mới thêm vào giao dịch";
+
+"setting.sort_order.alphabetical.title" = "Bảng chữ cái";
+
+"setting.location_services.trouble_finding.title" = "Lỗi tìm kiếm vị trí";
+
+"setting.location_services.trouble_finding.detail" = "Xin vui lòng thử lại";
+
+"setting.location_services.disabled.title" = "Vị trí dịch vụ Khuyết tật";
+
+"setting.location_services.disabled.detail" = "Đi đến cài đặt bảo mật và bật các vị trí dịch vụ thương gia Blockchain.";
+
+"setting.location_services.locating" = "Vị trí";
+
+"action_picker.categories" = "Thể loại";
+
+"action_picker.sort_order" = "Thứ tự sắp xếp mục";
+
+// Errors
+"networking.post_merchant.fail" = "Thương gia bài thất bại";
+

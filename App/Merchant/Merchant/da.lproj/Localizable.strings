@@ -1,0 +1,183 @@
+/* 
+  Localizable.strings
+  Merchant
+  Created by User on 10/23/14.
+  Copyright (c) 2014 com. All rights reserved.
+*/
+// Generics
+"alert.ok" = "Ok";
+
+"action.save" = "Gem";
+
+"action.cancel" = "Annuller";
+
+"general.NA" = "NIELSEN";
+
+"general.Oops" = "Ups";
+
+"general.save" = "Gemt";
+
+"general.done" = "Gjort";
+
+// Networking
+"network.problem.title" = "Netværksfejl";
+
+"network.problem.detail" = "Vi fandt en networking spørgsmål.  Prøv venligst igen.";
+
+// Transaction Detail
+"transaction.detail.seconds" = "sekunder";
+
+"transaction.detail.minutes" = "minutter";
+
+"transaction.detail.time.ago" = "%.0f %@ siden";
+
+// QR Code Scanning
+"qr.scanning.permission.title" = "Aktiver kamera adgang";
+
+"qr.scanning.permission.detail" = "Gå til indstillinger, og aktiver kamera adgang for Blockchain købmand.";
+
+// Sign Up
+"signup.alert.title" = "Prøv igen";
+
+"signup.warning" = "Firmanavn, gyldig tegnebog adresse og valuta er påkrævet.";
+
+"signup.business.name" = "Firmanavn";
+
+"signup.wallet.name" = "Tegnebog adresse";
+
+"signup.currency.name" = "Valuta";
+
+"signup.pin.set" = "Angiv pinkode";
+
+"signup.pin.reset" = "Nulstille Pin";
+
+// Currency Picker
+"currency.picker.title" = "Valuta";
+
+// Navigation
+"navigation.pos" = "POS";
+
+"navigation.item_setup" = "Opsætning af vare";
+
+"navigation.transactions" = "Transaktioner";
+
+"navigation.settings" = "Indstillinger";
+
+"navigation.price_news" = "Pris & nyheder";
+
+"navigation.logout" = "Logout";
+
+"navigation.login" = "LogIn";
+
+// Add Item
+"addItem.error.missing.name" = "Manglende navn";
+
+"addItem.error.missing.name.detail" = "Element kræver et navn.";
+
+"addItem.error.missing.price" = "Mangler pris";
+
+"addItem.error.missing.price.detail" = "Element kræver en pris.";
+
+"addItem.error.zero.price" = "Ugyldig pris";
+
+"addItem.error.zero.price.detail" = "Pris værdi skal være større end 0";
+
+// POS
+"item.list.noitems" = "Ingen varer";
+
+"item.list.custom" = "Custom";
+
+"item.list.number_of_item" = "(%lu vare)";
+
+"item.list.number_of_items" = "(%lu poster)";
+
+// Transaction
+"qr.trasnasction.info.waiting" = "Venter på betaling";
+
+// Pin Entry
+"Cancel" = "Annuller";
+
+"pin.entry.enter_passcode" = "Indtast din passcode";
+
+"pin.entry.enter_new_passcode" = "Indtast ny adgangskode";
+
+"pin.entry.re_enter_passcode" = "Indtast din adgangskode igen";
+
+"pin.entry.validation_failed" = "Adgangskoden validering mislykkedes";
+
+"pin.entry.password_incorrect" = "Adgangskode forkert";
+
+"pin.info.reset_pin" = "Nulstille Pin";
+
+"pin.info.set_pin" = "Angiv pinkode";
+
+// Merchant Email
+"merchant.email.hi" = "Hej";
+
+"merchant.email.receiptInfo" = "Her er din kvittering for din %@ på %@ på %@.";
+
+"merchant.email.thanks" = "Tak for at bruge Blockchain købmand!";
+
+"merchant.email.subject" = "Modtagelse fra %@";
+
+"merchant.email.error_not_supported" = "E-mail understøttes ikke";
+
+"merchant.email.error_not_supported_detail" = "Denne enhed understøtter ikke at sende en e-mail.";
+
+"merchant.email.error_sending_message" = "Fejl ved afsendelse af E-mail.  Behage indskrive jeres email og sende igen.";
+
+"merchant.email.invalid" = "Ugyldig E-mail";
+
+"merchant.email.invalid.detail" = "Angiv en gyldig e-mail-adresse.";
+
+// Currency
+"action_picker.currency" = "Valuta";
+
+// Settings
+"setting.name.title" = "Firmanavn";
+
+"setting.business_address.title" = "Business-adresse";
+
+"setting.business_address.city" = "Business City";
+
+"setting.business_address.zipcode" = "Business postnummer";
+
+"setting.business_address.category" = "Kategori";
+
+"setting.sort_order.title" = "Vare sorteringsrækkefølge";
+
+"setting.telephone.title" = "Telefon";
+
+"setting.description.title" = "Beskrivelse";
+
+"setting.website.title" = "Hjemmeside";
+
+"setting.currency.title" = "Valuta";
+
+"setting.wallet_address.title" = "Adresse";
+
+"setting.directory_listing.title" = "Bibliotek katalogiserer";
+
+"setting.sort_order.creation.title" = "Dato tilføjet";
+
+"setting.sort_order.recent.title" = "For nylig føjet til transaktionen";
+
+"setting.sort_order.alphabetical.title" = "Alfabetisk";
+
+"setting.location_services.trouble_finding.title" = "Fejl Finding placering";
+
+"setting.location_services.trouble_finding.detail" = "Prøv venligst igen";
+
+"setting.location_services.disabled.title" = "Placering tjenester handicappede";
+
+"setting.location_services.disabled.detail" = "Gå til din personlige indstillinger, og Aktiver placeringstjenester for Blockchain købmand.";
+
+"setting.location_services.locating" = "Lokalisering";
+
+"action_picker.categories" = "Kategori";
+
+"action_picker.sort_order" = "Vare sorteringsrækkefølge";
+
+// Errors
+"networking.post_merchant.fail" = "Købmand Post fejl";
+

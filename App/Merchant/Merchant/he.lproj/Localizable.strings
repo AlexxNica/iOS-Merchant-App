@@ -1,0 +1,183 @@
+/* 
+  Localizable.strings
+  Merchant
+  Created by User on 10/23/14.
+  Copyright (c) 2014 com. All rights reserved.
+*/
+// Generics
+"alert.ok" = "אוקיי";
+
+"action.save" = "שמור";
+
+"action.cancel" = "ביטול";
+
+"general.NA" = "N/A";
+
+"general.Oops" = ". אופס";
+
+"general.save" = "הציל";
+
+"general.done" = "עשיתי";
+
+// Networking
+"network.problem.title" = "שגיאת רשת";
+
+"network.problem.detail" = "נתקלנו בעיית רשת.  נא נסה שוב.";
+
+// Transaction Detail
+"transaction.detail.seconds" = "שניות";
+
+"transaction.detail.minutes" = "דקות";
+
+"transaction.detail.time.ago" = "%.0f %@ לפני";
+
+// QR Code Scanning
+"qr.scanning.permission.title" = "לאפשר גישה המצלמה";
+
+"qr.scanning.permission.detail" = "ללכת הגדרות המצלמה אפשר גישה עבור הסוחר Blockchain.";
+
+// Sign Up
+"signup.alert.title" = "נסה שוב";
+
+"signup.warning" = "שם העסק, כתובת הארנק חוקי ומטבע נדרשים.";
+
+"signup.business.name" = "שם העסק";
+
+"signup.wallet.name" = "הארנק כתובת";
+
+"signup.currency.name" = "מטבע";
+
+"signup.pin.set" = "הסיכה קבוע";
+
+"signup.pin.reset" = "איפוס Pin";
+
+// Currency Picker
+"currency.picker.title" = "מטבע";
+
+// Navigation
+"navigation.pos" = "POS";
+
+"navigation.item_setup" = "הגדרת פריט";
+
+"navigation.transactions" = "תנועות";
+
+"navigation.settings" = "הגדרות";
+
+"navigation.price_news" = "מחיר & חדשות";
+
+"navigation.logout" = "יציאה מהמערכת";
+
+"navigation.login" = "כניסה";
+
+// Add Item
+"addItem.error.missing.name" = "שם חסר";
+
+"addItem.error.missing.name.detail" = "פריט דורש שם.";
+
+"addItem.error.missing.price" = "חסר מחיר";
+
+"addItem.error.missing.price.detail" = "פריט דורש מחיר.";
+
+"addItem.error.zero.price" = "מחיר לא חוקי";
+
+"addItem.error.zero.price.detail" = "מחיר ערך חייב להיות גדול מ- 0";
+
+// POS
+"item.list.noitems" = "אין פריטים";
+
+"item.list.custom" = "מותאם אישית";
+
+"item.list.number_of_item" = "(פריט%lu)";
+
+"item.list.number_of_items" = "(%lu פריטים)";
+
+// Transaction
+"qr.trasnasction.info.waiting" = "מחכה לתשלום";
+
+// Pin Entry
+"Cancel" = "ביטול";
+
+"pin.entry.enter_passcode" = "הזן את הסיסמא שלך";
+
+"pin.entry.enter_new_passcode" = "הזן קוד גישה חדש";
+
+"pin.entry.re_enter_passcode" = "הזן מחדש את הסיסמא שלך";
+
+"pin.entry.validation_failed" = "אימות קוד הגישה נכשלה";
+
+"pin.entry.password_incorrect" = "קוד שגוי";
+
+"pin.info.reset_pin" = "איפוס Pin";
+
+"pin.info.set_pin" = "הסיכה קבוע";
+
+// Merchant Email
+"merchant.email.hi" = "היי";
+
+"merchant.email.receiptInfo" = "הנה הקבלה שלך עבור שלך %@-%@-%@.";
+
+"merchant.email.thanks" = "תודה על שימוש Blockchain סוחר!";
+
+"merchant.email.subject" = "קבלות מ- %@";
+
+"merchant.email.error_not_supported" = "דואר אלקטרוני אינו נתמך";
+
+"merchant.email.error_not_supported_detail" = "התקן זה אינו תומך שליחת מייל.";
+
+"merchant.email.error_sending_message" = "שגיאה בעת שליחת דואר אלקטרוני.  אנא בדוק את הדוא ל שלך ולשלוח שוב.";
+
+"merchant.email.invalid" = "דוא ל לא חוקית";
+
+"merchant.email.invalid.detail" = "אנא הזינו כתובת דוא ל חוקית.";
+
+// Currency
+"action_picker.currency" = "מטבע";
+
+// Settings
+"setting.name.title" = "שם העסק";
+
+"setting.business_address.title" = "כתובת העבודה";
+
+"setting.business_address.city" = "עסקים בעיר";
+
+"setting.business_address.zipcode" = "מיקוד עסקי";
+
+"setting.business_address.category" = "קטגוריה";
+
+"setting.sort_order.title" = "סדר המיון פריט";
+
+"setting.telephone.title" = "טלפון";
+
+"setting.description.title" = "תיאור";
+
+"setting.website.title" = "אתר אינטרנט";
+
+"setting.currency.title" = "מטבע";
+
+"setting.wallet_address.title" = "כתובת";
+
+"setting.directory_listing.title" = "מפירוט הספריה";
+
+"setting.sort_order.creation.title" = "תאריך נוסף";
+
+"setting.sort_order.recent.title" = "נוסף לאחרונה עסקה";
+
+"setting.sort_order.alphabetical.title" = "האלף-בית";
+
+"setting.location_services.trouble_finding.title" = "מיקום מציאת שגיאת";
+
+"setting.location_services.trouble_finding.detail" = "אנא נסה שנית";
+
+"setting.location_services.disabled.title" = "מיקום שירותי נכים";
+
+"setting.location_services.disabled.detail" = "ללכת להגדרות הפרטיות שלך ולאפשר שירותי המיקום עבור הסוחר Blockchain.";
+
+"setting.location_services.locating" = "איתור";
+
+"action_picker.categories" = "קטגוריה";
+
+"action_picker.sort_order" = "סדר המיון פריט";
+
+// Errors
+"networking.post_merchant.fail" = "כשל פוסט צי הסוחר";
+

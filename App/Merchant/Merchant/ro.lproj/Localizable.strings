@@ -1,0 +1,183 @@
+/* 
+  Localizable.strings
+  Merchant
+  Created by User on 10/23/14.
+  Copyright (c) 2014 com. All rights reserved.
+*/
+// Generics
+"alert.ok" = "ok";
+
+"action.save" = "Salvaţi";
+
+"action.cancel" = "Revocare";
+
+"general.NA" = "N/A";
+
+"general.Oops" = "Oops";
+
+"general.save" = "Salvate";
+
+"general.done" = "Făcut";
+
+// Networking
+"network.problem.title" = "Eroare de reţea";
+
+"network.problem.detail" = "Am întâlnit o problemă de reţea.  Vă rugăm să încercaţi din nou.";
+
+// Transaction Detail
+"transaction.detail.seconds" = "secunde";
+
+"transaction.detail.minutes" = "minute";
+
+"transaction.detail.time.ago" = "%.0f %@ în urmă";
+
+// QR Code Scanning
+"qr.scanning.permission.title" = "Permite accesul aparat de fotografiat";
+
+"qr.scanning.permission.detail" = "Du-te la setări şi Enable Camera acces pentru Blockchain comerciant.";
+
+// Sign Up
+"signup.alert.title" = "încearcă din nou";
+
+"signup.warning" = "Denumirea, adresa valida portofel şi monedă sunt necesare.";
+
+"signup.business.name" = "Denumirea";
+
+"signup.wallet.name" = "Adresa de portofel";
+
+"signup.currency.name" = "Moneda";
+
+"signup.pin.set" = "Set Pin";
+
+"signup.pin.reset" = "Resetaţi codul Pin";
+
+// Currency Picker
+"currency.picker.title" = "Moneda";
+
+// Navigation
+"navigation.pos" = "POS";
+
+"navigation.item_setup" = "Parametrizare articol";
+
+"navigation.transactions" = "Tranzacţii";
+
+"navigation.settings" = "Setări";
+
+"navigation.price_news" = "Pret & Stiri";
+
+"navigation.logout" = "Deconectare";
+
+"navigation.login" = "LogIn";
+
+// Add Item
+"addItem.error.missing.name" = "Lipsește numele de";
+
+"addItem.error.missing.name.detail" = "Necesită un nume.";
+
+"addItem.error.missing.price" = "Lipsesc Pret";
+
+"addItem.error.missing.price.detail" = "Necesită un preţ.";
+
+"addItem.error.zero.price" = "Incorecte preţ";
+
+"addItem.error.zero.price.detail" = "Pret valoare trebuie să fie mai mare decât 0";
+
+// POS
+"item.list.noitems" = "Articole";
+
+"item.list.custom" = "Custom";
+
+"item.list.number_of_item" = "(din%lu)";
+
+"item.list.number_of_items" = "(%lu articole)";
+
+// Transaction
+"qr.trasnasction.info.waiting" = "Aşteptare pentru plata";
+
+// Pin Entry
+"Cancel" = "Revocare";
+
+"pin.entry.enter_passcode" = "Introduceţi parola ta";
+
+"pin.entry.enter_new_passcode" = "Introduceþi noua parolã";
+
+"pin.entry.re_enter_passcode" = "Reintroduceți parola ta";
+
+"pin.entry.validation_failed" = "Parolã validarea nu a reușit";
+
+"pin.entry.password_incorrect" = "Parolă incorectă";
+
+"pin.info.reset_pin" = "Resetaţi codul Pin";
+
+"pin.info.set_pin" = "Set Pin";
+
+// Merchant Email
+"merchant.email.hi" = "salut";
+
+"merchant.email.receiptInfo" = "Aici este chitanţa pentru al tău %@ la %@ pe %@.";
+
+"merchant.email.thanks" = "Vă mulţumim pentru utilizarea Blockchain negustor!";
+
+"merchant.email.subject" = "Primirea de %@";
+
+"merchant.email.error_not_supported" = "E-mail nu acceptate";
+
+"merchant.email.error_not_supported_detail" = "Acest dispozitiv nu acceptă trimiterea unui e-mail.";
+
+"merchant.email.error_sending_message" = "Eroare la trimiterea E-mail.  Vă rugăm să verificaţi adresa de email si trimite din nou.";
+
+"merchant.email.invalid" = "E-mail nevalid";
+
+"merchant.email.invalid.detail" = "Vă rugăm să introduceţi o adresă de e-mail validă.";
+
+// Currency
+"action_picker.currency" = "Moneda";
+
+// Settings
+"setting.name.title" = "Denumirea";
+
+"setting.business_address.title" = "Adresa firmei";
+
+"setting.business_address.city" = "Oraş de afaceri";
+
+"setting.business_address.zipcode" = "Afaceri cod postal";
+
+"setting.business_address.category" = "Categorie";
+
+"setting.sort_order.title" = "Ordinea de sortare element";
+
+"setting.telephone.title" = "Telefon";
+
+"setting.description.title" = "Descriere";
+
+"setting.website.title" = "Site-ul";
+
+"setting.currency.title" = "Moneda";
+
+"setting.wallet_address.title" = "Adresa";
+
+"setting.directory_listing.title" = "Listare Director";
+
+"setting.sort_order.creation.title" = "Data adaugarii";
+
+"setting.sort_order.recent.title" = "Adăugate recent la tranzacţie";
+
+"setting.sort_order.alphabetical.title" = "Ordine alfabetică";
+
+"setting.location_services.trouble_finding.title" = "Locaţie de constatare erori";
+
+"setting.location_services.trouble_finding.detail" = "Vă rugăm să încercaţi din nou";
+
+"setting.location_services.disabled.title" = "Locaţia servicii cu handicap";
+
+"setting.location_services.disabled.detail" = "Du-te la setările de confidenţialitate şi activaţi serviciile de localizare pentru Blockchain comerciant.";
+
+"setting.location_services.locating" = "Localizarea";
+
+"action_picker.categories" = "Categorie";
+
+"action_picker.sort_order" = "Ordinea de sortare element";
+
+// Errors
+"networking.post_merchant.fail" = "Comerciant Post eşec";
+

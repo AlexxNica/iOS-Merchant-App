@@ -1,0 +1,183 @@
+/* 
+  Localizable.strings
+  Merchant
+  Created by User on 10/23/14.
+  Copyright (c) 2014 com. All rights reserved.
+*/
+// Generics
+"alert.ok" = "Okei";
+
+"action.save" = "Tallenna";
+
+"action.cancel" = "Peruuta";
+
+"general.NA" = "N/A";
+
+"general.Oops" = "Oho";
+
+"general.save" = "Tallennettu";
+
+"general.done" = "Tehnyt";
+
+// Networking
+"network.problem.title" = "Verkkovirhe";
+
+"network.problem.detail" = "Meillä on ollut verkko ongelma.  Yritä uudelleen.";
+
+// Transaction Detail
+"transaction.detail.seconds" = "sekuntia";
+
+"transaction.detail.minutes" = "minuuttia";
+
+"transaction.detail.time.ago" = "%.0f %@ sitten";
+
+// QR Code Scanning
+"qr.scanning.permission.title" = "Kameran käyttö";
+
+"qr.scanning.permission.detail" = "Siirry asetuksia ja salli kamera Blockchain kauppias.";
+
+// Sign Up
+"signup.alert.title" = "Yritä uudestaan";
+
+"signup.warning" = "Toiminimi, lompakko sähköpostiosoitteen ja valuutan tarvitaan.";
+
+"signup.business.name" = "Toiminimi";
+
+"signup.wallet.name" = "Lompakko osoite";
+
+"signup.currency.name" = "Valuutta";
+
+"signup.pin.set" = "Aseta kiertopiste";
+
+"signup.pin.reset" = "Palauta PIN-tunnus";
+
+// Currency Picker
+"currency.picker.title" = "Valuutta";
+
+// Navigation
+"navigation.pos" = "POS";
+
+"navigation.item_setup" = "Nimikkeiden asetukset";
+
+"navigation.transactions" = "Tapahtumat";
+
+"navigation.settings" = "Asetukset";
+
+"navigation.price_news" = "Hinta & Uutiset";
+
+"navigation.logout" = "Kirjaudu ulos";
+
+"navigation.login" = "Kirjaudu sisään";
+
+// Add Item
+"addItem.error.missing.name" = "Nimi puuttuu";
+
+"addItem.error.missing.name.detail" = "Kohde vaatii nimi.";
+
+"addItem.error.missing.price" = "Hinta puuttuu";
+
+"addItem.error.missing.price.detail" = "Kohde vaatii hinta.";
+
+"addItem.error.zero.price" = "Virheellinen hintatason";
+
+"addItem.error.zero.price.detail" = "Hinta arvon on oltava suurempi kuin 0";
+
+// POS
+"item.list.noitems" = "Ei kohteita";
+
+"item.list.custom" = "Custom";
+
+"item.list.number_of_item" = "(%lu erä)";
+
+"item.list.number_of_items" = "(%lu kohteet)";
+
+// Transaction
+"qr.trasnasction.info.waiting" = "Odottaa maksu";
+
+// Pin Entry
+"Cancel" = "Peruuta";
+
+"pin.entry.enter_passcode" = "Kirjoita tunnusluku";
+
+"pin.entry.enter_new_passcode" = "Anna uusi salasana";
+
+"pin.entry.re_enter_passcode" = "Kirjoita uudelleen salasana";
+
+"pin.entry.validation_failed" = "Salasanan vahvistus epäonnistui";
+
+"pin.entry.password_incorrect" = "Salasana virheellisten";
+
+"pin.info.reset_pin" = "Palauta PIN-tunnus";
+
+"pin.info.set_pin" = "Aseta kiertopiste";
+
+// Merchant Email
+"merchant.email.hi" = "Moikka";
+
+"merchant.email.receiptInfo" = "Tässä on %@ on %@ %@ kuitista.";
+
+"merchant.email.thanks" = "Kiitos, että käytät Blockchain kauppias!";
+
+"merchant.email.subject" = "Kuitin %@";
+
+"merchant.email.error_not_supported" = "Sähköposti ei tueta";
+
+"merchant.email.error_not_supported_detail" = "Tämä laite ei tue sähköpostitse.";
+
+"merchant.email.error_sending_message" = "Virhe lähetettäessä sähköpostia.  Tarkista sähköpostisi ja lähettää uudelleen.";
+
+"merchant.email.invalid" = "Virheellinen sähköpostiosoite";
+
+"merchant.email.invalid.detail" = "Anna voimassa oleva sähköpostiosoite.";
+
+// Currency
+"action_picker.currency" = "Valuutta";
+
+// Settings
+"setting.name.title" = "Toiminimi";
+
+"setting.business_address.title" = "Yrityksen osoite";
+
+"setting.business_address.city" = "Yrityksen postitoimipaikka";
+
+"setting.business_address.zipcode" = "Yrityksen postinumero";
+
+"setting.business_address.category" = "Luokka";
+
+"setting.sort_order.title" = "Nimikkeen lajittelujärjestys";
+
+"setting.telephone.title" = "Puhelin";
+
+"setting.description.title" = "Kuvaus";
+
+"setting.website.title" = "Sivusto";
+
+"setting.currency.title" = "Valuutta";
+
+"setting.wallet_address.title" = "Osoite";
+
+"setting.directory_listing.title" = "Hakemistolistauksen";
+
+"setting.sort_order.creation.title" = "Lisätty";
+
+"setting.sort_order.recent.title" = "Äskettäin lisätty tapahtumaan";
+
+"setting.sort_order.alphabetical.title" = "Aakkosjärjestyksessä";
+
+"setting.location_services.trouble_finding.title" = "Löytää sijainnin";
+
+"setting.location_services.trouble_finding.detail" = "Yritä uudelleen";
+
+"setting.location_services.disabled.title" = "Sijainti Palvelut käytössä";
+
+"setting.location_services.disabled.detail" = "Siirry tietosuoja-asetukset ja ota sijaintipalvelut Blockchain kauppias.";
+
+"setting.location_services.locating" = "Sijainti";
+
+"action_picker.categories" = "Luokka";
+
+"action_picker.sort_order" = "Nimikkeen lajittelujärjestys";
+
+// Errors
+"networking.post_merchant.fail" = "Kauppias Post virhe";
+

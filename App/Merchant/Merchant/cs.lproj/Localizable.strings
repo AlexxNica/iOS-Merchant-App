@@ -1,0 +1,183 @@
+/* 
+  Localizable.strings
+  Merchant
+  Created by User on 10/23/14.
+  Copyright (c) 2014 com. All rights reserved.
+*/
+// Generics
+"alert.ok" = "Ok";
+
+"action.save" = "Uložit";
+
+"action.cancel" = "Storno";
+
+"general.NA" = "NENÍ K DISPOZICI";
+
+"general.Oops" = "Chybička se vloudila";
+
+"general.save" = "Uloženo";
+
+"general.done" = "Hotovo";
+
+// Networking
+"network.problem.title" = "Chyba sítě";
+
+"network.problem.detail" = "Narazili jsme problémy se sítí.  Opakujte akci.";
+
+// Transaction Detail
+"transaction.detail.seconds" = "sekundy";
+
+"transaction.detail.minutes" = "minuty";
+
+"transaction.detail.time.ago" = "%.0f %@ před";
+
+// QR Code Scanning
+"qr.scanning.permission.title" = "Povolit přístup k fotoaparátu";
+
+"qr.scanning.permission.detail" = "Přejděte na nastavení a povolit přístup kamery pro obchodníka Blockchain.";
+
+// Sign Up
+"signup.alert.title" = "Zkuste to znovu";
+
+"signup.warning" = "Obchodní jméno, platnou adresu peněženku a měny jsou vyžadovány.";
+
+"signup.business.name" = "Obchodní jméno";
+
+"signup.wallet.name" = "Peněženka adresa";
+
+"signup.currency.name" = "Měna";
+
+"signup.pin.set" = "Stavěcí kolík";
+
+"signup.pin.reset" = "Resetovat kód Pin";
+
+// Currency Picker
+"currency.picker.title" = "Měna";
+
+// Navigation
+"navigation.pos" = "POS";
+
+"navigation.item_setup" = "Nastavení položky";
+
+"navigation.transactions" = "Transakce";
+
+"navigation.settings" = "Nastavení";
+
+"navigation.price_news" = "Cena & novinky";
+
+"navigation.logout" = "Odhlášení";
+
+"navigation.login" = "Přihlášení";
+
+// Add Item
+"addItem.error.missing.name" = "Chybějící jméno";
+
+"addItem.error.missing.name.detail" = "Položka vyžaduje název.";
+
+"addItem.error.missing.price" = "Chybějící cena";
+
+"addItem.error.missing.price.detail" = "Položka vyžaduje cenu.";
+
+"addItem.error.zero.price" = "Neplatná cena";
+
+"addItem.error.zero.price.detail" = "Cena hodnota musí být větší než 0";
+
+// POS
+"item.list.noitems" = "Žádné položky";
+
+"item.list.custom" = "Vlastní";
+
+"item.list.number_of_item" = "(%lu položka)";
+
+"item.list.number_of_items" = "(%lu položky)";
+
+// Transaction
+"qr.trasnasction.info.waiting" = "Čekání na platbu";
+
+// Pin Entry
+"Cancel" = "Storno";
+
+"pin.entry.enter_passcode" = "Zadejte své heslo";
+
+"pin.entry.enter_new_passcode" = "Zadejte nové heslo";
+
+"pin.entry.re_enter_passcode" = "Znovu zadat své heslo";
+
+"pin.entry.validation_failed" = "Ověření hesla se nezdařilo.";
+
+"pin.entry.password_incorrect" = "Nesprávné heslo";
+
+"pin.info.reset_pin" = "Resetovat kód Pin";
+
+"pin.info.set_pin" = "Stavěcí kolík";
+
+// Merchant Email
+"merchant.email.hi" = "Ahoj";
+
+"merchant.email.receiptInfo" = "Tady je váš příjem pro %@ na %@ na %@.";
+
+"merchant.email.thanks" = "Díky za použití Blockchain obchodníka!";
+
+"merchant.email.subject" = "Příjem od %@";
+
+"merchant.email.error_not_supported" = "E-mail není podporován";
+
+"merchant.email.error_not_supported_detail" = "Toto zařízení nepodporuje odesílání e-mailu.";
+
+"merchant.email.error_sending_message" = "Chyba při odesílání zprávy.  Zkontrolujte svůj e-mail a odešlete znovu.";
+
+"merchant.email.invalid" = "Neplatný E-mail";
+
+"merchant.email.invalid.detail" = "Zadejte prosím platnou e-mailovou adresu.";
+
+// Currency
+"action_picker.currency" = "Měna";
+
+// Settings
+"setting.name.title" = "Obchodní jméno";
+
+"setting.business_address.title" = "Adresa do zaměstnání";
+
+"setting.business_address.city" = "Obchodní město";
+
+"setting.business_address.zipcode" = "Obchodní PSČ";
+
+"setting.business_address.category" = "Kategorie";
+
+"setting.sort_order.title" = "Pořadí řazení položek";
+
+"setting.telephone.title" = "Telefon";
+
+"setting.description.title" = "Popis";
+
+"setting.website.title" = "Webové stránky";
+
+"setting.currency.title" = "Měna";
+
+"setting.wallet_address.title" = "Adresa";
+
+"setting.directory_listing.title" = "Výpis adresáře";
+
+"setting.sort_order.creation.title" = "Datum přidání";
+
+"setting.sort_order.recent.title" = "Nedávno přidané k transakci";
+
+"setting.sort_order.alphabetical.title" = "Abecední";
+
+"setting.location_services.trouble_finding.title" = "Chyba při hledání umístění";
+
+"setting.location_services.trouble_finding.detail" = "Zkuste to prosím znovu";
+
+"setting.location_services.disabled.title" = "Umístění služby jsou zakázány";
+
+"setting.location_services.disabled.detail" = "Přejděte k nastavení ochrany osobních údajů a umístění služby pro Blockchain obchodníka.";
+
+"setting.location_services.locating" = "Vyhledání";
+
+"action_picker.categories" = "Kategorie";
+
+"action_picker.sort_order" = "Pořadí řazení položek";
+
+// Errors
+"networking.post_merchant.fail" = "Obchodní Post selhání";
+
