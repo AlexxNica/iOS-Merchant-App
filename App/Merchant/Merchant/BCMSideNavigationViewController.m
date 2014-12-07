@@ -143,6 +143,7 @@ const CGFloat kBBSideNavigationItemDefaultRowHeight = 55.0f;
         AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         BCMDrawerViewController *drawer = delegate.drawerController;
         [drawer showDetailViewControllerWithId:storyboardId];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
 }
 
