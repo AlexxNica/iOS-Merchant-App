@@ -74,15 +74,22 @@ static NSString *const kBCMSortOrderKey = @"sortOrderKey";
 - (NSString *)currencySymbol
 {
     NSString *currencyKey = self.activeMerchant.currency;
-    if ([currencyKey length] == 0) {
-        currencyKey = @"USD";
-    }
-    currencyKey = [currencyKey stringByAppendingString:@"_symbol"];
     
-    NSString *symbol = [[NSUserDefaults standardUserDefaults] objectForKey:currencyKey];
+    NSString *symbol = @"";
     
-    if ([symbol length] == 0) {
-        symbol = @"$";
+    if ([currencyKey isEqualToString:BITCOIN_CURRENCY]) {
+        symbol = @"\u0243";
+    } else {
+        if ([currencyKey length] == 0) {
+            currencyKey = @"USD";
+        }
+        currencyKey = [currencyKey stringByAppendingString:@"_symbol"];
+        
+        symbol = [[NSUserDefaults standardUserDefaults] objectForKey:currencyKey];
+        
+        if ([symbol length] == 0) {
+            symbol = @"$";
+        }
     }
     
     return symbol;

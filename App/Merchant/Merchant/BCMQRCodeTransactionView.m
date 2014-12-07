@@ -127,7 +127,13 @@ static NSString *const kBlockChainSockURL = @"ws://ws.blockchain.info/inv";
     NSString *total = NSLocalizedString(@"general.NA", nil);
     NSString *currencySymbol = [[BCMMerchantManager sharedInstance] currencySymbol];
     if ([activeTransaction.purchasedItems count] > 0) {
-        total = [NSString stringWithFormat:@"%@%0.2f", currencySymbol,[activeTransaction transactionTotal]];
+        NSString *price = @"";
+        if ([[BCMMerchantManager sharedInstance].activeMerchant.currency isEqualToString:BITCOIN_CURRENCY]) {
+            price = [NSString stringWithFormat:@"%@%.4f", currencySymbol, [activeTransaction transactionTotal]];
+        } else {
+            price = [NSString stringWithFormat:@"%@%.2f", currencySymbol, [activeTransaction transactionTotal]];
+        }
+        total = price;
     }
     
     NSString *currency = [BCMMerchantManager sharedInstance].activeMerchant.currency;

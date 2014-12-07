@@ -11,6 +11,7 @@
 #import "BCMMerchantManager.h"
 
 #import "Item.h"
+#import "Merchant.h"
 #import "Transaction.h"
 
 #import "BCMNetworking.h"
@@ -83,7 +84,15 @@
         itemCountText = [NSString stringWithFormat:NSLocalizedString(@"item.list.number_of_items", nil), (unsigned long)[self.simpleItems count]];
     }
     self.transactionItemCountLbl.text = itemCountText;
-    self.totalTransactionAmountLbl.text = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [self transactionSum]];
+    
+    NSString *transactionSum = @"";
+    if ([[BCMMerchantManager sharedInstance].activeMerchant.currency isEqualToString:BITCOIN_CURRENCY]) {
+        transactionSum = [NSString stringWithFormat:@"%@%.4f", self.currencySign, [self transactionSum]];
+    } else {
+        transactionSum = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [self transactionSum]];
+    }
+    
+    self.totalTransactionAmountLbl.text = transactionSum;
 }
 
 - (CGFloat)transactionSum
@@ -157,7 +166,14 @@ static NSString *const kPOSTransactionItemDefaultCellId = @"transactionPOSItemCe
     cell.textLabel.text = [dict safeObjectForKey:kItemNameKey];
     
     NSNumber *itemPrice = [dict safeObjectForKey:kItemPriceKey];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [itemPrice floatValue]];
+    
+    NSString *price = @"";
+    if ([[BCMMerchantManager sharedInstance].activeMerchant.currency isEqualToString:BITCOIN_CURRENCY]) {
+        price = [NSString stringWithFormat:@"%@%.4f", self.currencySign, [itemPrice floatValue]];
+    } else {
+        price = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [itemPrice floatValue]];
+    }
+    cell.detailTextLabel.text = price;
     
     return cell;
 }

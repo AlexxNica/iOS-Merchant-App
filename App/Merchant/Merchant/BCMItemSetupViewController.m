@@ -13,6 +13,7 @@
 #import "BCMSearchView.h"
 
 #import "Item.h"
+#import "Merchant.h"
 
 #import "BCMMerchantManager.h"
 
@@ -181,7 +182,15 @@ static NSString *const kMerchantItemDefaultCellId = @"merchantItemCellId";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = item.name;
     NSString *currencySign = [[BCMMerchantManager sharedInstance] currencySymbol];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%.2f", currencySign, [item.price floatValue]];
+    
+    NSString *price = @"";
+    if ([[BCMMerchantManager sharedInstance].activeMerchant.currency isEqualToString:BITCOIN_CURRENCY]) {
+        price = [NSString stringWithFormat:@"%@%.4f", currencySign, [item.price floatValue]];
+    } else {
+        price = [NSString stringWithFormat:@"%@%.2f", currencySign, [item.price floatValue]];
+    }
+    
+    cell.detailTextLabel.text = price;
     
     return cell;
 }

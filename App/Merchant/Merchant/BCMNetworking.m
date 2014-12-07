@@ -76,7 +76,7 @@ static const NSString *kBCMValidateAddress = @"rawaddr";
 
 - (NSURLRequest *)convertToBitcoinFromAmount:(CGFloat)amount fromCurrency:(NSString *)currency success:(BCMNetworkingSuccess)success error:(BCMNetworkingFailure)failure
 {
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@?currency=%@&value=%.2f", kBCBaseURL, kBCConvertToBitcoin, currency, amount];
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@?currency=%@&value=%.4f", kBCBaseURL, kBCConvertToBitcoin, currency, amount];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     
     [NSURLConnection sendAsynchronousRequest:urlRequest queue:self.mediumPriorityRequestQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {

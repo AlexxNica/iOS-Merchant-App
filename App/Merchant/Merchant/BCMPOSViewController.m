@@ -302,7 +302,14 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
         itemCountText = [NSString stringWithFormat:NSLocalizedString(@"item.list.number_of_items", nil), (unsigned long)[self.simpleItems count]];
     }
     self.transactionItemCountLbl.text = itemCountText;
-    self.totalTransactionAmountLbl.text = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [self transactionSum]];
+    
+    NSString *transactionSum = @"";
+    if ([[BCMMerchantManager sharedInstance].activeMerchant.currency isEqualToString:BITCOIN_CURRENCY]) {
+        transactionSum = [NSString stringWithFormat:@"%@%.4f", self.currencySign, [self transactionSum]];
+    } else {
+        transactionSum = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [self transactionSum]];
+    }
+    self.totalTransactionAmountLbl.text = transactionSum;
     
     if ([self transactionSum] > 0) {
         self.chargeButton.alpha = 1.0f;
@@ -393,7 +400,14 @@ static NSString *const kPOSItemDefaultCellId = @"POSItemCellId";
             NSDictionary *dict = [self.simpleItems objectAtIndex:row];
             cell.textLabel.text = [dict safeObjectForKey:kItemNameKey];
             NSNumber *itemPrice = [dict safeObjectForKey:kItemPriceKey];
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [itemPrice floatValue]];
+            
+            NSString *price = @"";
+            if ([[BCMMerchantManager sharedInstance].activeMerchant.currency isEqualToString:BITCOIN_CURRENCY]) {
+                price = [NSString stringWithFormat:@"%@%.4f", self.currencySign, [itemPrice floatValue]];
+            } else {
+                price = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [itemPrice floatValue]];
+            }
+            cell.detailTextLabel.text = price;
         } else {
             cell = [tableView dequeueReusableCellWithIdentifier:@"defaultItemCellId"];
             if (!cell) {
@@ -409,7 +423,7 @@ static NSString *const kPOSItemDefaultCellId = @"POSItemCellId";
                 cell.textLabel.font = HELVETICA_NEUE_LIGHT_15;
             }
             cell.textLabel.text = NSLocalizedString(@"item.list.custom", nil);
-            cell.detailTextLabel.text = @"+";
+            cell.detailTextLabel.text = @"";
         } else if (section == BCMPOSSectionItems) {
             Item *item = nil;
             if ([self.searchView.searchString length] > 0) {
@@ -420,7 +434,14 @@ static NSString *const kPOSItemDefaultCellId = @"POSItemCellId";
             cell = [tableView dequeueReusableCellWithIdentifier:kPOSItemDefaultCellId];
             
             cell.textLabel.text = item.name;
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [item.price floatValue]];
+            
+            NSString *price = @"";
+            if ([[BCMMerchantManager sharedInstance].activeMerchant.currency isEqualToString:BITCOIN_CURRENCY]) {
+                price = [NSString stringWithFormat:@"%@%.4f", self.currencySign, [item.price floatValue]];
+            } else {
+                price = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [item.price floatValue]];
+            }
+            cell.detailTextLabel.text = price;
         }
     }
     

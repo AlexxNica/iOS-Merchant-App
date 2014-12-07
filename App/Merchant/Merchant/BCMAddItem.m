@@ -11,6 +11,8 @@
 #import "BCMTextField.h"
 
 #import "Item.h"
+#import "Merchant.h"
+#import "BCMMerchantManager.h"
 
 #import "UIColor+Utilities.h"
 #import "Foundation-Utility.h"
@@ -69,7 +71,12 @@
     }
     
     if ([_item.price floatValue] > 0) {
-        self.itemPriceTextField.text = [NSString stringWithFormat:@"%.2f", [_item.price floatValue]];
+        NSString *price = @"";
+        if ([[BCMMerchantManager sharedInstance].activeMerchant.currency isEqualToString:BITCOIN_CURRENCY]) {
+            price = [NSString stringWithFormat:@"%.4f", [_item.price floatValue]];
+        } else {
+            price = [NSString stringWithFormat:@"%.2f", [_item.price floatValue]];
+        }
     }
 }
 
