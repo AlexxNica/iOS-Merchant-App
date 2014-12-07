@@ -111,6 +111,7 @@
 		FAEB498519F95F4F00B774EC /* nav_settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEB498119F95F4F00B774EC /* nav_settings@2x.png */; };
 		FAEB498619F95F4F00B774EC /* nav_transactions@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEB498219F95F4F00B774EC /* nav_transactions@2x.png */; };
 		FAEB498819F95FA000B774EC /* nav_pos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEB498719F95FA000B774EC /* nav_pos@2x.png */; };
+		FAEC7A0F1A30B38A00DB9578 /* block_chain_signature.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEC7A0E1A30B38A00DB9578 /* block_chain_signature.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -280,6 +281,7 @@
 		FAEB498119F95F4F00B774EC /* nav_settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_settings@2x.png"; path = "../../../Assets/nav_settings@2x.png"; sourceTree = "<group>"; };
 		FAEB498219F95F4F00B774EC /* nav_transactions@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_transactions@2x.png"; path = "../../../Assets/nav_transactions@2x.png"; sourceTree = "<group>"; };
 		FAEB498719F95FA000B774EC /* nav_pos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_pos@2x.png"; path = "../../../Assets/nav_pos@2x.png"; sourceTree = "<group>"; };
+		FAEC7A0E1A30B38A00DB9578 /* block_chain_signature.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = block_chain_signature.png; path = ../../../Assets/block_chain_signature.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -510,6 +512,7 @@
 			isa = PBXGroup;
 			children = (
 				FAB117531A11D77800E876BA /* Icons */,
+				FAEC7A0E1A30B38A00DB9578 /* block_chain_signature.png */,
 				FA0614E01A1CE287004F71F4 /* pin_delete@2x.png */,
 				FA7900221A295D32001FCB3D /* blockchain_header@2x.png */,
 				FA20E67D1A2644C400B70DCF /* current_location@2x.png */,
@@ -692,6 +695,7 @@
 				FAB117761A11D77800E876BA /* Icon@2x.png in Resources */,
 				FA9982611A03E855006C7D2F /* BCMQRCodeTransactionView.xib in Resources */,
 				FA0614DF1A1CDF1B004F71F4 /* PEPin-on.png in Resources */,
+				FAEC7A0F1A30B38A00DB9578 /* block_chain_signature.png in Resources */,
 				FAEB498319F95F4F00B774EC /* nav_log_out@2x.png in Resources */,
 				FAB117671A11D77800E876BA /* Icon-60@2x.png in Resources */,
 				FAB1176B1A11D77800E876BA /* Icon-76.png in Resources */,

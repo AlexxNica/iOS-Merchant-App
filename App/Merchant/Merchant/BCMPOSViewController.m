@@ -589,20 +589,32 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
             NSMutableString *messageBody = [[NSMutableString alloc] init];
             
             NSString *messageHi = NSLocalizedString(@"merchant.email.hi", nil);
-            [messageBody appendFormat:@"%@ %@,\n\n", messageHi, email];
+            [messageBody appendFormat:@"<html>%@ %@,<br><br>", messageHi, email];
             
             NSString *total = NSLocalizedString(@"general.NA", nil);
             NSString *currencySymbol = [[BCMMerchantManager sharedInstance] currencySymbol];
             Transaction *activeTransaction = self.activeTransition;
             if ([activeTransaction.purchasedItems count] > 0) {
-                total = [NSString stringWithFormat:@"%@%0.2f", currencySymbol,[activeTransaction transactionTotal]];
+                NSString *transactionTotal = @"";
+                if ([[BCMMerchantManager sharedInstance].activeMerchant.currency isEqualToString:BITCOIN_CURRENCY]) {
+                    transactionTotal = [NSString stringWithFormat:@"%@%.4f", currencySymbol, [activeTransaction transactionTotal]];
+                } else {
+                    transactionTotal = [NSString stringWithFormat:@"%@%.2f", currencySymbol, [activeTransaction transactionTotal]];
+                }
+                total = transactionTotal;
             }
             
             [messageBody appendFormat:NSLocalizedString(@"merchant.email.receiptInfo", nil), total, [BCMMerchantManager sharedInstance].activeMerchant.name, [activeTransaction.creation_date shortDateString]];
-            [messageBody appendString:@"\n\n\n"];
+            [messageBody appendString:@"<br><br><br>"];
             [messageBody appendString:NSLocalizedString(@"merchant.email.thanks", nil)];
-            [mailComposeViewController setMessageBody:messageBody isHTML:NO];
+            [messageBody appendString:@"</html>"];
+            [mailComposeViewController setMessageBody:messageBody isHTML:YES];
             [mailComposeViewController setToRecipients: @[email] ];
+            
+            
+            UIImage *signatureImage = [UIImage imageNamed:@"block_chain_signature"];
+            NSData *signatureData = UIImageJPEGRepresentation(signatureImage, 1);
+            [mailComposeViewController addAttachmentData:signatureData mimeType:@"image/jpeg" fileName:@"signature.jpeg"];
             
             NSString *subjectTitle = [NSString stringWithFormat:NSLocalizedString(@"merchant.email.subject", nil), [BCMMerchantManager sharedInstance].activeMerchant.name];
             [mailComposeViewController setSubject:subjectTitle];
