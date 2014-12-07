@@ -17,5 +17,6 @@ extern NSString *const kBCMSideNavControllerNewsId;
 @interface BCMDrawerViewController : MMDrawerController
 
 - (void)showDetailViewControllerWithId:(NSString *)viewControllerId;
+- (void)showPreviousDetailViewController;
 
 @end

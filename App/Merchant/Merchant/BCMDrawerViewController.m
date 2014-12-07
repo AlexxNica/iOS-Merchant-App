@@ -23,6 +23,9 @@ NSString *const kBCMSideNavControllerNewsId = @"BCMNewsNavigationId";           
 
 @property (strong, nonatomic) NSMutableDictionary *viewControllerDict;
 
+@property (copy, nonatomic) NSString *previousViewControllerID;
+@property (copy, nonatomic) NSString *currentViewControllerID;
+
 @end
 
 @implementation BCMDrawerViewController
@@ -38,12 +41,20 @@ NSString *const kBCMSideNavControllerNewsId = @"BCMNewsNavigationId";           
     if (self) {
         _viewControllerDict = [[NSMutableDictionary alloc] init];
         [_viewControllerDict setObject:centerViewController forKey:kBCMSideNavControllerSalesId];
+        self.currentViewControllerID = kBCMSideNavControllerSalesId;
     }
     
     return self;
 }
 
 - (void)showDetailViewControllerWithId:(NSString *)viewControllerId
+{
+    UIViewController *viewController = [self retrieveViewControllerWithId:viewControllerId];
+    
+    [self setCenterViewController:viewController withCloseAnimation:YES completion:nil];
+}
+
+- (UIViewController *)retrieveViewControllerWithId:(NSString *)viewControllerId
 {
     UIViewController *viewController = [self.viewControllerDict safeObjectForKey:viewControllerId];
     // Lazy loading required view controllers
@@ -61,15 +72,29 @@ NSString *const kBCMSideNavControllerNewsId = @"BCMNewsNavigationId";           
             storyboardId = kBCMSideNavControllerItemSetupId;
         }
         if ([storyboardId length] > 0) {
+            self.previousViewControllerID = self.currentViewControllerID;
+            self.currentViewControllerID = storyboardId;
+            
             UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:MAIN_STORYBOARD_NAME bundle:nil];
             viewController = [mainStoryBoard instantiateViewControllerWithIdentifier:storyboardId];
             if (![storyboardId isEqualToString:kBCMSideNavControllerSettingsId]) {
                 [self.viewControllerDict setObject:viewController forKey:storyboardId];
             }
         }
+    } else {
+        self.previousViewControllerID = self.currentViewControllerID;
+        self.currentViewControllerID = viewControllerId;
     }
     
-    [self setCenterViewController:viewController withCloseAnimation:YES completion:nil];
+    return viewController;
+}
+
+- (void)showPreviousDetailViewController
+{
+    UIViewController *viewController = [self retrieveViewControllerWithId:self.previousViewControllerID];
+    [self openDrawerSide:MMDrawerSideLeft animated:YES completion:^(BOOL finished) {
+        [self setCenterViewController:viewController withCloseAnimation:YES completion:nil];
+    }];
 }
 
 @end
