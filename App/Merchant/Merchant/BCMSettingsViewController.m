@@ -74,6 +74,9 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
 
 @property (strong, nonatomic) UIImageView *checkBoxImageView;
 
+@property (strong, nonatomic) NSString *temporaryInvalidEntry;
+@property (strong, nonatomic) NSIndexPath *temporaryInvalidIndexPath;
+
 @end
 
 @implementation BCMSettingsViewController
@@ -340,6 +343,7 @@ static NSString *const kSettingsWithDetailCellId = @"settingWithDetailCellId";
                 textFieldCell.textField.placeholder = settingTitle;
             }
         }
+        
         textFieldCell.canEdit = canEdit;
         
         if (indexPath.row != BCMSettingsRowWalletAddress) {
@@ -519,6 +523,66 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
     }];
 }
 
+- (BOOL)validateIndexPath:(NSIndexPath *)indexPath withText:(NSString *)text
+{
+    BOOL valid = YES;
+    
+    NSUInteger row = indexPath.row;
+    
+    switch (row) {
+        case BCMSettingsRowTelephone: {
+            
+            // http://stackoverflow.com/questions/11433364/nstextcheckingresult-for-phone-numbers
+            
+            BOOL validPhoneNumber = YES;
+            NSError *error = NULL;
+            NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypePhoneNumber error:&error];
+            
+            NSRange inputRange = NSMakeRange(0, [text length]);
+            NSArray *matches = [detector matchesInString:text options:0 range:inputRange];
+            
+            // no match at all
+            if ([matches count] == 0) {
+                validPhoneNumber = NO;
+            } else {
+                // Found match but we need to check if it matched the whole string
+                NSTextCheckingResult *result = (NSTextCheckingResult *)[matches objectAtIndex:0];
+                
+                if ([result resultType] == NSTextCheckingTypePhoneNumber && result.range.location == inputRange.location && result.range.length == inputRange.length) {
+                    // it matched the whole string
+                    validPhoneNumber = YES;
+                } else {
+                    // it only matched partial string
+                    validPhoneNumber = NO;
+                }
+            }
+            
+            if (!validPhoneNumber)
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"setting.phone_validation_error.title", nil) message:NSLocalizedString(@"setting.phone_validation_error.detail", nil)  delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
+                [alert show];
+                valid = NO;
+                self.temporaryInvalidEntry = text;
+            }
+            break;
+        }
+        case BCMSettingsRowWebsite: {
+            NSURL *temporaryURL = [NSURL URLWithString:text];
+            if (!temporaryURL || [temporaryURL.scheme length] == 0 || [temporaryURL.host length] == 0) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"setting.url_validation_error.title", nil) message:NSLocalizedString(@"setting.url_validation_error.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
+                [alert show];
+                valid = NO;
+                self.temporaryInvalidEntry = text;
+            }
+            break;
+        }
+        default:
+            break;
+    }
+    
+    return valid;
+}
+
 #pragma mark - BCMTextFieldTableViewCellDelegate
 
 - (void)updateSettingsIfNeededForIndexPath:(NSIndexPath *)indexPath withText:(NSString *)text
@@ -548,9 +612,16 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
         case BCMSettingsRowDescription:
             settingKey = kBCMBusinessDescription;
             break;
-        case BCMSettingsRowWebsite:
+        case BCMSettingsRowWebsite: {
+            NSRange httpFoundRange = [[text lowercaseString] rangeOfString:@"http://"];
+            NSRange httpsFoundRange = [[text lowercaseString] rangeOfString:@"http://"];
+            if (httpFoundRange.length == 0 || httpsFoundRange.length == 0) {
+                text = [@"http://" stringByAppendingString:text];
+                
+            }
             settingKey = kBCMBusinessWebURL;
             break;
+        }
         case BCMSettingsRowCurrency:
             settingKey = kBCMBusinessCurrency;
             break;
@@ -564,7 +635,13 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
             break;
     }
     
-    [self.settings setObject:text forKey:settingKey];
+    if ([self validateIndexPath:indexPath withText:text]) {
+        self.temporaryInvalidIndexPath = nil;
+        self.temporaryInvalidEntry = nil;
+        [self.settings setObject:text forKey:settingKey];
+    } else {
+        self.temporaryInvalidIndexPath = indexPath;
+    }
 }
 
 - (void)textFieldTableViewCellDidBeingEditing:(BCMTextFieldTableViewCell *)cell
@@ -630,6 +707,10 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
     [self.settings removeAllObjects];
     [self loadSettingsDictWithMerchant:[BCMMerchantManager sharedInstance].activeMerchant];
     [self.settingsTableView reloadData];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    BCMDrawerViewController *drawerViewController = appDelegate.drawerController;
+    [drawerViewController showPreviousDetailViewController];
 }
 
 - (IBAction)saveAction:(id)sender
@@ -729,27 +810,64 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
         merchant.longitude = businessLatitude;
         merchant.currency =  businessCurrency;
         merchant.walletAddress = businessWalletAddress;
-        merchant.directoryListingValue = [directoryListing boolValue];
         [BCMMerchantManager sharedInstance].sortOrder = [sortOrder unsignedIntegerValue];
-
-        NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-        [localContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
-        }];
         
         // Only upload to the backend if needed
         if ([directoryListing boolValue]) {
-            // Update backend only if needed unless we have to update it
-            if (merchantRequiresUpdate || forceNetworkUpdate) {
-                [[BCMNetworking sharedInstance] postSuggestMerchant:activeMerchant success:^(NSURLRequest *request, NSDictionary *dict) {
-                    // We won't do anything since this is a passive operation
-                } error:^(NSURLRequest *request, NSError *error) {
-                }];
+            
+            BOOL validEntries = [self validateValuesForMerchantListing];
+            if (validEntries) {
+                // Update backend only if needed unless we have to update it
+                if (merchantRequiresUpdate || forceNetworkUpdate) {
+                    [[BCMNetworking sharedInstance] postSuggestMerchant:activeMerchant success:^(NSURLRequest *request, NSDictionary *dict) {
+                        // We won't do anything since this is a passive operation
+                        merchant.directoryListingValue = [directoryListing boolValue];
+                        NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+                        [localContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+                        }];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self.settingsTableView reloadData];
+                        });
+                    } error:^(NSURLRequest *request, NSError *error) {
+                    }];
+                }
+            } else {
+                merchant.directoryListingValue = NO;
+                
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"setting.merchant_listing.value_error.title", nil) message:NSLocalizedString(@"setting.merchant_listing.value_error.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
+                [alertView show];
             }
+        } else {
+            merchant.directoryListingValue = [directoryListing boolValue];
+            NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+            [localContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+            }];
+            [self.settingsTableView reloadData];
         }
     } else {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"signup.alert.title", nil) message:NSLocalizedString(@"signup.warning", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
         [alertView show];
     }
+}
+
+- (BOOL)validateValuesForMerchantListing
+{
+    BOOL validEntries = YES;
+    
+    NSString *businessName = [self.settings safeObjectForKey:kBCMBusinessName];
+    NSString *businessStreetAddress = [self.settings safeObjectForKey:kBCMBusinessStreetAddress];
+    NSString *businessCity = [self.settings safeObjectForKey:kBCMBusinessCityAddress];
+    NSString *businessZipcode = [self.settings safeObjectForKey:kBCMBusinessZipcodeAddress];
+    
+    NSString *businessTelephone = [self.settings safeObjectForKey:kBCMBusinessTelephone];
+    NSString *businessWebURL = [self.settings safeObjectForKey:kBCMBusinessWebURL];
+    NSString *businessDescription = [self.settings safeObjectForKey:kBCMBusinessDescription];
+    
+    if ([businessName length] == 0 || [businessStreetAddress length] == 0 || [businessCity length] == 0 || [businessZipcode length] == 0 || [businessTelephone length] == 0 || [businessWebURL length] == 0 || [businessDescription length] == 0) {
+        validEntries = NO;
+    }
+    
+    return validEntries;
 }
 
 #pragma mark - BCMSwitchTableViewCellDelegate
