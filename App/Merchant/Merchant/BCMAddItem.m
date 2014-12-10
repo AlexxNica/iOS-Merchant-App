@@ -77,6 +77,7 @@
         } else {
             price = [NSString stringWithFormat:@"%.2f", [_item.price floatValue]];
         }
+        self.itemPriceTextField.text = price;
     }
 }
 
