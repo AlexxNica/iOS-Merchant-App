@@ -21,6 +21,7 @@ static NSString *const kZeroBlockURL = @"https://zeroblock.com";
     [super viewDidLoad];
     
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:kZeroBlockURL]]];
+    self.webView.scalesPageToFit = YES;
     
     [self addNavigationType:BCMNavigationTypeHamburger position:BCMNavigationPositionLeft selector:nil];
 }

@@ -31,7 +31,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-        
+    
+    self.webView.scalesPageToFit = YES;
+
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.transactionURLString]]];
 }
 
