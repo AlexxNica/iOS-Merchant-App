@@ -9,17 +9,15 @@
 #ifndef Merchant_BCMConstants_h
 #define Merchant_BCMConstants_h
 
-#define APP_BUILD_VERSION @"00.00.28"
-#define MERCHANT_TEST_ADDRESS @"123H9LYYaBvuf97EqbJpSYPCjDmu5C1btH"
+#define APP_BUILD_VERSION @"01.00.00"
 
 #define MAIN_STORYBOARD_NAME @"Main"
 
 #define HELVETICA_NEUE_LIGHT_15 [UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f]
 
 // Localized Constants
-
 #define BITCOIN_CURRENCY @"BTC"
 
-// #define MOCK_BTC_TRANSACTION 1
+//#define MOCK_BTC_TRANSACTION 1
 
 #endif
