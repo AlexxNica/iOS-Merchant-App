@@ -240,12 +240,6 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     self.posMode = !self.posMode;
 }
 
-- (void)dismissCharge:(id)sender
-{
-    [self hideTransactionViewAndRemoveOverlay:YES];
-    [self hideTransactionViewAndUpdateModel];
-}
-
 - (IBAction)chargeAction:(id)sender
 {
     // Create transaction for purchase
@@ -263,7 +257,6 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     
     if (!self.trasactionOverlay) {
         self.trasactionOverlay = [[UIControl alloc] initWithFrame:self.view.bounds];
-        [self.trasactionOverlay addTarget:self action:@selector(dismissCharge:) forControlEvents:UIControlEventTouchUpInside];
         self.trasactionOverlay.backgroundColor = [UIColor blackColor];
         self.trasactionOverlay.alpha = 0.25f;
         [self.view addSubview:self.trasactionOverlay];
