@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>BlockChain Merchant will only use your location to populate your current address.</string>
+	<string>Blockchain Merchant will only use your location to populate your current address.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>BlockChain Merchant will only use your location to populate your current address.</string>
+	<string>Blockchain Merchant will only use your location to populate your current address.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
