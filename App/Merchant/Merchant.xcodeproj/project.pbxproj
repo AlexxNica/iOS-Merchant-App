@@ -24,6 +24,8 @@
 		FA11B4801A2E1D2100E56310 /* red_x@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA11B47F1A2E1D2100E56310 /* red_x@2x.png */; };
 		FA20E67E1A2644C400B70DCF /* current_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA20E67D1A2644C400B70DCF /* current_location@2x.png */; };
 		FA26249A1A261B3F006C824A /* BusinessCategories.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA2624991A261B3F006C824A /* BusinessCategories.plist */; };
+		FA2B00441A396EA60084BB83 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA2B00431A396EA60084BB83 /* Default@2x.png */; };
+		FA2B00461A396F3C0084BB83 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FA2B00451A396F3C0084BB83 /* Default.png */; };
 		FA5385211A3416F6002A0872 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA5385231A3416F6002A0872 /* Localizable.strings */; };
 		FA74B69C1A08C3B70045A4EF /* BCMPaymentReceivedView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74B69B1A08C3B70045A4EF /* BCMPaymentReceivedView.m */; };
 		FA74B69E1A08C3D20045A4EF /* BCMPaymentReceivedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA74B69D1A08C3D20045A4EF /* BCMPaymentReceivedView.xib */; };
@@ -152,6 +154,8 @@
 		FA11B47F1A2E1D2100E56310 /* red_x@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red_x@2x.png"; path = "../../../Assets/red_x@2x.png"; sourceTree = "<group>"; };
 		FA20E67D1A2644C400B70DCF /* current_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "current_location@2x.png"; path = "../../../Assets/current_location@2x.png"; sourceTree = "<group>"; };
 		FA2624991A261B3F006C824A /* BusinessCategories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BusinessCategories.plist; sourceTree = "<group>"; };
+		FA2B00431A396EA60084BB83 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../../Assets/Default@2x.png"; sourceTree = "<group>"; };
+		FA2B00451A396F3C0084BB83 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../../Assets/Default.png; sourceTree = "<group>"; };
 		FA51BBE21A2EFEB000AE880B /* Merchant_Sort_Order.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Merchant_Sort_Order.xcdatamodel; sourceTree = "<group>"; };
 		FA5385221A3416F6002A0872 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA5385241A3416FA002A0872 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -537,6 +541,8 @@
 		FAEB496919F9396300B774EC /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				FA2B00451A396F3C0084BB83 /* Default.png */,
+				FA2B00431A396EA60084BB83 /* Default@2x.png */,
 				FAB117531A11D77800E876BA /* Icons */,
 				FAEC7A0E1A30B38A00DB9578 /* block_chain_signature.png */,
 				FA0614E01A1CE287004F71F4 /* pin_delete@2x.png */,
@@ -740,6 +746,7 @@
 				FAB1170B1A10FF8600E876BA /* bitcoin_marker@2x.png in Resources */,
 				FAB117721A11D77800E876BA /* Icon-Small.png in Resources */,
 				FAB116EB1A1092EC00E876BA /* BCMSignUpView.xib in Resources */,
+				FA2B00461A396F3C0084BB83 /* Default.png in Resources */,
 				FA5385211A3416F6002A0872 /* Localizable.strings in Resources */,
 				FAB117691A11D77800E876BA /* Icon-72.png in Resources */,
 				FA0614E11A1CE287004F71F4 /* pin_delete@2x.png in Resources */,
@@ -757,6 +764,7 @@
 				FAB117681A11D77800E876BA /* Icon-60@3x.png in Resources */,
 				FA74B6A01A08C6CC0045A4EF /* green_check@2x.png in Resources */,
 				FA99823619FF784F006C7D2F /* BCMCustomAmountView.xib in Resources */,
+				FA2B00441A396EA60084BB83 /* Default@2x.png in Resources */,
 				FA0614C61A163EEA004F71F4 /* qr_code@2x.png in Resources */,
 				FA99823D1A029AED006C7D2F /* Default-568h@2x.png in Resources */,
 				FA11B4801A2E1D2100E56310 /* red_x@2x.png in Resources */,
