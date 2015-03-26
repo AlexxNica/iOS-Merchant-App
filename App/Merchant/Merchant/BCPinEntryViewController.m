@@ -7,9 +7,11 @@
 //
 
 #import "BCPinEntryViewController.h"
-
+#import "BCMDrawerViewController.h"
 #import "BCPinEntryView.h"
 #import "BCPinNumberKey.h"
+
+#import "AppDelegate.h"
 
 typedef NS_ENUM(NSUInteger, PinEntryModeCreateState) {
     PinEntryModeCreateStateEnter,
@@ -77,7 +79,7 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
 {
     [super viewWillAppear:animated];
     
-    if (self.userMode == PinEntryUserModeCreate || self.userMode == PinEntryUserModeReset) {
+    if (self.userMode == PinEntryUserModeCreate || self.userMode == PinEntryUserModeReset || self.userMode == PinEntryUserModeAccess) {
         [self addNavigationType:BCMNavigationTypeCancel position:BCMNavigationPositionLeft selector:@selector(cancelAction:)];
     }
 }
@@ -130,7 +132,14 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
 
 - (void)cancelAction:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (self.userMode == PinEntryUserModeAccess) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        BCMDrawerViewController *drawer = delegate.drawerController;
+        [drawer showDetailViewControllerWithId:@"BCMPOSNavigationId"];
+    } else {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 #pragma mark - BCPinEntryViewDelegate
