@@ -198,6 +198,7 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
              setCompletionBlock:^{
                  self.tableViewToChargeMargin.constant = 82;
                  [self.view layoutIfNeeded];
+                 [self.itemsTableView reloadData];
                  [UIView animateWithDuration:0.0
                                   animations:^{
                                       self.clearAllButton.alpha = 1.0f;
@@ -216,10 +217,24 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
             [CATransaction commit];
         } else {
             self.itemsTableView.tableFooterView = [[UIView alloc] init];
+            
+            [CATransaction begin];
+            [CATransaction
+             setCompletionBlock:^{
+                 [self.itemsTableView reloadData];
+                 [UIView animateWithDuration:0.0
+                                  animations:^{
+                                      [self.view layoutIfNeeded];
+                                  }];
+             }];
+            
             [self.itemsTableView beginUpdates];
             [self.itemsTableView deleteSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
             [self.itemsTableView insertSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 2)] withRowAnimation:UITableViewRowAnimationNone];
             [self.itemsTableView endUpdates];
+
+            [CATransaction commit];
+            
             self.clearAllButton.alpha = 0.0f;
             self.searchContainerView.alpha = 1.0f;
             self.tableViewToChargeMargin.constant = 8;
