@@ -9,8 +9,6 @@
 #ifndef Merchant_BCMConstants_h
 #define Merchant_BCMConstants_h
 
-#define APP_BUILD_VERSION @"01.00.00"
-
 #define MAIN_STORYBOARD_NAME @"Main"
 
 #define HELVETICA_NEUE_LIGHT_15 [UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f]
