@@ -90,7 +90,9 @@ static NSString *const kSideNavigationDefaultCellId = @"navigationCellId";
             break;
         }
         case BBSideNavigationItemVersion: {
-            navigationTitle = [NSString stringWithFormat:@"v%@", APP_BUILD_VERSION];
+            NSString * version = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
+            NSString * build = [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString *)kCFBundleVersionKey];
+            navigationTitle = [NSString stringWithFormat:@"v%@.%@", version, build];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         default:
