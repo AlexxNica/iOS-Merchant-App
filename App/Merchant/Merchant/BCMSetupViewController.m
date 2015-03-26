@@ -143,6 +143,7 @@ NSString *const kStoryboardSetupVCId = @"setupStoryBoardId";
 
 - (void)bcmscannerViewController:(BCMQRCodeScannerViewController *)vc didScanString:(NSString *)scanString
 {
+    scanString = [scanString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     self.signUpView.scannedWalletAddress = scanString;
     [vc dismissViewControllerAnimated:YES completion:nil];
 }

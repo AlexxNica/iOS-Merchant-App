@@ -110,6 +110,7 @@
 
 - (void)setScannedWalletAddress:(NSString *)scannedWalletAddress
 {
+    scannedWalletAddress = [scannedWalletAddress stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     _scannedWalletAddress = [scannedWalletAddress copy];
     
     self.walletTextField.text = _scannedWalletAddress;

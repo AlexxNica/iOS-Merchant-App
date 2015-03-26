@@ -57,6 +57,7 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
 {
     NSLog(@"Connected");
     NSString *merchantAddress = [BCMMerchantManager sharedInstance].activeMerchant.walletAddress;
+    merchantAddress = [merchantAddress stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString *subscribeToAddress = [NSString stringWithFormat:kBlockChainWebSocketSubscribeAddressFormat,merchantAddress];
     [self.transactionSocket send:subscribeToAddress];
 }
@@ -146,6 +147,7 @@ static NSString *const kBlockChainSockURL = @"ws://ws.blockchain.info/inv";
             ;
             self.bitcoinPriceLbl.text = bitcoinAmount;
             NSString *merchantAddress = [BCMMerchantManager sharedInstance].activeMerchant.walletAddress;
+            merchantAddress = [merchantAddress stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             NSString *qrEncodeString = [NSString stringWithFormat:@"bitcoin://%@?amount=%@", merchantAddress, bitcoinValue];
             self.qrCodeImageView.image = [BTCQRCode imageForString:qrEncodeString size:self.qrCodeImageView.frame.size scale:[[UIScreen mainScreen] scale]];
             self.activeTransaction.bitcoinAmountValue = [bitcoinValue floatValue];

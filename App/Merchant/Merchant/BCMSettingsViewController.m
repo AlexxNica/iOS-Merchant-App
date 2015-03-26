@@ -164,7 +164,8 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
     [self.settings setObjectOrNil:merchant.webURL forKey:kBCMBusinessWebURL];
     [self.settings setObjectOrNil:merchant.businessDescription forKey:kBCMBusinessDescription];
     
-    [self.settings setObjectOrNil:merchant.walletAddress forKey:kBCMBusinessWalletAddress];
+    NSString *merchantWalletAddress = [merchant.walletAddress stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    [self.settings setObjectOrNil:merchantWalletAddress forKey:kBCMBusinessWalletAddress];
     [self.settings setObjectOrNil:merchant.currency forKey:kBCMBusinessCurrency];
 }
 
