@@ -687,6 +687,8 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
 
 - (void)bcmscannerViewController:(BCMQRCodeScannerViewController *)vc didScanString:(NSString *)scanString
 {
+    scanString = [scanString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    scanString = [scanString stringByReplacingOccurrencesOfString:@"bitcoin://" withString:@""];
     [self.settings setObject:scanString forKey:kBCMBusinessWalletAddress];
     [vc dismissViewControllerAnimated:YES completion:^{
         dispatch_async(dispatch_get_main_queue(), ^{
