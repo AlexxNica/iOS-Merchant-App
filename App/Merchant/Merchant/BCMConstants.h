@@ -18,4 +18,8 @@
 
 //#define MOCK_BTC_TRANSACTION 1
 
+#define BLOCK_CHAIN_BLUE @"ew168DC8"
+#define BLOCK_CHAIN_SECONDARY_GRAY @"ebebeb"
+#define BLOCK_CHAIN_SEND_GREEN @"8ab75e"
+
 #endif

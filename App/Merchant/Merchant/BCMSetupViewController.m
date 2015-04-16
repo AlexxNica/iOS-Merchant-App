@@ -37,8 +37,13 @@ NSString *const kStoryboardSetupVCId = @"setupStoryBoardId";
 {
     [super viewDidLoad];
     
-    [self.goButton setBackgroundColor:[UIColor colorWithHexValue:BCM_BLUE]];
+    self.view.backgroundColor = [UIColor colorWithHexValue:BCM_BLUE];
     
+    [self.goButton setTitleColor:[UIColor colorWithHexValue:BCM_BLUE] forState:UIControlStateNormal];
+    
+    [self.goButton setBackgroundColor:[UIColor whiteColor]];
+    [self.goButton.layer setCornerRadius:CGRectGetHeight(self.goButton.frame) / 2.5f];
+
     // Adding initial overlay view so we can animate the alpha when needed
     if (!self.whiteOverlayView) {
         self.whiteOverlayView = [[UIView alloc] initWithFrame:self.view.bounds];
@@ -99,7 +104,6 @@ NSString *const kStoryboardSetupVCId = @"setupStoryBoardId";
 
 - (IBAction)signUpAction:(id)sender
 {
-    [self showSignUpView];
 }
 
 #pragma mark - BCMSignUpViewDelegate
@@ -145,6 +149,7 @@ NSString *const kStoryboardSetupVCId = @"setupStoryBoardId";
 {
     scanString = [scanString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     scanString = [scanString stringByReplacingOccurrencesOfString:@"bitcoin://" withString:@""];
+    scanString = [scanString stringByReplacingOccurrencesOfString:@"bitcoin:" withString:@""];
     self.signUpView.scannedWalletAddress = scanString;
     [vc dismissViewControllerAnimated:YES completion:nil];
 }

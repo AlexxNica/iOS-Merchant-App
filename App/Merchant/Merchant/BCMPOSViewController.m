@@ -26,6 +26,7 @@
 #import "UIView+Utilities.h"
 #import "Foundation-Utility.h"
 #import "NSDate+Utilities.h"
+#import "UIColor+Utilities.h"
 
 #import <MessageUI/MessageUI.h>
 
@@ -90,6 +91,9 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     self.clearSearchButton.alpha = 0.0f;
     self.customAmountContainerView.alpha = 0.0f;
     
+    self.clearAllButton.backgroundColor = [UIColor colorWithHexValue:BLOCK_CHAIN_SECONDARY_GRAY];
+    self.chargeButton.backgroundColor = [UIColor colorWithHexValue:BLOCK_CHAIN_SEND_GREEN];
+
     self.simpleItems = [[NSMutableArray alloc] init];
     
     [self addNavigationType:BCMNavigationTypeHamburger position:BCMNavigationPositionLeft selector:nil];
@@ -106,9 +110,9 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
 
     [self.customAmountContainerView addConstraints:@[ topConstraint, bottomConstraint, leftConstraint, rightConstraint ]];
     
-    //self.topMarginConstraint.constant = CGRectGetHeight(self.view.frame);
     
     self.searchView = [BCMSearchView loadInstanceFromNib];
+    self.searchView.searchAlignment = NSTextAlignmentLeft;
     self.searchView.delegate = self;
     self.searchView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.searchContainerView addSubview:self.searchView];
@@ -196,7 +200,7 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
             [CATransaction begin];
             [CATransaction
              setCompletionBlock:^{
-                 self.tableViewToChargeMargin.constant = 82;
+                 self.tableViewToChargeMargin.constant = 10.0f;
                  [self.view layoutIfNeeded];
                  [self.itemsTableView reloadData];
                  [UIView animateWithDuration:0.0
@@ -213,7 +217,7 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
             [self.itemsTableView deleteSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 2)] withRowAnimation:UITableViewRowAnimationNone];
             [self.itemsTableView insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
             [self.itemsTableView endUpdates];
-            self.clearAllButton.frame = CGRectMake(0.0f, 0.0f, self.itemsTableView.frame.size.width, 46.0f);
+            self.clearAllButton.frame = CGRectMake(0.0f, 0.0f, self.itemsTableView.frame.size.width, 42.0f);
             [CATransaction commit];
         } else {
             self.itemsTableView.tableFooterView = [[UIView alloc] init];
@@ -522,6 +526,9 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
 
 - (void)showCustomAmountView
 {
+    [self clearTitleView];
+
+    self.navigationItem.title = @"Custom Item";
     self.customAmountContainerView.alpha = 1.0f;
     [self.customAmountView clear];
     [self.view bringSubviewToFront:self.customAmountContainerView];
@@ -531,6 +538,8 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
 
 - (void)hideCustomAmountView
 {
+    [self defaultTitleView];
+    
     self.customAmountContainerView.alpha = 0.0f;
     [self.view sendSubviewToBack:self.customAmountContainerView];
     self.topMarginConstraint.constant = CGRectGetHeight(self.view.frame);

@@ -22,6 +22,9 @@
 
 @property (weak, nonatomic) id <BCMSearchViewDelegate> delegate;
 
+@property (assign, nonatomic) NSTextAlignment searchAlignment;
+
+
 - (void)clear;
 
 @end

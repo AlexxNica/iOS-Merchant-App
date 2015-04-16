@@ -19,6 +19,7 @@
 #import "SRWebSocket.h"
 
 #import "Foundation-Utility.h"
+#import "UIColor+Utilities.h"
 
 #import <CoreBitcoin/CoreBitcoin.h>
 
@@ -39,6 +40,8 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
 
 @property (strong, nonatomic) NSMutableDictionary *currencies;
 
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+
 @end
 
 @implementation BCMQRCodeTransactionView
@@ -51,6 +54,8 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
     self.networking = [BCMNetworking sharedInstance];
     [self.spinner startAnimating];
     self.infoLbl.text = NSLocalizedString(@"qr.trasnasction.info.waiting", nil);
+    
+    [self.cancelButton setBackgroundColor:[UIColor colorWithHexValue:@"ff8889"]];
 }
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket

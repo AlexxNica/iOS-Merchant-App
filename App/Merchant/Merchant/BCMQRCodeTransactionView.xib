@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -36,11 +36,11 @@
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6z-Wb-N2K">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                    <color key="backgroundColor" red="0.086274509803921567" green="0.69019607843137254" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.99607843137254903" green="0.44313725490196076" blue="0.46274509803921571" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="49" id="O2R-7e-gVZ"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="31"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                     <state key="normal" title="Cancel">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,7 +68,7 @@
                         <constraint firstAttribute="width" priority="500" constant="144" id="Wcf-y1-Bo6"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="47"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
                         <mask key="constraints">
@@ -90,7 +90,7 @@
                         <constraint firstAttribute="height" constant="41" id="Pb4-qr-U9i"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
                         <mask key="constraints">
@@ -117,7 +117,7 @@
                         </constraint>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
                         <mask key="constraints">
@@ -179,7 +179,9 @@
                 <constraint firstAttribute="centerY" secondItem="DkP-o5-Klc" secondAttribute="centerY" id="ubj-Ch-3v5"/>
                 <constraint firstItem="XUg-K8-Gz0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="27" id="uxb-PF-O4J"/>
                 <constraint firstAttribute="centerX" secondItem="mKz-Ro-y1u" secondAttribute="centerX" id="vrz-fw-ypu"/>
-                <constraint firstAttribute="bottom" secondItem="a6z-Wb-N2K" secondAttribute="bottom" constant="10" id="xC8-eR-XM1"/>
+                <constraint firstAttribute="bottom" secondItem="a6z-Wb-N2K" secondAttribute="bottom" constant="10" id="xC8-eR-XM1">
+                    <variation key="widthClass=compact" constant="15"/>
+                </constraint>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -194,27 +196,27 @@
                     <exclude reference="XUg-K8-Gz0"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="Be1-Qy-UPF"/>
-                    <exclude reference="XtL-Np-ywS"/>
-                    <exclude reference="a6X-IG-HlJ"/>
-                    <exclude reference="pu4-oW-OOc"/>
-                    <exclude reference="vrz-fw-ypu"/>
-                    <exclude reference="FgE-Ne-4Xm"/>
-                    <exclude reference="Uow-KO-dn6"/>
                     <exclude reference="BYh-Q0-Oss"/>
                     <exclude reference="VF6-P1-579"/>
-                    <exclude reference="Svx-Q7-YOA"/>
-                    <exclude reference="ubj-Ch-3v5"/>
-                    <exclude reference="H3S-DT-Md0"/>
-                    <exclude reference="aDE-pV-6Ki"/>
-                    <exclude reference="uxb-PF-O4J"/>
                     <exclude reference="JSB-mT-Gj3"/>
                     <exclude reference="Ne5-eV-CTm"/>
+                    <exclude reference="FgE-Ne-4Xm"/>
+                    <exclude reference="Uow-KO-dn6"/>
+                    <exclude reference="Svx-Q7-YOA"/>
+                    <exclude reference="ubj-Ch-3v5"/>
                     <exclude reference="DON-F9-PKk"/>
                     <exclude reference="TOl-RX-vs5"/>
                     <exclude reference="lh0-5q-MSP"/>
                     <exclude reference="p9o-7o-JLv"/>
                     <exclude reference="xC8-eR-XM1"/>
+                    <exclude reference="Be1-Qy-UPF"/>
+                    <exclude reference="XtL-Np-ywS"/>
+                    <exclude reference="a6X-IG-HlJ"/>
+                    <exclude reference="pu4-oW-OOc"/>
+                    <exclude reference="vrz-fw-ypu"/>
+                    <exclude reference="H3S-DT-Md0"/>
+                    <exclude reference="aDE-pV-6Ki"/>
+                    <exclude reference="uxb-PF-O4J"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -228,31 +230,32 @@
                     <include reference="XUg-K8-Gz0"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="Be1-Qy-UPF"/>
-                    <exclude reference="XtL-Np-ywS"/>
-                    <include reference="a6X-IG-HlJ"/>
-                    <exclude reference="pu4-oW-OOc"/>
-                    <exclude reference="vrz-fw-ypu"/>
-                    <include reference="FgE-Ne-4Xm"/>
-                    <include reference="Uow-KO-dn6"/>
                     <include reference="BYh-Q0-Oss"/>
                     <include reference="VF6-P1-579"/>
-                    <include reference="Svx-Q7-YOA"/>
-                    <include reference="ubj-Ch-3v5"/>
-                    <include reference="H3S-DT-Md0"/>
-                    <include reference="aDE-pV-6Ki"/>
-                    <include reference="uxb-PF-O4J"/>
                     <exclude reference="JSB-mT-Gj3"/>
                     <include reference="Ne5-eV-CTm"/>
+                    <include reference="FgE-Ne-4Xm"/>
+                    <include reference="Uow-KO-dn6"/>
+                    <include reference="Svx-Q7-YOA"/>
+                    <include reference="ubj-Ch-3v5"/>
                     <exclude reference="DON-F9-PKk"/>
                     <include reference="TOl-RX-vs5"/>
                     <include reference="lh0-5q-MSP"/>
                     <include reference="p9o-7o-JLv"/>
                     <include reference="xC8-eR-XM1"/>
+                    <include reference="Be1-Qy-UPF"/>
+                    <exclude reference="XtL-Np-ywS"/>
+                    <include reference="a6X-IG-HlJ"/>
+                    <exclude reference="pu4-oW-OOc"/>
+                    <exclude reference="vrz-fw-ypu"/>
+                    <include reference="H3S-DT-Md0"/>
+                    <include reference="aDE-pV-6Ki"/>
+                    <include reference="uxb-PF-O4J"/>
                 </mask>
             </variation>
             <connections>
                 <outlet property="bitcoinPriceLbl" destination="8AU-sH-hCO" id="k3g-wA-HMy"/>
+                <outlet property="cancelButton" destination="a6z-Wb-N2K" id="tNl-Vm-aqV"/>
                 <outlet property="currencyPriceLbl" destination="wYA-7G-nx6" id="r1S-Av-eaa"/>
                 <outlet property="infoLbl" destination="YEv-LD-cab" id="GVd-36-n0o"/>
                 <outlet property="qrCodeImageView" destination="mKz-Ro-y1u" id="EE6-bN-OqO"/>

@@ -25,9 +25,11 @@
 
 @property (weak, nonatomic) id<BCMTextFieldTableViewCellDelegate> delegate;
 @property (strong, nonatomic) UIImage *textFieldImage;
+@property (strong, nonatomic) UIImage *rightImage;
 
 @property (weak, nonatomic) IBOutlet BCMTextField *textField;
 
 @property (assign, nonatomic) BOOL canEdit;
+@property (assign, nonatomic) BOOL showRightImage;
 
 @end

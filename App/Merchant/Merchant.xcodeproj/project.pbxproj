@@ -25,6 +25,8 @@
 		FA2B00441A396EA60084BB83 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA2B00431A396EA60084BB83 /* Default@2x.png */; };
 		FA2B00461A396F3C0084BB83 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FA2B00451A396F3C0084BB83 /* Default.png */; };
 		FA5385211A3416F6002A0872 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA5385231A3416F6002A0872 /* Localizable.strings */; };
+		FA72A7FC1AC91F7A00EF0C00 /* BCPinCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA72A7FB1AC91F7A00EF0C00 /* BCPinCircleView.m */; };
+		FA72A8001ACC2C8400EF0C00 /* BCMAddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA72A7FE1ACC2C8400EF0C00 /* BCMAddItemViewController.m */; };
 		FA74B69C1A08C3B70045A4EF /* BCMPaymentReceivedView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74B69B1A08C3B70045A4EF /* BCMPaymentReceivedView.m */; };
 		FA74B69E1A08C3D20045A4EF /* BCMPaymentReceivedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA74B69D1A08C3D20045A4EF /* BCMPaymentReceivedView.xib */; };
 		FA74B6A01A08C6CC0045A4EF /* green_check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74B69F1A08C6CC0045A4EF /* green_check@2x.png */; };
@@ -33,15 +35,14 @@
 		FA7900231A295D32001FCB3D /* blockchain_header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7900221A295D32001FCB3D /* blockchain_header@2x.png */; };
 		FA7D9F801A0BACB500B7B5CE /* close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7D9F7F1A0BACB500B7B5CE /* close_button@2x.png */; };
 		FA95A1C81AD1B70C00D3315D /* splash_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA95A1C71AD1B70C00D3315D /* splash_logo@2x.png */; };
+		FA95A1CB1AD2BB8E00D3315D /* BCMSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA95A1CA1AD2BB8E00D3315D /* BCMSignUpViewController.m */; };
 		FA99820C19FA4F20006C7D2F /* BCMTransactionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99820B19FA4F20006C7D2F /* BCMTransactionsViewController.m */; };
 		FA99820F19FA4F49006C7D2F /* BCMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99820E19FA4F49006C7D2F /* BCMSettingsViewController.m */; };
 		FA99821219FA4F69006C7D2F /* BCMPriceNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99821119FA4F69006C7D2F /* BCMPriceNewsViewController.m */; };
 		FA99821519FAA087006C7D2F /* BCMDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99821419FAA087006C7D2F /* BCMDrawerViewController.m */; };
 		FA99821919FE0F16006C7D2F /* Merchant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA99821719FE0F15006C7D2F /* Merchant.xcdatamodeld */; };
-		FA99821F19FE8923006C7D2F /* BCMAddItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA99821E19FE8923006C7D2F /* BCMAddItem.xib */; };
 		FA99822219FE8C67006C7D2F /* BCMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99822119FE8C67006C7D2F /* BCMTextField.m */; };
 		FA99822519FE8D26006C7D2F /* BCMItemSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99822419FE8D26006C7D2F /* BCMItemSetupViewController.m */; };
-		FA99822819FE8D93006C7D2F /* BCMAddItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99822719FE8D93006C7D2F /* BCMAddItem.m */; };
 		FA99822B19FE8ECB006C7D2F /* UIView+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99822A19FE8ECB006C7D2F /* UIView+Utilities.m */; };
 		FA99823419FF7843006C7D2F /* BCMCustomAmountView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99823319FF7843006C7D2F /* BCMCustomAmountView.m */; };
 		FA99823619FF784F006C7D2F /* BCMCustomAmountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA99823519FF784F006C7D2F /* BCMCustomAmountView.xib */; };
@@ -184,6 +185,10 @@
 		FA5385411A341F3A002A0872 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA5385421A341FB9002A0872 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA5385431A341FED002A0872 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FA72A7FA1AC91F7A00EF0C00 /* BCPinCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPinCircleView.h; sourceTree = "<group>"; };
+		FA72A7FB1AC91F7A00EF0C00 /* BCPinCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPinCircleView.m; sourceTree = "<group>"; };
+		FA72A7FD1ACC2C8400EF0C00 /* BCMAddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMAddItemViewController.h; sourceTree = "<group>"; };
+		FA72A7FE1ACC2C8400EF0C00 /* BCMAddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMAddItemViewController.m; sourceTree = "<group>"; };
 		FA74B69A1A08C3B70045A4EF /* BCMPaymentReceivedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMPaymentReceivedView.h; sourceTree = "<group>"; };
 		FA74B69B1A08C3B70045A4EF /* BCMPaymentReceivedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMPaymentReceivedView.m; sourceTree = "<group>"; };
 		FA74B69D1A08C3D20045A4EF /* BCMPaymentReceivedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCMPaymentReceivedView.xib; sourceTree = "<group>"; };
@@ -194,6 +199,8 @@
 		FA7900221A295D32001FCB3D /* blockchain_header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blockchain_header@2x.png"; path = "../../../Assets/blockchain_header@2x.png"; sourceTree = "<group>"; };
 		FA7D9F7F1A0BACB500B7B5CE /* close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "close_button@2x.png"; path = "../../../Assets/close_button@2x.png"; sourceTree = "<group>"; };
 		FA95A1C71AD1B70C00D3315D /* splash_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "splash_logo@2x.png"; path = "../../../Assets/splash_logo@2x.png"; sourceTree = "<group>"; };
+		FA95A1C91AD2BB8E00D3315D /* BCMSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMSignUpViewController.h; sourceTree = "<group>"; };
+		FA95A1CA1AD2BB8E00D3315D /* BCMSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMSignUpViewController.m; sourceTree = "<group>"; };
 		FA99820A19FA4F20006C7D2F /* BCMTransactionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMTransactionsViewController.h; sourceTree = "<group>"; };
 		FA99820B19FA4F20006C7D2F /* BCMTransactionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMTransactionsViewController.m; sourceTree = "<group>"; };
 		FA99820D19FA4F49006C7D2F /* BCMSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMSettingsViewController.h; sourceTree = "<group>"; };
@@ -203,13 +210,10 @@
 		FA99821319FAA087006C7D2F /* BCMDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMDrawerViewController.h; sourceTree = "<group>"; };
 		FA99821419FAA087006C7D2F /* BCMDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMDrawerViewController.m; sourceTree = "<group>"; };
 		FA99821819FE0F15006C7D2F /* Merchant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Merchant.xcdatamodel; sourceTree = "<group>"; };
-		FA99821E19FE8923006C7D2F /* BCMAddItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCMAddItem.xib; sourceTree = "<group>"; };
 		FA99822019FE8C67006C7D2F /* BCMTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMTextField.h; sourceTree = "<group>"; };
 		FA99822119FE8C67006C7D2F /* BCMTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMTextField.m; sourceTree = "<group>"; };
 		FA99822319FE8D26006C7D2F /* BCMItemSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMItemSetupViewController.h; sourceTree = "<group>"; };
 		FA99822419FE8D26006C7D2F /* BCMItemSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMItemSetupViewController.m; sourceTree = "<group>"; };
-		FA99822619FE8D93006C7D2F /* BCMAddItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMAddItem.h; sourceTree = "<group>"; };
-		FA99822719FE8D93006C7D2F /* BCMAddItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMAddItem.m; sourceTree = "<group>"; };
 		FA99822919FE8ECB006C7D2F /* UIView+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utilities.h"; sourceTree = "<group>"; };
 		FA99822A19FE8ECB006C7D2F /* UIView+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utilities.m"; sourceTree = "<group>"; };
 		FA99823219FF7843006C7D2F /* BCMCustomAmountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMCustomAmountView.h; sourceTree = "<group>"; };
@@ -388,6 +392,8 @@
 			children = (
 				FA0614D01A1C85B8004F71F4 /* BCPinEntryViewController.h */,
 				FA0614D11A1C85B8004F71F4 /* BCPinEntryViewController.m */,
+				FA72A7FA1AC91F7A00EF0C00 /* BCPinCircleView.h */,
+				FA72A7FB1AC91F7A00EF0C00 /* BCPinCircleView.m */,
 				FA0614CB1A1BADFA004F71F4 /* BCPinEntryView.h */,
 				FA0614CC1A1BADFA004F71F4 /* BCPinEntryView.m */,
 				FA0614D31A1CD1D4004F71F4 /* BCPinNumberKey.h */,
@@ -400,9 +406,6 @@
 				FA99822119FE8C67006C7D2F /* BCMTextField.m */,
 				FA0614801A1355C1004F71F4 /* BCMSwitchTableViewCell.h */,
 				FA0614811A1355C1004F71F4 /* BCMSwitchTableViewCell.m */,
-				FA99822619FE8D93006C7D2F /* BCMAddItem.h */,
-				FA99822719FE8D93006C7D2F /* BCMAddItem.m */,
-				FA99821E19FE8923006C7D2F /* BCMAddItem.xib */,
 				FA99823219FF7843006C7D2F /* BCMCustomAmountView.h */,
 				FA99823319FF7843006C7D2F /* BCMCustomAmountView.m */,
 				FA99823519FF784F006C7D2F /* BCMCustomAmountView.xib */,
@@ -502,6 +505,8 @@
 			children = (
 				FAB116E41A108F4E00E876BA /* BCMSetupViewController.h */,
 				FAB116E51A108F4E00E876BA /* BCMSetupViewController.m */,
+				FA95A1C91AD2BB8E00D3315D /* BCMSignUpViewController.h */,
+				FA95A1CA1AD2BB8E00D3315D /* BCMSignUpViewController.m */,
 				FAB116E71A1091F700E876BA /* BCMSignUpView.h */,
 				FAB116E81A1091F700E876BA /* BCMSignUpView.m */,
 				FAB116EA1A1092EC00E876BA /* BCMSignUpView.xib */,
@@ -612,6 +617,8 @@
 				FA99821419FAA087006C7D2F /* BCMDrawerViewController.m */,
 				FAEB496619F9385000B774EC /* BCMBaseViewController.h */,
 				FAEB496719F9385000B774EC /* BCMBaseViewController.m */,
+				FA72A7FD1ACC2C8400EF0C00 /* BCMAddItemViewController.h */,
+				FA72A7FE1ACC2C8400EF0C00 /* BCMAddItemViewController.m */,
 				FAEB496C19F93B3600B774EC /* BCMPOSViewController.h */,
 				FAEB496D19F93B3600B774EC /* BCMPOSViewController.m */,
 				FA74B6A11A0923490045A4EF /* BCMTransactionDetailViewController.h */,
@@ -746,7 +753,6 @@
 				FAB117701A11D77800E876BA /* Icon-Small-50.png in Resources */,
 				FAD05B2A1AD34E8E00A14EDA /* logo_merchant@2x.png in Resources */,
 				FAEB498819F95FA000B774EC /* nav_pos@2x.png in Resources */,
-				FA99821F19FE8923006C7D2F /* BCMAddItem.xib in Resources */,
 				FA26249A1A261B3F006C824A /* BusinessCategories.plist in Resources */,
 				FAA418AC19F789A000023B25 /* Main.storyboard in Resources */,
 				FAB1170B1A10FF8600E876BA /* bitcoin_marker@2x.png in Resources */,
@@ -880,6 +886,7 @@
 				FA9FF3C31A07F2A300D732EC /* BCMTextFieldTableViewCell.m in Sources */,
 				FA99820C19FA4F20006C7D2F /* BCMTransactionsViewController.m in Sources */,
 				FA99821919FE0F16006C7D2F /* Merchant.xcdatamodeld in Sources */,
+				FA72A7FC1AC91F7A00EF0C00 /* BCPinCircleView.m in Sources */,
 				FAB117051A10F89100E876BA /* _Transaction.m in Sources */,
 				FA0614D51A1CD1D4004F71F4 /* BCPinNumberKey.m in Sources */,
 				FA99821519FAA087006C7D2F /* BCMDrawerViewController.m in Sources */,
@@ -892,16 +899,17 @@
 				FA9982391A0209F0006C7D2F /* BCMSearchView.m in Sources */,
 				FAA418A619F789A000023B25 /* AppDelegate.m in Sources */,
 				FAEB496819F9385000B774EC /* BCMBaseViewController.m in Sources */,
-				FA99822819FE8D93006C7D2F /* BCMAddItem.m in Sources */,
 				FAB117081A10F89100E876BA /* PurchasedItem.m in Sources */,
 				FAB117101A11021500E876BA /* BCMTransactionTableViewCell.m in Sources */,
 				FAB117021A10F89100E876BA /* _Item.m in Sources */,
+				FA95A1CB1AD2BB8E00D3315D /* BCMSignUpViewController.m in Sources */,
 				FA99822219FE8C67006C7D2F /* BCMTextField.m in Sources */,
 				FAB117131A1103F800E876BA /* NSDate+Utilities.m in Sources */,
 				FA0614CD1A1BADFA004F71F4 /* BCPinEntryView.m in Sources */,
 				FA99825F1A03E849006C7D2F /* BCMQRCodeTransactionView.m in Sources */,
 				FA0614821A1355C1004F71F4 /* BCMSwitchTableViewCell.m in Sources */,
 				FAB117071A10F89100E876BA /* Merchant.m in Sources */,
+				FA72A8001ACC2C8400EF0C00 /* BCMAddItemViewController.m in Sources */,
 				FAEB497319F93CA800B774EC /* UIColor+Utilities.m in Sources */,
 				FAB117091A10F89100E876BA /* Transaction.m in Sources */,
 				FAB116E01A0D30E000E876BA /* BCMWebViewController.m in Sources */,

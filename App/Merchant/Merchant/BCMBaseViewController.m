@@ -68,6 +68,16 @@
     }
 }
 
+- (void)clearTitleView
+{
+    self.navigationItem.titleView = nil;
+}
+
+- (void)defaultTitleView
+{
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"block_chain_header_logo"]];
+}
+
 - (void)navigationSelector:(id)sender
 {
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;

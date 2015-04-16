@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 
 @property (strong, nonatomic) UIView *inputAccessoryView;
-@property (weak, nonatomic) IBOutlet UIImageView *searchIcon;
 
 @end
 
@@ -35,6 +34,15 @@
     }
     
     self.backgroundColor = [UIColor colorWithHexValue:@"e5e5e5"];
+}
+
+@synthesize searchAlignment = _searchAlignment;
+
+- (void)setSearchAlignment:(NSTextAlignment)searchAlignment
+{
+    _searchAlignment = searchAlignment;
+    
+    self.searchTextField.textAlignment = _searchAlignment;
 }
 
 - (void)clear
@@ -59,17 +67,9 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    self.searchIcon.alpha = 0.0f;
     textField.inputAccessoryView = [self inputAccessoryView];
     
     return YES;
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-    if ([textField.text length] == 0) {
-        self.searchIcon.alpha = 1.0f;
-    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

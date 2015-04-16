@@ -8,7 +8,7 @@
 
 #import "BCMItemSetupViewController.h"
 
-#import "BCMAddItem.h"
+#import "BCMAddItemViewController.h"
 
 #import "BCMSearchView.h"
 
@@ -24,6 +24,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *itemsTableView;
 @property (weak, nonatomic) IBOutlet UIButton *clearSearchButton;
+@property (weak, nonatomic) IBOutlet UIButton *addItemButton;
 
 
 @property (strong, nonatomic) NSArray *merchantItems;
@@ -31,7 +32,6 @@
 
 @property (weak, nonatomic) IBOutlet UIView *searchContainerView;
 
-@property (strong, nonatomic) UIView *whiteOverlayView;
 @property (strong, nonatomic) BCMSearchView *searchView;
 
 @end
@@ -43,6 +43,7 @@
     [super viewDidLoad];
     
     self.clearSearchButton.alpha = 0.0f;
+    [self.addItemButton setBackgroundColor:[UIColor colorWithHexValue:BLOCK_CHAIN_SEND_GREEN]];
     
     if (![self isModal]) {
         [self addNavigationType:BCMNavigationTypeHamburger position:BCMNavigationPositionLeft selector:nil];
@@ -50,15 +51,9 @@
         [self addNavigationType:BCMNavigationTypeCancel position:BCMNavigationPositionLeft selector:nil];
     }
     
-    if (!self.whiteOverlayView) {
-        self.whiteOverlayView = [[UIView alloc] initWithFrame:self.view.bounds];
-        self.whiteOverlayView.backgroundColor = [UIColor whiteColor];
-        self.whiteOverlayView.alpha = 0.0f;
-        [self.view addSubview:self.whiteOverlayView];
-    }
-    
     if (!self.searchView) {
         self.searchView = [BCMSearchView loadInstanceFromNib];
+        self.searchView.searchAlignment = NSTextAlignmentCenter;
         self.searchView.translatesAutoresizingMaskIntoConstraints = NO;
         self.searchView.delegate = self;
         [self.searchContainerView addSubview:self.searchView];
@@ -81,34 +76,13 @@
     
     self.merchantItems = [[BCMMerchantManager sharedInstance] itemsSortedByCurrentSortType];
     self.itemsTableView.tableFooterView = [[UIView alloc] init];
+    
+    [self clearTitleView];
 }
 
 - (void)showAddItemViewWithItem:(Item *)item
 {
-    if (self.whiteOverlayView.alpha == 0.0f) {
-        [self.view bringSubviewToFront:self.whiteOverlayView];
-        
-        [UIView animateWithDuration:0.25f animations:^{
-            self.whiteOverlayView.alpha = 1.0f;
-        }];
-        
-        BCMAddItem *itemView = [BCMAddItem loadInstanceFromNib];
-        itemView.item = item;
-        itemView.delegate = self;
 
-        itemView.translatesAutoresizingMaskIntoConstraints = NO;
-        [self.view addSubview:itemView];
-        
-        NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:itemView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0f constant:376.0f];
-        NSLayoutConstraint *verticalOffsetConstraint = [NSLayoutConstraint constraintWithItem:itemView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0f constant:20.0f];
-        NSLayoutConstraint *widthConstraint = [NSLayoutConstraint constraintWithItem:itemView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0f constant:298.0f];
-        NSLayoutConstraint *horizontalCenterConstraint = [NSLayoutConstraint constraintWithItem:itemView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0.0f];
-        
-        [self.view addConstraint:heightConstraint];
-        [self.view addConstraint:verticalOffsetConstraint];
-        [self.view addConstraint:widthConstraint];
-        [self.view addConstraint:horizontalCenterConstraint];
-    }
 }
 
 - (void)reloadItemTableViewOnMainThread
@@ -117,6 +91,17 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.itemsTableView reloadData];
     });
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSString *segueId = segue.identifier;
+    
+    if ([segueId isEqualToString:@"addItemSegue"]) {
+        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+        BCMAddItemViewController *addItemVC = (BCMAddItemViewController *)navController.topViewController;
+        addItemVC.delegate = self;
+    }
 }
 
 #pragma mark - Actions
@@ -136,16 +121,6 @@
     if ([self isModal]) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }
-}
-
-#pragma mark - BCMAddItemViewDelegate
-
-- (void)dismissAddItemView:(BCMAddItem *)itemView
-{
-    [itemView removeFromSuperview];
-    [UIView animateWithDuration:0.25f animations:^{
-        self.whiteOverlayView.alpha = 0.0f;
-    }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -264,18 +239,17 @@ const CGFloat kBBMerchantItemDefaultRowHeight = 38.0f;
 
 #pragma mark - BCMAddItemViewDelegate
 
-- (void)addItemViewDidCancel:(BCMAddItem *)itemView
+- (void)addItemViewControllerDidCancel:(BCMAddItemViewController *)vc
 {
-    [self dismissAddItemView:itemView];
 }
 
-- (void)addItemView:(BCMAddItem *)itemView didSaveItem:(Item *)item
+- (void)addItemViewController:(BCMAddItemViewController *)vc didSaveItem:(Item *)item
 {
     if (item) {
         NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
         [localContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self dismissAddItemView:itemView];
+                [self dismissViewControllerAnimated:YES completion:nil];
             });
             [self reloadItemTableViewOnMainThread];
         }];

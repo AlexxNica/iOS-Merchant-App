@@ -100,7 +100,10 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHexValue:BCM_BLUE]];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHexValue:BCM_BLUE]];
-
+    NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                               [UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
 }
 
 #pragma mark - Magical Record

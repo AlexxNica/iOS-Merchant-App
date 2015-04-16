@@ -19,13 +19,13 @@ typedef NS_ENUM(NSUInteger, BBSideNavigationItem) {
     BBSideNavigationItemTransactions,
     BBSideNavigationItemSettings,
     BBSideNavigationItemPriceNews,
-    BBSideNavigationItemVersion,
     BBSideNavigationItemCount
 };
 
 @interface BCMSideNavigationViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *headerContainerView;
+@property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -43,6 +43,14 @@ typedef NS_ENUM(NSUInteger, BBSideNavigationItem) {
         [self.tableView setLayoutMargins:UIEdgeInsetsZero];
     }
     self.headerContainerView.backgroundColor = [UIColor colorWithHexValue:BCM_BLUE];
+    
+    self.tableView.tableFooterView = [UIView new];
+    
+    NSString * version = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
+    NSString * build = [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString *)kCFBundleVersionKey];
+    self.versionLabel.text = [NSString stringWithFormat:@"v%@.%@", version, build];
+    
+    [self clearTitleView];
 }
 
 #pragma mark - UITableViewDataSource
@@ -64,7 +72,7 @@ static NSString *const kSideNavigationDefaultCellId = @"navigationCellId";
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20.0f];
     cell.textLabel.textColor = [UIColor colorWithHexValue:@"a3a3a3"];
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
-
+    
     NSString *navigationImageName = nil;
     NSString *navigationTitle = nil;
 
@@ -88,12 +96,6 @@ static NSString *const kSideNavigationDefaultCellId = @"navigationCellId";
             navigationImageName = @"nav_news";
             navigationTitle = NSLocalizedString(@"navigation.price_news", nil);
             break;
-        }
-        case BBSideNavigationItemVersion: {
-            NSString * version = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
-            NSString * build = [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString *)kCFBundleVersionKey];
-            navigationTitle = [NSString stringWithFormat:@"v%@.%@", version, build];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         default:
             break;

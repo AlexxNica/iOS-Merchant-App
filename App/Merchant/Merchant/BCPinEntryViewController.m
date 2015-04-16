@@ -11,7 +11,10 @@
 #import "BCPinEntryView.h"
 #import "BCPinNumberKey.h"
 
+#import "BCPinCircleView.h"
 #import "AppDelegate.h"
+
+#import "UIColor+Utilities.h"
 
 typedef NS_ENUM(NSUInteger, PinEntryModeCreateState) {
     PinEntryModeCreateStateEnter,
@@ -44,10 +47,11 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
 @property (weak, nonatomic) IBOutlet BCPinEntryView *pinEntryView;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLbl;
-@property (weak, nonatomic) IBOutlet UIImageView *entryImageView1;
-@property (weak, nonatomic) IBOutlet UIImageView *entryImageView2;
-@property (weak, nonatomic) IBOutlet UIImageView *entryImageView3;
-@property (weak, nonatomic) IBOutlet UIImageView *entryImageView4;
+
+@property (weak, nonatomic) IBOutlet BCPinCircleView *circleView1;
+@property (weak, nonatomic) IBOutlet BCPinCircleView *circleView2;
+@property (weak, nonatomic) IBOutlet BCPinCircleView *circleView3;
+@property (weak, nonatomic) IBOutlet BCPinCircleView *circleView4;
 
 @property (strong, nonatomic) NSArray *entryImageViews;
 @property (strong, nonatomic) NSMutableString *pin;
@@ -71,8 +75,17 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
     [super viewDidLoad];
     
     self.pinEntryView.delegate = self;
+
+    self.navigationItem.titleView = nil;
     
-    self.entryImageViews = @[ self.entryImageView1, self.entryImageView2, self.entryImageView3, self.entryImageView4 ];
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithHexValue:BCM_BLUE];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithHexValue:BCM_BLUE];
+
+    self.view.backgroundColor = [UIColor colorWithHexValue:BCM_BLUE];
+    
+    self.entryImageViews = @[ self.circleView1, self.circleView2, self.circleView3, self.circleView4 ];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -86,8 +99,8 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
 
 - (void)clearPinImageViews
 {
-    for (UIImageView *imageView in self.entryImageViews) {
-        imageView.image = [UIImage imageNamed:@"PEPin-off"];
+    for (BCPinCircleView *pinCircleView in self.entryImageViews) {
+        pinCircleView.fill = NO;
     }
 }
 
@@ -117,14 +130,14 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
     if (previousEntryCounter >= _entryCounter) {
         // We need to clear out the last entry image
         previousEntryCounter = MAX(1, previousEntryCounter);
-        UIImageView *previousEntryImageView = [self.entryImageViews objectAtIndex:previousEntryCounter - 1];
-        previousEntryImageView.image = [UIImage imageNamed:@"PEPin-off"];
+        BCPinCircleView *pinCircleView = [self.entryImageViews objectAtIndex:previousEntryCounter - 1];
+        pinCircleView.fill = NO;
     }
     
     if (_entryCounter > 0) {
         _entryCounter = MAX(1, _entryCounter);
-        UIImageView *entryImageView = [self.entryImageViews objectAtIndex:_entryCounter - 1];
-        entryImageView.image = [UIImage imageNamed:@"PEPin-on"];
+        BCPinCircleView *pinCircleView = [self.entryImageViews objectAtIndex:_entryCounter - 1];
+        pinCircleView.fill = YES;
     }
 }
 

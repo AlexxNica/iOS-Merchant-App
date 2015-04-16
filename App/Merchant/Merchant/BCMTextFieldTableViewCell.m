@@ -19,6 +19,8 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *accessoryWidthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *accessoryTrailingOffset;
+@property (weak, nonatomic) IBOutlet UIImageView *rightImageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textFieldTrailingConstraint;
 
 @end
 
@@ -62,6 +64,15 @@
     [self setNeedsUpdateConstraints];
 }
 
+@synthesize rightImage = _rightImage;
+
+- (void)setRightImage:(UIImage *)rightImage
+{
+    _rightImage = rightImage;
+    
+    self.rightImageView.image = _rightImage;
+}
+
 #pragma mark - Actions
 
 - (IBAction)accessoryAction:(id)sender
@@ -83,6 +94,24 @@
     _canEdit = canEdit;
     
     self.textField.userInteractionEnabled = _canEdit;
+}
+
+@synthesize showRightImage = _showRightImage;
+
+- (void)setShowRightImage:(BOOL)showRightImage
+{
+    _showRightImage = showRightImage;
+    
+    if (_showRightImage) {
+        self.rightImageView.hidden = NO;
+        self.textFieldTrailingConstraint.constant = 60.0f;
+    } else {
+        self.rightImageView.hidden = YES;
+        self.textFieldTrailingConstraint.constant = 20.0f;
+    }
+    
+    [self updateConstraints];
+    [self layoutIfNeeded];
 }
 
 #pragma mark - UITextFieldDelegate

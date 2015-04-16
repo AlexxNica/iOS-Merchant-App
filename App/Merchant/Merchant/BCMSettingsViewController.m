@@ -83,9 +83,11 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        
+    
+    [self clearTitleView];
+
     self.checkBoxImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green_check"]];
-    self.checkBoxImageView.frame = CGRectMake(0.0f, 0.0f, 20.0f, 20.0f);
+    self.checkBoxImageView.frame = CGRectMake(0.0f, 0.0f, 40.0f, 40.0f);
 
     NSBundle *mainBundle = [NSBundle mainBundle];
     NSString *categoryPath = [mainBundle pathForResource:@"BusinessCategories" ofType:@"plist"];
@@ -318,7 +320,7 @@ static NSString *const kSettingsWithDetailCellId = @"settingWithDetailCellId";
         textFieldCell.delegate = self;
         textFieldCell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:30.0f];
         textFieldCell.textLabel.textColor = [UIColor colorWithHexValue:@"a3a3a3"];
-
+        
         textFieldCell.textFieldImage = accessoryImage;
         
         NSString *text = nil;
@@ -348,18 +350,18 @@ static NSString *const kSettingsWithDetailCellId = @"settingWithDetailCellId";
         textFieldCell.canEdit = canEdit;
         
         if (indexPath.row != BCMSettingsRowWalletAddress) {
-            textFieldCell.accessoryView = nil;
+            textFieldCell.showRightImage = NO;
         } else {
             if (indexPath.row == BCMSettingsRowWalletAddress) {
                 NSString *walletAddress = [self.settings safeObjectForKey:kBCMBusinessWalletAddress];
                 if ([walletAddress length] > 0) {
                     if ([BTCAddress addressWithBase58String:walletAddress]) {
-                        self.checkBoxImageView.image = [UIImage imageNamed:@"green_check"];
+                        textFieldCell.rightImage = [UIImage imageNamed:@"valid_address"];
                     } else {
-                        self.checkBoxImageView.image = [UIImage imageNamed:@"red_x"];
+                        textFieldCell.rightImage = [UIImage imageNamed:@"not_valid_address"];
                     }
-                    textFieldCell.accessoryView = self.checkBoxImageView;
                 }
+                textFieldCell.showRightImage = YES;
             }
         }
         
@@ -385,6 +387,25 @@ static NSString *const kSettingsWithDetailCellId = @"settingWithDetailCellId";
     }
 
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == BCMSettingsRowWalletAddress) {
+        BCMTextFieldTableViewCell *textFieldCell = (BCMTextFieldTableViewCell *)cell;
+        if (indexPath.row == BCMSettingsRowWalletAddress) {
+            NSString *walletAddress = [self.settings safeObjectForKey:kBCMBusinessWalletAddress];
+            if ([walletAddress length] > 0) {
+                if ([BTCAddress addressWithBase58String:walletAddress]) {
+                    textFieldCell.rightImage = [UIImage imageNamed:@"valid_address"];
+                } else {
+                    textFieldCell.rightImage = [UIImage imageNamed:@"not_valid_address"];
+                }
+            }
+            textFieldCell.showRightImage = YES;
+        }
+    }
+
 }
 
 const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
@@ -668,14 +689,15 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
 
 - (BOOL)textFieldTableViewCell:(BCMTextFieldTableViewCell *)cell shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    cell.showRightImage = YES;
     NSIndexPath *indexPath = [self.settingsTableView indexPathForCell:cell];
     if (indexPath.row == BCMSettingsRowWalletAddress) {
         NSString *walletAddress = [cell.textField.text stringByReplacingCharactersInRange:range withString:string];
         if ([walletAddress length] > 0) {
             if ([BTCAddress addressWithBase58String:walletAddress]) {
-                self.checkBoxImageView.image = [UIImage imageNamed:@"green_check"];
+                cell.rightImage = [UIImage imageNamed:@"valid_address"];
             } else {
-                self.checkBoxImageView.image = [UIImage imageNamed:@"red_x"];
+                cell.rightImage = [UIImage imageNamed:@"not_valid_address"];
             }
         }
     }
@@ -689,6 +711,7 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
 {
     scanString = [scanString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     scanString = [scanString stringByReplacingOccurrencesOfString:@"bitcoin://" withString:@""];
+    scanString = [scanString stringByReplacingOccurrencesOfString:@"bitcoin:" withString:@""];
     [self.settings setObject:scanString forKey:kBCMBusinessWalletAddress];
     [vc dismissViewControllerAnimated:YES completion:^{
         dispatch_async(dispatch_get_main_queue(), ^{
