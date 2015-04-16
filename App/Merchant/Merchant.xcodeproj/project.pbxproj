@@ -17,8 +17,6 @@
 		FA0614D21A1C85B8004F71F4 /* BCPinEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0614D11A1C85B8004F71F4 /* BCPinEntryViewController.m */; };
 		FA0614D51A1CD1D4004F71F4 /* BCPinNumberKey.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0614D41A1CD1D4004F71F4 /* BCPinNumberKey.m */; };
 		FA0614D71A1CD1E5004F71F4 /* BCPinNumberKey.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA0614D61A1CD1E5004F71F4 /* BCPinNumberKey.xib */; };
-		FA0614DE1A1CDF1B004F71F4 /* PEPin-off.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614DC1A1CDF1B004F71F4 /* PEPin-off.png */; };
-		FA0614DF1A1CDF1B004F71F4 /* PEPin-on.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614DD1A1CDF1B004F71F4 /* PEPin-on.png */; };
 		FA0614E11A1CE287004F71F4 /* pin_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614E01A1CE287004F71F4 /* pin_delete@2x.png */; };
 		FA10E2A91A1E4147005DEB6B /* Foundation-Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10E2A81A1E4147005DEB6B /* Foundation-Utility.m */; };
 		FA11B4801A2E1D2100E56310 /* red_x@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA11B47F1A2E1D2100E56310 /* red_x@2x.png */; };
@@ -34,6 +32,7 @@
 		FA7900211A26ADFC001FCB3D /* red_check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7900201A26ADFC001FCB3D /* red_check@2x.png */; };
 		FA7900231A295D32001FCB3D /* blockchain_header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7900221A295D32001FCB3D /* blockchain_header@2x.png */; };
 		FA7D9F801A0BACB500B7B5CE /* close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7D9F7F1A0BACB500B7B5CE /* close_button@2x.png */; };
+		FA95A1C81AD1B70C00D3315D /* splash_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA95A1C71AD1B70C00D3315D /* splash_logo@2x.png */; };
 		FA99820C19FA4F20006C7D2F /* BCMTransactionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99820B19FA4F20006C7D2F /* BCMTransactionsViewController.m */; };
 		FA99820F19FA4F49006C7D2F /* BCMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99820E19FA4F49006C7D2F /* BCMSettingsViewController.m */; };
 		FA99821219FA4F69006C7D2F /* BCMPriceNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99821119FA4F69006C7D2F /* BCMPriceNewsViewController.m */; };
@@ -102,6 +101,9 @@
 		FAB117771A11D77800E876BA /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB117651A11D77800E876BA /* iTunesArtwork@2x.png */; };
 		FAC3A1FA1A2657F900ADA872 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3A1F91A2657F900ADA872 /* MapKit.framework */; };
 		FAC3A1FC1A2657FE00ADA872 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3A1FB1A2657FE00ADA872 /* CoreLocation.framework */; };
+		FAD05B281AD3429500A14EDA /* not_valid_address@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD05B271AD3429500A14EDA /* not_valid_address@2x.png */; };
+		FAD05B2A1AD34E8E00A14EDA /* logo_merchant@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD05B291AD34E8E00A14EDA /* logo_merchant@2x.png */; };
+		FAD05B2E1ADF5E1700A14EDA /* valid_address@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD05B2D1ADF5E1700A14EDA /* valid_address@2x.png */; };
 		FAEB496819F9385000B774EC /* BCMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEB496719F9385000B774EC /* BCMBaseViewController.m */; };
 		FAEB496B19F9396800B774EC /* hamburger@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEB496A19F9396800B774EC /* hamburger@2x.png */; };
 		FAEB496E19F93B3600B774EC /* BCMPOSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEB496D19F93B3600B774EC /* BCMPOSViewController.m */; };
@@ -145,8 +147,6 @@
 		FA0614D31A1CD1D4004F71F4 /* BCPinNumberKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPinNumberKey.h; sourceTree = "<group>"; };
 		FA0614D41A1CD1D4004F71F4 /* BCPinNumberKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCPinNumberKey.m; sourceTree = "<group>"; };
 		FA0614D61A1CD1E5004F71F4 /* BCPinNumberKey.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCPinNumberKey.xib; sourceTree = "<group>"; };
-		FA0614DC1A1CDF1B004F71F4 /* PEPin-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PEPin-off.png"; path = "../../../Assets/PEPin-off.png"; sourceTree = "<group>"; };
-		FA0614DD1A1CDF1B004F71F4 /* PEPin-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PEPin-on.png"; path = "../../../Assets/PEPin-on.png"; sourceTree = "<group>"; };
 		FA0614E01A1CE287004F71F4 /* pin_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin_delete@2x.png"; path = "../../../Assets/pin_delete@2x.png"; sourceTree = "<group>"; };
 		FA0614E31A1E307D004F71F4 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		FA10E2A71A1E4147005DEB6B /* Foundation-Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Foundation-Utility.h"; sourceTree = "<group>"; };
@@ -193,6 +193,7 @@
 		FA7900201A26ADFC001FCB3D /* red_check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red_check@2x.png"; path = "../../../Assets/red_check@2x.png"; sourceTree = "<group>"; };
 		FA7900221A295D32001FCB3D /* blockchain_header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blockchain_header@2x.png"; path = "../../../Assets/blockchain_header@2x.png"; sourceTree = "<group>"; };
 		FA7D9F7F1A0BACB500B7B5CE /* close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "close_button@2x.png"; path = "../../../Assets/close_button@2x.png"; sourceTree = "<group>"; };
+		FA95A1C71AD1B70C00D3315D /* splash_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "splash_logo@2x.png"; path = "../../../Assets/splash_logo@2x.png"; sourceTree = "<group>"; };
 		FA99820A19FA4F20006C7D2F /* BCMTransactionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMTransactionsViewController.h; sourceTree = "<group>"; };
 		FA99820B19FA4F20006C7D2F /* BCMTransactionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMTransactionsViewController.m; sourceTree = "<group>"; };
 		FA99820D19FA4F49006C7D2F /* BCMSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMSettingsViewController.h; sourceTree = "<group>"; };
@@ -294,6 +295,9 @@
 		FAB117651A11D77800E876BA /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		FAC3A1F91A2657F900ADA872 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FAC3A1FB1A2657FE00ADA872 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FAD05B271AD3429500A14EDA /* not_valid_address@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "not_valid_address@2x.png"; path = "../../../Assets/not_valid_address@2x.png"; sourceTree = "<group>"; };
+		FAD05B291AD34E8E00A14EDA /* logo_merchant@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo_merchant@2x.png"; path = "../../../Assets/logo_merchant@2x.png"; sourceTree = "<group>"; };
+		FAD05B2D1ADF5E1700A14EDA /* valid_address@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "valid_address@2x.png"; path = "../../../Assets/valid_address@2x.png"; sourceTree = "<group>"; };
 		FAEB496619F9385000B774EC /* BCMBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMBaseViewController.h; sourceTree = "<group>"; };
 		FAEB496719F9385000B774EC /* BCMBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMBaseViewController.m; sourceTree = "<group>"; };
 		FAEB496A19F9396800B774EC /* hamburger@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hamburger@2x.png"; path = "../../../Assets/hamburger@2x.png"; sourceTree = "<group>"; };
@@ -541,6 +545,8 @@
 		FAEB496919F9396300B774EC /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				FAD05B291AD34E8E00A14EDA /* logo_merchant@2x.png */,
+				FA95A1C71AD1B70C00D3315D /* splash_logo@2x.png */,
 				FA2B00451A396F3C0084BB83 /* Default.png */,
 				FA2B00431A396EA60084BB83 /* Default@2x.png */,
 				FAB117531A11D77800E876BA /* Icons */,
@@ -549,11 +555,11 @@
 				FA7900221A295D32001FCB3D /* blockchain_header@2x.png */,
 				FA20E67D1A2644C400B70DCF /* current_location@2x.png */,
 				FAB117141A11135200E876BA /* bitcoin_marker_white@2x.png */,
-				FA0614DC1A1CDF1B004F71F4 /* PEPin-off.png */,
-				FA0614DD1A1CDF1B004F71F4 /* PEPin-on.png */,
 				FAB1170A1A10FF8600E876BA /* bitcoin_marker@2x.png */,
 				FA0614831A135E09004F71F4 /* check@2x.png */,
 				FA7D9F7F1A0BACB500B7B5CE /* close_button@2x.png */,
+				FAD05B271AD3429500A14EDA /* not_valid_address@2x.png */,
+				FAD05B2D1ADF5E1700A14EDA /* valid_address@2x.png */,
 				FAB1170C1A11018800E876BA /* transaction_check@2x.png */,
 				FA7900201A26ADFC001FCB3D /* red_check@2x.png */,
 				FA11B47F1A2E1D2100E56310 /* red_x@2x.png */,
@@ -738,12 +744,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAB117701A11D77800E876BA /* Icon-Small-50.png in Resources */,
+				FAD05B2A1AD34E8E00A14EDA /* logo_merchant@2x.png in Resources */,
 				FAEB498819F95FA000B774EC /* nav_pos@2x.png in Resources */,
-				FA0614DE1A1CDF1B004F71F4 /* PEPin-off.png in Resources */,
 				FA99821F19FE8923006C7D2F /* BCMAddItem.xib in Resources */,
 				FA26249A1A261B3F006C824A /* BusinessCategories.plist in Resources */,
 				FAA418AC19F789A000023B25 /* Main.storyboard in Resources */,
 				FAB1170B1A10FF8600E876BA /* bitcoin_marker@2x.png in Resources */,
+				FAD05B2E1ADF5E1700A14EDA /* valid_address@2x.png in Resources */,
 				FAB117721A11D77800E876BA /* Icon-Small.png in Resources */,
 				FAB116EB1A1092EC00E876BA /* BCMSignUpView.xib in Resources */,
 				FA2B00461A396F3C0084BB83 /* Default.png in Resources */,
@@ -752,7 +759,6 @@
 				FA0614E11A1CE287004F71F4 /* pin_delete@2x.png in Resources */,
 				FAB117761A11D77800E876BA /* Icon@2x.png in Resources */,
 				FA9982611A03E855006C7D2F /* BCMQRCodeTransactionView.xib in Resources */,
-				FA0614DF1A1CDF1B004F71F4 /* PEPin-on.png in Resources */,
 				FAEC7A0F1A30B38A00DB9578 /* block_chain_signature.png in Resources */,
 				FAEB498319F95F4F00B774EC /* nav_log_out@2x.png in Resources */,
 				FAB117671A11D77800E876BA /* Icon-60@2x.png in Resources */,
@@ -780,6 +786,7 @@
 				FAB1176D1A11D77800E876BA /* Icon-Small-40.png in Resources */,
 				FAB1176C1A11D77800E876BA /* Icon-76@2x.png in Resources */,
 				FAB117171A11C3EE00E876BA /* SupportedCurrencies.plist in Resources */,
+				FAD05B281AD3429500A14EDA /* not_valid_address@2x.png in Resources */,
 				FAB1176F1A11D77800E876BA /* Icon-Small-40@3x.png in Resources */,
 				FAEB498419F95F4F00B774EC /* nav_news@2x.png in Resources */,
 				FAB117771A11D77800E876BA /* iTunesArtwork@2x.png in Resources */,
@@ -792,6 +799,7 @@
 				FA7900211A26ADFC001FCB3D /* red_check@2x.png in Resources */,
 				FA9982411A03B960006C7D2F /* search_icon@2x.png in Resources */,
 				FAB117711A11D77800E876BA /* Icon-Small-50@2x.png in Resources */,
+				FA95A1C81AD1B70C00D3315D /* splash_logo@2x.png in Resources */,
 				FAEB497519F940B800B774EC /* block_chain_header_logo@2x.png in Resources */,
 				FAEB498619F95F4F00B774EC /* nav_transactions@2x.png in Resources */,
 				FAB117661A11D77800E876BA /* Icon-60.png in Resources */,
