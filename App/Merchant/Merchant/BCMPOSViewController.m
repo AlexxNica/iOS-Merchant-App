@@ -399,6 +399,7 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
 }
 
 static NSString *const kPOSItemDefaultCellId = @"POSItemCellId";
+static NSString *const kPOSItemCustomCellId = @"POSCustomItemCellId";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -424,7 +425,7 @@ static NSString *const kPOSItemDefaultCellId = @"POSItemCellId";
             }
             cell.detailTextLabel.text = price;
         } else {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"defaultItemCellId"];
+            cell = [tableView dequeueReusableCellWithIdentifier:kPOSItemCustomCellId];
             if (!cell) {
                 cell.textLabel.font = HELVETICA_NEUE_LIGHT_15;
             }
@@ -433,12 +434,13 @@ static NSString *const kPOSItemDefaultCellId = @"POSItemCellId";
         }
     } else {
         if (section == BCMPOSSectionCustomItem) {
-            cell = [tableView dequeueReusableCellWithIdentifier:kPOSItemDefaultCellId];
+            cell = [tableView dequeueReusableCellWithIdentifier:kPOSItemCustomCellId];
             if (!cell) {
                 cell.textLabel.font = HELVETICA_NEUE_LIGHT_15;
             }
             cell.textLabel.text = NSLocalizedString(@"item.list.custom", nil);
             cell.detailTextLabel.text = @"";
+            [cell.detailTextLabel sizeToFit];
         } else if (section == BCMPOSSectionItems) {
             Item *item = nil;
             if ([self.searchView.searchString length] > 0) {
@@ -457,6 +459,10 @@ static NSString *const kPOSItemDefaultCellId = @"POSItemCellId";
                 price = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [item.price floatValue]];
             }
             cell.detailTextLabel.text = price;
+            [cell.detailTextLabel sizeToFit];
+            
+            NSLog(@"--> %@", cell.detailTextLabel);
+            NSLog(@"%@ at %@", item.name, item.price);
         }
     }
     

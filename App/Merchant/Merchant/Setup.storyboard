@@ -77,6 +77,7 @@
                             <constraint firstAttribute="trailing" secondItem="roQ-aI-gKD" secondAttribute="trailing" constant="41" id="702-jK-JG8"/>
                             <constraint firstAttribute="centerY" secondItem="roQ-aI-gKD" secondAttribute="centerY" constant="-74.5" id="A9X-2d-CDK"/>
                             <constraint firstItem="G26-H0-Snf" firstAttribute="top" secondItem="roQ-aI-gKD" secondAttribute="bottom" constant="204" id="JqG-2o-OKu"/>
+                            <constraint firstItem="6eQ-7X-q9Y" firstAttribute="top" secondItem="KuL-Qo-bFZ" secondAttribute="bottom" constant="42" id="KYi-cE-Ggb"/>
                             <constraint firstItem="roQ-aI-gKD" firstAttribute="top" secondItem="6eQ-7X-q9Y" secondAttribute="bottom" constant="23" id="O4o-cX-gDG"/>
                             <constraint firstItem="roQ-aI-gKD" firstAttribute="leading" secondItem="EU9-a3-8GX" secondAttribute="leading" constant="40" id="PKJ-EK-q3y"/>
                             <constraint firstItem="KuL-Qo-bFZ" firstAttribute="top" secondItem="31e-j7-fbK" secondAttribute="bottom" constant="74" id="Rw3-tb-Ek9"/>
@@ -87,11 +88,18 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="KYi-cE-Ggb"/>
                                 <exclude reference="2go-Vt-hIJ"/>
                                 <exclude reference="702-jK-JG8"/>
                                 <exclude reference="A9X-2d-CDK"/>
                                 <exclude reference="dQL-Zz-b0U"/>
                                 <exclude reference="skR-vz-pg4"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="KYi-cE-Ggb"/>
+                                <exclude reference="JqG-2o-OKu"/>
                             </mask>
                         </variation>
                     </view>
