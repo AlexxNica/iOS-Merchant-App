@@ -440,7 +440,6 @@ static NSString *const kPOSItemCustomCellId = @"POSCustomItemCellId";
             }
             cell.textLabel.text = NSLocalizedString(@"item.list.custom", nil);
             cell.detailTextLabel.text = @"";
-            [cell.detailTextLabel sizeToFit];
         } else if (section == BCMPOSSectionItems) {
             Item *item = nil;
             if ([self.searchView.searchString length] > 0) {
@@ -459,10 +458,6 @@ static NSString *const kPOSItemCustomCellId = @"POSCustomItemCellId";
                 price = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [item.price floatValue]];
             }
             cell.detailTextLabel.text = price;
-            [cell.detailTextLabel sizeToFit];
-            
-            NSLog(@"--> %@", cell.detailTextLabel);
-            NSLog(@"%@ at %@", item.name, item.price);
         }
     }
     
