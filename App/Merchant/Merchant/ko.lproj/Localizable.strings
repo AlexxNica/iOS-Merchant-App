@@ -178,6 +178,39 @@
 
 "action_picker.sort_order" = "항목 정렬 순서";
 
+// Settings Errors
+"setting.phone_validation_error.title" = "잘못 된 전화 번호";
+
+"setting.phone_validation_error.detail" = "전화 번호는 숫자로 인식 되지 않습니다.";
+
+"setting.url_validation_error.title" = "잘못 된 웹사이트";
+
+"setting.url_validation_error.detail" = "입력 한 주소는 유효 하지 않습니다.";
+
+"setting.merchant_listing.value_error.title" = "누락 된 정보";
+
+"setting.merchant_listing.value_error.detail" = "디렉토리 목록을 회사 이름, 주소, 도시, 우편 번호, 전화, 웹 url 및 설명을 제공 해야 합니다.";
+
 // Errors
 "networking.post_merchant.fail" = "가맹점 게시 실패";
+
+"action.charge" = "충전";
+
+"action.search" = "검색";
+
+"action.add" = "추가";
+
+"action.item_setup" = "항목 설정";
+
+"action.enter_amount" = "금액을 입력 하십시오";
+
+"user_current_location" = "현재 위치를 사용 하 여";
+
+"locations" = "카페/음료/식사/지출";
+
+"welcome.hi" = "안녕!";
+
+"welcome.setup" = "상인 계정 설정 버튼을 누릅니다!";
+
+"welcome.lets_go" = "갈 수 있습니다!";
 

@@ -178,6 +178,39 @@
 
 "action_picker.sort_order" = "Element-Sortierreihenfolge";
 
+// Settings Errors
+"setting.phone_validation_error.title" = "Ungültige Telefonnummer";
+
+"setting.phone_validation_error.detail" = "Die Telefonnummer wird nicht als Zahl erkannt.";
+
+"setting.url_validation_error.title" = "Ungültige Website";
+
+"setting.url_validation_error.detail" = "Die eingegebene Adresse ist nicht gültig";
+
+"setting.merchant_listing.value_error.title" = "Fehlende Informationen";
+
+"setting.merchant_listing.value_error.detail" = "Verzeichnisliste erfordert Sie einen Firmennamen, Adresse, Stadt, Postleitzahl, Telefon, Web-Url und eine Beschreibung zur Verfügung stellen.";
+
 // Errors
 "networking.post_merchant.fail" = "Händler Post-Fehler";
+
+"action.charge" = "Kostenlos";
+
+"action.search" = "Suche";
+
+"action.add" = "Hinzufügen";
+
+"action.item_setup" = "Artikeleinstellungen";
+
+"action.enter_amount" = "Betrag eingeben";
+
+"user_current_location" = "Aktuellen Standort verwenden";
+
+"locations" = "Café/trinken/Essen/verbringen";
+
+"welcome.hi" = "Hallo!";
+
+"welcome.setup" = "Tippen Sie auf die Schaltfläche, um Ihr Händlerkonto einrichten!";
+
+"welcome.lets_go" = "Lets Go!";
 

@@ -178,6 +178,39 @@
 
 "action_picker.sort_order" = "Στοιχείο σειρά ταξινόμησης";
 
+// Settings Errors
+"setting.phone_validation_error.title" = "Αριθμός τηλεφώνου δεν είναι έγκυρη";
+
+"setting.phone_validation_error.detail" = "Το τηλέφωνο δεν αναγνωρίζεται ως ένα αριθμό.";
+
+"setting.url_validation_error.title" = "Η ιστοσελίδα δεν είναι έγκυρος";
+
+"setting.url_validation_error.detail" = "Η διεύθυνση που εισάγατε δεν είναι έγκυρος";
+
+"setting.merchant_listing.value_error.title" = "Πληροφορίες που λείπουν";
+
+"setting.merchant_listing.value_error.detail" = "Λίστα καταλόγου απαιτεί από εσάς να παρέχουν μια εταιρική επωνυμία, διεύθυνση, πόλη, ταχυδρομικό κώδικα, τηλέφωνο, web διεύθυνση url και περιγραφή.";
+
 // Errors
 "networking.post_merchant.fail" = "Έμπορος θέση αποτυχία";
+
+"action.charge" = "Χρέωση";
+
+"action.search" = "Αναζήτηση";
+
+"action.add" = "Προσθέστε";
+
+"action.item_setup" = "Παραμετροποίηση ειδών";
+
+"action.enter_amount" = "Εισάγετε το ποσό";
+
+"user_current_location" = "Χρησιμοποιήστε την τρέχουσα θέση";
+
+"locations" = "Καφέ/ποτό/τρώνε/περνούν";
+
+"welcome.hi" = "Γεια σου!";
+
+"welcome.setup" = "Πατήστε το κουμπί για να συσταθεί εμπορικό απολογισμό σας!";
+
+"welcome.lets_go" = "Αφήνει να πάει!";
 

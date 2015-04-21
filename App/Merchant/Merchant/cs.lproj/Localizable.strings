@@ -178,6 +178,39 @@
 
 "action_picker.sort_order" = "Pořadí řazení položek";
 
+// Settings Errors
+"setting.phone_validation_error.title" = "Neplatné telefonní číslo";
+
+"setting.phone_validation_error.detail" = "Telefonní číslo není rozpoznán jako číslo.";
+
+"setting.url_validation_error.title" = "Neplatná webová";
+
+"setting.url_validation_error.detail" = "Zadaná adresa není platná";
+
+"setting.merchant_listing.value_error.title" = "Chybějící informace";
+
+"setting.merchant_listing.value_error.detail" = "Výpis adresáře vyžaduje poskytnutí obchodní jméno, adresa, město, PSČ, telefon, webová adresa url a popis.";
+
 // Errors
 "networking.post_merchant.fail" = "Obchodní Post selhání";
+
+"action.charge" = "Poplatek";
+
+"action.search" = "Hledat";
+
+"action.add" = "Přidat";
+
+"action.item_setup" = "Nastavení položky";
+
+"action.enter_amount" = "Zadejte částku";
+
+"user_current_location" = "Použít aktuální umístění";
+
+"locations" = "Kavárna/nápoje/jíst/utrácet";
+
+"welcome.hi" = "Ahoj!";
+
+"welcome.setup" = "Klepněte na tlačítko nastavení účtu obchodníka!";
+
+"welcome.lets_go" = "Pojďme!";
 

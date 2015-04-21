@@ -178,6 +178,39 @@
 
 "action_picker.sort_order" = "Volgorde van items sorteren";
 
+// Settings Errors
+"setting.phone_validation_error.title" = "Ongeldig telefoonnummer";
+
+"setting.phone_validation_error.detail" = "Het telefoonnummer wordt niet herkend als een getal.";
+
+"setting.url_validation_error.title" = "Ongeldig Website";
+
+"setting.url_validation_error.detail" = "Het ingevoerde adres is niet geldig";
+
+"setting.merchant_listing.value_error.title" = "Ontbrekende informatie";
+
+"setting.merchant_listing.value_error.detail" = "Folderlijst moet u een bedrijfsnaam, adres, stad, postcode, telefoon, web-url en een beschrijving.";
+
 // Errors
 "networking.post_merchant.fail" = "Zakelijke Post mislukking";
+
+"action.charge" = "Gratis";
+
+"action.search" = "Zoeken";
+
+"action.add" = "Toevoegen";
+
+"action.item_setup" = "Artikelen instellen";
+
+"action.enter_amount" = "Bedrag";
+
+"user_current_location" = "Huidige locatie gebruiken";
+
+"locations" = "Cafe/drank/eten/besteden";
+
+"welcome.hi" = "Hallo!";
+
+"welcome.setup" = "Tik op de knop om te stellen uw merchant account!";
+
+"welcome.lets_go" = "Lets Go!";
 

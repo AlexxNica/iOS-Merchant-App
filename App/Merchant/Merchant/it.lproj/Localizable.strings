@@ -178,6 +178,39 @@
 
 "action_picker.sort_order" = "Elemento di ordinamento";
 
+// Settings Errors
+"setting.phone_validation_error.title" = "Numero di telefono non valido";
+
+"setting.phone_validation_error.detail" = "Il numero di telefono non viene riconosciuto come un numero.";
+
+"setting.url_validation_error.title" = "Sito Web non valido";
+
+"setting.url_validation_error.detail" = "L'indirizzo immesso non è valido";
+
+"setting.merchant_listing.value_error.title" = "Informazioni mancanti";
+
+"setting.merchant_listing.value_error.detail" = "Elenco di directory richiede di fornire un nome aziendale, indirizzo, città, codice postale, telefono, web url e una descrizione.";
+
 // Errors
 "networking.post_merchant.fail" = "Mercantile Post fallimento";
+
+"action.charge" = "Carica";
+
+"action.search" = "Ricerca";
+
+"action.add" = "Aggiungi";
+
+"action.item_setup" = "Setup articolo";
+
+"action.enter_amount" = "Immettere la quantità";
+
+"user_current_location" = "Utilizzare la posizione corrente";
+
+"locations" = "Cafe/bere/mangiare/spendere";
+
+"welcome.hi" = "Ciao!";
+
+"welcome.setup" = "Premete il tasto per impostare il tuo account venditore!";
+
+"welcome.lets_go" = "Lascia andare!";
 

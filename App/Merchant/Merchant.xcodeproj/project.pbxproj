@@ -102,6 +102,7 @@
 		FAB117771A11D77800E876BA /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB117651A11D77800E876BA /* iTunesArtwork@2x.png */; };
 		FAC3A1FA1A2657F900ADA872 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3A1F91A2657F900ADA872 /* MapKit.framework */; };
 		FAC3A1FC1A2657FE00ADA872 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3A1FB1A2657FE00ADA872 /* CoreLocation.framework */; };
+		FACBB93E1AE616AA007EB200 /* BCMCurrentLocationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FACBB93D1AE616AA007EB200 /* BCMCurrentLocationTableViewCell.m */; };
 		FAD05B281AD3429500A14EDA /* not_valid_address@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD05B271AD3429500A14EDA /* not_valid_address@2x.png */; };
 		FAD05B2A1AD34E8E00A14EDA /* logo_merchant@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD05B291AD34E8E00A14EDA /* logo_merchant@2x.png */; };
 		FAD05B2E1ADF5E1700A14EDA /* valid_address@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD05B2D1ADF5E1700A14EDA /* valid_address@2x.png */; };
@@ -299,6 +300,8 @@
 		FAB117651A11D77800E876BA /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		FAC3A1F91A2657F900ADA872 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FAC3A1FB1A2657FE00ADA872 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FACBB93C1AE616AA007EB200 /* BCMCurrentLocationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMCurrentLocationTableViewCell.h; sourceTree = "<group>"; };
+		FACBB93D1AE616AA007EB200 /* BCMCurrentLocationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMCurrentLocationTableViewCell.m; sourceTree = "<group>"; };
 		FAD05B271AD3429500A14EDA /* not_valid_address@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "not_valid_address@2x.png"; path = "../../../Assets/not_valid_address@2x.png"; sourceTree = "<group>"; };
 		FAD05B291AD34E8E00A14EDA /* logo_merchant@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo_merchant@2x.png"; path = "../../../Assets/logo_merchant@2x.png"; sourceTree = "<group>"; };
 		FAD05B2D1ADF5E1700A14EDA /* valid_address@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "valid_address@2x.png"; path = "../../../Assets/valid_address@2x.png"; sourceTree = "<group>"; };
@@ -627,6 +630,8 @@
 				FA99820B19FA4F20006C7D2F /* BCMTransactionsViewController.m */,
 				FA99820D19FA4F49006C7D2F /* BCMSettingsViewController.h */,
 				FA99820E19FA4F49006C7D2F /* BCMSettingsViewController.m */,
+				FACBB93C1AE616AA007EB200 /* BCMCurrentLocationTableViewCell.h */,
+				FACBB93D1AE616AA007EB200 /* BCMCurrentLocationTableViewCell.m */,
 				FA99821019FA4F69006C7D2F /* BCMPriceNewsViewController.h */,
 				FA99821119FA4F69006C7D2F /* BCMPriceNewsViewController.m */,
 				FA99822319FE8D26006C7D2F /* BCMItemSetupViewController.h */,
@@ -917,6 +922,7 @@
 				FAEB497919F9496000B774EC /* BCMSideNavigationViewController.m in Sources */,
 				FAA418A319F789A000023B25 /* main.m in Sources */,
 				FAB117041A10F89100E876BA /* _PurchasedItem.m in Sources */,
+				FACBB93E1AE616AA007EB200 /* BCMCurrentLocationTableViewCell.m in Sources */,
 				FAB117031A10F89100E876BA /* _Merchant.m in Sources */,
 				FA0614D21A1C85B8004F71F4 /* BCPinEntryViewController.m in Sources */,
 			);
@@ -1087,6 +1093,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1095,7 +1102,7 @@
 			baseConfigurationReference = 2BD1471CFB71554E6214BDCE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1106,6 +1113,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

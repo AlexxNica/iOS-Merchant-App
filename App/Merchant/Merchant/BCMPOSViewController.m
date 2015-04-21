@@ -133,6 +133,9 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
         [self.itemsTableView setLayoutMargins:UIEdgeInsetsZero];
     }
     self.itemsTableView.tableFooterView = [[UIView alloc] init];
+    
+    [self.chargeButton setTitle:NSLocalizedString(@"action.charge", nil) forState:UIControlStateNormal];
+    [self.editButton setTitle:NSLocalizedString(@"action.add", nil) forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated

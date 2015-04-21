@@ -178,6 +178,39 @@
 
 "action_picker.sort_order" = "Kolejność sortowania elementu";
 
+// Settings Errors
+"setting.phone_validation_error.title" = "Nieprawidłowy numer";
+
+"setting.phone_validation_error.detail" = "Numer telefonu nie jest rozpoznawana jako liczba.";
+
+"setting.url_validation_error.title" = "Nieprawidłowa strona";
+
+"setting.url_validation_error.detail" = "Wprowadzony adres nie jest prawidłowa";
+
+"setting.merchant_listing.value_error.title" = "Brak informacji o";
+
+"setting.merchant_listing.value_error.detail" = "Katalog aukcji należy podać nazwę firmy, adres, miasto, kod pocztowy, telefon, adres url sieci web i opis.";
+
 // Errors
 "networking.post_merchant.fail" = "Kupiec po awarii";
+
+"action.charge" = "Bezpłatnie";
+
+"action.search" = "Szukaj";
+
+"action.add" = "Dodaj";
+
+"action.item_setup" = "Element konfiguracji";
+
+"action.enter_amount" = "Wprowadź kwotę";
+
+"user_current_location" = "Użyj bieżącej lokalizacji";
+
+"locations" = "Kawiarnia/picia/jedzenia/wydać";
+
+"welcome.hi" = "Cześć!";
+
+"welcome.setup" = "Naciśnij przycisk, aby skonfigurować konta handlowca!";
+
+"welcome.lets_go" = "Puszcza!";
 

@@ -178,6 +178,39 @@
 
 "action_picker.sort_order" = "Öğe sıralama düzeni";
 
+// Settings Errors
+"setting.phone_validation_error.title" = "Geçersiz telefon numarası";
+
+"setting.phone_validation_error.detail" = "Telefon numarasını, sayı olarak tanınmıyor.";
+
+"setting.url_validation_error.title" = "Geçersiz Web sitesi";
+
+"setting.url_validation_error.detail" = "Girdiğiniz adres geçerli değil";
+
+"setting.merchant_listing.value_error.title" = "Eksik bilgileri";
+
+"setting.merchant_listing.value_error.detail" = "Dizin listesi, bir işletme adı, adres, şehir, posta kodu, telefon, web URL'sini ve açıklamasını sağlamak gerekir.";
+
 // Errors
 "networking.post_merchant.fail" = "Tüccar Post hatası";
+
+"action.charge" = "Şarj";
+
+"action.search" = "Arama";
+
+"action.add" = "Ekle";
+
+"action.item_setup" = "Madde ayarı";
+
+"action.enter_amount" = "Tutarı girin";
+
+"user_current_location" = "Geçerli konum kullanın";
+
+"locations" = "Cafe/içki/yemek/harcama";
+
+"welcome.hi" = "Merhaba!";
+
+"welcome.setup" = "Ticari hesabınızı kurmak için düğmeye dokunun!";
+
+"welcome.lets_go" = "Gidelim!";
 

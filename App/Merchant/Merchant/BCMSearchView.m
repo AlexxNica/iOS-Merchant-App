@@ -33,6 +33,7 @@
         NSLog(@"Cannot set placeholder text's color, because deployment target is earlier than iOS 6.0");
     }
     
+    self.searchTextField.placeholder = NSLocalizedString(@"action.search", nil);
     self.backgroundColor = [UIColor colorWithHexValue:@"e5e5e5"];
 }
 

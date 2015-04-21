@@ -178,6 +178,39 @@
 
 "action_picker.sort_order" = "Thứ tự sắp xếp mục";
 
+// Settings Errors
+"setting.phone_validation_error.title" = "Số điện thoại không hợp lệ";
+
+"setting.phone_validation_error.detail" = "Số điện thoại không được công nhận như một số.";
+
+"setting.url_validation_error.title" = "Trang web không hợp lệ";
+
+"setting.url_validation_error.detail" = "Địa chỉ được nhập là không hợp lệ";
+
+"setting.merchant_listing.value_error.title" = "Thiếu thông tin";
+
+"setting.merchant_listing.value_error.detail" = "Danh sách thư mục yêu cầu bạn cung cấp một tên doanh nghiệp, địa chỉ, thành phố, zipcode, điện thoại, web url và mô tả.";
+
 // Errors
 "networking.post_merchant.fail" = "Thương gia bài thất bại";
+
+"action.charge" = "Phí";
+
+"action.search" = "Tìm";
+
+"action.add" = "Thêm";
+
+"action.item_setup" = "Thiết lập mục";
+
+"action.enter_amount" = "Nhập số tiền";
+
+"user_current_location" = "Sử dụng vị trí hiện tại";
+
+"locations" = "Quán cà phê/uống rượu/ăn/chi tiêu";
+
+"welcome.hi" = "Chào bạn!";
+
+"welcome.setup" = "Bấm vào nút để thiết lập tài khoản thương gia của bạn!";
+
+"welcome.lets_go" = "Cho phép đi!";
 

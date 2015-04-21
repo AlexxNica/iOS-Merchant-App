@@ -178,6 +178,39 @@
 
 "action_picker.sort_order" = "Vare sorteringsrækkefølge";
 
+// Settings Errors
+"setting.phone_validation_error.title" = "Ugyldigt telefonnummer";
+
+"setting.phone_validation_error.detail" = "Telefonnummeret er ikke anerkendt som et tal.";
+
+"setting.url_validation_error.title" = "Ugyldig hjemmeside";
+
+"setting.url_validation_error.detail" = "Den indtastede adresse er ikke gyldig";
+
+"setting.merchant_listing.value_error.title" = "Manglende oplysninger";
+
+"setting.merchant_listing.value_error.detail" = "Biblioteksvisning skal du angive et firmanavn, adresse, by, postnummer, telefon, webadresse og en beskrivelse.";
+
 // Errors
 "networking.post_merchant.fail" = "Købmand Post fejl";
+
+"action.charge" = "Afgift";
+
+"action.search" = "Søg";
+
+"action.add" = "Tilføje";
+
+"action.item_setup" = "Opsætning af vare";
+
+"action.enter_amount" = "Angiv beløb";
+
+"user_current_location" = "Brug aktuelle placering";
+
+"locations" = "Cafe/drikke/spise/bruge";
+
+"welcome.hi" = "Hej!";
+
+"welcome.setup" = "Tryk på knappen for at indstille din købmand konto!";
+
+"welcome.lets_go" = "Lad os gå!";
 

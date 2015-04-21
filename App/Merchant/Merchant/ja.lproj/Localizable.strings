@@ -178,6 +178,39 @@
 
 "action_picker.sort_order" = "アイテムの並べ替え順序";
 
+// Settings Errors
+"setting.phone_validation_error.title" = "無効な電話番号";
+
+"setting.phone_validation_error.detail" = "電話番号は数値として認識されません。";
+
+"setting.url_validation_error.title" = "無効なウェブサイト";
+
+"setting.url_validation_error.detail" = "入力したアドレスは無効です。";
+
+"setting.merchant_listing.value_error.title" = "不足している情報";
+
+"setting.merchant_listing.value_error.detail" = "ディレクトリ一覧では、ビジネスの名前、アドレス、都市、郵便番号、電話、web url、および説明を提供する必要があります。";
+
 // Errors
 "networking.post_merchant.fail" = "商人の Post 障害";
+
+"action.charge" = "料金";
+
+"action.search" = "検索";
+
+"action.add" = "追加";
+
+"action.item_setup" = "品目の設定";
+
+"action.enter_amount" = "金額を入力します。";
+
+"user_current_location" = "現在の場所を使用します。";
+
+"locations" = "カフェ/ドリンク/食べる/過ごす";
+
+"welcome.hi" = "こんにちは！";
+
+"welcome.setup" = "商人のアカウントを設定するボタンをタップします ！";
+
+"welcome.lets_go" = "行くことができます ！";
 

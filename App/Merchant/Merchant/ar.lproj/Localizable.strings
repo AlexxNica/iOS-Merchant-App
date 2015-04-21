@@ -178,6 +178,39 @@
 
 "action_picker.sort_order" = "ترتيب فرز العناصر";
 
+// Settings Errors
+"setting.phone_validation_error.title" = "رقم الهاتف غير صحيح";
+
+"setting.phone_validation_error.detail" = "لم يتم التعرف رقم هاتف كرقم.";
+
+"setting.url_validation_error.title" = "موقع صالح";
+
+"setting.url_validation_error.detail" = "عنوان الذي تم إدخاله غير صحيح";
+
+"setting.merchant_listing.value_error.title" = "المعلومات المفقودة";
+
+"setting.merchant_listing.value_error.detail" = "سرد الدليل يتطلب منك توفير اسم المؤسسة، العنوان، المدينة، الرمز البريدي، الهاتف، url ويب، ووصفاً.";
+
 // Errors
 "networking.post_merchant.fail" = "فشل وظيفة التاجر";
+
+"action.charge" = "التهمة";
+
+"action.search" = "البحث";
+
+"action.add" = "إضافة";
+
+"action.item_setup" = "إعداد العنصر";
+
+"action.enter_amount" = "أدخل المبلغ";
+
+"user_current_location" = "استخدام الموقع الحالي";
+
+"locations" = "مقهى/الشراب/أكل/قضاء";
+
+"welcome.hi" = "مرحبا!";
+
+"welcome.setup" = "اضغط على زر إنشاء حساب التاجر الخاص بك!";
+
+"welcome.lets_go" = "يتيح الذهاب!";
 

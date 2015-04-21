@@ -45,6 +45,12 @@
     [self.saveButton setBackgroundColor:[UIColor colorWithHexValue:BLOCK_CHAIN_SEND_GREEN]];
     [self.doneButton setBackgroundColor:[UIColor colorWithHexValue:BLOCK_CHAIN_SECONDARY_GRAY]];
     
+    NSString *cancelString = NSLocalizedString(@"action.cancel", nil);
+    [self.doneButton setTitle:[cancelString capitalizedString]  forState:UIControlStateNormal];
+    
+    NSString *saveString = NSLocalizedString(@"action.save", nil);
+    [self.saveButton setTitle:[saveString capitalizedString]  forState:UIControlStateNormal];
+    
     [self clearTitleView];
 }
 

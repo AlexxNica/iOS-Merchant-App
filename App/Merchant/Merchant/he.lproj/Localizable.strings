@@ -178,6 +178,39 @@
 
 "action_picker.sort_order" = "סדר המיון פריט";
 
+// Settings Errors
+"setting.phone_validation_error.title" = "מספר טלפון לא חוקי";
+
+"setting.phone_validation_error.detail" = "מספר הטלפון אינו מזוהה כמספר.";
+
+"setting.url_validation_error.title" = "צירוף לא חוקי של האתר";
+
+"setting.url_validation_error.detail" = "כתובת שהוזנה אינה חוקית";
+
+"setting.merchant_listing.value_error.title" = "מידע חסר";
+
+"setting.merchant_listing.value_error.detail" = "מפירוט הספריה דורש ממך לספק שם העסק, כתובת, עיר, מיקוד, טלפון, כתובת אינטרנט, ותיאור.";
+
 // Errors
 "networking.post_merchant.fail" = "כשל פוסט צי הסוחר";
+
+"action.charge" = "תשלום";
+
+"action.search" = "חיפוש";
+
+"action.add" = "להוסיף";
+
+"action.item_setup" = "הגדרת פריט";
+
+"action.enter_amount" = "הזן את הסכום";
+
+"user_current_location" = "השתמש במיקום הנוכחי";
+
+"locations" = "בית קפה/לשתות/לאכול/לבלות";
+
+"welcome.hi" = "היי!";
+
+"welcome.setup" = "הקש על הלחצן כדי להגדיר את חשבון סוחר!";
+
+"welcome.lets_go" = "בואו נלך!";
 

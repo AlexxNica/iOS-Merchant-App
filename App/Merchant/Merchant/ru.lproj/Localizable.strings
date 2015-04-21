@@ -178,6 +178,39 @@
 
 "action_picker.sort_order" = "Порядок сортировки элементов";
 
+// Settings Errors
+"setting.phone_validation_error.title" = "Неправильный номер телефона";
+
+"setting.phone_validation_error.detail" = "Номер телефона не распознается как число.";
+
+"setting.url_validation_error.title" = "Недопустимый веб-сайт";
+
+"setting.url_validation_error.detail" = "Введенный адрес не является допустимым";
+
+"setting.merchant_listing.value_error.title" = "Недостающая информация";
+
+"setting.merchant_listing.value_error.detail" = "Список каталогов необходимо предоставить название компании, адрес, город, почтовый индекс, Телефон, веб-url и описание.";
+
 // Errors
 "networking.post_merchant.fail" = "Провал торговый пост";
+
+"action.charge" = "Заряд";
+
+"action.search" = "Поиск";
+
+"action.add" = "Добавить";
+
+"action.item_setup" = "Элемент установки";
+
+"action.enter_amount" = "Введите сумму";
+
+"user_current_location" = "Использовать текущее местоположение";
+
+"locations" = "Кафе/пить/есть/тратить";
+
+"welcome.hi" = "Привет!";
+
+"welcome.setup" = "Нажмите кнопку, чтобы настроить ваш торговый счет!";
+
+"welcome.lets_go" = "Lets Go!";
 

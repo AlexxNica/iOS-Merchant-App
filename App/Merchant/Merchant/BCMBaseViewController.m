@@ -37,8 +37,10 @@
         case BCMNavigationTypeHamburger:
             imageName = @"hamburger";
             break;
-        case BCMNavigationTypeCancel:
-            text = @"Cancel";
+        case BCMNavigationTypeCancel: {
+            NSString *cancelText = NSLocalizedString(@"action.cancel", nil);
+            text = [cancelText capitalizedString];
+        }
             break;
         default:
             break;

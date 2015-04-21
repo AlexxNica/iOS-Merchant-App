@@ -178,6 +178,39 @@
 
 "action_picker.sort_order" = "Element d'ordenació";
 
+// Settings Errors
+"setting.phone_validation_error.title" = "Número de telèfon no és vàlid";
+
+"setting.phone_validation_error.detail" = "El número de telèfon no és reconegut com un nombre.";
+
+"setting.url_validation_error.title" = "Lloc web no és vàlida";
+
+"setting.url_validation_error.detail" = "L'adreça introduït no és vàlid";
+
+"setting.merchant_listing.value_error.title" = "Falta informació";
+
+"setting.merchant_listing.value_error.detail" = "Llista de directoris requereix que faciliti un nom comercial, adreça, ciutat, zipcode, telèfon, adreça url web i una descripció.";
+
 // Errors
 "networking.post_merchant.fail" = "Mercant Post fracàs";
+
+"action.charge" = "Càrrec";
+
+"action.search" = "Cerca";
+
+"action.add" = "Afegir";
+
+"action.item_setup" = "Organització de l'element";
+
+"action.enter_amount" = "Introdueix la quantitat";
+
+"user_current_location" = "Utilitzar la localització actual";
+
+"locations" = "Cafeteria/beguda/menjar/passar";
+
+"welcome.hi" = "Hola!";
+
+"welcome.setup" = "Premeu el botó per configurar el seu compte de comerciant!";
+
+"welcome.lets_go" = "Deixa per anar!";
 

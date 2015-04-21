@@ -178,6 +178,39 @@
 
 "action_picker.sort_order" = "Nimikkeen lajittelujärjestys";
 
+// Settings Errors
+"setting.phone_validation_error.title" = "Puhelinnumero ei kelpaa";
+
+"setting.phone_validation_error.detail" = "Puhelinnumero ei tunnisteta useita.";
+
+"setting.url_validation_error.title" = "Virheellinen sivusto";
+
+"setting.url_validation_error.detail" = "Määritetty osoite ei ole kelvollinen";
+
+"setting.merchant_listing.value_error.title" = "Puuttuvat tiedot";
+
+"setting.merchant_listing.value_error.detail" = "Hakemistolistauksen vaatii sinua antamaan yrityksesi nimi, osoite, kaupunki, postinumero, Puhelin, url-osoite ja kuvaus.";
+
 // Errors
 "networking.post_merchant.fail" = "Kauppias Post virhe";
+
+"action.charge" = "Ilmaiseksi";
+
+"action.search" = "Etsi";
+
+"action.add" = "Lisää";
+
+"action.item_setup" = "Nimikkeiden asetukset";
+
+"action.enter_amount" = "Syötä summa";
+
+"user_current_location" = "Käytä nykyistä sijaintia";
+
+"locations" = "Cafe/juoda/syödä/viettää";
+
+"welcome.hi" = "Moikka!";
+
+"welcome.setup" = "Napauta painiketta asettaaksesi kauppiastiliä!";
+
+"welcome.lets_go" = "Mennään!";
 

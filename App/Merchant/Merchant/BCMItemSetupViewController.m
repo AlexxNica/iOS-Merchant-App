@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *itemsTableView;
 @property (weak, nonatomic) IBOutlet UIButton *clearSearchButton;
 @property (weak, nonatomic) IBOutlet UIButton *addItemButton;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
 
 @property (strong, nonatomic) NSArray *merchantItems;
@@ -78,6 +79,9 @@
     self.itemsTableView.tableFooterView = [[UIView alloc] init];
     
     [self clearTitleView];
+    
+    self.navigationItem.title = NSLocalizedString(@"action.item_setup", nil);
+    [self.doneButton setTitle:NSLocalizedString(@"general.done", nil) forState:UIControlStateNormal];
 }
 
 - (void)showAddItemViewWithItem:(Item *)item

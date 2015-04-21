@@ -178,6 +178,39 @@
 
 "action_picker.sort_order" = "Порядок сортування елементів";
 
+// Settings Errors
+"setting.phone_validation_error.title" = "Неприпустимий номер";
+
+"setting.phone_validation_error.detail" = "Номер телефону не розпізнається як число.";
+
+"setting.url_validation_error.title" = "Неприпустимий веб-сайт";
+
+"setting.url_validation_error.detail" = "Введені адреси немає у";
+
+"setting.merchant_listing.value_error.title" = "Відсутні відомості";
+
+"setting.merchant_listing.value_error.detail" = "Створювати список файлів каталогу, необхідно забезпечити бізнес ім'я, адресу, місто, поштовий індекс, телефон, веб-ресурсу та опис.";
+
 // Errors
 "networking.post_merchant.fail" = "Торговий пост провал";
+
+"action.charge" = "Заряду";
+
+"action.search" = "Пошук";
+
+"action.add" = "Додати";
+
+"action.item_setup" = "Елемент інсталяції";
+
+"action.enter_amount" = "Введіть суму";
+
+"user_current_location" = "Використовувати поточне розташування";
+
+"locations" = "Кафе/напої/з'їсти/витратити";
+
+"welcome.hi" = "Привіт!";
+
+"welcome.setup" = "Натисніть кнопку налаштувати ваш торговий рахунок!";
+
+"welcome.lets_go" = "Відпускає!";
 

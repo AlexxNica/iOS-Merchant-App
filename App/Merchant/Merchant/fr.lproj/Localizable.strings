@@ -178,6 +178,39 @@
 
 "action_picker.sort_order" = "Ordre de tri des éléments";
 
+// Settings Errors
+"setting.phone_validation_error.title" = "Numéro de téléphone non valide";
+
+"setting.phone_validation_error.detail" = "Le numéro de téléphone n'est pas reconnu comme un nombre.";
+
+"setting.url_validation_error.title" = "Site Web non valide";
+
+"setting.url_validation_error.detail" = "L'adresse saisie n'est pas valide";
+
+"setting.merchant_listing.value_error.title" = "Informations manquantes";
+
+"setting.merchant_listing.value_error.detail" = "Inscription à l'annuaire nécessite de disposer d'un nom commercial, adresse, ville, code postal, téléphone, web url et une description.";
+
 // Errors
 "networking.post_merchant.fail" = "Échec de poste marchand";
+
+"action.charge" = "Frais";
+
+"action.search" = "Rechercher";
+
+"action.add" = "Ajouter";
+
+"action.item_setup" = "Configuration de l'élément";
+
+"action.enter_amount" = "Entrez le montant";
+
+"user_current_location" = "Utiliser l'emplacement actuel";
+
+"locations" = "Café/boire/manger/passer";
+
+"welcome.hi" = "Salut!";
+
+"welcome.setup" = "Appuyez sur le bouton pour configurer votre compte marchand !";
+
+"welcome.lets_go" = "Laisse aller !";
 

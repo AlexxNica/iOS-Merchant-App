@@ -134,4 +134,13 @@
 // Errors
 "networking.post_merchant.fail" = "Merchant Post Failure";
 
-
+"action.charge" = "Charge";
+"action.search" = "Search";
+"action.add" = "Add";
+"action.item_setup" = "Item Setup";
+"action.enter_amount" = "Enter Amount";
+"user_current_location" = "Use Current Location";
+"locations" = "Cafe/Drink/Eat/Spend";
+"welcome.hi" = "Hi!";
+"welcome.setup" = "Tap the button to set up your merchant account!";
+"welcome.lets_go" = "Lets Go!";

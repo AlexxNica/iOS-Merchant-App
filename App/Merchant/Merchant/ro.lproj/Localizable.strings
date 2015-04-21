@@ -178,6 +178,39 @@
 
 "action_picker.sort_order" = "Ordinea de sortare element";
 
+// Settings Errors
+"setting.phone_validation_error.title" = "Numarul de telefon incorect";
+
+"setting.phone_validation_error.detail" = "Numărul de telefon nu este recunoscut ca un număr.";
+
+"setting.url_validation_error.title" = "Site-ul de invalid";
+
+"setting.url_validation_error.detail" = "Adresa introdus nu este valid";
+
+"setting.merchant_listing.value_error.title" = "Lipsesc informaţii";
+
+"setting.merchant_listing.value_error.detail" = "Directorul de listare a cere tu pentru a furniza un nume de afaceri, adresă, oraş, cod postal, telefon, URL-ul web şi o descriere.";
+
 // Errors
 "networking.post_merchant.fail" = "Comerciant Post eşec";
+
+"action.charge" = "Taxa";
+
+"action.search" = "Căutare";
+
+"action.add" = "Adauga";
+
+"action.item_setup" = "Parametrizare articol";
+
+"action.enter_amount" = "Introduceţi cantitate";
+
+"user_current_location" = "Utiliza locaţia curentă";
+
+"locations" = "Cafe/bea/mânca/cheltui";
+
+"welcome.hi" = "salut!";
+
+"welcome.setup" = "Apăsaţi butonul pentru a configura contul comerciant!";
+
+"welcome.lets_go" = "Să mergem!";
 
