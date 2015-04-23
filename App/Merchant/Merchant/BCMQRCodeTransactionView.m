@@ -112,7 +112,7 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
     }
 }
 
-static NSString *const kBlockChainSockURL = @"ws://ws.blockchain.info/inv";
+static NSString *const kBlockChainSockURL = @"wss://ws.blockchain.info/inv";
 
 @synthesize activeTransaction = _activeTransaction;
 
