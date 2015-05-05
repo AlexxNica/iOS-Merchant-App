@@ -66,6 +66,10 @@
     [self removeObservers];
 }
 
+- (void)clearRecipient
+{
+    self.emailTextField.text = @"";
+}
 
 - (IBAction)doneAction:(id)sender
 {

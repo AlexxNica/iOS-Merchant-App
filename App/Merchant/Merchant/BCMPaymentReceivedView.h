@@ -24,4 +24,6 @@
 
 @property (weak, nonatomic) id <BCMPaymentReceivedViewDelegate> delegate;
 
+- (void)clearRecipient;
+
 @end
