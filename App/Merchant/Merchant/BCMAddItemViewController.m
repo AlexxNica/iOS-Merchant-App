@@ -52,6 +52,20 @@
     [self.saveButton setTitle:[saveString capitalizedString]  forState:UIControlStateNormal];
     
     [self clearTitleView];
+    if (self.item) {
+        self.navigationItem.title = @"Edit Item";
+    } else {
+        self.navigationItem.title = @"Add Item";
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if (self.item) {
+        [self updateViewForCurrentItem];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,6 +99,11 @@
 {
     _item = item;
     
+    [self updateViewForCurrentItem];
+}
+
+- (void)updateViewForCurrentItem
+{
     NSString *itemName = _item.name;
     if ([itemName length] > 0) {
         self.itemNameTextField.text = _item.name;

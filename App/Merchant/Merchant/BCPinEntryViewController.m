@@ -66,6 +66,8 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
 
 @property (weak, nonatomic) IBOutlet UILabel *infoLbl;
 
+@property (assign, nonatomic) NSUInteger passwordAttempts;
+
 @end
 
 @implementation BCPinEntryViewController
@@ -73,6 +75,8 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.passwordAttempts = 0;
     
     self.pinEntryView.delegate = self;
 
@@ -141,15 +145,20 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
     }
 }
 
+- (void)dismissPinEntryAndDenyAccess
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    BCMDrawerViewController *drawer = delegate.drawerController;
+    [drawer showDetailViewControllerWithId:@"BCMPOSNavigationId"];
+}
+
 #pragma mark - Actions
 
 - (void)cancelAction:(id)sender
 {
     if (self.userMode == PinEntryUserModeAccess) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-        AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-        BCMDrawerViewController *drawer = delegate.drawerController;
-        [drawer showDetailViewControllerWithId:@"BCMPOSNavigationId"];
+        [self dismissPinEntryAndDenyAccess];
     } else {
         [self dismissViewControllerAnimated:YES completion:nil];
     }
@@ -179,6 +188,12 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
                     self.entryState = PinEntryModeAccessComplete;
                 } else {
                     self.entryState = PinEntryModeAccessFail;
+                    self.passwordAttempts++;
+                    
+                    // 3 attempts at access
+                    if (self.passwordAttempts > 2) {
+                        [self dismissPinEntryAndDenyAccess];
+                    }
                 }
             }
         } else if (self.userMode == PinEntryUserModeCreate) {
@@ -318,12 +333,11 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
         self.secondEnteredPin = @"";
         [self clearPinImageViews];
     } else if (_entryState == PinEntryModeAccessFail) {
-        self.titleLbl.text = NSLocalizedString(@"pin.entry.enter_passcode", nil);
+        self.titleLbl.text = NSLocalizedString(@"pin.entry.password_incorrect", nil);
         self.pin = [[NSMutableString alloc] init];
         self.firstEnteredPin = @"";
         self.secondEnteredPin = @"";
         [self clearPinImageViews];
-        self.infoLbl.text = NSLocalizedString(@"pin.entry.password_incorrect", nil);
     } else if (_entryState == PinEntryModeAccessComplete) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }

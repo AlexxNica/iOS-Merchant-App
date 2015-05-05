@@ -62,7 +62,7 @@
 
 // POS
 "item.list.noitems" = "No Items";
-"item.list.custom" = "Custom";
+"item.list.custom" = "Custom Amount";
 "item.list.number_of_item" = "(%lu item)";
 "item.list.number_of_items" = "(%lu items)";
 

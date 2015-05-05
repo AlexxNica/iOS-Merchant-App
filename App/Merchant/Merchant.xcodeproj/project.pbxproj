@@ -18,6 +18,8 @@
 		FA0614D51A1CD1D4004F71F4 /* BCPinNumberKey.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0614D41A1CD1D4004F71F4 /* BCPinNumberKey.m */; };
 		FA0614D71A1CD1E5004F71F4 /* BCPinNumberKey.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA0614D61A1CD1E5004F71F4 /* BCPinNumberKey.xib */; };
 		FA0614E11A1CE287004F71F4 /* pin_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614E01A1CE287004F71F4 /* pin_delete@2x.png */; };
+		FA0A743B1AF8AA7B000E47D0 /* BCMItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0A74391AF8AA7B000E47D0 /* BCMItemTableViewCell.m */; };
+		FA0A743C1AF8AA7B000E47D0 /* BCMItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA0A743A1AF8AA7B000E47D0 /* BCMItemTableViewCell.xib */; };
 		FA10E2A91A1E4147005DEB6B /* Foundation-Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10E2A81A1E4147005DEB6B /* Foundation-Utility.m */; };
 		FA11B4801A2E1D2100E56310 /* red_x@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA11B47F1A2E1D2100E56310 /* red_x@2x.png */; };
 		FA20E67E1A2644C400B70DCF /* current_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA20E67D1A2644C400B70DCF /* current_location@2x.png */; };
@@ -151,6 +153,9 @@
 		FA0614D61A1CD1E5004F71F4 /* BCPinNumberKey.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCPinNumberKey.xib; sourceTree = "<group>"; };
 		FA0614E01A1CE287004F71F4 /* pin_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin_delete@2x.png"; path = "../../../Assets/pin_delete@2x.png"; sourceTree = "<group>"; };
 		FA0614E31A1E307D004F71F4 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		FA0A74381AF8AA7B000E47D0 /* BCMItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMItemTableViewCell.h; sourceTree = "<group>"; };
+		FA0A74391AF8AA7B000E47D0 /* BCMItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMItemTableViewCell.m; sourceTree = "<group>"; };
+		FA0A743A1AF8AA7B000E47D0 /* BCMItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCMItemTableViewCell.xib; sourceTree = "<group>"; };
 		FA10E2A71A1E4147005DEB6B /* Foundation-Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Foundation-Utility.h"; sourceTree = "<group>"; };
 		FA10E2A81A1E4147005DEB6B /* Foundation-Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation-Utility.m"; sourceTree = "<group>"; };
 		FA11B47F1A2E1D2100E56310 /* red_x@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red_x@2x.png"; path = "../../../Assets/red_x@2x.png"; sourceTree = "<group>"; };
@@ -422,6 +427,9 @@
 				FA9FF3C21A07F2A300D732EC /* BCMTextFieldTableViewCell.m */,
 				FAB1170E1A11021500E876BA /* BCMTransactionTableViewCell.h */,
 				FAB1170F1A11021500E876BA /* BCMTransactionTableViewCell.m */,
+				FA0A74381AF8AA7B000E47D0 /* BCMItemTableViewCell.h */,
+				FA0A74391AF8AA7B000E47D0 /* BCMItemTableViewCell.m */,
+				FA0A743A1AF8AA7B000E47D0 /* BCMItemTableViewCell.xib */,
 			);
 			name = Views/Controls;
 			sourceTree = "<group>";
@@ -767,6 +775,7 @@
 				FA2B00461A396F3C0084BB83 /* Default.png in Resources */,
 				FA5385211A3416F6002A0872 /* Localizable.strings in Resources */,
 				FAB117691A11D77800E876BA /* Icon-72.png in Resources */,
+				FA0A743C1AF8AA7B000E47D0 /* BCMItemTableViewCell.xib in Resources */,
 				FA0614E11A1CE287004F71F4 /* pin_delete@2x.png in Resources */,
 				FAB117761A11D77800E876BA /* Icon@2x.png in Resources */,
 				FA9982611A03E855006C7D2F /* BCMQRCodeTransactionView.xib in Resources */,
@@ -883,6 +892,7 @@
 				FA9FF3C61A07F5C600D732EC /* BCMNetworking.m in Sources */,
 				FAB116E61A108F4E00E876BA /* BCMSetupViewController.m in Sources */,
 				FA74B69C1A08C3B70045A4EF /* BCMPaymentReceivedView.m in Sources */,
+				FA0A743B1AF8AA7B000E47D0 /* BCMItemTableViewCell.m in Sources */,
 				FA0614C11A13BF35004F71F4 /* UIImage+Utils.m in Sources */,
 				FA74B6A31A0923490045A4EF /* BCMTransactionDetailViewController.m in Sources */,
 				FA99823419FF7843006C7D2F /* BCMCustomAmountView.m in Sources */,

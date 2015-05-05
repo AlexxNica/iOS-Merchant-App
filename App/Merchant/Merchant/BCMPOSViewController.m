@@ -15,6 +15,7 @@
 #import "BCMQRCodeTransactionView.h"
 #import "BCMPaymentReceivedView.h"
 #import "BCMTransactionDetailViewController.h"
+#import "BCMItemTableViewCell.h"
 
 #import "Item.h"
 #import "Transaction.h"
@@ -136,6 +137,8 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     
     [self.chargeButton setTitle:NSLocalizedString(@"action.charge", nil) forState:UIControlStateNormal];
     [self.editButton setTitle:NSLocalizedString(@"action.add", nil) forState:UIControlStateNormal];
+    
+    [self.itemsTableView registerNib:[UINib nibWithNibName:@"BCMItemTableViewCell" bundle:nil] forCellReuseIdentifier:kBCMItemCellId];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -398,9 +401,6 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     return rowCount;
 }
 
-static NSString *const kPOSItemDefaultCellId = @"POSItemCellId";
-static NSString *const kPOSItemCustomCellId = @"POSCustomItemCellId";
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSUInteger section = indexPath.section;
@@ -409,12 +409,9 @@ static NSString *const kPOSItemCustomCellId = @"POSCustomItemCellId";
     UITableViewCell *cell;
     if (self.posMode == BCMPOSModeEdit) {
         if ([self.simpleItems count] > 0) {
-            cell = [tableView dequeueReusableCellWithIdentifier:kPOSItemDefaultCellId];
-            if (!cell) {
-                cell.textLabel.font = HELVETICA_NEUE_LIGHT_15;
-            }
+            BCMItemTableViewCell *itemCell = [tableView dequeueReusableCellWithIdentifier:kBCMItemCellId];
             NSDictionary *dict = [self.simpleItems objectAtIndex:row];
-            cell.textLabel.text = [dict safeObjectForKey:kItemNameKey];
+            itemCell.primaryText = [dict safeObjectForKey:kItemNameKey];
             NSNumber *itemPrice = [dict safeObjectForKey:kItemPriceKey];
             
             NSString *price = @"";
@@ -423,23 +420,20 @@ static NSString *const kPOSItemCustomCellId = @"POSCustomItemCellId";
             } else {
                 price = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [itemPrice floatValue]];
             }
-            cell.detailTextLabel.text = price;
+            itemCell.secondaryText = price;
+            cell = itemCell;
         } else {
-            cell = [tableView dequeueReusableCellWithIdentifier:kPOSItemCustomCellId];
-            if (!cell) {
-                cell.textLabel.font = HELVETICA_NEUE_LIGHT_15;
-            }
-            cell.textLabel.text = NSLocalizedString(@"item.list.noitems", nil);
-            cell.detailTextLabel.text = @"";
+            BCMItemTableViewCell *itemCell = [tableView dequeueReusableCellWithIdentifier:kBCMItemCellId];
+            itemCell.primaryText = NSLocalizedString(@"item.list.noitems", nil);
+            itemCell.secondaryText = @"";
+            cell = itemCell;
         }
     } else {
         if (section == BCMPOSSectionCustomItem) {
-            cell = [tableView dequeueReusableCellWithIdentifier:kPOSItemCustomCellId];
-            if (!cell) {
-                cell.textLabel.font = HELVETICA_NEUE_LIGHT_15;
-            }
-            cell.textLabel.text = NSLocalizedString(@"item.list.custom", nil);
-            cell.detailTextLabel.text = @"";
+            BCMItemTableViewCell *itemCell = [tableView dequeueReusableCellWithIdentifier:kBCMItemCellId];
+            itemCell.primaryText = NSLocalizedString(@"item.list.custom", nil);
+            itemCell.secondaryText = @"";
+            cell = itemCell;
         } else if (section == BCMPOSSectionItems) {
             Item *item = nil;
             if ([self.searchView.searchString length] > 0) {
@@ -447,9 +441,8 @@ static NSString *const kPOSItemCustomCellId = @"POSCustomItemCellId";
             } else {
                 item  = [self.merchantItems objectAtIndex:row];
             }
-            cell = [tableView dequeueReusableCellWithIdentifier:kPOSItemDefaultCellId];
-            
-            cell.textLabel.text = item.name;
+            BCMItemTableViewCell *itemCell = [tableView dequeueReusableCellWithIdentifier:kBCMItemCellId];
+            itemCell.primaryText = item.name;
             
             NSString *price = @"";
             if ([[BCMMerchantManager sharedInstance].activeMerchant.currency isEqualToString:BITCOIN_CURRENCY]) {
@@ -457,7 +450,8 @@ static NSString *const kPOSItemCustomCellId = @"POSCustomItemCellId";
             } else {
                 price = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [item.price floatValue]];
             }
-            cell.detailTextLabel.text = price;
+            itemCell.secondaryText = price;
+            cell = itemCell;
         }
     }
     
@@ -573,6 +567,7 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
     if (!self.paymentReceivedView) {
         self.paymentReceivedView = [BCMPaymentReceivedView loadInstanceFromNib];
     }
+    [self.paymentReceivedView clearRecipient];
     self.paymentReceivedView.delegate = self;
     self.paymentReceivedView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.paymentReceivedView];

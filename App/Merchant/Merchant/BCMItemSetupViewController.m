@@ -11,6 +11,7 @@
 #import "BCMAddItemViewController.h"
 
 #import "BCMSearchView.h"
+#import "BCMItemTableViewCell.h"
 
 #import "Item.h"
 #import "Merchant.h"
@@ -34,6 +35,8 @@
 @property (weak, nonatomic) IBOutlet UIView *searchContainerView;
 
 @property (strong, nonatomic) BCMSearchView *searchView;
+
+@property (strong, nonatomic) Item *itemToEdit;
 
 @end
 
@@ -82,11 +85,16 @@
     
     self.navigationItem.title = NSLocalizedString(@"action.item_setup", nil);
     [self.doneButton setTitle:NSLocalizedString(@"general.done", nil) forState:UIControlStateNormal];
+    
+    [self.itemsTableView registerNib:[UINib nibWithNibName:@"BCMItemTableViewCell" bundle:nil] forCellReuseIdentifier:kBCMItemCellId];
 }
+
+static NSString *const kAddItemSegue = @"addItemSegue";
 
 - (void)showAddItemViewWithItem:(Item *)item
 {
-
+    self.itemToEdit = item;
+    [self performSegueWithIdentifier:kAddItemSegue sender:nil];
 }
 
 - (void)reloadItemTableViewOnMainThread
@@ -101,10 +109,11 @@
 {
     NSString *segueId = segue.identifier;
     
-    if ([segueId isEqualToString:@"addItemSegue"]) {
+    if ([segueId isEqualToString:kAddItemSegue]) {
         UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
         BCMAddItemViewController *addItemVC = (BCMAddItemViewController *)navController.topViewController;
         addItemVC.delegate = self;
+        addItemVC.item = self.itemToEdit;
     }
 }
 
@@ -142,8 +151,6 @@
     return rowCount;
 }
 
-static NSString *const kMerchantItemDefaultCellId = @"merchantItemCellId";
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSUInteger row = indexPath.row;
@@ -155,11 +162,10 @@ static NSString *const kMerchantItemDefaultCellId = @"merchantItemCellId";
         item  = [self.merchantItems objectAtIndex:row];
     }
     
-    UITableViewCell *cell;
-    cell = [tableView dequeueReusableCellWithIdentifier:kMerchantItemDefaultCellId];
+    BCMItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kBCMItemCellId];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = item.name;
+    cell.primaryText = item.name;
     NSString *currencySign = [[BCMMerchantManager sharedInstance] currencySymbol];
     
     NSString *price = @"";
@@ -169,7 +175,7 @@ static NSString *const kMerchantItemDefaultCellId = @"merchantItemCellId";
         price = [NSString stringWithFormat:@"%@%.2f", currencySign, [item.price floatValue]];
     }
     
-    cell.detailTextLabel.text = price;
+    cell.secondaryText = price;
     
     return cell;
 }
