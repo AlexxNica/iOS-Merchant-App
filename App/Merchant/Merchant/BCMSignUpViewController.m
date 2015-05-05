@@ -90,6 +90,17 @@
     self.greenCheckConstraint.constant = -1.0f * CGRectGetWidth(self.checkImageView.frame);
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if ([self.temporaryPin length]) {
+        self.signupTextfield.placeholder = NSLocalizedString(@"signup.pin.reset", nil);
+    } else {
+        self.signupTextfield.placeholder = NSLocalizedString(@"signup.pin.set", nil);
+    }
+}
+
 - (void)addObservers {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:) name:@"UIKeyboardWillShowNotification" object:nil];
@@ -315,6 +326,7 @@
 - (void)pinEntryViewController:(BCPinEntryViewController *)pinVC successfulEntry:(BOOL)success pin:(NSString *)pin
 {
     self.temporaryPin = pin;
+    self.signupTextfield.placeholder = NSLocalizedString(@"signup.pin.reset", nil);
 }
 
 #pragma mark - BCMQRCodeScannerViewControllerDelegate
