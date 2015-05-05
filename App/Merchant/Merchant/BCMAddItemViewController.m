@@ -54,6 +54,15 @@
     [self clearTitleView];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if (self.item) {
+        [self updateViewForCurrentItem];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -85,6 +94,11 @@
 {
     _item = item;
     
+    [self updateViewForCurrentItem];
+}
+
+- (void)updateViewForCurrentItem
+{
     NSString *itemName = _item.name;
     if ([itemName length] > 0) {
         self.itemNameTextField.text = _item.name;

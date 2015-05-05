@@ -36,6 +36,8 @@
 
 @property (strong, nonatomic) BCMSearchView *searchView;
 
+@property (strong, nonatomic) Item *itemToEdit;
+
 @end
 
 @implementation BCMItemSetupViewController
@@ -87,9 +89,12 @@
     [self.itemsTableView registerNib:[UINib nibWithNibName:@"BCMItemTableViewCell" bundle:nil] forCellReuseIdentifier:kBCMItemCellId];
 }
 
+static NSString *const kAddItemSegue = @"addItemSegue";
+
 - (void)showAddItemViewWithItem:(Item *)item
 {
-
+    self.itemToEdit = item;
+    [self performSegueWithIdentifier:kAddItemSegue sender:nil];
 }
 
 - (void)reloadItemTableViewOnMainThread
@@ -104,10 +109,11 @@
 {
     NSString *segueId = segue.identifier;
     
-    if ([segueId isEqualToString:@"addItemSegue"]) {
+    if ([segueId isEqualToString:kAddItemSegue]) {
         UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
         BCMAddItemViewController *addItemVC = (BCMAddItemViewController *)navController.topViewController;
         addItemVC.delegate = self;
+        addItemVC.item = self.itemToEdit;
     }
 }
 
