@@ -52,6 +52,11 @@
     [self.saveButton setTitle:[saveString capitalizedString]  forState:UIControlStateNormal];
     
     [self clearTitleView];
+    if (self.item) {
+        self.navigationItem.title = @"Edit Item";
+    } else {
+        self.navigationItem.title = @"Add Item";
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
