@@ -2237,7 +2237,7 @@
                                             <constraint firstAttribute="height" constant="30" id="QBM-aR-41g"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="alphabet"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="Fy6-6S-HoA"/>
