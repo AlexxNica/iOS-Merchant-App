@@ -739,10 +739,15 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ok3-oC-Yh1" firstAttribute="top" secondItem="ITZ-iB-N7c" secondAttribute="topMargin" constant="-4" id="25t-92-06p"/>
+                                                <constraint firstItem="hz2-jH-T9X" firstAttribute="leading" secondItem="ok3-oC-Yh1" secondAttribute="leading" constant="-8" id="6Oh-N3-keu">
+                                                    <variation key="widthClass=compact" constant="0.0"/>
+                                                </constraint>
                                                 <constraint firstItem="LVQ-Tb-0GC" firstAttribute="trailing" secondItem="ITZ-iB-N7c" secondAttribute="trailingMargin" id="UKV-ih-xeX"/>
                                                 <constraint firstItem="hz2-jH-T9X" firstAttribute="top" secondItem="ok3-oC-Yh1" secondAttribute="bottom" id="b5D-VE-fMD"/>
                                                 <constraint firstItem="hz2-jH-T9X" firstAttribute="leading" secondItem="ITZ-iB-N7c" secondAttribute="leading" constant="17" id="iXH-Mc-l7F"/>
-                                                <constraint firstItem="ok3-oC-Yh1" firstAttribute="leading" secondItem="ITZ-iB-N7c" secondAttribute="leadingMargin" constant="9" id="lyw-8I-Y4B"/>
+                                                <constraint firstItem="ok3-oC-Yh1" firstAttribute="leading" secondItem="ITZ-iB-N7c" secondAttribute="leadingMargin" constant="9" id="lyw-8I-Y4B">
+                                                    <variation key="widthClass=compact" constant="17"/>
+                                                </constraint>
                                                 <constraint firstAttribute="centerY" secondItem="LVQ-Tb-0GC" secondAttribute="centerY" id="wW7-L9-wzk"/>
                                             </constraints>
                                             <variation key="default">
@@ -752,10 +757,11 @@
                                                     <exclude reference="hz2-jH-T9X"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="b5D-VE-fMD"/>
-                                                    <exclude reference="iXH-Mc-l7F"/>
                                                     <exclude reference="25t-92-06p"/>
                                                     <exclude reference="lyw-8I-Y4B"/>
+                                                    <exclude reference="6Oh-N3-keu"/>
+                                                    <exclude reference="b5D-VE-fMD"/>
+                                                    <exclude reference="iXH-Mc-l7F"/>
                                                     <exclude reference="UKV-ih-xeX"/>
                                                     <exclude reference="wW7-L9-wzk"/>
                                                 </mask>
@@ -767,10 +773,11 @@
                                                     <include reference="hz2-jH-T9X"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <include reference="25t-92-06p"/>
+                                                    <exclude reference="lyw-8I-Y4B"/>
+                                                    <include reference="6Oh-N3-keu"/>
                                                     <include reference="b5D-VE-fMD"/>
                                                     <include reference="iXH-Mc-l7F"/>
-                                                    <include reference="25t-92-06p"/>
-                                                    <include reference="lyw-8I-Y4B"/>
                                                     <include reference="UKV-ih-xeX"/>
                                                     <include reference="wW7-L9-wzk"/>
                                                 </mask>
@@ -2469,6 +2476,6 @@
         <image name="transaction_check.png" width="26" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PkD-ri-5XY"/>
+        <segue reference="jdu-RS-M5N"/>
     </inferredMetricsTieBreakers>
 </document>
