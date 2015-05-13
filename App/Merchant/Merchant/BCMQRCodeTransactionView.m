@@ -42,6 +42,10 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
 
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
+@property (assign, nonatomic) NSUInteger retryCount;
+
+@property (assign, nonatomic) BOOL successfulTransaction;
+
 @end
 
 @implementation BCMQRCodeTransactionView
@@ -60,7 +64,6 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket
 {
-    NSLog(@"Connected");
     NSString *merchantAddress = [BCMMerchantManager sharedInstance].activeMerchant.walletAddress;
     merchantAddress = [merchantAddress stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString *subscribeToAddress = [NSString stringWithFormat:kBlockChainWebSocketSubscribeAddressFormat,merchantAddress];
@@ -69,12 +72,14 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error
 {
-    NSLog(@"Error connecting to socket");
+    [self retryOpenSocket];
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean
 {
-    NSLog(@"Socket Closed");
+    if (!self.successfulTransaction) {
+        [self retryOpenSocket];
+    }
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message
@@ -96,6 +101,8 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
 
 - (void)transactionCompleted
 {
+    self.successfulTransaction = YES;
+    
     // We have a successful transaction
     if ([self.delegate respondsToSelector:@selector(transactionViewDidComplete:)]) {
         [self.transactionSocket close];
@@ -109,6 +116,26 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
     
     if ([self.delegate respondsToSelector:@selector(transactionViewDidClear:)]) {
         [self.delegate transactionViewDidClear:self];
+    }
+}
+
+- (void)openSocket
+{
+    NSString *urlString = kBlockChainSockURL;
+    self.transactionSocket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:urlString]];
+    self.transactionSocket.delegate = self;
+    [self.transactionSocket open];
+}
+
+- (void)retryOpenSocket
+{
+    // Something caused this socket to close, we'll retry up to three times
+    if (self.retryCount < 3) {
+        [self openSocket];
+        self.retryCount++;
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"We encountered a problem please try to charge this transaction again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
     }
 }
 
@@ -174,10 +201,7 @@ static NSString *const kBlockChainSockURL = @"wss://ws.blockchain.info/inv";
     
     self.currencyPriceLbl.text = total;
     
-    NSString *urlString = kBlockChainSockURL;
-    self.transactionSocket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:urlString]];
-    self.transactionSocket.delegate = self;
-    [self.transactionSocket open];
+    [self openSocket];
 }
 
 - (UIImage *) generateQRCodeWithString:(NSString *)string scale:(CGFloat)scale
