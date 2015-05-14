@@ -31,6 +31,7 @@ extern NSString *const kBCMServiceName;
 
 + (instancetype)sharedInstance;
 
+- (void)updateActiveMerchantNameIfNeeded:(NSString *)name;
 - (BOOL)requirePIN;
 
 - (NSString *)currencySymbol;

@@ -753,6 +753,8 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
     
     if ([businessName length] > 0 && [walletAddress length] > 0 && validAddress) {
         
+        [[BCMMerchantManager sharedInstance] updateActiveMerchantNameIfNeeded:businessName];
+        
         Merchant *activeMerchant = [BCMMerchantManager sharedInstance].activeMerchant;
 
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];

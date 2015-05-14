@@ -155,6 +155,16 @@ NSString *const kBCMServiceName = @"BCMMerchant";
 
 #pragma mark - BCPinEntryViewControllerDelegate
 
+- (void)updateActiveMerchantNameIfNeeded:(NSString *)name
+{
+    NSString *currentName = self.activeMerchant.name;
+    if (![currentName isEqualToString:name]) {
+        NSString *currentPassword = [SSKeychain passwordForService:kBCMServiceName account:self.activeMerchant.name];
+        [SSKeychain deletePasswordForService:kBCMServiceName account:self.activeMerchant.name];
+        [SSKeychain setPassword:currentPassword forService:kBCMServiceName account:name];
+    }
+}
+
 - (BOOL)pinEntryViewController:(BCPinEntryViewController *)pinVC validatePin:(NSString *)pin
 {
     NSString *enteredPassword = pin;
