@@ -57,4 +57,4 @@ SPEC CHECKSUMS:
   SocketRocket: 54a4ac2f354c4e8c51ef5dcd4a13bc556d4f2b7c
   SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.38.2
