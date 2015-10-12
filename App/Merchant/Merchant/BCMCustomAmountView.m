@@ -27,6 +27,18 @@
 
 #pragma mark - UITextFieldDelegate
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if ([self.delegate respondsToSelector:@selector(updateBitcoinAmountLabel:)]) {
+        NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        NSString *decimalSeparator = [[NSLocale currentLocale] objectForKey:NSLocaleDecimalSeparator];
+        NSString *convertedText = [newString stringByReplacingOccurrencesOfString:decimalSeparator withString:@"."];
+        [self.delegate updateBitcoinAmountLabel:convertedText];
+    }
+    
+    return YES;
+}
+
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     textField.inputAccessoryView = [self inputAccessoryView];

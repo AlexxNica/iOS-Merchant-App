@@ -17,6 +17,8 @@
 #import "BCMTransactionDetailViewController.h"
 #import "BCMItemTableViewCell.h"
 
+#import "BCMNetworking.h"
+
 #import "Item.h"
 #import "Transaction.h"
 #import "PurchasedItem.h"
@@ -47,7 +49,7 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewToChargeMargin;
 @property (weak, nonatomic) IBOutlet UIButton *clearAllButton;
 
-@property (weak, nonatomic) IBOutlet UILabel *totalTransactionAmountLbl;
+@property (weak, nonatomic) IBOutlet UILabel *bitcoinAmountLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *clearSearchButton;
 @property (weak, nonatomic) IBOutlet UITableView *itemsTableView;
@@ -138,7 +140,7 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     [self.editButton setTitle:NSLocalizedString(@"action.add", nil) forState:UIControlStateNormal];
     
     [self.itemsTableView registerNib:[UINib nibWithNibName:@"BCMItemTableViewCell" bundle:nil] forCellReuseIdentifier:kBCMItemCellId];
-    
+        
     [self showCustomAmountView];
 }
 
@@ -149,8 +151,6 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     self.currencySign = [[BCMMerchantManager sharedInstance] currencySymbol];
     
     self.merchantItems = [[BCMMerchantManager sharedInstance] itemsSortedByCurrentSortType];
-
-    [self updateTransctionInformation];
     
     [self.itemsTableView reloadData];
 }
@@ -191,7 +191,6 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     [self.paymentReceivedView removeFromSuperview];
     
     [self.simpleItems removeAllObjects];
-    [self updateTransctionInformation];
 }
 
 @synthesize posMode = _posMode;
@@ -313,25 +312,6 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     self.navigationItem.leftBarButtonItem.enabled = NO;
 }
 
-- (void)updateTransctionInformation
-{
-    NSString *transactionSum = @"";
-    if ([[BCMMerchantManager sharedInstance].activeMerchant.currency isEqualToString:BITCOIN_CURRENCY]) {
-        transactionSum = [NSString stringWithFormat:@"%@%.4f", self.currencySign, [self transactionSum]];
-    } else {
-        transactionSum = [NSString stringWithFormat:@"%@%.2f", self.currencySign, [self transactionSum]];
-    }
-    self.totalTransactionAmountLbl.text = transactionSum;
-    
-    if ([self transactionSum] > 0) {
-        self.chargeButton.alpha = 1.0f;
-        self.chargeButton.userInteractionEnabled = YES;
-    } else {
-        self.chargeButton.alpha = 0.50f;
-        self.chargeButton.userInteractionEnabled = NO;
-    }
-}
-
 - (CGFloat)transactionSum
 {
     CGFloat sum = 0.00f;
@@ -346,12 +326,27 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     return sum;
 }
 
+- (void)updateBitcoinAmountLabel:(NSString *)convertedText
+{
+    NSString *currency = [BCMMerchantManager sharedInstance].activeMerchant.currency;
+    [[BCMNetworking sharedInstance] convertToBitcoinFromAmount:[convertedText floatValue] fromCurrency:[currency uppercaseString] success:^(NSURLRequest *request, NSDictionary *dict) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSString *bitcoinValue = [dict safeObjectForKey:@"btcValue"];
+            NSString *bitcoinAmount = [NSString stringWithFormat:@"%@ BTC", bitcoinValue];
+            self.bitcoinAmountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@", @""), bitcoinAmount];
+        });
+    } error:^(NSURLRequest *request, NSError *error) {
+        // Display alert to prevent the user from continuing
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"network.problem.title", nil) message:NSLocalizedString(@"network.problem.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
+        [alertView show];
+    }];
+}
+
 - (IBAction)clearAllAction:(id)sender
 {
     [self.simpleItems removeAllObjects];
     
     [self.itemsTableView reloadData];
-    [self updateTransctionInformation];
 }
 
 #pragma mark - UITableViewDataSource
@@ -483,7 +478,6 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
             
             NSDictionary *itemDict = [item itemAsDict];
             [self.simpleItems addObject:itemDict];
-            [self updateTransctionInformation];
         }
     }
     
@@ -534,7 +528,6 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
         [self.simpleItems removeAllObjects];
         NSDictionary *itemDict = @{ kItemNameKey : @"Custom" , kItemPriceKey : [NSNumber numberWithFloat:amount] };
         [self.simpleItems addObject:itemDict];
-        [self updateTransctionInformation];
     }
 }
 

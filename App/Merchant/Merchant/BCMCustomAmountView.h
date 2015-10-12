@@ -16,6 +16,7 @@
 
 - (void)customAmountView:(BCMCustomAmountView *)amountView addCustomAmount:(CGFloat)amount;
 - (void)chargeAction:(id)sender;
+- (void)updateBitcoinAmountLabel:(NSString *)convertedText;
 
 @end
 
@@ -24,6 +25,7 @@
 @property (weak, nonatomic) id <BCMCustomAmountViewDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet BCMTextField *customAmountTextField;
+@property (weak, nonatomic) IBOutlet UILabel *btcAmountLabel;
 
 - (void)clear;
 

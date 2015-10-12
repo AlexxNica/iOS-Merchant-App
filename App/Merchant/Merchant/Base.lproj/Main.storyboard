@@ -120,7 +120,7 @@
                                     <outlet property="delegate" destination="kf6-2a-jxS" id="GtN-jI-haa"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="600" verticalHuggingPriority="251" horizontalCompressionResistancePriority="550" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rO9-Mi-F4d">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="600" verticalHuggingPriority="251" horizontalCompressionResistancePriority="550" misplaced="YES" text="0 BTC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rO9-Mi-F4d">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <constraints>
@@ -200,6 +200,7 @@
                     <navigationItem key="navigationItem" id="Yc2-07-qmL"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="bitcoinAmountLabel" destination="rO9-Mi-F4d" id="hfw-Wt-wAe"/>
                         <outlet property="chargeButton" destination="aeU-mE-dLF" id="0Uc-m2-hZM"/>
                         <outlet property="clearAllButton" destination="BvD-Vj-YP1" id="dNo-Kt-zhV"/>
                         <outlet property="clearSearchButton" destination="kTK-88-d2i" id="yuW-ca-dad"/>
@@ -210,7 +211,6 @@
                         <outlet property="searchContainerView" destination="ch2-Wz-Obx" id="2Rw-za-iNH"/>
                         <outlet property="tableViewToChargeMargin" destination="dNK-g0-ydj" id="vID-E1-ecx"/>
                         <outlet property="topMarginConstraint" destination="Cxy-YS-WmM" id="JmQ-yq-wXG"/>
-                        <outlet property="totalTransactionAmountLbl" destination="rO9-Mi-F4d" id="bCE-pJ-1xP"/>
                         <segue destination="rNI-IQ-j8M" kind="show" identifier="transactionDetail" id="PkD-ri-5XY"/>
                     </connections>
                 </viewController>
