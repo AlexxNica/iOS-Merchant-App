@@ -14,8 +14,8 @@
 
 @protocol BCMCustomAmountViewDelegate <NSObject>
 
-- (void)customAmountViewDidCancelEntry:(BCMCustomAmountView *)amountView;
 - (void)customAmountView:(BCMCustomAmountView *)amountView addCustomAmount:(CGFloat)amount;
+- (void)chargeAction:(id)sender;
 
 @end
 

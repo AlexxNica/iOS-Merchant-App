@@ -50,31 +50,14 @@
         UIButton *compButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         compButton.frame = CGRectMake(CGRectGetWidth(parentView.frame) - 80.0f, 10.0, 80.0f, 40.0f);
         [compButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f]];
-        [compButton setTitle: NSLocalizedString(@"general.done", nil) forState:UIControlStateNormal];
+        [compButton setTitle: NSLocalizedString(@"action.charge", nil) forState:UIControlStateNormal];
         [compButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [compButton addTarget:self action:@selector(accessoryDoneAction:)
              forControlEvents:UIControlEventTouchUpInside];
-        
-        UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        cancelButton.frame = CGRectMake(0, 10.0, 80.0f, 40.0f);
-        [cancelButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f]];
-        [cancelButton setTitle: NSLocalizedString(@"action.cancel", nil) forState:UIControlStateNormal];
-        [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [cancelButton addTarget:self action:@selector(accessoryCancelAction:)
-             forControlEvents:UIControlEventTouchUpInside];
-        [self.inputAccessoryView addSubview:cancelButton];
+
         [self.inputAccessoryView addSubview:compButton];
     }
     return _inputAccessoryView;
-}
-
-- (void)accessoryCancelAction:(id)sender
-{
-    if ([self.delegate respondsToSelector:@selector(customAmountViewDidCancelEntry:)]) {
-        [self.delegate customAmountViewDidCancelEntry:self];
-    }
-    
-    [self endEditing:YES];
 }
 
 - (void)accessoryDoneAction:(id)sender
@@ -87,6 +70,10 @@
     
     if ([self.delegate respondsToSelector:@selector(customAmountView:addCustomAmount:)]) {
         [self.delegate customAmountView:self addCustomAmount:[amountText floatValue]];
+        
+        if ([self.delegate respondsToSelector:@selector(chargeAction:)]) {
+            [self.delegate chargeAction:nil];
+        }
     }
     
     [self endEditing:YES];

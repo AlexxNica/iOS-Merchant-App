@@ -48,7 +48,6 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
 @property (weak, nonatomic) IBOutlet UIButton *clearAllButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *totalTransactionAmountLbl;
-@property (weak, nonatomic) IBOutlet UILabel *transactionItemCountLbl;
 
 @property (weak, nonatomic) IBOutlet UIButton *clearSearchButton;
 @property (weak, nonatomic) IBOutlet UITableView *itemsTableView;
@@ -139,6 +138,8 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     [self.editButton setTitle:NSLocalizedString(@"action.add", nil) forState:UIControlStateNormal];
     
     [self.itemsTableView registerNib:[UINib nibWithNibName:@"BCMItemTableViewCell" bundle:nil] forCellReuseIdentifier:kBCMItemCellId];
+    
+    [self showCustomAmountView];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -312,15 +313,6 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
 
 - (void)updateTransctionInformation
 {
-    NSString *itemCountText = @"";
-    
-    if ([self.simpleItems count] == 1) {
-        itemCountText = [NSString stringWithFormat:NSLocalizedString(@"item.list.number_of_item", nil), (unsigned long)[self.simpleItems count]];
-    } else {
-        itemCountText = [NSString stringWithFormat:NSLocalizedString(@"item.list.number_of_items", nil), (unsigned long)[self.simpleItems count]];
-    }
-    self.transactionItemCountLbl.text = itemCountText;
-    
     NSString *transactionSum = @"";
     if ([[BCMMerchantManager sharedInstance].activeMerchant.currency isEqualToString:BITCOIN_CURRENCY]) {
         transactionSum = [NSString stringWithFormat:@"%@%.4f", self.currencySign, [self transactionSum]];
@@ -534,28 +526,14 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
     [self.customAmountView.customAmountTextField becomeFirstResponder];
 }
 
-- (void)hideCustomAmountView
-{
-    [self defaultTitleView];
-    
-    self.customAmountContainerView.alpha = 0.0f;
-    [self.view sendSubviewToBack:self.customAmountContainerView];
-    self.topMarginConstraint.constant = CGRectGetHeight(self.view.frame);
-}
-
-- (void)customAmountViewDidCancelEntry:(BCMCustomAmountView *)amountView
-{
-    [self hideCustomAmountView];
-}
-
 - (void)customAmountView:(BCMCustomAmountView *)amountView addCustomAmount:(CGFloat)amount
 {
     if (amount > 0) {
+        [self.simpleItems removeAllObjects];
         NSDictionary *itemDict = @{ kItemNameKey : @"Custom" , kItemPriceKey : [NSNumber numberWithFloat:amount] };
         [self.simpleItems addObject:itemDict];
         [self updateTransctionInformation];
     }
-    [self hideCustomAmountView];
 }
 
 #pragma mark - BCMQRCodeTransactionViewDelegate
@@ -589,6 +567,8 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
     if (self.posMode == BCMPOSModeEdit) {
         self.posMode = BCMPOSModeAdd;
     }
+    
+    [self showCustomAmountView];
 }
 
 #pragma mark - BCMPaymentReceivedViewDelegate
