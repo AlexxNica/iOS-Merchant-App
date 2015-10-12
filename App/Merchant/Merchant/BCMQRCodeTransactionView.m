@@ -95,7 +95,22 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
         NSDictionary *transtionDict = [jsonDict safeObjectForKey:@"x"];
         NSString *transactionHash = [transtionDict safeObjectForKey:@"hash"];
         self.activeTransaction.transactionHash = transactionHash;
-        [self transactionCompleted];
+        
+        NSArray *outArray = transtionDict[@"out"];
+        for (int index = 0; index < [outArray count]; index++) {
+            NSString *address = [outArray[index] safeObjectForKey:@"addr"];
+            NSString *merchantAddress = [BCMMerchantManager sharedInstance].activeMerchant.walletAddress;
+            merchantAddress = [merchantAddress stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            if ([merchantAddress isEqualToString:address]) {
+                uint64_t amountReceived = [[outArray[index] safeObjectForKey:@"value"] longLongValue];
+                uint64_t amountRequested = self.activeTransaction.bitcoinAmountValue * SATOSHI;
+                if (amountReceived >= amountRequested) {
+                    [self transactionCompleted];
+                } else {
+                    NSLog(@"Insufficient payment: requested %lld, received %lld", amountRequested, amountReceived);
+                }
+            }
+        }
     }
 }
 

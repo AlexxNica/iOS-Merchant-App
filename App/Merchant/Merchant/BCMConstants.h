@@ -22,4 +22,6 @@
 #define BLOCK_CHAIN_SECONDARY_GRAY @"ebebeb"
 #define BLOCK_CHAIN_SEND_GREEN @"8ab75e"
 
+#define SATOSHI 1e8 // 100,000,000
+
 #endif
