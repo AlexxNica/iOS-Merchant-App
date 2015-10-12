@@ -144,3 +144,5 @@
 "welcome.hi" = "Hi!";
 "welcome.setup" = "Tap the button to set up your merchant account!";
 "welcome.lets_go" = "Lets Go!";
+"qr.insufficient.payment.title" = "Insufficient Payment";
+"qr.insufficient.payment.message" = "Requested %@, received %@ BTC. QR image has been changed to reflect amount due.";

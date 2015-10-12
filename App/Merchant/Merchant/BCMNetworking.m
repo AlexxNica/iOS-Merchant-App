@@ -23,6 +23,7 @@ static const NSString *kBCBaseURL = @"https://blockchain.info";
 static const NSString *kBCDevBaseURL = @"https://merchant-directory.blockchain.info";
 static const NSString *kBCExchangeRatesRoute = @"ticker";
 static const NSString *kBCConvertToBitcoin = @"tobtc";
+static const NSString *kBCConvertToFiat = @"frombtc";
 static const NSString *kBCMerchangeSuggestRoute = @"suggest_merchant.php";
 static const NSString *kBCMValidateAddress = @"rawaddr";
 
@@ -85,6 +86,23 @@ static const NSString *kBCMValidateAddress = @"rawaddr";
         } else {
             NSString *btcValue = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             success(urlRequest, @{ @"btcValue" : btcValue });
+        }
+    }];
+    
+    return urlRequest;
+}
+
+- (NSURLRequest *)convertToCurrency:(NSString *)currency fromAmount:(uint64_t)amount success:(BCMNetworkingSuccess)success error:(BCMNetworkingFailure)failure
+{
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@?currency=%@&value=%lld", kBCBaseURL, kBCConvertToFiat, currency, amount];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    
+    [NSURLConnection sendAsynchronousRequest:urlRequest queue:self.mediumPriorityRequestQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        if (connectionError) {
+            failure(urlRequest, connectionError);
+        } else {
+            NSString *fiatValue = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            success(urlRequest, @{ @"fiatValue" : fiatValue });
         }
     }];
     

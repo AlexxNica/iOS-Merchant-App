@@ -538,6 +538,12 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
 
 #pragma mark - BCMQRCodeTransactionViewDelegate
 
+- (void)transactionViewWillRequestAdditionalAmount:(CGFloat)amount
+{
+    [self customAmountView:nil addCustomAmount:amount];
+    [self chargeAction:nil];
+}
+
 - (void)transactionViewDidComplete:(BCMQRCodeTransactionView *)transactionView
 {
     [self hideTransactionViewAndRemoveOverlay:NO];

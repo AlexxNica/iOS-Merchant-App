@@ -32,6 +32,7 @@ extern NSString *kBlockChainTxURL;
 - (NSURLRequest *)retrieveBitcoinCurrenciesSuccess:(BCMNetworkingSuccess)success error:(BCMNetworkingFailure)failure;
 
 - (NSURLRequest *)convertToBitcoinFromAmount:(CGFloat)amount fromCurrency:(NSString *)currency success:(BCMNetworkingSuccess)success error:(BCMNetworkingFailure)failure;
+- (NSURLRequest *)convertToCurrency:(NSString *)currency fromAmount:(uint64_t)amount success:(BCMNetworkingSuccess)success error:(BCMNetworkingFailure)failure;
 
 // Merchant Listing
 - (NSURLRequest *)retrieveSuggestMerchantsSuccess:(BCMNetworkingSuccess)success error:(BCMNetworkingFailure)failure;

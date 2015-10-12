@@ -16,6 +16,7 @@
 
 - (void)transactionViewDidComplete:(BCMQRCodeTransactionView *)transactionView;
 - (void)transactionViewDidClear:(BCMQRCodeTransactionView *)transactionView;
+- (void)transactionViewWillRequestAdditionalAmount:(CGFloat)amount;
 
 @end
 

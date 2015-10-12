@@ -104,10 +104,35 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
             if ([merchantAddress isEqualToString:address]) {
                 uint64_t amountReceived = [[outArray[index] safeObjectForKey:@"value"] longLongValue];
                 uint64_t amountRequested = self.activeTransaction.bitcoinAmountValue * SATOSHI;
+                
                 if (amountReceived >= amountRequested) {
                     [self transactionCompleted];
                 } else {
                     NSLog(@"Insufficient payment: requested %lld, received %lld", amountRequested, amountReceived);
+                    
+                    if (self.activeTransaction.bitcoinAmountValue > 0 && amountReceived > 0) {
+                        NSDecimalNumber *convertedAmountReceived = [(NSDecimalNumber*)[NSDecimalNumber numberWithLongLong:amountReceived] decimalNumberByDividingBy:(NSDecimalNumber*)[NSDecimalNumber numberWithDouble:SATOSHI]];
+                        NSDecimalNumber *amountLeftToPay = [(NSDecimalNumber*)[NSDecimalNumber numberWithFloat:self.activeTransaction.bitcoinAmountValue] decimalNumberBySubtracting:convertedAmountReceived];
+                        uint64_t amountLeftToPayConverted = [([amountLeftToPay decimalNumberByMultiplyingBy:(NSDecimalNumber*)[NSDecimalNumber numberWithDouble:SATOSHI]]) longLongValue];
+                        NSString *currency = [BCMMerchantManager sharedInstance].activeMerchant.currency;
+                        
+                        [self.networking convertToCurrency:[currency uppercaseString] fromAmount:amountLeftToPayConverted success:^(NSURLRequest *request, NSDictionary *dict) {
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                NSString *amountLeftToPayFiat = [dict safeObjectForKey:@"fiatValue"];
+                                
+                                UIAlertView *insufficientPaymentAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"qr.insufficient.payment.title", @"") message:[[NSString alloc] initWithFormat:NSLocalizedString(@"qr.insufficient.payment.message", @""), self.bitcoinPriceLbl.text, convertedAmountReceived] delegate:nil cancelButtonTitle:NSLocalizedString(@"alert.ok", @"") otherButtonTitles:nil];
+                                [insufficientPaymentAlert show];
+                                
+                                if ([self.delegate respondsToSelector:@selector(transactionViewWillRequestAdditionalAmount:)]) {
+                                    [self.delegate transactionViewWillRequestAdditionalAmount:[amountLeftToPayFiat floatValue]];
+                                }
+                            });
+                        } error:^(NSURLRequest *request, NSError *error) {
+                            // Display alert to prevent the user from continuing
+                            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"network.problem.title", nil) message:NSLocalizedString(@"network.problem.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
+                            [alertView show];
+                        }];
+                    }
                 }
             }
         }
