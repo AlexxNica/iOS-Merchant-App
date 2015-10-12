@@ -309,6 +309,8 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     [self.view addConstraints:@[ topSearchViewConstraint, bottomSearchViewConstraint, leftSearchViewConstraint, rightSearchViewConstraint] ];
     
     self.activeTransition = transaction;
+    
+    self.navigationItem.leftBarButtonItem.enabled = NO;
 }
 
 - (void)updateTransctionInformation
@@ -562,6 +564,8 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
     NSLayoutConstraint *rightSearchViewConstraint = [NSLayoutConstraint constraintWithItem:self.paymentReceivedView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-30.0f];
     
     [self.view addConstraints:@[ self.paymentReceivedViewOffsetY, bottomSearchViewConstraint, leftSearchViewConstraint, rightSearchViewConstraint] ];
+    
+    self.navigationItem.leftBarButtonItem.enabled = YES;
 }
 
 - (void)transactionViewDidClear:(BCMQRCodeTransactionView *)transactionView
@@ -573,6 +577,8 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
     if (self.posMode == BCMPOSModeEdit) {
         self.posMode = BCMPOSModeAdd;
     }
+    
+    self.navigationItem.leftBarButtonItem.enabled = YES;
     
     [self showCustomAmountView];
 }
