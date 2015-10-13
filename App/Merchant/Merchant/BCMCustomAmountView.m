@@ -60,7 +60,7 @@
         self.inputAccessoryView = [[UIView alloc] initWithFrame:accessFrame];
         self.inputAccessoryView.backgroundColor = [UIColor colorWithHexValue:BCM_BLUE];
         UIButton *compButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        compButton.frame = CGRectMake(CGRectGetWidth(parentView.frame) - 85.0f, CGRectGetHeight(self.inputAccessoryView.frame)/2-20, 85.0f, 40.0f);
+        compButton.frame = CGRectMake(CGRectGetWidth(self.window.frame) - 85.0f, CGRectGetHeight(self.inputAccessoryView.frame)/2-20, 85.0f, 40.0f);
         [compButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f]];
         [compButton setTitle: NSLocalizedString(@"action.charge", nil) forState:UIControlStateNormal];
         [compButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
