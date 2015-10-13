@@ -60,7 +60,7 @@
         self.inputAccessoryView = [[UIView alloc] initWithFrame:accessFrame];
         self.inputAccessoryView.backgroundColor = [UIColor colorWithHexValue:BCM_BLUE];
         UIButton *compButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        compButton.frame = CGRectMake(CGRectGetWidth(parentView.frame) - CGRectGetWidth(parentView.frame)/2 - 40, 10.0, 80.0f, 40.0f);
+        compButton.frame = CGRectMake(CGRectGetWidth(parentView.frame) - 85.0f, CGRectGetHeight(self.inputAccessoryView.frame)/2-20, 85.0f, 40.0f);
         [compButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f]];
         [compButton setTitle: NSLocalizedString(@"action.charge", nil) forState:UIControlStateNormal];
         [compButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -70,9 +70,9 @@
         [self.inputAccessoryView addSubview:compButton];
         
         UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        cancelButton.frame = CGRectMake(0, 10.0, 80.0f, 40.0f);
+        cancelButton.frame = CGRectMake(0, CGRectGetHeight(self.inputAccessoryView.frame)/2-20, 80.0f, 40.0f);
         [cancelButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f]];
-        [cancelButton setTitle: NSLocalizedString(@"action.clear", nil) forState:UIControlStateNormal];
+        [cancelButton setTitle: NSLocalizedString(@"action.cancel", nil) forState:UIControlStateNormal];
         [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [cancelButton addTarget:self action:@selector(accessoryClearAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.inputAccessoryView addSubview:cancelButton];
