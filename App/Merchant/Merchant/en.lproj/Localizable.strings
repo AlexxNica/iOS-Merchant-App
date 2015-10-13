@@ -134,6 +134,7 @@
 // Errors
 "networking.post_merchant.fail" = "Merchant Post Failure";
 
+"action.clear" = "Clear";
 "action.charge" = "Charge";
 "action.search" = "Search";
 "action.add" = "Add";

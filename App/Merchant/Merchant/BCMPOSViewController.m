@@ -140,7 +140,7 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     [self.editButton setTitle:NSLocalizedString(@"action.add", nil) forState:UIControlStateNormal];
     
     [self.itemsTableView registerNib:[UINib nibWithNibName:@"BCMItemTableViewCell" bundle:nil] forCellReuseIdentifier:kBCMItemCellId];
-        
+    
     [self showCustomAmountView];
 }
 
@@ -513,8 +513,8 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
 - (void)showCustomAmountView
 {
     [self clearTitleView];
-
-    self.navigationItem.title = @"Custom Item";
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"block_chain_header_logo"]];
+    
     self.customAmountContainerView.alpha = 1.0f;
     [self.customAmountView clear];
     [self.view bringSubviewToFront:self.customAmountContainerView];
