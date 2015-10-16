@@ -97,44 +97,25 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
         self.activeTransaction.transactionHash = transactionHash;
         
         NSArray *outArray = transtionDict[@"out"];
+        NSString *merchantAddress;
+        uint64_t amountReceived = 0;
         for (int index = 0; index < [outArray count]; index++) {
             NSString *address = [outArray[index] safeObjectForKey:@"addr"];
-            NSString *merchantAddress = [BCMMerchantManager sharedInstance].activeMerchant.walletAddress;
+            merchantAddress = [BCMMerchantManager sharedInstance].activeMerchant.walletAddress;
             merchantAddress = [merchantAddress stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             if ([merchantAddress isEqualToString:address]) {
-                uint64_t amountReceived = [[outArray[index] safeObjectForKey:@"value"] longLongValue];
-                uint64_t amountRequested = self.activeTransaction.bitcoinAmountValue * SATOSHI;
-                
-                if (amountReceived >= amountRequested) {
-                    [self transactionCompleted];
-                } else {
-                    NSLog(@"Insufficient payment: requested %lld, received %lld", amountRequested, amountReceived);
-                    
-                    if (self.activeTransaction.bitcoinAmountValue > 0 && amountReceived > 0) {
-                        NSDecimalNumber *convertedAmountReceived = [(NSDecimalNumber*)[NSDecimalNumber numberWithLongLong:amountReceived] decimalNumberByDividingBy:(NSDecimalNumber*)[NSDecimalNumber numberWithDouble:SATOSHI]];
-                        NSDecimalNumber *amountLeftToPay = [(NSDecimalNumber*)[NSDecimalNumber numberWithFloat:self.activeTransaction.bitcoinAmountValue] decimalNumberBySubtracting:convertedAmountReceived];
-                        uint64_t amountLeftToPayConverted = [([amountLeftToPay decimalNumberByMultiplyingBy:(NSDecimalNumber*)[NSDecimalNumber numberWithDouble:SATOSHI]]) longLongValue];
-                        NSString *currency = [BCMMerchantManager sharedInstance].activeMerchant.currency;
-                        
-                        [self.networking convertToCurrency:[currency uppercaseString] fromAmount:amountLeftToPayConverted success:^(NSURLRequest *request, NSDictionary *dict) {
-                            dispatch_async(dispatch_get_main_queue(), ^{
-                                NSString *amountLeftToPayFiat = [dict safeObjectForKey:@"fiatValue"];
-                                
-                                UIAlertView *insufficientPaymentAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"qr.insufficient.payment.title", @"") message:[[NSString alloc] initWithFormat:NSLocalizedString(@"qr.insufficient.payment.message", @""), self.bitcoinPriceLbl.text, convertedAmountReceived] delegate:nil cancelButtonTitle:NSLocalizedString(@"alert.ok", @"") otherButtonTitles:nil];
-                                [insufficientPaymentAlert show];
-                                
-                                if ([self.delegate respondsToSelector:@selector(transactionViewWillRequestAdditionalAmount:)]) {
-                                    [self.delegate transactionViewWillRequestAdditionalAmount:[amountLeftToPayFiat floatValue]];
-                                }
-                            });
-                        } error:^(NSURLRequest *request, NSError *error) {
-                            // Display alert to prevent the user from continuing
-                            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"network.problem.title", nil) message:NSLocalizedString(@"network.problem.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
-                            [alertView show];
-                        }];
-                    }
-                }
+                amountReceived = [[outArray[index] safeObjectForKey:@"value"] longLongValue];
+                break;
             }
+        }
+        uint64_t amountRequested = self.activeTransaction.bitcoinAmountValue * SATOSHI;
+                
+        if (amountReceived >= amountRequested) {
+            [self transactionCompleted];
+        } else {
+            NSLog(@"Insufficient payment: requested %lld, received %lld", amountRequested, amountReceived);
+            self.successfulTransaction = NO;
+            [self resetQRCodeAfterPartialPayment:amountReceived];
         }
     }
 }
@@ -223,6 +204,7 @@ static NSString *const kBlockChainSockURL = @"wss://ws.blockchain.info/inv";
             NSString *qrEncodeString = [NSString stringWithFormat:@"bitcoin://%@?amount=%@", merchantAddress, bitcoinValue];
             self.qrCodeImageView.image = [BTCQRCode imageForString:qrEncodeString size:self.qrCodeImageView.frame.size scale:[[UIScreen mainScreen] scale]];
             self.activeTransaction.bitcoinAmountValue = [bitcoinValue floatValue];
+            self.successfulTransaction = NO;
 #ifdef MOCK_BTC_TRANSACTION
             [self performSelector:@selector(transactionCompleted) withObject:nil afterDelay:1.0f];
 #endif
@@ -273,10 +255,39 @@ static NSString *const kBlockChainSockURL = @"wss://ws.blockchain.info/inv";
     return qrImage;
 }
 
+- (void)resetQRCodeAfterPartialPayment:(uint64_t)partialPayment
+{
+    if (self.activeTransaction.bitcoinAmountValue > 0 && partialPayment > 0) {
+        NSDecimalNumber *convertedAmountReceived = [(NSDecimalNumber*)[NSDecimalNumber numberWithLongLong:partialPayment] decimalNumberByDividingBy:(NSDecimalNumber*)[NSDecimalNumber numberWithDouble:SATOSHI]];
+        NSDecimalNumber *amountLeftToPay = [(NSDecimalNumber*)[NSDecimalNumber numberWithFloat:self.activeTransaction.bitcoinAmountValue] decimalNumberBySubtracting:convertedAmountReceived];
+        uint64_t amountLeftToPayConverted = [([amountLeftToPay decimalNumberByMultiplyingBy:(NSDecimalNumber*)[NSDecimalNumber numberWithDouble:SATOSHI]]) longLongValue];
+        NSString *currency = [BCMMerchantManager sharedInstance].activeMerchant.currency;
+        
+        [self.networking convertToCurrency:[currency uppercaseString] fromAmount:amountLeftToPayConverted success:^(NSURLRequest *request, NSDictionary *dict) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSString *amountLeftToPayFiat = [dict safeObjectForKey:@"fiatValue"];
+                
+                UIAlertView *insufficientPaymentAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"qr.insufficient.payment.title", @"") message:[[NSString alloc] initWithFormat:NSLocalizedString(@"qr.insufficient.payment.message", @""), self.bitcoinPriceLbl.text, convertedAmountReceived] delegate:nil cancelButtonTitle:NSLocalizedString(@"alert.ok", @"") otherButtonTitles:nil];
+                [insufficientPaymentAlert show];
+                
+                if ([self.delegate respondsToSelector:@selector(transactionViewWillRequestAdditionalAmount:)]) {
+                    [self.delegate transactionViewWillRequestAdditionalAmount:[amountLeftToPayFiat floatValue]];
+                }
+            });
+        } error:^(NSURLRequest *request, NSError *error) {
+            // Display alert to prevent the user from continuing
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"network.problem.title", nil) message:NSLocalizedString(@"network.problem.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
+            [alertView show];
+        }];
+    }
+}
+
 #pragma mark - Actions
 
 - (IBAction)clearAction:(id)sender
 {
+    // we are done - prevent reopening of websocket
+    self.successfulTransaction = YES;
     [self cancelTransactionAndDismiss];
 }
 
