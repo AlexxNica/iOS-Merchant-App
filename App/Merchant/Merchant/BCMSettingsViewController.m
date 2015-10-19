@@ -689,9 +689,9 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
 
 - (BOOL)textFieldTableViewCell:(BCMTextFieldTableViewCell *)cell shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    cell.showRightImage = YES;
     NSIndexPath *indexPath = [self.settingsTableView indexPathForCell:cell];
     if (indexPath.row == BCMSettingsRowWalletAddress) {
+        cell.showRightImage = YES;
         NSString *walletAddress = [cell.textField.text stringByReplacingCharactersInRange:range withString:string];
         if ([walletAddress length] > 0) {
             if ([BTCAddress addressWithBase58String:walletAddress]) {
