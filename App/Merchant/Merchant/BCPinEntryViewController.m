@@ -214,6 +214,13 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
                         self.resetState = PinEntryModeResetStateEnterNew;
                     } else {
                         self.resetState = PinEntryModeResetStateEnterCurrentFail;
+                        
+                        self.passwordAttempts++;
+                        
+                        // 3 attempts at access
+                        if (self.passwordAttempts > 2) {
+                            [self dismissPinEntryAndDenyAccess];
+                        }
                     }
                 }
             } else if (self.resetState == PinEntryModeResetStateEnterNew) {
