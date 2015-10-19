@@ -286,7 +286,7 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
         self.secondEnteredPin = @"";
         [self clearPinImageViews];
     } else if (_resetState == PinEntryModeResetStateEnterCurrentFail) {
-        self.infoLbl.text = NSLocalizedString(@"pin.entry.validation_failed", nil);
+        self.titleLbl.text = NSLocalizedString(@"pin.entry.validation_failed", nil);
         self.pin = [[NSMutableString alloc] init];
         self.firstEnteredPin = @"";
         self.secondEnteredPin = @"";
@@ -309,7 +309,7 @@ NSString *const kPinEntryStoryboardId = @"pinEntryViewControllerId";
         self.firstEnteredPin = @"";
         self.secondEnteredPin = @"";
         _resetState = PinEntryModeResetStateEnterNew;
-        self.infoLbl.text = NSLocalizedString(@"pin.entry.validation_failed", nil);
+        self.titleLbl.text = NSLocalizedString(@"pin.entry.validation_failed", nil);
         [self clearPinImageViews];
     } else if (_resetState == PinEntryModeResetStateComplete) {
         if ([self.delegate respondsToSelector:@selector(pinEntryViewController:successfulEntry:pin:)]) {
