@@ -553,7 +553,7 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
 {
     if (amount > 0) {
         [self.simpleItems removeAllObjects];
-        NSDictionary *itemDict = @{ kItemNameKey : @"Custom" , kItemPriceKey : [NSNumber numberWithFloat:amount] };
+        NSDictionary *itemDict = @{ kItemNameKey : @"Payment" , kItemPriceKey : [NSNumber numberWithFloat:amount] };
         [self.simpleItems addObject:itemDict];
     }
 }
