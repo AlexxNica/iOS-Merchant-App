@@ -563,6 +563,8 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
 
 - (void)transactionViewDidClear:(BCMQRCodeTransactionView *)transactionView
 {
+    [self.customAmountView clear];
+    
     [self.activeTransition MR_deleteEntity];
     
     [self hideTransactionViewAndRemoveOverlay:YES];

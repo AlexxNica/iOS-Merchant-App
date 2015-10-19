@@ -23,6 +23,9 @@
 - (void)clear
 {
     self.customAmountTextField.text = @"";
+    if ([self.delegate respondsToSelector:@selector(updateBitcoinAmountLabel:)]) {
+        [self.delegate updateBitcoinAmountLabel:self.customAmountTextField.text];
+    }
 }
 
 #pragma mark - UITextFieldDelegate
@@ -101,10 +104,7 @@
 
 - (void)accessoryClearAction:(id)sender
 {
-    self.customAmountTextField.text = @"";
-    if ([self.delegate respondsToSelector:@selector(updateBitcoinAmountLabel:)]) {
-        [self.delegate updateBitcoinAmountLabel:self.customAmountTextField.text];
-    }
+    [self clear];
 }
 
 @end
