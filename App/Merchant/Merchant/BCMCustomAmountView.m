@@ -15,7 +15,7 @@
 @interface BCMCustomAmountView () <UITextFieldDelegate>
 
 @property (strong, nonatomic) UIView *inputAccessoryView;
-
+@property (nonatomic) UIButton *compButton;
 @end
 
 @implementation BCMCustomAmountView
@@ -26,6 +26,16 @@
     if ([self.delegate respondsToSelector:@selector(updateBitcoinAmountLabel:)]) {
         [self.delegate updateBitcoinAmountLabel:self.customAmountTextField.text];
     }
+}
+
+- (void)enableCharge
+{
+    self.compButton.enabled = YES;
+}
+
+- (void)disableCharge
+{
+    self.compButton.enabled = NO;
 }
 
 #pragma mark - UITextFieldDelegate
@@ -67,8 +77,10 @@
         [compButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f]];
         [compButton setTitle: NSLocalizedString(@"action.charge", nil) forState:UIControlStateNormal];
         [compButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [compButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
         [compButton addTarget:self action:@selector(accessoryDoneAction:)
              forControlEvents:UIControlEventTouchUpInside];
+        self.compButton = compButton;
 
         [self.inputAccessoryView addSubview:compButton];
         

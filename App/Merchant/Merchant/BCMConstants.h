@@ -24,4 +24,6 @@
 
 #define SATOSHI 1e8 // 100,000,000
 
+#define BITCOIN_LIMIT 21e6 // 21,000,000 (Total possible Bitcoins)
+
 #endif

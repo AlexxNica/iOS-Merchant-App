@@ -28,5 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *btcAmountLabel;
 
 - (void)clear;
+- (void)disableCharge;
+- (void)enableCharge;
 
 @end

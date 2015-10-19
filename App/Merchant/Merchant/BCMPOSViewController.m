@@ -141,6 +141,8 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     
     [self.itemsTableView registerNib:[UINib nibWithNibName:@"BCMItemTableViewCell" bundle:nil] forCellReuseIdentifier:kBCMItemCellId];
     
+    self.bitcoinAmountLabel.adjustsFontSizeToFitWidth = YES;
+    
     [self showCustomAmountView];
 }
 
@@ -153,6 +155,12 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     self.merchantItems = [[BCMMerchantManager sharedInstance] itemsSortedByCurrentSortType];
     
     [self.itemsTableView reloadData];
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    self.bitcoinAmountLabel.frame = CGRectMake(10, self.bitcoinAmountLabel.frame.origin.y, self.view.frame.size.width - 20, self.bitcoinAmountLabel.frame.size.height);
 }
 
  #pragma mark - Navigation
@@ -333,6 +341,25 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSString *bitcoinValue = [dict safeObjectForKey:@"btcValue"];
             NSString *bitcoinAmount = [NSString stringWithFormat:@"%@ BTC", bitcoinValue];
+            
+            NSString *convertedBitcoinValue = [bitcoinValue stringByReplacingOccurrencesOfString:[[NSLocale currentLocale] objectForKey:NSLocaleDecimalSeparator] withString:@"."];
+            convertedBitcoinValue = [convertedBitcoinValue stringByReplacingOccurrencesOfString:@"," withString:@""];
+            
+            if (bitcoinValue != nil && [bitcoinValue doubleValue] > 0) {
+                NSDecimalNumber *decimalNumber = [NSDecimalNumber decimalNumberWithString:convertedBitcoinValue];
+                NSDecimalNumber *bitcoinLimit = (NSDecimalNumber *)[NSDecimalNumber numberWithDouble:BITCOIN_LIMIT];
+                if ([bitcoinLimit compare:decimalNumber] == NSOrderedAscending) {
+                    self.bitcoinAmountLabel.textColor = [UIColor redColor];
+                    [self.customAmountView disableCharge];
+                } else {
+                    self.bitcoinAmountLabel.textColor = [UIColor blackColor];
+                    [self.customAmountView enableCharge];
+                }
+            } else {
+                self.bitcoinAmountLabel.textColor = [UIColor blackColor];
+                [self.customAmountView disableCharge];
+            }
+            
             self.bitcoinAmountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@", @""), bitcoinAmount];
         });
     } error:^(NSURLRequest *request, NSError *error) {
