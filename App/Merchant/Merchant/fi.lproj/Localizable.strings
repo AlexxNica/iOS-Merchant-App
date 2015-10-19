@@ -1,216 +1,300 @@
-/* 
-  Localizable.strings
-  Merchant
-  Created by User on 10/23/14.
-  Copyright (c) 2014 com. All rights reserved.
-*/
-// Generics
-"alert.ok" = "Okei";
-
-"action.save" = "Tallenna";
-
-"action.cancel" = "Peruuta";
-
-"general.NA" = "N/A";
-
-"general.Oops" = "Oho";
-
-"general.save" = "Tallennettu";
-
-"general.done" = "Tehnyt";
-
-// Networking
-"network.problem.title" = "Verkkovirhe";
-
-"network.problem.detail" = "Meillä on ollut verkko ongelma.  Yritä uudelleen.";
-
-// Transaction Detail
-"transaction.detail.seconds" = "sekuntia";
-
-"transaction.detail.minutes" = "minuuttia";
-
-"transaction.detail.time.ago" = "%.0f %@ sitten";
-
-// QR Code Scanning
-"qr.scanning.permission.title" = "Kameran käyttö";
-
-"qr.scanning.permission.detail" = "Siirry asetuksia ja salli kamera Blockchain kauppias.";
-
-// Sign Up
-"signup.alert.title" = "Yritä uudestaan";
-
-"signup.warning" = "Toiminimi, lompakko sähköpostiosoitteen ja valuutan tarvitaan.";
-
-"signup.business.name" = "Toiminimi";
-
-"signup.wallet.name" = "Lompakko osoite";
-
-"signup.currency.name" = "Valuutta";
-
-"signup.pin.set" = "Aseta kiertopiste";
-
-"signup.pin.reset" = "Palauta PIN-tunnus";
-
-// Currency Picker
-"currency.picker.title" = "Valuutta";
-
-// Navigation
-"navigation.pos" = "POS";
-
-"navigation.item_setup" = "Nimikkeiden asetukset";
-
-"navigation.transactions" = "Tapahtumat";
-
-"navigation.settings" = "Asetukset";
-
-"navigation.price_news" = "Hinta & Uutiset";
-
-"navigation.logout" = "Kirjaudu ulos";
-
-"navigation.login" = "Kirjaudu sisään";
-
-// Add Item
-"addItem.error.missing.name" = "Nimi puuttuu";
-
-"addItem.error.missing.name.detail" = "Kohde vaatii nimi.";
-
-"addItem.error.missing.price" = "Hinta puuttuu";
-
-"addItem.error.missing.price.detail" = "Kohde vaatii hinta.";
-
-"addItem.error.zero.price" = "Virheellinen hintatason";
-
-"addItem.error.zero.price.detail" = "Hinta arvon on oltava suurempi kuin 0";
-
-// POS
-"item.list.noitems" = "Ei kohteita";
-
-"item.list.custom" = "Custom Amount";
-
-"item.list.number_of_item" = "(%lu erä)";
-
-"item.list.number_of_items" = "(%lu kohteet)";
-
-// Transaction
-"qr.trasnasction.info.waiting" = "Odottaa maksu";
-
-// Pin Entry
+/* (No Commment) */
 "Cancel" = "Peruuta";
 
-"pin.entry.enter_passcode" = "Kirjoita tunnusluku";
-
-"pin.entry.enter_new_passcode" = "Anna uusi salasana";
-
-"pin.entry.re_enter_passcode" = "Kirjoita uudelleen salasana";
-
-"pin.entry.validation_failed" = "Salasanan vahvistus epäonnistui";
-
-"pin.entry.password_incorrect" = "Salasana virheellisten";
-
-"pin.info.reset_pin" = "Palauta PIN-tunnus";
-
-"pin.info.set_pin" = "Aseta kiertopiste";
-
-// Merchant Email
-"merchant.email.hi" = "Moikka";
-
-"merchant.email.receiptInfo" = "Tässä on %@ on %@ %@ kuitista.";
-
-"merchant.email.thanks" = "Kiitos, että käytät Blockchain kauppias!";
-
-"merchant.email.subject" = "Kuitin %@";
-
-"merchant.email.error_not_supported" = "Sähköposti ei tueta";
-
-"merchant.email.error_not_supported_detail" = "Tämä laite ei tue sähköpostitse.";
-
-"merchant.email.error_sending_message" = "Virhe lähetettäessä sähköpostia.  Tarkista sähköpostisi ja lähettää uudelleen.";
-
-"merchant.email.invalid" = "Virheellinen sähköpostiosoite";
-
-"merchant.email.invalid.detail" = "Anna voimassa oleva sähköpostiosoite.";
-
-// Currency
-"action_picker.currency" = "Valuutta";
-
-// Settings
-"setting.name.title" = "Toiminimi";
-
-"setting.business_address.title" = "Yrityksen osoite";
-
-"setting.business_address.city" = "Yrityksen postitoimipaikka";
-
-"setting.business_address.zipcode" = "Yrityksen postinumero";
-
-"setting.business_address.category" = "Luokka";
-
-"setting.sort_order.title" = "Nimikkeen lajittelujärjestys";
-
-"setting.telephone.title" = "Puhelin";
-
-"setting.description.title" = "Kuvaus";
-
-"setting.website.title" = "Sivusto";
-
-"setting.currency.title" = "Valuutta";
-
-"setting.wallet_address.title" = "Osoite";
-
-"setting.directory_listing.title" = "Hakemistolistauksen";
-
-"setting.sort_order.creation.title" = "Lisätty";
-
-"setting.sort_order.recent.title" = "Äskettäin lisätty tapahtumaan";
-
-"setting.sort_order.alphabetical.title" = "Aakkosjärjestyksessä";
-
-"setting.location_services.trouble_finding.title" = "Löytää sijainnin";
-
-"setting.location_services.trouble_finding.detail" = "Yritä uudelleen";
-
-"setting.location_services.disabled.title" = "Sijainti Palvelut käytössä";
-
-"setting.location_services.disabled.detail" = "Siirry tietosuoja-asetukset ja ota sijaintipalvelut Blockchain kauppias.";
-
-"setting.location_services.locating" = "Sijainti";
-
-"action_picker.categories" = "Luokka";
-
-"action_picker.sort_order" = "Nimikkeen lajittelujärjestys";
-
-// Settings Errors
-"setting.phone_validation_error.title" = "Puhelinnumero ei kelpaa";
-
-"setting.phone_validation_error.detail" = "Puhelinnumero ei tunnisteta useita.";
-
-"setting.url_validation_error.title" = "Virheellinen sivusto";
-
-"setting.url_validation_error.detail" = "Määritetty osoite ei ole kelvollinen";
-
-"setting.merchant_listing.value_error.title" = "Puuttuvat tiedot";
-
-"setting.merchant_listing.value_error.detail" = "Hakemistolistauksen vaatii sinua antamaan yrityksesi nimi, osoite, kaupunki, postinumero, Puhelin, url-osoite ja kuvaus.";
-
-// Errors
-"networking.post_merchant.fail" = "Kauppias Post virhe";
-
-"action.charge" = "Ilmaiseksi";
-
-"action.search" = "Etsi";
-
+/* No comment provided by engineer. */
 "action.add" = "Lisää";
 
-"action.item_setup" = "Nimikkeiden asetukset";
+/* No comment provided by engineer. */
+"action.cancel" = "Peruuta";
 
+/* No comment provided by engineer. */
+"action.charge" = "Ilmaiseksi";
+
+/* (No Commment) */
 "action.enter_amount" = "Syötä summa";
 
-"user_current_location" = "Käytä nykyistä sijaintia";
+/* No comment provided by engineer. */
+"action.item_setup" = "Nimikkeiden asetukset";
 
+/* No comment provided by engineer. */
+"action.save" = "Tallenna";
+
+/* No comment provided by engineer. */
+"action.search" = "Etsi";
+
+/* No comment provided by engineer. */
+"action_picker.categories" = "Luokka";
+
+/* No comment provided by engineer. */
+"action_picker.currency" = "Valuutta";
+
+/* No comment provided by engineer. */
+"action_picker.sort_order" = "Nimikkeen lajittelujärjestys";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.name" = "Nimi puuttuu";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.name.detail" = "Kohde vaatii nimi.";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.price" = "Hinta puuttuu";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.price.detail" = "Kohde vaatii hinta.";
+
+/* No comment provided by engineer. */
+"addItem.error.zero.price" = "Virheellinen hintatason";
+
+/* No comment provided by engineer. */
+"addItem.error.zero.price.detail" = "Hinta arvon on oltava suurempi kuin 0";
+
+/* No comment provided by engineer. */
+"alert.ok" = "Okei";
+
+/* No comment provided by engineer. */
+"currency.picker.title" = "Valuutta";
+
+/* No comment provided by engineer. */
+"general.NA" = "N/A";
+
+/* No comment provided by engineer. */
+"general.Oops" = "Oho";
+
+/* No comment provided by engineer. */
+"general.done" = "Tehnyt";
+
+/* No comment provided by engineer. */
+"general.save" = "Tallennettu";
+
+/* No comment provided by engineer. */
+"item.list.custom" = "Mukautettu määrä";
+
+/* No comment provided by engineer. */
+"item.list.noitems" = "Ei kohteita";
+
+/* No comment provided by engineer. */
+"item.list.number_of_item" = "(%lu erä)";
+
+/* No comment provided by engineer. */
+"item.list.number_of_items" = "(%lu kohteet)";
+
+/* (No Commment) */
+"item.list.payment" = "Maksu";
+
+/* (No Commment) */
 "locations" = "Cafe/juoda/syödä/viettää";
 
+/* No comment provided by engineer. */
+"merchant.email.error_not_supported" = "Sähköposti ei tueta";
+
+/* No comment provided by engineer. */
+"merchant.email.error_not_supported_detail" = "Tämä laite ei tue sähköpostitse.";
+
+/* No comment provided by engineer. */
+"merchant.email.error_sending_message" = "Virhe lähetettäessä sähköpostia.  Tarkista sähköpostisi ja lähettää uudelleen.";
+
+/* No comment provided by engineer. */
+"merchant.email.hi" = "Moikka";
+
+/* No comment provided by engineer. */
+"merchant.email.invalid" = "Virheellinen sähköpostiosoite";
+
+/* No comment provided by engineer. */
+"merchant.email.invalid.detail" = "Anna voimassa oleva sähköpostiosoite.";
+
+/* No comment provided by engineer. */
+"merchant.email.receiptInfo" = "Tässä on %@ on %@ %@ kuitista.";
+
+/* No comment provided by engineer. */
+"merchant.email.subject" = "Kuitin %@";
+
+/* No comment provided by engineer. */
+"merchant.email.thanks" = "Kiitos, että käytät Blockchain kauppias!";
+
+/* (No Commment) */
+"navigation.item_setup" = "Nimikkeiden asetukset";
+
+/* (No Commment) */
+"navigation.login" = "Kirjaudu sisään";
+
+/* (No Commment) */
+"navigation.logout" = "Kirjaudu ulos";
+
+/* No comment provided by engineer. */
+"navigation.pos" = "POS";
+
+/* No comment provided by engineer. */
+"navigation.price_news" = "Hinnat & Uutiset";
+
+/* No comment provided by engineer. */
+"navigation.settings" = "Asetukset";
+
+/* No comment provided by engineer. */
+"navigation.transactions" = "Tapahtumat";
+
+/* No comment provided by engineer. */
+"network.problem.detail" = "Olemme törmänneet verkko ongelma.  Yritä uudelleen.";
+
+/* No comment provided by engineer. */
+"network.problem.title" = "Verkkovirhe";
+
+/* No comment provided by engineer. */
+"networking.post_merchant.fail" = "Kauppias Post virhe";
+
+/* No comment provided by engineer. */
+"pin.entry.enter_new_passcode" = "Anna uusi salasana";
+
+/* No comment provided by engineer. */
+"pin.entry.enter_passcode" = "Kirjoita tunnusluku";
+
+/* No comment provided by engineer. */
+"pin.entry.password_incorrect" = "Virheellinen tunnuskoodi";
+
+/* No comment provided by engineer. */
+"pin.entry.re_enter_passcode" = "Kirjoita uudelleen salasana";
+
+/* No comment provided by engineer. */
+"pin.entry.validation_failed" = "Salasanan vahvistus epäonnistui";
+
+/* No comment provided by engineer. */
+"pin.info.reset_pin" = "Palauta PIN-tunnus";
+
+/* No comment provided by engineer. */
+"pin.info.set_pin" = "Aseta kiertopiste";
+
+/* No comment provided by engineer. */
+"qr.insufficient.payment.message" = "Pyysi %@, sai %@ BTC. QR kuva on muutettu vastaamaan laskun summa.";
+
+/* No comment provided by engineer. */
+"qr.insufficient.payment.title" = "Riittämätön maksu";
+
+/* No comment provided by engineer. */
+"qr.scanning.permission.detail" = "Siirry asetuksia ja salli kamera Blockchain kauppias.";
+
+/* No comment provided by engineer. */
+"qr.scanning.permission.title" = "Kameran käyttö";
+
+/* No comment provided by engineer. */
+"qr.trasnasction.info.waiting" = "Odottaa maksu";
+
+/* No comment provided by engineer. */
+"setting.business_address.category" = "Luokka";
+
+/* No comment provided by engineer. */
+"setting.business_address.city" = "Yrityksen postitoimipaikka";
+
+/* No comment provided by engineer. */
+"setting.business_address.title" = "Yrityksen osoite";
+
+/* No comment provided by engineer. */
+"setting.business_address.zipcode" = "Yrityksen postinumero";
+
+/* No comment provided by engineer. */
+"setting.currency.title" = "Valuutta";
+
+/* No comment provided by engineer. */
+"setting.description.title" = "Kuvaus";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.title" = "Hakemistolistauksen";
+
+/* No comment provided by engineer. */
+"setting.location_services.disabled.detail" = "Siirry tietosuoja-asetukset ja ota sijaintipalvelut Blockchain kauppias.";
+
+/* No comment provided by engineer. */
+"setting.location_services.disabled.title" = "Sijainti Palvelut käytössä";
+
+/* No comment provided by engineer. */
+"setting.location_services.locating" = "Sijainti";
+
+/* No comment provided by engineer. */
+"setting.location_services.trouble_finding.detail" = "Yritä uudelleen";
+
+/* No comment provided by engineer. */
+"setting.location_services.trouble_finding.title" = "Löytää sijainnin";
+
+/* No comment provided by engineer. */
+"setting.merchant_listing.value_error.detail" = "Hakemistolistauksen vaatii sinua antamaan yrityksesi nimi, osoite, kaupunki, postinumero, Puhelin, url-osoite ja kuvaus.";
+
+/* No comment provided by engineer. */
+"setting.merchant_listing.value_error.title" = "Puuttuvat tiedot";
+
+/* No comment provided by engineer. */
+"setting.name.title" = "Toiminimi";
+
+/* No comment provided by engineer. */
+"setting.phone_validation_error.detail" = "Puhelinnumero ei tunnisteta lukuna.";
+
+/* No comment provided by engineer. */
+"setting.phone_validation_error.title" = "Puhelinnumero ei kelpaa";
+
+/* No comment provided by engineer. */
+"setting.sort_order.alphabetical.title" = "Aakkosjärjestyksessä";
+
+/* No comment provided by engineer. */
+"setting.sort_order.creation.title" = "Lisätty";
+
+/* No comment provided by engineer. */
+"setting.sort_order.recent.title" = "Äskettäin lisätty tapahtumaan";
+
+/* No comment provided by engineer. */
+"setting.sort_order.title" = "Nimikkeen lajittelujärjestys";
+
+/* No comment provided by engineer. */
+"setting.telephone.title" = "Puhelin";
+
+/* No comment provided by engineer. */
+"setting.url_validation_error.detail" = "Määritetty osoite ei ole kelvollinen";
+
+/* No comment provided by engineer. */
+"setting.url_validation_error.title" = "Virheellinen sivusto";
+
+/* No comment provided by engineer. */
+"setting.wallet_address.title" = "Osoite";
+
+/* No comment provided by engineer. */
+"setting.website.title" = "Sivusto";
+
+/* No comment provided by engineer. */
+"signup.alert.title" = "Yritä uudestaan";
+
+/* No comment provided by engineer. */
+"signup.business.name" = "Toiminimi";
+
+/* No comment provided by engineer. */
+"signup.currency.name" = "Valuutta";
+
+/* No comment provided by engineer. */
+"signup.pin.reset" = "Palauta PIN-tunnus";
+
+/* No comment provided by engineer. */
+"signup.pin.set" = "Aseta kiertopiste";
+
+/* No comment provided by engineer. */
+"signup.wallet.name" = "Lompakko osoite";
+
+/* No comment provided by engineer. */
+"signup.warning" = "Toiminimi, lompakko sähköpostiosoitteen ja valuutan tarvitaan.";
+
+/* No comment provided by engineer. */
+"transaction.detail.minutes" = "minuuttia";
+
+/* No comment provided by engineer. */
+"transaction.detail.seconds" = "sekuntia";
+
+/* No comment provided by engineer. */
+"transaction.detail.time.ago" = "%.0f %@ sitten";
+
+/* No comment provided by engineer. */
+"user_current_location" = "Käytä nykyistä sijaintia";
+
+/* (No Commment) */
 "welcome.hi" = "Moikka!";
 
-"welcome.setup" = "Napauta painiketta asettaaksesi kauppiastiliä!";
-
+/* (No Commment) */
 "welcome.lets_go" = "Mennään!";
+
+/* (No Commment) */
+"welcome.setup" = "Napauta painiketta asettaaksesi kauppiastiliä!";
 

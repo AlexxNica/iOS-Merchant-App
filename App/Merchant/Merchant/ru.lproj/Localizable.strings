@@ -1,216 +1,300 @@
-/* 
-  Localizable.strings
-  Merchant
-  Created by User on 10/23/14.
-  Copyright (c) 2014 com. All rights reserved.
-*/
-// Generics
-"alert.ok" = "Хорошо";
-
-"action.save" = "Сохранить";
-
-"action.cancel" = "Отмена";
-
-"general.NA" = "Н/Д";
-
-"general.Oops" = "УПС";
-
-"general.save" = "Спас";
-
-"general.done" = "Договорились";
-
-// Networking
-"network.problem.title" = "Ошибка сети";
-
-"network.problem.detail" = "Мы столкнулись с проблемой сети.  Пожалуйста, попробуйте еще раз.";
-
-// Transaction Detail
-"transaction.detail.seconds" = "секунд";
-
-"transaction.detail.minutes" = "минут";
-
-"transaction.detail.time.ago" = "%.0f %@ назад";
-
-// QR Code Scanning
-"qr.scanning.permission.title" = "Включение доступа к камере";
-
-"qr.scanning.permission.detail" = "Перейдите в настройки и включить доступ к камере для купца Blockchain.";
-
-// Sign Up
-"signup.alert.title" = "Повторить";
-
-"signup.warning" = "Требуется бизнес имя, действительный адрес бумажник и валюты.";
-
-"signup.business.name" = "Название компании";
-
-"signup.wallet.name" = "Кошелек адрес";
-
-"signup.currency.name" = "Валюта";
-
-"signup.pin.set" = "Установить ПИН-код";
-
-"signup.pin.reset" = "Сброс ПИН-кода";
-
-// Currency Picker
-"currency.picker.title" = "Валюта";
-
-// Navigation
-"navigation.pos" = "POS";
-
-"navigation.item_setup" = "Элемент установки";
-
-"navigation.transactions" = "Операции";
-
-"navigation.settings" = "Параметры";
-
-"navigation.price_news" = "Цена & Новости";
-
-"navigation.logout" = "Выход";
-
-"navigation.login" = "Вход";
-
-// Add Item
-"addItem.error.missing.name" = "Отсутствует имя";
-
-"addItem.error.missing.name.detail" = "Пункт требует имени.";
-
-"addItem.error.missing.price" = "Не указана цена";
-
-"addItem.error.missing.price.detail" = "Пункт требует цену.";
-
-"addItem.error.zero.price" = "Неправильная цена";
-
-"addItem.error.zero.price.detail" = "Цена значение должно быть больше 0";
-
-// POS
-"item.list.noitems" = "Нет элементов";
-
-"item.list.custom" = "Пользовательские";
-
-"item.list.number_of_item" = "(пункт%lu)";
-
-"item.list.number_of_items" = "(%lu элементов)";
-
-// Transaction
-"qr.trasnasction.info.waiting" = "Ожидание оплаты";
-
-// Pin Entry
+/* (No Commment) */
 "Cancel" = "Отмена";
 
-"pin.entry.enter_passcode" = "Введите секретный код";
-
-"pin.entry.enter_new_passcode" = "Введите новый пароль";
-
-"pin.entry.re_enter_passcode" = "Повторно введите ваш пароль";
-
-"pin.entry.validation_failed" = "Сбой проверки пароля";
-
-"pin.entry.password_incorrect" = "Неправильный пароль";
-
-"pin.info.reset_pin" = "Сброс ПИН-кода";
-
-"pin.info.set_pin" = "Установить ПИН-код";
-
-// Merchant Email
-"merchant.email.hi" = "Привет";
-
-"merchant.email.receiptInfo" = "Вот ваш чек за вашего %@ на %@ на %@.";
-
-"merchant.email.thanks" = "Спасибо за использование торгового Blockchain!";
-
-"merchant.email.subject" = "Получение от %@";
-
-"merchant.email.error_not_supported" = "Электронная почта не поддерживается";
-
-"merchant.email.error_not_supported_detail" = "Это устройство не поддерживает отправку по электронной почте.";
-
-"merchant.email.error_sending_message" = "Ошибка при отправке электронной почты.  Пожалуйста, проверьте вашу электронную почту и отправить снова.";
-
-"merchant.email.invalid" = "Недопустимый адрес электронной почты";
-
-"merchant.email.invalid.detail" = "Пожалуйста, введите действительный адрес электронной почты.";
-
-// Currency
-"action_picker.currency" = "Валюта";
-
-// Settings
-"setting.name.title" = "Название компании";
-
-"setting.business_address.title" = "Бизнес адрес";
-
-"setting.business_address.city" = "Бизнес-Сити";
-
-"setting.business_address.zipcode" = "Почтовый индекс бизнес";
-
-"setting.business_address.category" = "Категория";
-
-"setting.sort_order.title" = "Порядок сортировки элементов";
-
-"setting.telephone.title" = "Телефон";
-
-"setting.description.title" = "Описание";
-
-"setting.website.title" = "Веб-сайт";
-
-"setting.currency.title" = "Валюта";
-
-"setting.wallet_address.title" = "Адрес";
-
-"setting.directory_listing.title" = "Список каталогов";
-
-"setting.sort_order.creation.title" = "Дата добавления";
-
-"setting.sort_order.recent.title" = "Недавно добавленные в транзакции";
-
-"setting.sort_order.alphabetical.title" = "Алфавитный";
-
-"setting.location_services.trouble_finding.title" = "Место нахождения ошибки";
-
-"setting.location_services.trouble_finding.detail" = "Пожалуйста, попробуйте снова";
-
-"setting.location_services.disabled.title" = "Расположение услуги инвалидам";
-
-"setting.location_services.disabled.detail" = "Перейдите к настройки конфиденциальности и включить службы определения местоположения для купца Blockchain.";
-
-"setting.location_services.locating" = "Поиск";
-
-"action_picker.categories" = "Категория";
-
-"action_picker.sort_order" = "Порядок сортировки элементов";
-
-// Settings Errors
-"setting.phone_validation_error.title" = "Неправильный номер телефона";
-
-"setting.phone_validation_error.detail" = "Номер телефона не распознается как число.";
-
-"setting.url_validation_error.title" = "Недопустимый веб-сайт";
-
-"setting.url_validation_error.detail" = "Введенный адрес не является допустимым";
-
-"setting.merchant_listing.value_error.title" = "Недостающая информация";
-
-"setting.merchant_listing.value_error.detail" = "Список каталогов необходимо предоставить название компании, адрес, город, почтовый индекс, Телефон, веб-url и описание.";
-
-// Errors
-"networking.post_merchant.fail" = "Провал торговый пост";
-
-"action.charge" = "Заряд";
-
-"action.search" = "Поиск";
-
+/* No comment provided by engineer. */
 "action.add" = "Добавить";
 
-"action.item_setup" = "Элемент установки";
+/* No comment provided by engineer. */
+"action.cancel" = "Отмена";
 
+/* No comment provided by engineer. */
+"action.charge" = "Заряд";
+
+/* (No Commment) */
 "action.enter_amount" = "Введите сумму";
 
+/* No comment provided by engineer. */
+"action.item_setup" = "Элемент установки";
+
+/* No comment provided by engineer. */
+"action.save" = "Сохранить";
+
+/* No comment provided by engineer. */
+"action.search" = "Поиск";
+
+/* No comment provided by engineer. */
+"action_picker.categories" = "Категория";
+
+/* No comment provided by engineer. */
+"action_picker.currency" = "Валюта";
+
+/* No comment provided by engineer. */
+"action_picker.sort_order" = "Порядок сортировки элементов";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.name" = "Отсутствует имя";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.name.detail" = "Элемент требует имя.";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.price" = "Не указана цена";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.price.detail" = "Цена требует элемент.";
+
+/* No comment provided by engineer. */
+"addItem.error.zero.price" = "Неправильная цена";
+
+/* No comment provided by engineer. */
+"addItem.error.zero.price.detail" = "Цена значение должно быть больше чем 0";
+
+/* No comment provided by engineer. */
+"alert.ok" = "Хорошо";
+
+/* No comment provided by engineer. */
+"currency.picker.title" = "Валюта";
+
+/* No comment provided by engineer. */
+"general.NA" = "Н/Д";
+
+/* No comment provided by engineer. */
+"general.Oops" = "УПС";
+
+/* No comment provided by engineer. */
+"general.done" = "Договорились";
+
+/* No comment provided by engineer. */
+"general.save" = "Сохраненные";
+
+/* No comment provided by engineer. */
+"item.list.custom" = "Пользовательские сумма";
+
+/* No comment provided by engineer. */
+"item.list.noitems" = "Нет элементов";
+
+/* No comment provided by engineer. */
+"item.list.number_of_item" = "(пункт%lu)";
+
+/* No comment provided by engineer. */
+"item.list.number_of_items" = "(%lu пункты)";
+
+/* (No Commment) */
+"item.list.payment" = "Оплата";
+
+/* (No Commment) */
+"locations" = "Кафе/напитки/есть/тратить";
+
+/* No comment provided by engineer. */
+"merchant.email.error_not_supported" = "Электронная почта не поддерживается";
+
+/* No comment provided by engineer. */
+"merchant.email.error_not_supported_detail" = "Это устройство не поддерживает отправку по электронной почте.";
+
+/* No comment provided by engineer. */
+"merchant.email.error_sending_message" = "Ошибка при отправке электронной почты.  Пожалуйста, проверьте вашу электронную почту и снова отправить.";
+
+/* No comment provided by engineer. */
+"merchant.email.hi" = "Привет";
+
+/* No comment provided by engineer. */
+"merchant.email.invalid" = "Недопустимый адрес электронной почты";
+
+/* No comment provided by engineer. */
+"merchant.email.invalid.detail" = "Пожалуйста, введите действительный адрес электронной почты.";
+
+/* No comment provided by engineer. */
+"merchant.email.receiptInfo" = "Вот ваш чек для вашего %@ на %@ на %@.";
+
+/* No comment provided by engineer. */
+"merchant.email.subject" = "Получение от %@";
+
+/* No comment provided by engineer. */
+"merchant.email.thanks" = "Спасибо за использование Blockchain купец!";
+
+/* (No Commment) */
+"navigation.item_setup" = "Элемент установки";
+
+/* (No Commment) */
+"navigation.login" = "Логин";
+
+/* (No Commment) */
+"navigation.logout" = "Выход";
+
+/* No comment provided by engineer. */
+"navigation.pos" = "POS";
+
+/* No comment provided by engineer. */
+"navigation.price_news" = "Цены & Новости";
+
+/* No comment provided by engineer. */
+"navigation.settings" = "Параметры";
+
+/* No comment provided by engineer. */
+"navigation.transactions" = "Операции";
+
+/* No comment provided by engineer. */
+"network.problem.detail" = "Мы столкнулись с проблемой сетей.  Пожалуйста, попробуйте еще раз.";
+
+/* No comment provided by engineer. */
+"network.problem.title" = "Ошибка сети";
+
+/* No comment provided by engineer. */
+"networking.post_merchant.fail" = "Торговый пост провал";
+
+/* No comment provided by engineer. */
+"pin.entry.enter_new_passcode" = "Введите новый пароль";
+
+/* No comment provided by engineer. */
+"pin.entry.enter_passcode" = "Введите секретный код";
+
+/* No comment provided by engineer. */
+"pin.entry.password_incorrect" = "Неправильный пароль";
+
+/* No comment provided by engineer. */
+"pin.entry.re_enter_passcode" = "Повторно введите ваш пароль";
+
+/* No comment provided by engineer. */
+"pin.entry.validation_failed" = "Сбой проверки пароля";
+
+/* No comment provided by engineer. */
+"pin.info.reset_pin" = "Сброс ПИН-кода";
+
+/* No comment provided by engineer. */
+"pin.info.set_pin" = "Установить ПИН-код";
+
+/* No comment provided by engineer. */
+"qr.insufficient.payment.message" = "Просьба %@, получил %@ БТД. QR изображение было изменено для отражения суммы.";
+
+/* No comment provided by engineer. */
+"qr.insufficient.payment.title" = "Недостаточная оплата";
+
+/* No comment provided by engineer. */
+"qr.scanning.permission.detail" = "Перейдите к настройки и включить доступ к камере для купца Blockchain.";
+
+/* No comment provided by engineer. */
+"qr.scanning.permission.title" = "Включение доступа к камере";
+
+/* No comment provided by engineer. */
+"qr.trasnasction.info.waiting" = "Ожидание для оплаты";
+
+/* No comment provided by engineer. */
+"setting.business_address.category" = "Категория";
+
+/* No comment provided by engineer. */
+"setting.business_address.city" = "Бизнес-Сити";
+
+/* No comment provided by engineer. */
+"setting.business_address.title" = "Бизнес адрес";
+
+/* No comment provided by engineer. */
+"setting.business_address.zipcode" = "Почтовый индекс бизнес";
+
+/* No comment provided by engineer. */
+"setting.currency.title" = "Валюта";
+
+/* No comment provided by engineer. */
+"setting.description.title" = "Описание";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.title" = "Список каталогов";
+
+/* No comment provided by engineer. */
+"setting.location_services.disabled.detail" = "Перейдите к настройки конфиденциальности и включить службы определения местоположения для купца Blockchain.";
+
+/* No comment provided by engineer. */
+"setting.location_services.disabled.title" = "Расположение службы отключены";
+
+/* No comment provided by engineer. */
+"setting.location_services.locating" = "Поиск";
+
+/* No comment provided by engineer. */
+"setting.location_services.trouble_finding.detail" = "Пожалуйста, попробуйте снова";
+
+/* No comment provided by engineer. */
+"setting.location_services.trouble_finding.title" = "Место нахождения ошибки";
+
+/* No comment provided by engineer. */
+"setting.merchant_listing.value_error.detail" = "Список каталогов необходимо указать название компании, адрес, город, почтовый индекс, Телефон, веб-url и описание.";
+
+/* No comment provided by engineer. */
+"setting.merchant_listing.value_error.title" = "Данные отсутствуют";
+
+/* No comment provided by engineer. */
+"setting.name.title" = "Название компании";
+
+/* No comment provided by engineer. */
+"setting.phone_validation_error.detail" = "Номер телефона не распознается как число.";
+
+/* No comment provided by engineer. */
+"setting.phone_validation_error.title" = "Неправильный номер телефона";
+
+/* No comment provided by engineer. */
+"setting.sort_order.alphabetical.title" = "Алфавитном порядке";
+
+/* No comment provided by engineer. */
+"setting.sort_order.creation.title" = "Дата добавления";
+
+/* No comment provided by engineer. */
+"setting.sort_order.recent.title" = "Недавно добавленные в транзакции";
+
+/* No comment provided by engineer. */
+"setting.sort_order.title" = "Порядок сортировки элементов";
+
+/* No comment provided by engineer. */
+"setting.telephone.title" = "Телефон";
+
+/* No comment provided by engineer. */
+"setting.url_validation_error.detail" = "Введенный адрес не является допустимым";
+
+/* No comment provided by engineer. */
+"setting.url_validation_error.title" = "Недопустимый веб-сайт";
+
+/* No comment provided by engineer. */
+"setting.wallet_address.title" = "Адрес";
+
+/* No comment provided by engineer. */
+"setting.website.title" = "Веб-сайт";
+
+/* No comment provided by engineer. */
+"signup.alert.title" = "Повторить";
+
+/* No comment provided by engineer. */
+"signup.business.name" = "Название компании";
+
+/* No comment provided by engineer. */
+"signup.currency.name" = "Валюта";
+
+/* No comment provided by engineer. */
+"signup.pin.reset" = "Сброс ПИН-кода";
+
+/* No comment provided by engineer. */
+"signup.pin.set" = "Установить ПИН-код";
+
+/* No comment provided by engineer. */
+"signup.wallet.name" = "Адрес бумажник";
+
+/* No comment provided by engineer. */
+"signup.warning" = "Требуются бизнес имя, действительный адрес бумажник и валюты.";
+
+/* No comment provided by engineer. */
+"transaction.detail.minutes" = "минут";
+
+/* No comment provided by engineer. */
+"transaction.detail.seconds" = "секунд";
+
+/* No comment provided by engineer. */
+"transaction.detail.time.ago" = "%.0f %@ назад";
+
+/* No comment provided by engineer. */
 "user_current_location" = "Использовать текущее местоположение";
 
-"locations" = "Кафе/пить/есть/тратить";
-
+/* (No Commment) */
 "welcome.hi" = "Привет!";
 
-"welcome.setup" = "Нажмите кнопку, чтобы настроить ваш торговый счет!";
-
+/* (No Commment) */
 "welcome.lets_go" = "Lets Go!";
+
+/* (No Commment) */
+"welcome.setup" = "Нажмите кнопку, чтобы настроить ваш торговый счет!";
 

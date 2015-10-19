@@ -1,216 +1,300 @@
-/* 
-  Localizable.strings
-  Merchant
-  Created by User on 10/23/14.
-  Copyright (c) 2014 com. All rights reserved.
-*/
-// Generics
-"alert.ok" = "Ok";
-
-"action.save" = "Αποθήκευση";
-
-"action.cancel" = "\"Άκυρο\"";
-
-"general.NA" = "Δ/Υ";
-
-"general.Oops" = "Ωχ";
-
-"general.save" = "Αποθηκευτεί";
-
-"general.done" = "Γίνει";
-
-// Networking
-"network.problem.title" = "Σφάλμα δικτύου";
-
-"network.problem.detail" = "Αντιμετωπίσαμε ένα θέμα δικτύωσης.  Παρακαλώ ξαναπροσπαθήστε.";
-
-// Transaction Detail
-"transaction.detail.seconds" = "δευτερόλεπτα";
-
-"transaction.detail.minutes" = "λεπτά";
-
-"transaction.detail.time.ago" = "%.0f %@ πριν";
-
-// QR Code Scanning
-"qr.scanning.permission.title" = "Ενεργοποιεί την πρόσβαση της κάμερας";
-
-"qr.scanning.permission.detail" = "Πηγαίνετε στο ρυθμίσεις και ενεργοποίηση πρόσβασης κάμερα για έμπορο Blockchain.";
-
-// Sign Up
-"signup.alert.title" = "Δοκίμασε ξανά";
-
-"signup.warning" = "Εταιρική επωνυμία, έγκυρη διεύθυνση πορτοφόλι και νόμισμα απαιτούνται.";
-
-"signup.business.name" = "Εταιρική επωνυμία";
-
-"signup.wallet.name" = "Διεύθυνση πορτοφόλι";
-
-"signup.currency.name" = "Νόμισμα";
-
-"signup.pin.set" = "Ορισμός Pin";
-
-"signup.pin.reset" = "Επαναφορά του Pin";
-
-// Currency Picker
-"currency.picker.title" = "Νόμισμα";
-
-// Navigation
-"navigation.pos" = "ΠΩΣ";
-
-"navigation.item_setup" = "Παραμετροποίηση ειδών";
-
-"navigation.transactions" = "Συναλλαγές";
-
-"navigation.settings" = "Ρυθμίσεις";
-
-"navigation.price_news" = "Τιμή & ειδήσεις";
-
-"navigation.logout" = "Αποσύνδεση";
-
-"navigation.login" = "Σύνδεση";
-
-// Add Item
-"addItem.error.missing.name" = "Λείπει το όνομα";
-
-"addItem.error.missing.name.detail" = "Στοιχείο απαιτεί ένα όνομα.";
-
-"addItem.error.missing.price" = "Λείπει η τιμή";
-
-"addItem.error.missing.price.detail" = "Στοιχείο απαιτεί μια τιμή.";
-
-"addItem.error.zero.price" = "Μη έγκυρη τιμή";
-
-"addItem.error.zero.price.detail" = "Τιμή τιμή πρέπει να είναι μεγαλύτερο από 0";
-
-// POS
-"item.list.noitems" = "Κανένα στοιχείο δεν";
-
-"item.list.custom" = "Προσαρμοσμένη";
-
-"item.list.number_of_item" = "(είδος%lu)";
-
-"item.list.number_of_items" = "(%lu αντικείμενα)";
-
-// Transaction
-"qr.trasnasction.info.waiting" = "Αναμονή για πληρωμή";
-
-// Pin Entry
+/* (No Commment) */
 "Cancel" = "\"Άκυρο\"";
 
-"pin.entry.enter_passcode" = "Εισάγετε τον κωδικό πρόσβασής σας";
-
-"pin.entry.enter_new_passcode" = "Εισάγετε το νέο κωδικό πρόσβασης";
-
-"pin.entry.re_enter_passcode" = "Πληκτρολογήστε ξανά τον κωδικό πρόσβασής σας";
-
-"pin.entry.validation_failed" = "Passcode επικύρωση απέτυχε";
-
-"pin.entry.password_incorrect" = "Κωδικό πρόσβασης που είναι εσφαλμένη";
-
-"pin.info.reset_pin" = "Επαναφορά του Pin";
-
-"pin.info.set_pin" = "Ορισμός Pin";
-
-// Merchant Email
-"merchant.email.hi" = "Γεια σου";
-
-"merchant.email.receiptInfo" = "Εδώ είναι η απόδειξή σας για σας %@ σε %@ σε %@.";
-
-"merchant.email.thanks" = "Σας ευχαριστούμε που χρησιμοποιείτε το Blockchain εμπορικής!";
-
-"merchant.email.subject" = "Παραλαβή από το %@";
-
-"merchant.email.error_not_supported" = "Ηλεκτρονικό ταχυδρομείο δεν υποστηρίζεται";
-
-"merchant.email.error_not_supported_detail" = "Αυτή η συσκευή δεν υποστηρίζει στέλνοντας ένα email.";
-
-"merchant.email.error_sending_message" = "Σφάλμα κατά την αποστολή Email.  Παρακαλώ ελέγξτε το email σας και να στείλετε ξανά.";
-
-"merchant.email.invalid" = "Μη έγκυρο Email";
-
-"merchant.email.invalid.detail" = "Παρακαλώ εισάγετε μια έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου.";
-
-// Currency
-"action_picker.currency" = "Νόμισμα";
-
-// Settings
-"setting.name.title" = "Εταιρική επωνυμία";
-
-"setting.business_address.title" = "Επαγγελματική διεύθυνση";
-
-"setting.business_address.city" = "Πόλη των επιχειρήσεων";
-
-"setting.business_address.zipcode" = "Επιχείρηση ταχυδρομικό κώδικα";
-
-"setting.business_address.category" = "Κατηγορία";
-
-"setting.sort_order.title" = "Στοιχείο σειρά ταξινόμησης";
-
-"setting.telephone.title" = "Τηλέφωνο";
-
-"setting.description.title" = "Περιγραφή";
-
-"setting.website.title" = "Ιστοσελίδα";
-
-"setting.currency.title" = "Νόμισμα";
-
-"setting.wallet_address.title" = "Διεύθυνση";
-
-"setting.directory_listing.title" = "Λίστα καταλόγου";
-
-"setting.sort_order.creation.title" = "Ημερομηνία προσθήκης";
-
-"setting.sort_order.recent.title" = "Αύξησα πρόσφατα συναλλαγή";
-
-"setting.sort_order.alphabetical.title" = "Αλφαβητική";
-
-"setting.location_services.trouble_finding.title" = "Σφάλμα διαπίστωση θέση";
-
-"setting.location_services.trouble_finding.detail" = "Παρακαλώ προσπαθήστε ξανά";
-
-"setting.location_services.disabled.title" = "Τοποθεσία υπηρεσίες άτομα με ειδικές ανάγκες";
-
-"setting.location_services.disabled.detail" = "Πηγαίνετε στο ρυθμίσεις απορρήτου σας και ενεργοποιήστε τις υπηρεσίες τοποθεσίας για έμπορο Blockchain.";
-
-"setting.location_services.locating" = "Τον εντοπισμό";
-
-"action_picker.categories" = "Κατηγορία";
-
-"action_picker.sort_order" = "Στοιχείο σειρά ταξινόμησης";
-
-// Settings Errors
-"setting.phone_validation_error.title" = "Αριθμός τηλεφώνου δεν είναι έγκυρη";
-
-"setting.phone_validation_error.detail" = "Το τηλέφωνο δεν αναγνωρίζεται ως ένα αριθμό.";
-
-"setting.url_validation_error.title" = "Η ιστοσελίδα δεν είναι έγκυρος";
-
-"setting.url_validation_error.detail" = "Η διεύθυνση που εισάγατε δεν είναι έγκυρος";
-
-"setting.merchant_listing.value_error.title" = "Πληροφορίες που λείπουν";
-
-"setting.merchant_listing.value_error.detail" = "Λίστα καταλόγου απαιτεί από εσάς να παρέχουν μια εταιρική επωνυμία, διεύθυνση, πόλη, ταχυδρομικό κώδικα, τηλέφωνο, web διεύθυνση url και περιγραφή.";
-
-// Errors
-"networking.post_merchant.fail" = "Έμπορος θέση αποτυχία";
-
-"action.charge" = "Χρέωση";
-
-"action.search" = "Αναζήτηση";
-
+/* No comment provided by engineer. */
 "action.add" = "Προσθέστε";
 
-"action.item_setup" = "Παραμετροποίηση ειδών";
+/* No comment provided by engineer. */
+"action.cancel" = "\"Άκυρο\"";
 
+/* No comment provided by engineer. */
+"action.charge" = "Χρέωση";
+
+/* (No Commment) */
 "action.enter_amount" = "Εισάγετε το ποσό";
 
-"user_current_location" = "Χρησιμοποιήστε την τρέχουσα θέση";
+/* No comment provided by engineer. */
+"action.item_setup" = "Παραμετροποίηση ειδών";
 
+/* No comment provided by engineer. */
+"action.save" = "Αποθήκευση";
+
+/* No comment provided by engineer. */
+"action.search" = "Αναζήτηση";
+
+/* No comment provided by engineer. */
+"action_picker.categories" = "Κατηγορία";
+
+/* No comment provided by engineer. */
+"action_picker.currency" = "Νόμισμα";
+
+/* No comment provided by engineer. */
+"action_picker.sort_order" = "Προβλέπει σειρά ταξινόμησης";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.name" = "Λείπει το όνομα";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.name.detail" = "Στοιχείο απαιτεί ένα όνομα.";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.price" = "Λείπουν τιμή";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.price.detail" = "Στοιχείο απαιτεί μια τιμή.";
+
+/* No comment provided by engineer. */
+"addItem.error.zero.price" = "Μη έγκυρη τιμή";
+
+/* No comment provided by engineer. */
+"addItem.error.zero.price.detail" = "Τιμή τιμή πρέπει να είναι μεγαλύτερο από 0";
+
+/* No comment provided by engineer. */
+"alert.ok" = "Ok";
+
+/* No comment provided by engineer. */
+"currency.picker.title" = "Νόμισμα";
+
+/* No comment provided by engineer. */
+"general.NA" = "Δ/Υ";
+
+/* No comment provided by engineer. */
+"general.Oops" = "Ωχ";
+
+/* No comment provided by engineer. */
+"general.done" = "Γίνει";
+
+/* No comment provided by engineer. */
+"general.save" = "Αποθηκευτεί";
+
+/* No comment provided by engineer. */
+"item.list.custom" = "Προσαρμοσμένο ποσό";
+
+/* No comment provided by engineer. */
+"item.list.noitems" = "Κανένα στοιχείο δεν";
+
+/* No comment provided by engineer. */
+"item.list.number_of_item" = "(είδος%lu)";
+
+/* No comment provided by engineer. */
+"item.list.number_of_items" = "(%lu αντικείμενα)";
+
+/* (No Commment) */
+"item.list.payment" = "Πληρωμής";
+
+/* (No Commment) */
 "locations" = "Καφέ/ποτό/τρώνε/περνούν";
 
+/* No comment provided by engineer. */
+"merchant.email.error_not_supported" = "Ηλεκτρονικό ταχυδρομείο δεν υποστηρίζεται";
+
+/* No comment provided by engineer. */
+"merchant.email.error_not_supported_detail" = "Αυτή η συσκευή δεν υποστηρίζει στέλνοντας ένα email.";
+
+/* No comment provided by engineer. */
+"merchant.email.error_sending_message" = "Σφάλμα κατά την αποστολή Email.  Παρακαλώ ελέγξτε το email σας και να στείλετε ξανά.";
+
+/* No comment provided by engineer. */
+"merchant.email.hi" = "Γεια σου";
+
+/* No comment provided by engineer. */
+"merchant.email.invalid" = "Μη έγκυρο Email";
+
+/* No comment provided by engineer. */
+"merchant.email.invalid.detail" = "Παρακαλώ εισάγετε μια έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου.";
+
+/* No comment provided by engineer. */
+"merchant.email.receiptInfo" = "Εδώ είναι η απόδειξή σας για σας %@ σε %@ σε %@.";
+
+/* No comment provided by engineer. */
+"merchant.email.subject" = "Παραλαβή από %@";
+
+/* No comment provided by engineer. */
+"merchant.email.thanks" = "Σας ευχαριστούμε που χρησιμοποιείτε Blockchain εμπορικής!";
+
+/* (No Commment) */
+"navigation.item_setup" = "Παραμετροποίηση ειδών";
+
+/* (No Commment) */
+"navigation.login" = "Σύνδεση";
+
+/* (No Commment) */
+"navigation.logout" = "Αποσύνδεση";
+
+/* No comment provided by engineer. */
+"navigation.pos" = "ΠΩΣ";
+
+/* No comment provided by engineer. */
+"navigation.price_news" = "Τιμή & Ειδήσεις";
+
+/* No comment provided by engineer. */
+"navigation.settings" = "Ρυθμίσεις";
+
+/* No comment provided by engineer. */
+"navigation.transactions" = "Συναλλαγές";
+
+/* No comment provided by engineer. */
+"network.problem.detail" = "Αντιμετωπίσαμε ένα θέμα δικτύωσης.  Παρακαλώ ξαναπροσπαθήστε.";
+
+/* No comment provided by engineer. */
+"network.problem.title" = "Σφάλμα δικτύου";
+
+/* No comment provided by engineer. */
+"networking.post_merchant.fail" = "Έμπορος θέση αποτυχία";
+
+/* No comment provided by engineer. */
+"pin.entry.enter_new_passcode" = "Εισάγετε το νέο κωδικό πρόσβασης";
+
+/* No comment provided by engineer. */
+"pin.entry.enter_passcode" = "Εισάγετε τον κωδικό πρόσβασής σας";
+
+/* No comment provided by engineer. */
+"pin.entry.password_incorrect" = "Εσφαλμένο κωδικό πρόσβασης";
+
+/* No comment provided by engineer. */
+"pin.entry.re_enter_passcode" = "Πληκτρολογήστε ξανά τον κωδικό πρόσβασής σας";
+
+/* No comment provided by engineer. */
+"pin.entry.validation_failed" = "Passcode επικύρωση απέτυχε";
+
+/* No comment provided by engineer. */
+"pin.info.reset_pin" = "Επαναφορά του Pin";
+
+/* No comment provided by engineer. */
+"pin.info.set_pin" = "Ορισμός Pin";
+
+/* No comment provided by engineer. */
+"qr.insufficient.payment.message" = "Ζητούνται %@, έλαβε %@ BTC. QR εικόνα άλλαξε ώστε να αντικατοπτρίζει το οφειλόμενο ποσό.";
+
+/* No comment provided by engineer. */
+"qr.insufficient.payment.title" = "Ανεπαρκής πληρωμή";
+
+/* No comment provided by engineer. */
+"qr.scanning.permission.detail" = "Πηγαίνετε στο ρυθμίσεις και ενεργοποίηση πρόσβασης κάμερα για έμπορο Blockchain.";
+
+/* No comment provided by engineer. */
+"qr.scanning.permission.title" = "Ενεργοποιεί την πρόσβαση της κάμερας";
+
+/* No comment provided by engineer. */
+"qr.trasnasction.info.waiting" = "Αναμονή για πληρωμή";
+
+/* No comment provided by engineer. */
+"setting.business_address.category" = "Κατηγορία";
+
+/* No comment provided by engineer. */
+"setting.business_address.city" = "Πόλη των επιχειρήσεων";
+
+/* No comment provided by engineer. */
+"setting.business_address.title" = "Επαγγελματική διεύθυνση";
+
+/* No comment provided by engineer. */
+"setting.business_address.zipcode" = "Επιχείρηση ταχυδρομικό κώδικα";
+
+/* No comment provided by engineer. */
+"setting.currency.title" = "Νόμισμα";
+
+/* No comment provided by engineer. */
+"setting.description.title" = "Περιγραφή";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.title" = "Λίστα καταλόγου";
+
+/* No comment provided by engineer. */
+"setting.location_services.disabled.detail" = "Πηγαίνετε στο ρυθμίσεις απορρήτου σας και ενεργοποιήστε τις υπηρεσίες τοποθεσίας για έμπορο Blockchain.";
+
+/* No comment provided by engineer. */
+"setting.location_services.disabled.title" = "Τοποθεσία υπηρεσίες άτομα με ειδικές ανάγκες";
+
+/* No comment provided by engineer. */
+"setting.location_services.locating" = "Εντόπιση";
+
+/* No comment provided by engineer. */
+"setting.location_services.trouble_finding.detail" = "Παρακαλώ προσπαθήστε ξανά";
+
+/* No comment provided by engineer. */
+"setting.location_services.trouble_finding.title" = "Σφάλμα διαπίστωση θέση";
+
+/* No comment provided by engineer. */
+"setting.merchant_listing.value_error.detail" = "Λίστα καταλόγου απαιτεί από εσάς να παρέχουν μια εταιρική επωνυμία, διεύθυνση, πόλη, ταχυδρομικό κώδικα, τηλέφωνο, web διεύθυνση url και μια περιγραφή.";
+
+/* No comment provided by engineer. */
+"setting.merchant_listing.value_error.title" = "Πληροφορίες που λείπουν";
+
+/* No comment provided by engineer. */
+"setting.name.title" = "Εταιρική επωνυμία";
+
+/* No comment provided by engineer. */
+"setting.phone_validation_error.detail" = "Το τηλέφωνο δεν αναγνωρίζεται ως ένα αριθμό.";
+
+/* No comment provided by engineer. */
+"setting.phone_validation_error.title" = "Αριθμός τηλεφώνου δεν είναι έγκυρη";
+
+/* No comment provided by engineer. */
+"setting.sort_order.alphabetical.title" = "Αλφαβητική";
+
+/* No comment provided by engineer. */
+"setting.sort_order.creation.title" = "Ημερομηνία προσθήκης";
+
+/* No comment provided by engineer. */
+"setting.sort_order.recent.title" = "Αύξησα πρόσφατα συναλλαγή";
+
+/* No comment provided by engineer. */
+"setting.sort_order.title" = "Προβλέπει σειρά ταξινόμησης";
+
+/* No comment provided by engineer. */
+"setting.telephone.title" = "Τηλέφωνο";
+
+/* No comment provided by engineer. */
+"setting.url_validation_error.detail" = "Η διεύθυνση που εισάγατε δεν είναι έγκυρος";
+
+/* No comment provided by engineer. */
+"setting.url_validation_error.title" = "Η ιστοσελίδα δεν είναι έγκυρος";
+
+/* No comment provided by engineer. */
+"setting.wallet_address.title" = "Διεύθυνση";
+
+/* No comment provided by engineer. */
+"setting.website.title" = "Ιστοσελίδα";
+
+/* No comment provided by engineer. */
+"signup.alert.title" = "Δοκίμασε ξανά";
+
+/* No comment provided by engineer. */
+"signup.business.name" = "Εταιρική επωνυμία";
+
+/* No comment provided by engineer. */
+"signup.currency.name" = "Νόμισμα";
+
+/* No comment provided by engineer. */
+"signup.pin.reset" = "Επαναφορά του Pin";
+
+/* No comment provided by engineer. */
+"signup.pin.set" = "Ορισμός Pin";
+
+/* No comment provided by engineer. */
+"signup.wallet.name" = "Διεύθυνση πορτοφόλι";
+
+/* No comment provided by engineer. */
+"signup.warning" = "Εταιρική επωνυμία, έγκυρη διεύθυνση πορτοφόλι και νόμισμα απαιτούνται.";
+
+/* No comment provided by engineer. */
+"transaction.detail.minutes" = "λεπτά";
+
+/* No comment provided by engineer. */
+"transaction.detail.seconds" = "δευτερόλεπτα";
+
+/* No comment provided by engineer. */
+"transaction.detail.time.ago" = "%.0f %@ πριν";
+
+/* No comment provided by engineer. */
+"user_current_location" = "Χρησιμοποιήστε την τρέχουσα τοποθεσία";
+
+/* (No Commment) */
 "welcome.hi" = "Γεια σου!";
 
-"welcome.setup" = "Πατήστε το κουμπί για να συσταθεί εμπορικό απολογισμό σας!";
-
+/* (No Commment) */
 "welcome.lets_go" = "Αφήνει να πάει!";
+
+/* (No Commment) */
+"welcome.setup" = "Πατήστε το κουμπί για να συσταθεί εμπορικό απολογισμό σας!";
 

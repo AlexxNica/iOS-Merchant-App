@@ -1,216 +1,300 @@
-/* 
-  Localizable.strings
-  Merchant
-  Created by User on 10/23/14.
-  Copyright (c) 2014 com. All rights reserved.
-*/
-// Generics
-"alert.ok" = "Tamam";
-
-"action.save" = "Kaydet";
-
-"action.cancel" = "İptal";
-
-"general.NA" = "N/A";
-
-"general.Oops" = "Oops";
-
-"general.save" = "Kaydedilen";
-
-"general.done" = "Bitmiş";
-
-// Networking
-"network.problem.title" = "Ağ hatası";
-
-"network.problem.detail" = "Bir ağ sorunu ile karşılaştı.  Lütfen yeniden deneyin.";
-
-// Transaction Detail
-"transaction.detail.seconds" = "saniye";
-
-"transaction.detail.minutes" = "dakika";
-
-"transaction.detail.time.ago" = "%.0f %@ önce";
-
-// QR Code Scanning
-"qr.scanning.permission.title" = "Kamera erişimi etkinleştir";
-
-"qr.scanning.permission.detail" = "Ayarları ve kamera erişimi etkinleştir Blockchain tüccar için gidin.";
-
-// Sign Up
-"signup.alert.title" = "Yeniden Deneyin";
-
-"signup.warning" = "İşletme adı, geçerli cüzdan adresi ve para birimi gereklidir.";
-
-"signup.business.name" = "İş adı";
-
-"signup.wallet.name" = "M-cüzdan adresi";
-
-"signup.currency.name" = "Para birimi";
-
-"signup.pin.set" = "Set Pin";
-
-"signup.pin.reset" = "PIN'i Sıfırla";
-
-// Currency Picker
-"currency.picker.title" = "Para birimi";
-
-// Navigation
-"navigation.pos" = "POS";
-
-"navigation.item_setup" = "Madde ayarı";
-
-"navigation.transactions" = "Hareketleri";
-
-"navigation.settings" = "Ayarlar";
-
-"navigation.price_news" = "Fiyat & Haberler";
-
-"navigation.logout" = "Oturum kapatma";
-
-"navigation.login" = "Oturum açma";
-
-// Add Item
-"addItem.error.missing.name" = "Adı eksik";
-
-"addItem.error.missing.name.detail" = "Öğenin adını gerektirir.";
-
-"addItem.error.missing.price" = "Eksik fiyat";
-
-"addItem.error.missing.price.detail" = "Madde bir fiyat gerektirir.";
-
-"addItem.error.zero.price" = "Geçersiz fiyat";
-
-"addItem.error.zero.price.detail" = "Fiyat değeri 0'dan büyük olmalıdır";
-
-// POS
-"item.list.noitems" = "Öğe yok";
-
-"item.list.custom" = "Özel";
-
-"item.list.number_of_item" = "(%lu madde)";
-
-"item.list.number_of_items" = "(%lu öğe)";
-
-// Transaction
-"qr.trasnasction.info.waiting" = "Ödeme bekliyorum";
-
-// Pin Entry
+/* (No Commment) */
 "Cancel" = "İptal";
 
-"pin.entry.enter_passcode" = "Senin giriş kodunu girin";
-
-"pin.entry.enter_new_passcode" = "Yeni bir geçiş kodu girin";
-
-"pin.entry.re_enter_passcode" = "Senin şifreyi yeniden girin";
-
-"pin.entry.validation_failed" = "Parola doğrulama başarısız oldu";
-
-"pin.entry.password_incorrect" = "Yanlış şifre";
-
-"pin.info.reset_pin" = "PIN'i Sıfırla";
-
-"pin.info.set_pin" = "Set Pin";
-
-// Merchant Email
-"merchant.email.hi" = "Merhaba";
-
-"merchant.email.receiptInfo" = "%@ üzerinde %@, senin %@ için belgeler burada.";
-
-"merchant.email.thanks" = "Blockchain tüccar kullandığınız için teşekkürler!";
-
-"merchant.email.subject" = "%@ giriş";
-
-"merchant.email.error_not_supported" = "Desteklenmeyen e-posta";
-
-"merchant.email.error_not_supported_detail" = "Bu cihaz bir e-posta göndermeyi desteklemez.";
-
-"merchant.email.error_sending_message" = "E-posta gönderirken bir hata oluştu.  Lütfen e-postanızı denetleyin ve yeniden gönderin.";
-
-"merchant.email.invalid" = "Geçersiz e-posta";
-
-"merchant.email.invalid.detail" = "Lütfen geçerli bir email adresi girin.";
-
-// Currency
-"action_picker.currency" = "Para birimi";
-
-// Settings
-"setting.name.title" = "İş adı";
-
-"setting.business_address.title" = "İş adresi";
-
-"setting.business_address.city" = "İş şehir";
-
-"setting.business_address.zipcode" = "İş posta kodu";
-
-"setting.business_address.category" = "Kategori";
-
-"setting.sort_order.title" = "Öğe sıralama düzeni";
-
-"setting.telephone.title" = "Telefon";
-
-"setting.description.title" = "Açıklama";
-
-"setting.website.title" = "Web sitesi";
-
-"setting.currency.title" = "Para birimi";
-
-"setting.wallet_address.title" = "Adres";
-
-"setting.directory_listing.title" = "Dizin Listeleme";
-
-"setting.sort_order.creation.title" = "Eklenme tarihi";
-
-"setting.sort_order.recent.title" = "En son eklenen hareketle";
-
-"setting.sort_order.alphabetical.title" = "Alfabetik";
-
-"setting.location_services.trouble_finding.title" = "Hata bulma konum";
-
-"setting.location_services.trouble_finding.detail" = "Lütfen yeniden deneyin";
-
-"setting.location_services.disabled.title" = "Konum servisleri devre dışı";
-
-"setting.location_services.disabled.detail" = "Gizlilik ayarlarınıza gidin ve yer hizmetleri Blockchain tüccar için etkinleştirin.";
-
-"setting.location_services.locating" = "Bulma";
-
-"action_picker.categories" = "Kategori";
-
-"action_picker.sort_order" = "Öğe sıralama düzeni";
-
-// Settings Errors
-"setting.phone_validation_error.title" = "Geçersiz telefon numarası";
-
-"setting.phone_validation_error.detail" = "Telefon numarasını, sayı olarak tanınmıyor.";
-
-"setting.url_validation_error.title" = "Geçersiz Web sitesi";
-
-"setting.url_validation_error.detail" = "Girdiğiniz adres geçerli değil";
-
-"setting.merchant_listing.value_error.title" = "Eksik bilgileri";
-
-"setting.merchant_listing.value_error.detail" = "Dizin listesi, bir işletme adı, adres, şehir, posta kodu, telefon, web URL'sini ve açıklamasını sağlamak gerekir.";
-
-// Errors
-"networking.post_merchant.fail" = "Tüccar Post hatası";
-
-"action.charge" = "Şarj";
-
-"action.search" = "Arama";
-
+/* No comment provided by engineer. */
 "action.add" = "Ekle";
 
-"action.item_setup" = "Madde ayarı";
+/* No comment provided by engineer. */
+"action.cancel" = "İptal";
 
+/* No comment provided by engineer. */
+"action.charge" = "Şarj";
+
+/* (No Commment) */
 "action.enter_amount" = "Tutarı girin";
 
+/* No comment provided by engineer. */
+"action.item_setup" = "Madde kurulumu";
+
+/* No comment provided by engineer. */
+"action.save" = "Kaydet";
+
+/* No comment provided by engineer. */
+"action.search" = "Arama";
+
+/* No comment provided by engineer. */
+"action_picker.categories" = "Kategori";
+
+/* No comment provided by engineer. */
+"action_picker.currency" = "Para birimi";
+
+/* No comment provided by engineer. */
+"action_picker.sort_order" = "Öğe sıralama düzeni";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.name" = "Adı eksik";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.name.detail" = "Madde bir adı gerektirir.";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.price" = "Eksik fiyat";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.price.detail" = "Madde bir fiyat gerektirir.";
+
+/* No comment provided by engineer. */
+"addItem.error.zero.price" = "Geçersiz fiyat";
+
+/* No comment provided by engineer. */
+"addItem.error.zero.price.detail" = "Fiyat değeri 0'dan büyük olmalıdır";
+
+/* No comment provided by engineer. */
+"alert.ok" = "Tamam";
+
+/* No comment provided by engineer. */
+"currency.picker.title" = "Para birimi";
+
+/* No comment provided by engineer. */
+"general.NA" = "N/A";
+
+/* No comment provided by engineer. */
+"general.Oops" = "Oops";
+
+/* No comment provided by engineer. */
+"general.done" = "Bitmiş";
+
+/* No comment provided by engineer. */
+"general.save" = "Kaydedilen";
+
+/* No comment provided by engineer. */
+"item.list.custom" = "Özel tutarı";
+
+/* No comment provided by engineer. */
+"item.list.noitems" = "Öğe yok";
+
+/* No comment provided by engineer. */
+"item.list.number_of_item" = "(%lu madde)";
+
+/* No comment provided by engineer. */
+"item.list.number_of_items" = "(%lu öğe)";
+
+/* (No Commment) */
+"item.list.payment" = "Ödeme";
+
+/* (No Commment) */
+"locations" = "Cafe/içki/yemek/harcamak";
+
+/* No comment provided by engineer. */
+"merchant.email.error_not_supported" = "Desteklenmeyen e-posta";
+
+/* No comment provided by engineer. */
+"merchant.email.error_not_supported_detail" = "Bu cihaz bir e-posta göndermeyi desteklemez.";
+
+/* No comment provided by engineer. */
+"merchant.email.error_sending_message" = "E-posta gönderme hatası.  Lütfen e-postanızı denetleyin ve yeniden gönderin.";
+
+/* No comment provided by engineer. */
+"merchant.email.hi" = "Merhaba";
+
+/* No comment provided by engineer. */
+"merchant.email.invalid" = "Geçersiz e-posta";
+
+/* No comment provided by engineer. */
+"merchant.email.invalid.detail" = "Lütfen geçerli bir email adresi girin.";
+
+/* No comment provided by engineer. */
+"merchant.email.receiptInfo" = "%@ üzerinde %@, senin %@ için belgeler burada.";
+
+/* No comment provided by engineer. */
+"merchant.email.subject" = "%@ giriş";
+
+/* No comment provided by engineer. */
+"merchant.email.thanks" = "Blockchain tüccar kullandığınız için teşekkürler!";
+
+/* (No Commment) */
+"navigation.item_setup" = "Madde kurulumu";
+
+/* (No Commment) */
+"navigation.login" = "Oturum açma";
+
+/* (No Commment) */
+"navigation.logout" = "Oturum kapatma";
+
+/* No comment provided by engineer. */
+"navigation.pos" = "POS";
+
+/* No comment provided by engineer. */
+"navigation.price_news" = "Fiyat & Haberler";
+
+/* No comment provided by engineer. */
+"navigation.settings" = "Ayarlar";
+
+/* No comment provided by engineer. */
+"navigation.transactions" = "Hareketleri";
+
+/* No comment provided by engineer. */
+"network.problem.detail" = "Bir ağ sorunu ile karşılaştı.  Lütfen yeniden deneyin.";
+
+/* No comment provided by engineer. */
+"network.problem.title" = "Ağ hatası";
+
+/* No comment provided by engineer. */
+"networking.post_merchant.fail" = "Tüccar Post hatası";
+
+/* No comment provided by engineer. */
+"pin.entry.enter_new_passcode" = "Yeni giriş kodunu girin";
+
+/* No comment provided by engineer. */
+"pin.entry.enter_passcode" = "Senin giriş kodunu girin";
+
+/* No comment provided by engineer. */
+"pin.entry.password_incorrect" = "Şifre yanlış";
+
+/* No comment provided by engineer. */
+"pin.entry.re_enter_passcode" = "Senin giriş kodunu yeniden girin";
+
+/* No comment provided by engineer. */
+"pin.entry.validation_failed" = "Parola doğrulama başarısız oldu";
+
+/* No comment provided by engineer. */
+"pin.info.reset_pin" = "PIN'i Sıfırla";
+
+/* No comment provided by engineer. */
+"pin.info.set_pin" = "Set Pin";
+
+/* No comment provided by engineer. */
+"qr.insufficient.payment.message" = "%@, alınan %@ BTC istedi. QR görüntü alacak tutarı yansıtacak şekilde değiştirildi.";
+
+/* No comment provided by engineer. */
+"qr.insufficient.payment.title" = "Yetersiz ödeme";
+
+/* No comment provided by engineer. */
+"qr.scanning.permission.detail" = "Ayarları ve kamera erişimi etkinleştir Blockchain tüccar için gidin.";
+
+/* No comment provided by engineer. */
+"qr.scanning.permission.title" = "Kamera erişimi etkinleştir";
+
+/* No comment provided by engineer. */
+"qr.trasnasction.info.waiting" = "Ödeme bekliyorum";
+
+/* No comment provided by engineer. */
+"setting.business_address.category" = "Kategori";
+
+/* No comment provided by engineer. */
+"setting.business_address.city" = "İş şehir";
+
+/* No comment provided by engineer. */
+"setting.business_address.title" = "İş adresi";
+
+/* No comment provided by engineer. */
+"setting.business_address.zipcode" = "İş posta kodu";
+
+/* No comment provided by engineer. */
+"setting.currency.title" = "Para birimi";
+
+/* No comment provided by engineer. */
+"setting.description.title" = "Açıklama";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.title" = "Dizin listesi";
+
+/* No comment provided by engineer. */
+"setting.location_services.disabled.detail" = "Gizlilik ayarlarınıza gidin ve konum Hizmetleri Blockchain tüccar için etkinleştirin.";
+
+/* No comment provided by engineer. */
+"setting.location_services.disabled.title" = "Yer hizmetleri devre dışı";
+
+/* No comment provided by engineer. */
+"setting.location_services.locating" = "Bulma";
+
+/* No comment provided by engineer. */
+"setting.location_services.trouble_finding.detail" = "Lütfen yeniden deneyin";
+
+/* No comment provided by engineer. */
+"setting.location_services.trouble_finding.title" = "Hata bulma konum";
+
+/* No comment provided by engineer. */
+"setting.merchant_listing.value_error.detail" = "Dizin listesi, bir işletme adı, adres, şehir, posta kodu, telefon, web URL'sini ve açıklamasını sağlamak gerekir.";
+
+/* No comment provided by engineer. */
+"setting.merchant_listing.value_error.title" = "Eksik bilgileri";
+
+/* No comment provided by engineer. */
+"setting.name.title" = "İş adı";
+
+/* No comment provided by engineer. */
+"setting.phone_validation_error.detail" = "Telefon numarasını bir sayı olarak tanınmıyor.";
+
+/* No comment provided by engineer. */
+"setting.phone_validation_error.title" = "Geçersiz telefon numarası";
+
+/* No comment provided by engineer. */
+"setting.sort_order.alphabetical.title" = "Alfabetik";
+
+/* No comment provided by engineer. */
+"setting.sort_order.creation.title" = "Eklenme tarihi";
+
+/* No comment provided by engineer. */
+"setting.sort_order.recent.title" = "En son eklenen hareketle";
+
+/* No comment provided by engineer. */
+"setting.sort_order.title" = "Öğe sıralama düzeni";
+
+/* No comment provided by engineer. */
+"setting.telephone.title" = "Telefon";
+
+/* No comment provided by engineer. */
+"setting.url_validation_error.detail" = "Girdiğiniz adres geçerli değil";
+
+/* No comment provided by engineer. */
+"setting.url_validation_error.title" = "Geçersiz Web sitesi";
+
+/* No comment provided by engineer. */
+"setting.wallet_address.title" = "Adres";
+
+/* No comment provided by engineer. */
+"setting.website.title" = "Web sitesi";
+
+/* No comment provided by engineer. */
+"signup.alert.title" = "Yeniden Deneyin";
+
+/* No comment provided by engineer. */
+"signup.business.name" = "İş adı";
+
+/* No comment provided by engineer. */
+"signup.currency.name" = "Para birimi";
+
+/* No comment provided by engineer. */
+"signup.pin.reset" = "PIN'i Sıfırla";
+
+/* No comment provided by engineer. */
+"signup.pin.set" = "Set Pin";
+
+/* No comment provided by engineer. */
+"signup.wallet.name" = "M-cüzdan adresi";
+
+/* No comment provided by engineer. */
+"signup.warning" = "İşletme adı, geçerli cüzdan adresi ve para birimi gereklidir.";
+
+/* No comment provided by engineer. */
+"transaction.detail.minutes" = "dakika";
+
+/* No comment provided by engineer. */
+"transaction.detail.seconds" = "saniye";
+
+/* No comment provided by engineer. */
+"transaction.detail.time.ago" = "%.0f %@ önce";
+
+/* No comment provided by engineer. */
 "user_current_location" = "Geçerli konum kullanın";
 
-"locations" = "Cafe/içki/yemek/harcama";
-
+/* (No Commment) */
 "welcome.hi" = "Merhaba!";
 
-"welcome.setup" = "Ticari hesabınızı kurmak için düğmeye dokunun!";
-
+/* (No Commment) */
 "welcome.lets_go" = "Gidelim!";
+
+/* (No Commment) */
+"welcome.setup" = "Ticari hesabınızı kurmak için düğmeye dokunun!";
 

@@ -1,216 +1,300 @@
-/* 
-  Localizable.strings
-  Merchant
-  Created by User on 10/23/14.
-  Copyright (c) 2014 com. All rights reserved.
-*/
-// Generics
-"alert.ok" = "אוקיי";
-
-"action.save" = "שמור";
-
-"action.cancel" = "ביטול";
-
-"general.NA" = "N/A";
-
-"general.Oops" = ". אופס";
-
-"general.save" = "הציל";
-
-"general.done" = "עשיתי";
-
-// Networking
-"network.problem.title" = "שגיאת רשת";
-
-"network.problem.detail" = "נתקלנו בעיית רשת.  נא נסה שוב.";
-
-// Transaction Detail
-"transaction.detail.seconds" = "שניות";
-
-"transaction.detail.minutes" = "דקות";
-
-"transaction.detail.time.ago" = "%.0f %@ לפני";
-
-// QR Code Scanning
-"qr.scanning.permission.title" = "לאפשר גישה המצלמה";
-
-"qr.scanning.permission.detail" = "ללכת הגדרות המצלמה אפשר גישה עבור הסוחר Blockchain.";
-
-// Sign Up
-"signup.alert.title" = "נסה שוב";
-
-"signup.warning" = "שם העסק, כתובת הארנק חוקי ומטבע נדרשים.";
-
-"signup.business.name" = "שם העסק";
-
-"signup.wallet.name" = "הארנק כתובת";
-
-"signup.currency.name" = "מטבע";
-
-"signup.pin.set" = "הסיכה קבוע";
-
-"signup.pin.reset" = "איפוס Pin";
-
-// Currency Picker
-"currency.picker.title" = "מטבע";
-
-// Navigation
-"navigation.pos" = "POS";
-
-"navigation.item_setup" = "הגדרת פריט";
-
-"navigation.transactions" = "תנועות";
-
-"navigation.settings" = "הגדרות";
-
-"navigation.price_news" = "מחיר & חדשות";
-
-"navigation.logout" = "יציאה מהמערכת";
-
-"navigation.login" = "כניסה";
-
-// Add Item
-"addItem.error.missing.name" = "שם חסר";
-
-"addItem.error.missing.name.detail" = "פריט דורש שם.";
-
-"addItem.error.missing.price" = "חסר מחיר";
-
-"addItem.error.missing.price.detail" = "פריט דורש מחיר.";
-
-"addItem.error.zero.price" = "מחיר לא חוקי";
-
-"addItem.error.zero.price.detail" = "מחיר ערך חייב להיות גדול מ- 0";
-
-// POS
-"item.list.noitems" = "אין פריטים";
-
-"item.list.custom" = "מותאם אישית";
-
-"item.list.number_of_item" = "(פריט%lu)";
-
-"item.list.number_of_items" = "(%lu פריטים)";
-
-// Transaction
-"qr.trasnasction.info.waiting" = "מחכה לתשלום";
-
-// Pin Entry
+/* (No Commment) */
 "Cancel" = "ביטול";
 
-"pin.entry.enter_passcode" = "הזן את הסיסמא שלך";
-
-"pin.entry.enter_new_passcode" = "הזן קוד גישה חדש";
-
-"pin.entry.re_enter_passcode" = "הזן מחדש את הסיסמא שלך";
-
-"pin.entry.validation_failed" = "אימות קוד הגישה נכשלה";
-
-"pin.entry.password_incorrect" = "קוד שגוי";
-
-"pin.info.reset_pin" = "איפוס Pin";
-
-"pin.info.set_pin" = "הסיכה קבוע";
-
-// Merchant Email
-"merchant.email.hi" = "היי";
-
-"merchant.email.receiptInfo" = "הנה הקבלה שלך עבור שלך %@-%@-%@.";
-
-"merchant.email.thanks" = "תודה על שימוש Blockchain סוחר!";
-
-"merchant.email.subject" = "קבלות מ- %@";
-
-"merchant.email.error_not_supported" = "דואר אלקטרוני אינו נתמך";
-
-"merchant.email.error_not_supported_detail" = "התקן זה אינו תומך שליחת מייל.";
-
-"merchant.email.error_sending_message" = "שגיאה בעת שליחת דואר אלקטרוני.  אנא בדוק את הדוא ל שלך ולשלוח שוב.";
-
-"merchant.email.invalid" = "דוא ל לא חוקית";
-
-"merchant.email.invalid.detail" = "אנא הזינו כתובת דוא ל חוקית.";
-
-// Currency
-"action_picker.currency" = "מטבע";
-
-// Settings
-"setting.name.title" = "שם העסק";
-
-"setting.business_address.title" = "כתובת העבודה";
-
-"setting.business_address.city" = "עסקים בעיר";
-
-"setting.business_address.zipcode" = "מיקוד עסקי";
-
-"setting.business_address.category" = "קטגוריה";
-
-"setting.sort_order.title" = "סדר המיון פריט";
-
-"setting.telephone.title" = "טלפון";
-
-"setting.description.title" = "תיאור";
-
-"setting.website.title" = "אתר אינטרנט";
-
-"setting.currency.title" = "מטבע";
-
-"setting.wallet_address.title" = "כתובת";
-
-"setting.directory_listing.title" = "מפירוט הספריה";
-
-"setting.sort_order.creation.title" = "תאריך נוסף";
-
-"setting.sort_order.recent.title" = "נוסף לאחרונה עסקה";
-
-"setting.sort_order.alphabetical.title" = "האלף-בית";
-
-"setting.location_services.trouble_finding.title" = "מיקום מציאת שגיאת";
-
-"setting.location_services.trouble_finding.detail" = "אנא נסה שנית";
-
-"setting.location_services.disabled.title" = "מיקום שירותי נכים";
-
-"setting.location_services.disabled.detail" = "ללכת להגדרות הפרטיות שלך ולאפשר שירותי המיקום עבור הסוחר Blockchain.";
-
-"setting.location_services.locating" = "איתור";
-
-"action_picker.categories" = "קטגוריה";
-
-"action_picker.sort_order" = "סדר המיון פריט";
-
-// Settings Errors
-"setting.phone_validation_error.title" = "מספר טלפון לא חוקי";
-
-"setting.phone_validation_error.detail" = "מספר הטלפון אינו מזוהה כמספר.";
-
-"setting.url_validation_error.title" = "צירוף לא חוקי של האתר";
-
-"setting.url_validation_error.detail" = "כתובת שהוזנה אינה חוקית";
-
-"setting.merchant_listing.value_error.title" = "מידע חסר";
-
-"setting.merchant_listing.value_error.detail" = "מפירוט הספריה דורש ממך לספק שם העסק, כתובת, עיר, מיקוד, טלפון, כתובת אינטרנט, ותיאור.";
-
-// Errors
-"networking.post_merchant.fail" = "כשל פוסט צי הסוחר";
-
-"action.charge" = "תשלום";
-
-"action.search" = "חיפוש";
-
+/* No comment provided by engineer. */
 "action.add" = "להוסיף";
 
-"action.item_setup" = "הגדרת פריט";
+/* No comment provided by engineer. */
+"action.cancel" = "ביטול";
 
+/* No comment provided by engineer. */
+"action.charge" = "תשלום";
+
+/* (No Commment) */
 "action.enter_amount" = "הזן את הסכום";
 
-"user_current_location" = "השתמש במיקום הנוכחי";
+/* No comment provided by engineer. */
+"action.item_setup" = "הגדרת פריט";
 
+/* No comment provided by engineer. */
+"action.save" = "שמור";
+
+/* No comment provided by engineer. */
+"action.search" = "חיפוש";
+
+/* No comment provided by engineer. */
+"action_picker.categories" = "קטגוריה";
+
+/* No comment provided by engineer. */
+"action_picker.currency" = "מטבע";
+
+/* No comment provided by engineer. */
+"action_picker.sort_order" = "סדר המיון פריט";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.name" = "שם חסר";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.name.detail" = "פריט דורש שם.";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.price" = "חסר מחיר";
+
+/* No comment provided by engineer. */
+"addItem.error.missing.price.detail" = "פריט דורש מחיר.";
+
+/* No comment provided by engineer. */
+"addItem.error.zero.price" = "מחיר לא חוקי";
+
+/* No comment provided by engineer. */
+"addItem.error.zero.price.detail" = "מחיר ערך חייב להיות גדול מ- 0";
+
+/* No comment provided by engineer. */
+"alert.ok" = "אוקיי";
+
+/* No comment provided by engineer. */
+"currency.picker.title" = "מטבע";
+
+/* No comment provided by engineer. */
+"general.NA" = "N/A";
+
+/* No comment provided by engineer. */
+"general.Oops" = ". אופס";
+
+/* No comment provided by engineer. */
+"general.done" = "עשיתי";
+
+/* No comment provided by engineer. */
+"general.save" = "הציל";
+
+/* No comment provided by engineer. */
+"item.list.custom" = "סכום מותאם אישית";
+
+/* No comment provided by engineer. */
+"item.list.noitems" = "אין פריטים";
+
+/* No comment provided by engineer. */
+"item.list.number_of_item" = "(פריט%lu)";
+
+/* No comment provided by engineer. */
+"item.list.number_of_items" = "(%lu פריטים)";
+
+/* (No Commment) */
+"item.list.payment" = "התשלום";
+
+/* (No Commment) */
 "locations" = "בית קפה/לשתות/לאכול/לבלות";
 
+/* No comment provided by engineer. */
+"merchant.email.error_not_supported" = "דואר אלקטרוני אינו נתמך";
+
+/* No comment provided by engineer. */
+"merchant.email.error_not_supported_detail" = "התקן זה אינו תומך שליחת מייל.";
+
+/* No comment provided by engineer. */
+"merchant.email.error_sending_message" = "שגיאה בעת שליחת דואר אלקטרוני.  אנא בדוק את הדוא ל שלך, שלח שוב.";
+
+/* No comment provided by engineer. */
+"merchant.email.hi" = "היי";
+
+/* No comment provided by engineer. */
+"merchant.email.invalid" = "דוא ל לא חוקית";
+
+/* No comment provided by engineer. */
+"merchant.email.invalid.detail" = "הזינו כתובת דוא ל חוקית.";
+
+/* No comment provided by engineer. */
+"merchant.email.receiptInfo" = "הנה הקבלה שלך עבור שלך %@-%@-%@.";
+
+/* No comment provided by engineer. */
+"merchant.email.subject" = "קבלות מ- %@";
+
+/* No comment provided by engineer. */
+"merchant.email.thanks" = "תודה על שימוש Blockchain סוחר!";
+
+/* (No Commment) */
+"navigation.item_setup" = "הגדרת פריט";
+
+/* (No Commment) */
+"navigation.login" = "כניסה";
+
+/* (No Commment) */
+"navigation.logout" = "יציאה מהמערכת";
+
+/* No comment provided by engineer. */
+"navigation.pos" = "POS";
+
+/* No comment provided by engineer. */
+"navigation.price_news" = "מחיר & חדשות";
+
+/* No comment provided by engineer. */
+"navigation.settings" = "הגדרות";
+
+/* No comment provided by engineer. */
+"navigation.transactions" = "תנועות";
+
+/* No comment provided by engineer. */
+"network.problem.detail" = "נתקלנו בעיית רשת.  נא נסה שוב.";
+
+/* No comment provided by engineer. */
+"network.problem.title" = "שגיאת רשת";
+
+/* No comment provided by engineer. */
+"networking.post_merchant.fail" = "הסוחר Post כשל";
+
+/* No comment provided by engineer. */
+"pin.entry.enter_new_passcode" = "הזן קוד גישה חדש";
+
+/* No comment provided by engineer. */
+"pin.entry.enter_passcode" = "הזן את הסיסמא שלך";
+
+/* No comment provided by engineer. */
+"pin.entry.password_incorrect" = "קוד שגוי";
+
+/* No comment provided by engineer. */
+"pin.entry.re_enter_passcode" = "הזן מחדש את הסיסמא שלך";
+
+/* No comment provided by engineer. */
+"pin.entry.validation_failed" = "אימות קוד הגישה נכשלה";
+
+/* No comment provided by engineer. */
+"pin.info.reset_pin" = "איפוס Pin";
+
+/* No comment provided by engineer. */
+"pin.info.set_pin" = "הסיכה קבוע";
+
+/* No comment provided by engineer. */
+"qr.insufficient.payment.message" = "ביקש %@, %@ התקבלו BTC. התמונה QR שונתה כדי לשקף סכום לחיוב.";
+
+/* No comment provided by engineer. */
+"qr.insufficient.payment.title" = "התשלום לא מספיק";
+
+/* No comment provided by engineer. */
+"qr.scanning.permission.detail" = "ללכת הגדרות המצלמה אפשר גישה עבור הסוחר Blockchain.";
+
+/* No comment provided by engineer. */
+"qr.scanning.permission.title" = "לאפשר גישה המצלמה";
+
+/* No comment provided by engineer. */
+"qr.trasnasction.info.waiting" = "מחכה לתשלום";
+
+/* No comment provided by engineer. */
+"setting.business_address.category" = "קטגוריה";
+
+/* No comment provided by engineer. */
+"setting.business_address.city" = "עסקים בעיר";
+
+/* No comment provided by engineer. */
+"setting.business_address.title" = "כתובת העבודה";
+
+/* No comment provided by engineer. */
+"setting.business_address.zipcode" = "מיקוד עסקי";
+
+/* No comment provided by engineer. */
+"setting.currency.title" = "מטבע";
+
+/* No comment provided by engineer. */
+"setting.description.title" = "תיאור";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.title" = "מפירוט הספריה";
+
+/* No comment provided by engineer. */
+"setting.location_services.disabled.detail" = "ללכת להגדרות הפרטיות שלך ולאפשר שירותי המיקום עבור הסוחר Blockchain.";
+
+/* No comment provided by engineer. */
+"setting.location_services.disabled.title" = "מיקום שירותי נכים";
+
+/* No comment provided by engineer. */
+"setting.location_services.locating" = "איתור";
+
+/* No comment provided by engineer. */
+"setting.location_services.trouble_finding.detail" = "אנא נסה שנית";
+
+/* No comment provided by engineer. */
+"setting.location_services.trouble_finding.title" = "שגיאה מציאת מיקום";
+
+/* No comment provided by engineer. */
+"setting.merchant_listing.value_error.detail" = "מפירוט הספריה דורש ממך לספק שם העסק, כתובת, עיר, מיקוד, טלפון, כתובת אינטרנט, ותיאור.";
+
+/* No comment provided by engineer. */
+"setting.merchant_listing.value_error.title" = "מידע חסר";
+
+/* No comment provided by engineer. */
+"setting.name.title" = "שם העסק";
+
+/* No comment provided by engineer. */
+"setting.phone_validation_error.detail" = "מספר הטלפון אינו מזוהה כמספר.";
+
+/* No comment provided by engineer. */
+"setting.phone_validation_error.title" = "מספר טלפון לא חוקי";
+
+/* No comment provided by engineer. */
+"setting.sort_order.alphabetical.title" = "האלף-בית";
+
+/* No comment provided by engineer. */
+"setting.sort_order.creation.title" = "תאריך נוסף";
+
+/* No comment provided by engineer. */
+"setting.sort_order.recent.title" = "נוסף לאחרונה עסקה";
+
+/* No comment provided by engineer. */
+"setting.sort_order.title" = "סדר המיון פריט";
+
+/* No comment provided by engineer. */
+"setting.telephone.title" = "טלפון";
+
+/* No comment provided by engineer. */
+"setting.url_validation_error.detail" = "הכתובת שהוזן אינו חוקי";
+
+/* No comment provided by engineer. */
+"setting.url_validation_error.title" = "צירוף לא חוקי של האתר";
+
+/* No comment provided by engineer. */
+"setting.wallet_address.title" = "כתובת";
+
+/* No comment provided by engineer. */
+"setting.website.title" = "אתר אינטרנט";
+
+/* No comment provided by engineer. */
+"signup.alert.title" = "נסה שוב";
+
+/* No comment provided by engineer. */
+"signup.business.name" = "שם העסק";
+
+/* No comment provided by engineer. */
+"signup.currency.name" = "מטבע";
+
+/* No comment provided by engineer. */
+"signup.pin.reset" = "איפוס Pin";
+
+/* No comment provided by engineer. */
+"signup.pin.set" = "הסיכה קבוע";
+
+/* No comment provided by engineer. */
+"signup.wallet.name" = "הארנק כתובת";
+
+/* No comment provided by engineer. */
+"signup.warning" = "שם העסק, כתובת הארנק חוקי ומטבע נדרשים.";
+
+/* No comment provided by engineer. */
+"transaction.detail.minutes" = "דקות";
+
+/* No comment provided by engineer. */
+"transaction.detail.seconds" = "שניות";
+
+/* No comment provided by engineer. */
+"transaction.detail.time.ago" = "%.0f %@ לפני";
+
+/* No comment provided by engineer. */
+"user_current_location" = "השתמש במיקום הנוכחי";
+
+/* (No Commment) */
 "welcome.hi" = "היי!";
 
-"welcome.setup" = "הקש על הלחצן כדי להגדיר את חשבון סוחר!";
-
+/* (No Commment) */
 "welcome.lets_go" = "בואו נלך!";
+
+/* (No Commment) */
+"welcome.setup" = "הקש על הלחצן כדי להגדיר את חשבון סוחר!";
 
