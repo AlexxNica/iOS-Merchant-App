@@ -54,8 +54,6 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
     BCMSettingsRowCurrency,
     BCMSettingsRowWalletAddress,
     BCMSettingsRowSetPin,
-    BCMSettingsRowDirectoryListing,
-    BCMSettingsRowSortOrder,
     BCMSettingsRowCount
 };
 
@@ -265,14 +263,6 @@ static NSString *const kSettingsWithDetailCellId = @"settingWithDetailCellId";
             settingKey = kBCMBusinessCategory;
             break;
         }
-        case BCMSettingsRowSortOrder: {
-            reuseCellId = kSettingsWithDetailCellId;
-            NSNumber *sortOrder = [self.settings safeObjectForKey:kBCMItemSortOrderSettingsKey];
-            settingTitle = NSLocalizedString(@"setting.sort_order.title", nil);
-            settingValue = [[BCMMerchantManager sharedInstance] sortOrderTitle:[sortOrder unsignedIntegerValue]];
-            canEdit = NO;
-            break;
-        }
         case BCMSettingsRowTelephone:
             settingTitle = NSLocalizedString(@"setting.telephone.title", nil);
             settingKey = kBCMBusinessTelephone;
@@ -303,11 +293,6 @@ static NSString *const kSettingsWithDetailCellId = @"settingWithDetailCellId";
             }
             canEdit = NO;
             settingKey = kBCMPinSettingsKey;
-            break;
-        case BCMSettingsRowDirectoryListing:
-            settingTitle = NSLocalizedString(@"setting.directory_listing.title", nil);
-            settingKey = kBCMBusinessDirectoryListing;
-            reuseCellId = kSettingsSwitchCellId;
             break;
         default:
             settingTitle = NSLocalizedString(@"setting.wallet_address.title", nil);
@@ -457,19 +442,7 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
         } cancelBlock:^(ActionSheetStringPicker *picker) {
         } origin:self.view];
         [picker showActionSheetPicker];
-    } else if (indexPath.row == BCMSettingsRowSortOrder) {
-        NSUInteger sortOrder = [[self.settings safeObjectForKey:kBCMItemSortOrderSettingsKey] unsignedIntegerValue];
-        NSArray *sortOrderChoices = @[ [[BCMMerchantManager sharedInstance] sortOrderTitle:BCMMerchantItemSortTypeCreation], [[BCMMerchantManager sharedInstance] sortOrderTitle:BCMMerchantItemSortTypeName], [[BCMMerchantManager sharedInstance] sortOrderTitle:BCMMerchantItemSortTypeEditTime] ];
-        
-        ActionSheetStringPicker *picker = [[ActionSheetStringPicker alloc] initWithTitle:NSLocalizedString(@"action_picker.sort_order", nil) rows:sortOrderChoices initialSelection:sortOrder doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
-            [self.settings setObject:[NSNumber numberWithInteger:selectedIndex] forKey:kBCMItemSortOrderSettingsKey];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.settingsTableView reloadData];
-            });
-        } cancelBlock:^(ActionSheetStringPicker *picker) {
-        } origin:self.view];
-        [picker showActionSheetPicker];
-    }  else if (indexPath.row == BCMSettingsRowSetPin) {
+    } else if (indexPath.row == BCMSettingsRowSetPin) {
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:MAIN_STORYBOARD_NAME bundle:nil];
         UINavigationController *pinEntryViewNavController = [mainStoryboard instantiateViewControllerWithIdentifier:kPinEntryStoryboardId];
         BCPinEntryViewController *entryViewController = (BCPinEntryViewController *)pinEntryViewNavController.topViewController;
@@ -780,12 +753,6 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
         NSString *businessCurrency =  [self.settings safeObjectForKey:kBCMBusinessCurrency];
         NSString *businessWalletAddress = [self.settings safeObjectForKey:kBCMBusinessWalletAddress];
         
-        NSNumber *directoryListing = [self.settings safeObjectForKey:kBCMBusinessDirectoryListing];
-        NSNumber *sortOrder = [self.settings safeObjectForKey:kBCMItemSortOrderSettingsKey];
-
-        // If the directory listing switch is active we were previously not active we force a submission to the backend
-        BOOL forceNetworkUpdate = [directoryListing boolValue] && ([directoryListing boolValue] != activeMerchant.directoryListingValue);
-        
         BOOL merchantRequiresUpdate = NO;
         // Check to see if we actually need to updates the values
         if ([activeMerchant.businessCategory integerValue] != [businessCategory integerValue]) {
@@ -821,9 +788,6 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
         if (!merchantRequiresUpdate && ![activeMerchant.currency isEqualToString:businessCurrency]) {
             merchantRequiresUpdate = YES;
         }
-        if (!merchantRequiresUpdate && [BCMMerchantManager sharedInstance].sortOrder != [sortOrder unsignedIntegerValue]) {
-            merchantRequiresUpdate = YES;
-        }
         
         Merchant *merchant = [BCMMerchantManager sharedInstance].activeMerchant;
         merchant.businessCategory = businessCategory;
@@ -838,40 +802,6 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
         merchant.longitude = businessLatitude;
         merchant.currency =  businessCurrency;
         merchant.walletAddress = businessWalletAddress;
-        [BCMMerchantManager sharedInstance].sortOrder = [sortOrder unsignedIntegerValue];
-        
-        // Only upload to the backend if needed
-        if ([directoryListing boolValue]) {
-            
-            BOOL validEntries = [self validateValuesForMerchantListing];
-            if (validEntries) {
-                // Update backend only if needed unless we have to update it
-                if (merchantRequiresUpdate || forceNetworkUpdate) {
-                    [[BCMNetworking sharedInstance] postSuggestMerchant:activeMerchant success:^(NSURLRequest *request, NSDictionary *dict) {
-                        // We won't do anything since this is a passive operation
-                        merchant.directoryListingValue = [directoryListing boolValue];
-                        NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-                        [localContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
-                        }];
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            [self.settingsTableView reloadData];
-                        });
-                    } error:^(NSURLRequest *request, NSError *error) {
-                    }];
-                }
-            } else {
-                merchant.directoryListingValue = NO;
-                
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"setting.merchant_listing.value_error.title", nil) message:NSLocalizedString(@"setting.merchant_listing.value_error.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
-                [alertView show];
-            }
-        } else {
-            merchant.directoryListingValue = [directoryListing boolValue];
-            NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-            [localContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
-            }];
-            [self.settingsTableView reloadData];
-        }
     } else {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"signup.alert.title", nil) message:NSLocalizedString(@"signup.warning", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
         [alertView show];
