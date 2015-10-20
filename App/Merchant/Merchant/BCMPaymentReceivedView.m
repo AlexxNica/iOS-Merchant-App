@@ -19,6 +19,8 @@
 
 @property (strong, nonatomic) UIView *inputAccessoryView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UIButton *doneButton;
+@property (strong, nonatomic) IBOutlet UIButton *emailButton;
 
 @end
 
@@ -43,6 +45,8 @@
 {
     [super awakeFromNib];
     
+    self.emailButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+    self.doneButton.titleLabel.adjustsFontSizeToFitWidth = YES;
     
     [self addObservers];
 }

@@ -32,8 +32,8 @@
                             <constraints>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="72" id="O66-7h-7KM"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
-                            <state key="normal" title="Email">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                            <state key="normal" title="Email receipt">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -100,8 +100,8 @@
                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                             <animations/>
                             <color key="backgroundColor" red="0.086274509799999996" green="0.69019607839999997" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
-                            <state key="normal" title="Done">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                            <state key="normal" title="No thanks">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -137,7 +137,7 @@
                         <constraint firstAttribute="bottom" secondItem="NHx-Ag-mjp" secondAttribute="bottom" constant="235" id="VWA-q3-wDR"/>
                         <constraint firstAttribute="centerX" secondItem="C3g-Hh-d50" secondAttribute="centerX" id="XKT-jL-B59"/>
                         <constraint firstItem="NHx-Ag-mjp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lTz-cT-k2p" secondAttribute="trailing" constant="32" id="Xzs-Lk-49T"/>
-                        <constraint firstItem="lTz-cT-k2p" firstAttribute="leading" secondItem="gqt-AA-FXG" secondAttribute="leading" constant="28" id="ZkE-oM-e52"/>
+                        <constraint firstItem="lTz-cT-k2p" firstAttribute="leading" secondItem="gqt-AA-FXG" secondAttribute="leading" constant="20" id="ZkE-oM-e52"/>
                         <constraint firstItem="C3g-Hh-d50" firstAttribute="top" secondItem="gqt-AA-FXG" secondAttribute="top" constant="30" id="cHH-Eq-wAh"/>
                         <constraint firstAttribute="centerX" secondItem="NGO-RL-oxV" secondAttribute="centerX" id="cWb-KI-sq6"/>
                         <constraint firstItem="NHx-Ag-mjp" firstAttribute="top" secondItem="NGO-RL-oxV" secondAttribute="bottom" constant="30" id="nOj-Sb-XU2"/>
@@ -245,6 +245,8 @@
                 </mask>
             </variation>
             <connections>
+                <outlet property="doneButton" destination="NHx-Ag-mjp" id="EA2-rM-sZO"/>
+                <outlet property="emailButton" destination="lTz-cT-k2p" id="QQZ-KK-1Xw"/>
                 <outlet property="emailTextField" destination="NGO-RL-oxV" id="VRU-d0-CSc"/>
                 <outlet property="scrollView" destination="gqt-AA-FXG" id="MNk-NB-8PH"/>
             </connections>
