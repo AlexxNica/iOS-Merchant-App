@@ -20,6 +20,16 @@
 
 @implementation BCMCustomAmountView
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.currencyLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+    self.currencyLabel.textColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.098/255.0 alpha:0.22];
+    self.customAmountTextField.rightView = self.currencyLabel;
+    self.customAmountTextField.rightViewMode = UITextFieldViewModeAlways;
+    self.customAmountTextField.textEditingInset = UIEdgeInsetsMake(0, 50, 0, 50);
+}
+
 - (void)clear
 {
     self.customAmountTextField.text = @"";

@@ -154,6 +154,8 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     
     self.merchantItems = [[BCMMerchantManager sharedInstance] itemsSortedByCurrentSortType];
     
+    self.customAmountView.currencyLabel.text = [BCMMerchantManager sharedInstance].activeMerchant.currency;
+    
     [self.itemsTableView reloadData];
 }
 

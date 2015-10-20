@@ -26,6 +26,7 @@
 
 @property (weak, nonatomic) IBOutlet BCMTextField *customAmountTextField;
 @property (weak, nonatomic) IBOutlet UILabel *btcAmountLabel;
+@property (nonatomic) UILabel *currencyLabel;
 
 - (void)clear;
 - (void)disableCharge;
