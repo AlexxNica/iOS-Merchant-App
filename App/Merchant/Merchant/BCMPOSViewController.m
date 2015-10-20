@@ -159,6 +159,12 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     [self.itemsTableView reloadData];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.customAmountView.customAmountTextField becomeFirstResponder];
+}
+
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
