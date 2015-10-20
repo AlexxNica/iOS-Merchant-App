@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		234CA8AD1BD6953300AB7DA2 /* BCMPaymentReceivedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 234CA8AF1BD6953300AB7DA2 /* BCMPaymentReceivedView.xib */; };
+		234CA8FC1BD695A900AB7DA2 /* BCMQRCodeTransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 234CA8FE1BD695A900AB7DA2 /* BCMQRCodeTransactionView.xib */; };
 		DB30FC0C0492FD3BCF38E04C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E653431E28EC983287D12D53 /* libPods.a */; };
 		FA0614821A1355C1004F71F4 /* BCMSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0614811A1355C1004F71F4 /* BCMSwitchTableViewCell.m */; };
 		FA0614841A135E09004F71F4 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614831A135E09004F71F4 /* check@2x.png */; };
@@ -30,7 +32,6 @@
 		FA72A7FC1AC91F7A00EF0C00 /* BCPinCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA72A7FB1AC91F7A00EF0C00 /* BCPinCircleView.m */; };
 		FA72A8001ACC2C8400EF0C00 /* BCMAddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA72A7FE1ACC2C8400EF0C00 /* BCMAddItemViewController.m */; };
 		FA74B69C1A08C3B70045A4EF /* BCMPaymentReceivedView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74B69B1A08C3B70045A4EF /* BCMPaymentReceivedView.m */; };
-		FA74B69E1A08C3D20045A4EF /* BCMPaymentReceivedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA74B69D1A08C3D20045A4EF /* BCMPaymentReceivedView.xib */; };
 		FA74B6A01A08C6CC0045A4EF /* green_check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74B69F1A08C6CC0045A4EF /* green_check@2x.png */; };
 		FA74B6A31A0923490045A4EF /* BCMTransactionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74B6A21A0923490045A4EF /* BCMTransactionDetailViewController.m */; };
 		FA7900211A26ADFC001FCB3D /* red_check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7900201A26ADFC001FCB3D /* red_check@2x.png */; };
@@ -54,7 +55,6 @@
 		FA9982411A03B960006C7D2F /* search_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9982401A03B960006C7D2F /* search_icon@2x.png */; };
 		FA9982441A03C330006C7D2F /* UIViewController+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9982431A03C330006C7D2F /* UIViewController+Utilities.m */; };
 		FA99825F1A03E849006C7D2F /* BCMQRCodeTransactionView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99825E1A03E849006C7D2F /* BCMQRCodeTransactionView.m */; };
-		FA9982611A03E855006C7D2F /* BCMQRCodeTransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9982601A03E855006C7D2F /* BCMQRCodeTransactionView.xib */; };
 		FA9982631A03E8FE006C7D2F /* mock_qr_code@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9982621A03E8FE006C7D2F /* mock_qr_code@2x.png */; };
 		FA9FF3C31A07F2A300D732EC /* BCMTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9FF3C21A07F2A300D732EC /* BCMTextFieldTableViewCell.m */; };
 		FA9FF3C61A07F5C600D732EC /* BCMNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9FF3C51A07F5C600D732EC /* BCMNetworking.m */; };
@@ -212,6 +212,84 @@
 		234CA8A51BD48ABA00AB7DA2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		234CA8A71BD48ABB00AB7DA2 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		234CA8A91BD48ABD00AB7DA2 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		234CA8AE1BD6953300AB7DA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BCMPaymentReceivedView.xib; sourceTree = "<group>"; };
+		234CA8B11BD6953500AB7DA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8B31BD6953700AB7DA2 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8B51BD6953800AB7DA2 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8B71BD6953900AB7DA2 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8B91BD6953A00AB7DA2 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8BB1BD6953B00AB7DA2 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8BD1BD6953C00AB7DA2 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8BF1BD6953D00AB7DA2 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8C11BD6953D00AB7DA2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8C31BD6953E00AB7DA2 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8C51BD6953E00AB7DA2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8C71BD6953F00AB7DA2 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8C91BD6953F00AB7DA2 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8CB1BD6954000AB7DA2 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8CD1BD6954000AB7DA2 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/BCMPaymentReceivedView.strings"; sourceTree = "<group>"; };
+		234CA8CF1BD6954100AB7DA2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8D11BD6954700AB7DA2 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8D31BD6954800AB7DA2 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8D51BD6954900AB7DA2 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8D71BD6954900AB7DA2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/BCMPaymentReceivedView.strings"; sourceTree = "<group>"; };
+		234CA8D91BD6954A00AB7DA2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/BCMPaymentReceivedView.strings"; sourceTree = "<group>"; };
+		234CA8DB1BD6954B00AB7DA2 /* es-ES */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-ES"; path = "es-ES.lproj/BCMPaymentReceivedView.strings"; sourceTree = "<group>"; };
+		234CA8DD1BD6954B00AB7DA2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8DF1BD6954C00AB7DA2 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8E11BD6954D00AB7DA2 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8E31BD6954D00AB7DA2 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8E51BD6954E00AB7DA2 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8E71BD6954F00AB7DA2 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8E91BD6955000AB7DA2 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8EB1BD6955000AB7DA2 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8ED1BD6955100AB7DA2 /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ms; path = ms.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8EF1BD6955500AB7DA2 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8F11BD6955600AB7DA2 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8F31BD6955800AB7DA2 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8F51BD6955D00AB7DA2 /* sv-SE */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sv-SE"; path = "sv-SE.lproj/BCMPaymentReceivedView.strings"; sourceTree = "<group>"; };
+		234CA8F71BD6955D00AB7DA2 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		234CA8F91BD6955E00AB7DA2 /* zh-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-CN"; path = "zh-CN.lproj/BCMPaymentReceivedView.strings"; sourceTree = "<group>"; };
+		234CA8FB1BD6955F00AB7DA2 /* zh-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-TW"; path = "zh-TW.lproj/BCMPaymentReceivedView.strings"; sourceTree = "<group>"; };
+		234CA8FD1BD695A900AB7DA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BCMQRCodeTransactionView.xib; sourceTree = "<group>"; };
+		234CA9001BD695AC00AB7DA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9021BD695AC00AB7DA2 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9041BD695AD00AB7DA2 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9061BD695AE00AB7DA2 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9081BD695AF00AB7DA2 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA90A1BD695AF00AB7DA2 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA90C1BD695B000AB7DA2 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA90E1BD695B200AB7DA2 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9101BD695B300AB7DA2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9121BD695B400AB7DA2 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9141BD695B500AB7DA2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9161BD695B700AB7DA2 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9181BD695B700AB7DA2 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA91A1BD695BE00AB7DA2 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA91C1BD695BF00AB7DA2 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/BCMQRCodeTransactionView.strings"; sourceTree = "<group>"; };
+		234CA91E1BD695C000AB7DA2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9201BD695C100AB7DA2 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9221BD695C200AB7DA2 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9241BD695C200AB7DA2 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9261BD695C300AB7DA2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/BCMQRCodeTransactionView.strings"; sourceTree = "<group>"; };
+		234CA9281BD695C600AB7DA2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/BCMQRCodeTransactionView.strings"; sourceTree = "<group>"; };
+		234CA92A1BD695C700AB7DA2 /* es-ES */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-ES"; path = "es-ES.lproj/BCMQRCodeTransactionView.strings"; sourceTree = "<group>"; };
+		234CA92C1BD695C800AB7DA2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA92E1BD695C800AB7DA2 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9301BD695C900AB7DA2 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9321BD695CA00AB7DA2 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9341BD695CA00AB7DA2 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9361BD695CB00AB7DA2 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9381BD695CC00AB7DA2 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA93A1BD695CC00AB7DA2 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA93C1BD695CD00AB7DA2 /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ms; path = ms.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA93E1BD695CD00AB7DA2 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9401BD695D000AB7DA2 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9421BD695D100AB7DA2 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9441BD695D200AB7DA2 /* sv-SE */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sv-SE"; path = "sv-SE.lproj/BCMQRCodeTransactionView.strings"; sourceTree = "<group>"; };
+		234CA9461BD695D200AB7DA2 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		234CA9481BD695D300AB7DA2 /* zh-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-CN"; path = "zh-CN.lproj/BCMQRCodeTransactionView.strings"; sourceTree = "<group>"; };
+		234CA94A1BD695D300AB7DA2 /* zh-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-TW"; path = "zh-TW.lproj/BCMQRCodeTransactionView.strings"; sourceTree = "<group>"; };
 		23E7E5E11BD487A10051402E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		23E7E5E21BD487A20051402E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		23E7E5ED1BD487DC0051402E /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Main.strings; sourceTree = "<group>"; };
@@ -283,7 +361,6 @@
 		FA72A7FE1ACC2C8400EF0C00 /* BCMAddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMAddItemViewController.m; sourceTree = "<group>"; };
 		FA74B69A1A08C3B70045A4EF /* BCMPaymentReceivedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMPaymentReceivedView.h; sourceTree = "<group>"; };
 		FA74B69B1A08C3B70045A4EF /* BCMPaymentReceivedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMPaymentReceivedView.m; sourceTree = "<group>"; };
-		FA74B69D1A08C3D20045A4EF /* BCMPaymentReceivedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCMPaymentReceivedView.xib; sourceTree = "<group>"; };
 		FA74B69F1A08C6CC0045A4EF /* green_check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green_check@2x.png"; path = "../../../Assets/green_check@2x.png"; sourceTree = "<group>"; };
 		FA74B6A11A0923490045A4EF /* BCMTransactionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMTransactionDetailViewController.h; sourceTree = "<group>"; };
 		FA74B6A21A0923490045A4EF /* BCMTransactionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMTransactionDetailViewController.m; sourceTree = "<group>"; };
@@ -320,7 +397,6 @@
 		FA9982431A03C330006C7D2F /* UIViewController+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Utilities.m"; sourceTree = "<group>"; };
 		FA99825D1A03E849006C7D2F /* BCMQRCodeTransactionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMQRCodeTransactionView.h; sourceTree = "<group>"; };
 		FA99825E1A03E849006C7D2F /* BCMQRCodeTransactionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMQRCodeTransactionView.m; sourceTree = "<group>"; };
-		FA9982601A03E855006C7D2F /* BCMQRCodeTransactionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCMQRCodeTransactionView.xib; sourceTree = "<group>"; };
 		FA9982621A03E8FE006C7D2F /* mock_qr_code@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mock_qr_code@2x.png"; path = "../../../Assets/mock_qr_code@2x.png"; sourceTree = "<group>"; };
 		FA9FF3C11A07F2A300D732EC /* BCMTextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMTextFieldTableViewCell.h; sourceTree = "<group>"; };
 		FA9FF3C21A07F2A300D732EC /* BCMTextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMTextFieldTableViewCell.m; sourceTree = "<group>"; };
@@ -505,10 +581,10 @@
 				FA99823519FF784F006C7D2F /* BCMCustomAmountView.xib */,
 				FA99825D1A03E849006C7D2F /* BCMQRCodeTransactionView.h */,
 				FA99825E1A03E849006C7D2F /* BCMQRCodeTransactionView.m */,
-				FA9982601A03E855006C7D2F /* BCMQRCodeTransactionView.xib */,
+				234CA8FE1BD695A900AB7DA2 /* BCMQRCodeTransactionView.xib */,
 				FA74B69A1A08C3B70045A4EF /* BCMPaymentReceivedView.h */,
 				FA74B69B1A08C3B70045A4EF /* BCMPaymentReceivedView.m */,
-				FA74B69D1A08C3D20045A4EF /* BCMPaymentReceivedView.xib */,
+				234CA8AF1BD6953300AB7DA2 /* BCMPaymentReceivedView.xib */,
 				FA9FF3C11A07F2A300D732EC /* BCMTextFieldTableViewCell.h */,
 				FA9FF3C21A07F2A300D732EC /* BCMTextFieldTableViewCell.m */,
 				FAB1170E1A11021500E876BA /* BCMTransactionTableViewCell.h */,
@@ -833,6 +909,18 @@
 				ro,
 				es,
 				pt,
+				hi,
+				hr,
+				hu,
+				id,
+				ms,
+				nb,
+				sk,
+				sl,
+				"sv-SE",
+				th,
+				"zh-CN",
+				"zh-TW",
 			);
 			mainGroup = FAA4189419F789A000023B25;
 			productRefGroup = FAA4189E19F789A000023B25 /* Products */;
@@ -865,7 +953,7 @@
 				FA0A743C1AF8AA7B000E47D0 /* BCMItemTableViewCell.xib in Resources */,
 				FA0614E11A1CE287004F71F4 /* pin_delete@2x.png in Resources */,
 				FAB117761A11D77800E876BA /* Icon@2x.png in Resources */,
-				FA9982611A03E855006C7D2F /* BCMQRCodeTransactionView.xib in Resources */,
+				234CA8FC1BD695A900AB7DA2 /* BCMQRCodeTransactionView.xib in Resources */,
 				FAEC7A0F1A30B38A00DB9578 /* block_chain_signature.png in Resources */,
 				FAEB498319F95F4F00B774EC /* nav_log_out@2x.png in Resources */,
 				FAB117671A11D77800E876BA /* Icon-60@2x.png in Resources */,
@@ -899,7 +987,7 @@
 				FAB117771A11D77800E876BA /* iTunesArtwork@2x.png in Resources */,
 				FAB117741A11D77800E876BA /* Icon-Small@3x.png in Resources */,
 				FAB1176E1A11D77800E876BA /* Icon-Small-40@2x.png in Resources */,
-				FA74B69E1A08C3D20045A4EF /* BCMPaymentReceivedView.xib in Resources */,
+				234CA8AD1BD6953300AB7DA2 /* BCMPaymentReceivedView.xib in Resources */,
 				FAB1170D1A11018800E876BA /* transaction_check@2x.png in Resources */,
 				FA0614D71A1CD1E5004F71F4 /* BCPinNumberKey.xib in Resources */,
 				FAA418AE19F789A000023B25 /* Images.xcassets in Resources */,
@@ -1059,6 +1147,98 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		234CA8AF1BD6953300AB7DA2 /* BCMPaymentReceivedView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				234CA8AE1BD6953300AB7DA2 /* Base */,
+				234CA8B11BD6953500AB7DA2 /* en */,
+				234CA8B31BD6953700AB7DA2 /* ar */,
+				234CA8B51BD6953800AB7DA2 /* ca */,
+				234CA8B71BD6953900AB7DA2 /* cs */,
+				234CA8B91BD6953A00AB7DA2 /* da */,
+				234CA8BB1BD6953B00AB7DA2 /* de */,
+				234CA8BD1BD6953C00AB7DA2 /* el */,
+				234CA8BF1BD6953D00AB7DA2 /* fi */,
+				234CA8C11BD6953D00AB7DA2 /* fr */,
+				234CA8C31BD6953E00AB7DA2 /* he */,
+				234CA8C51BD6953E00AB7DA2 /* ja */,
+				234CA8C71BD6953F00AB7DA2 /* ko */,
+				234CA8C91BD6953F00AB7DA2 /* nl */,
+				234CA8CB1BD6954000AB7DA2 /* pl */,
+				234CA8CD1BD6954000AB7DA2 /* pt-PT */,
+				234CA8CF1BD6954100AB7DA2 /* ru */,
+				234CA8D11BD6954700AB7DA2 /* tr */,
+				234CA8D31BD6954800AB7DA2 /* uk */,
+				234CA8D51BD6954900AB7DA2 /* vi */,
+				234CA8D71BD6954900AB7DA2 /* zh-Hans */,
+				234CA8D91BD6954A00AB7DA2 /* zh-Hant */,
+				234CA8DB1BD6954B00AB7DA2 /* es-ES */,
+				234CA8DD1BD6954B00AB7DA2 /* it */,
+				234CA8DF1BD6954C00AB7DA2 /* ro */,
+				234CA8E11BD6954D00AB7DA2 /* es */,
+				234CA8E31BD6954D00AB7DA2 /* pt */,
+				234CA8E51BD6954E00AB7DA2 /* hi */,
+				234CA8E71BD6954F00AB7DA2 /* hr */,
+				234CA8E91BD6955000AB7DA2 /* hu */,
+				234CA8EB1BD6955000AB7DA2 /* id */,
+				234CA8ED1BD6955100AB7DA2 /* ms */,
+				234CA8EF1BD6955500AB7DA2 /* nb */,
+				234CA8F11BD6955600AB7DA2 /* sk */,
+				234CA8F31BD6955800AB7DA2 /* sl */,
+				234CA8F51BD6955D00AB7DA2 /* sv-SE */,
+				234CA8F71BD6955D00AB7DA2 /* th */,
+				234CA8F91BD6955E00AB7DA2 /* zh-CN */,
+				234CA8FB1BD6955F00AB7DA2 /* zh-TW */,
+			);
+			name = BCMPaymentReceivedView.xib;
+			sourceTree = "<group>";
+		};
+		234CA8FE1BD695A900AB7DA2 /* BCMQRCodeTransactionView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				234CA8FD1BD695A900AB7DA2 /* Base */,
+				234CA9001BD695AC00AB7DA2 /* en */,
+				234CA9021BD695AC00AB7DA2 /* ar */,
+				234CA9041BD695AD00AB7DA2 /* ca */,
+				234CA9061BD695AE00AB7DA2 /* cs */,
+				234CA9081BD695AF00AB7DA2 /* da */,
+				234CA90A1BD695AF00AB7DA2 /* de */,
+				234CA90C1BD695B000AB7DA2 /* el */,
+				234CA90E1BD695B200AB7DA2 /* fi */,
+				234CA9101BD695B300AB7DA2 /* fr */,
+				234CA9121BD695B400AB7DA2 /* he */,
+				234CA9141BD695B500AB7DA2 /* ja */,
+				234CA9161BD695B700AB7DA2 /* ko */,
+				234CA9181BD695B700AB7DA2 /* nl */,
+				234CA91A1BD695BE00AB7DA2 /* pl */,
+				234CA91C1BD695BF00AB7DA2 /* pt-PT */,
+				234CA91E1BD695C000AB7DA2 /* ru */,
+				234CA9201BD695C100AB7DA2 /* tr */,
+				234CA9221BD695C200AB7DA2 /* uk */,
+				234CA9241BD695C200AB7DA2 /* vi */,
+				234CA9261BD695C300AB7DA2 /* zh-Hans */,
+				234CA9281BD695C600AB7DA2 /* zh-Hant */,
+				234CA92A1BD695C700AB7DA2 /* es-ES */,
+				234CA92C1BD695C800AB7DA2 /* it */,
+				234CA92E1BD695C800AB7DA2 /* ro */,
+				234CA9301BD695C900AB7DA2 /* es */,
+				234CA9321BD695CA00AB7DA2 /* pt */,
+				234CA9341BD695CA00AB7DA2 /* hi */,
+				234CA9361BD695CB00AB7DA2 /* hr */,
+				234CA9381BD695CC00AB7DA2 /* hu */,
+				234CA93A1BD695CC00AB7DA2 /* id */,
+				234CA93C1BD695CD00AB7DA2 /* ms */,
+				234CA93E1BD695CD00AB7DA2 /* nb */,
+				234CA9401BD695D000AB7DA2 /* sk */,
+				234CA9421BD695D100AB7DA2 /* sl */,
+				234CA9441BD695D200AB7DA2 /* sv-SE */,
+				234CA9461BD695D200AB7DA2 /* th */,
+				234CA9481BD695D300AB7DA2 /* zh-CN */,
+				234CA94A1BD695D300AB7DA2 /* zh-TW */,
+			);
+			name = BCMQRCodeTransactionView.xib;
+			sourceTree = "<group>";
+		};
 		FA5385231A3416F6002A0872 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
