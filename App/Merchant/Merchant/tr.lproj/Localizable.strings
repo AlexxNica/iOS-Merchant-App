@@ -1,3 +1,6 @@
+/* No comment provided by engineer. */
+"%@" = "%@";
+
 /* (No Commment) */
 "Cancel" = "İptal";
 
@@ -28,7 +31,7 @@
 /* No comment provided by engineer. */
 "action_picker.currency" = "Para birimi";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "action_picker.sort_order" = "Öğe sıralama düzeni";
 
 /* No comment provided by engineer. */
@@ -78,9 +81,6 @@
 
 /* No comment provided by engineer. */
 "item.list.number_of_items" = "(%lu öğe)";
-
-/* (No Commment) */
-"item.list.payment" = "Ödeme";
 
 /* (No Commment) */
 "locations" = "Cafe/içki/yemek/harcamak";
@@ -196,7 +196,7 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Açıklama";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.directory_listing.title" = "Dizin listesi";
 
 /* No comment provided by engineer. */
@@ -214,10 +214,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Hata bulma konum";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.detail" = "Dizin listesi, bir işletme adı, adres, şehir, posta kodu, telefon, web URL'sini ve açıklamasını sağlamak gerekir.";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.title" = "Eksik bilgileri";
 
 /* No comment provided by engineer. */
@@ -238,7 +238,7 @@
 /* No comment provided by engineer. */
 "setting.sort_order.recent.title" = "En son eklenen hareketle";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.sort_order.title" = "Öğe sıralama düzeni";
 
 /* No comment provided by engineer. */

@@ -1,3 +1,6 @@
+/* No comment provided by engineer. */
+"%@" = "%@";
+
 /* (No Commment) */
 "Cancel" = "Annuler";
 
@@ -28,7 +31,7 @@
 /* No comment provided by engineer. */
 "action_picker.currency" = "Devise";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "action_picker.sort_order" = "Ordre de tri des éléments";
 
 /* No comment provided by engineer. */
@@ -78,9 +81,6 @@
 
 /* No comment provided by engineer. */
 "item.list.number_of_items" = "(Articles%lu)";
-
-/* (No Commment) */
-"item.list.payment" = "Paiement";
 
 /* (No Commment) */
 "locations" = "Cafe/boire/manger/passer";
@@ -196,7 +196,7 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Description";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.directory_listing.title" = "Inscription à l'annuaire";
 
 /* No comment provided by engineer. */
@@ -214,10 +214,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Emplacement de constatation d'erreur";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.detail" = "Inscription à l'annuaire nécessite de disposer d'un nom commercial, adresse, ville, code postal, téléphone, web url et une description.";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.title" = "Informations manquantes";
 
 /* No comment provided by engineer. */
@@ -238,7 +238,7 @@
 /* No comment provided by engineer. */
 "setting.sort_order.recent.title" = "Récemment ajouté à la Transaction";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.sort_order.title" = "Ordre de tri des éléments";
 
 /* No comment provided by engineer. */

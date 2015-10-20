@@ -80,7 +80,7 @@
 "p15-9T-TQh.normalTitle" = "บันทึก";
 
 /* Class = "UILabel"; text = "0 BTC"; ObjectID = "rO9-Mi-F4d"; */
-"rO9-Mi-F4d.text" = "ป้ายชื่อ";
+"rO9-Mi-F4d.text" = "0 บีทีซี";
 
 /* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "vKq-5i-XnY"; */
 "vKq-5i-XnY.normalTitle" = "ยกเลิก";

@@ -1,3 +1,6 @@
+/* No comment provided by engineer. */
+"%@" = "%@";
+
 /* (No Commment) */
 "Cancel" = "Peruuta";
 
@@ -28,7 +31,7 @@
 /* No comment provided by engineer. */
 "action_picker.currency" = "Valuutta";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "action_picker.sort_order" = "Nimikkeen lajittelujärjestys";
 
 /* No comment provided by engineer. */
@@ -78,9 +81,6 @@
 
 /* No comment provided by engineer. */
 "item.list.number_of_items" = "(%lu kohteet)";
-
-/* (No Commment) */
-"item.list.payment" = "Maksu";
 
 /* (No Commment) */
 "locations" = "Cafe/juoda/syödä/viettää";
@@ -196,7 +196,7 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Kuvaus";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.directory_listing.title" = "Hakemistolistauksen";
 
 /* No comment provided by engineer. */
@@ -214,10 +214,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Löytää sijainnin";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.detail" = "Hakemistolistauksen vaatii sinua antamaan yrityksesi nimi, osoite, kaupunki, postinumero, Puhelin, url-osoite ja kuvaus.";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.title" = "Puuttuvat tiedot";
 
 /* No comment provided by engineer. */
@@ -238,7 +238,7 @@
 /* No comment provided by engineer. */
 "setting.sort_order.recent.title" = "Äskettäin lisätty tapahtumaan";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.sort_order.title" = "Nimikkeen lajittelujärjestys";
 
 /* No comment provided by engineer. */

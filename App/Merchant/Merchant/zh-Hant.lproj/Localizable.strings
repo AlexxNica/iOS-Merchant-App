@@ -1,3 +1,6 @@
+/* No comment provided by engineer. */
+"%@" = "%@";
+
 /* (No Commment) */
 "Cancel" = "取消";
 
@@ -28,7 +31,7 @@
 /* No comment provided by engineer. */
 "action_picker.currency" = "貨幣";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "action_picker.sort_order" = "專案排序次序";
 
 /* No comment provided by engineer. */
@@ -78,9 +81,6 @@
 
 /* No comment provided by engineer. */
 "item.list.number_of_items" = "(%lu 專案)";
-
-/* (No Commment) */
-"item.list.payment" = "付款";
 
 /* (No Commment) */
 "locations" = "咖啡廳/喝/吃/花";
@@ -196,7 +196,7 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "描述";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.directory_listing.title" = "目錄清單";
 
 /* No comment provided by engineer. */
@@ -214,10 +214,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "錯誤查找位置";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.detail" = "目錄清單要求您提供企業名稱、 位址、 城市、 郵編、 電話、 web url 和描述。";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.title" = "缺少的資訊";
 
 /* No comment provided by engineer. */
@@ -238,7 +238,7 @@
 /* No comment provided by engineer. */
 "setting.sort_order.recent.title" = "最近添加到交易記錄";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.sort_order.title" = "專案排序次序";
 
 /* No comment provided by engineer. */

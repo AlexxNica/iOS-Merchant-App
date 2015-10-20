@@ -1,3 +1,6 @@
+/* No comment provided by engineer. */
+"%@" = "%@";
+
 /* (No Commment) */
 "Cancel" = "Отмена";
 
@@ -28,7 +31,7 @@
 /* No comment provided by engineer. */
 "action_picker.currency" = "Валюта";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "action_picker.sort_order" = "Порядок сортировки элементов";
 
 /* No comment provided by engineer. */
@@ -78,9 +81,6 @@
 
 /* No comment provided by engineer. */
 "item.list.number_of_items" = "(%lu пункты)";
-
-/* (No Commment) */
-"item.list.payment" = "Оплата";
 
 /* (No Commment) */
 "locations" = "Кафе/напитки/есть/тратить";
@@ -196,7 +196,7 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Описание";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.directory_listing.title" = "Список каталогов";
 
 /* No comment provided by engineer. */
@@ -214,10 +214,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Место нахождения ошибки";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.detail" = "Список каталогов необходимо указать название компании, адрес, город, почтовый индекс, Телефон, веб-url и описание.";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.title" = "Данные отсутствуют";
 
 /* No comment provided by engineer. */
@@ -238,7 +238,7 @@
 /* No comment provided by engineer. */
 "setting.sort_order.recent.title" = "Недавно добавленные в транзакции";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.sort_order.title" = "Порядок сортировки элементов";
 
 /* No comment provided by engineer. */

@@ -1,3 +1,6 @@
+/* No comment provided by engineer. */
+"%@" = "%@";
+
 /* (No Commment) */
 "Cancel" = "취소";
 
@@ -28,7 +31,7 @@
 /* No comment provided by engineer. */
 "action_picker.currency" = "통화";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "action_picker.sort_order" = "항목 정렬 순서";
 
 /* No comment provided by engineer. */
@@ -78,9 +81,6 @@
 
 /* No comment provided by engineer. */
 "item.list.number_of_items" = "(%lu 항목)";
-
-/* (No Commment) */
-"item.list.payment" = "지불";
 
 /* (No Commment) */
 "locations" = "카페/음료/식사/지출";
@@ -196,7 +196,7 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "설명";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.directory_listing.title" = "디렉토리 목록";
 
 /* No comment provided by engineer. */
@@ -214,10 +214,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "오류 발견 위치";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.detail" = "디렉터리 목록에서는 회사 이름, 주소, 도시, 우편 번호, 전화, 웹 url 및 설명을 제공 해야 합니다.";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.title" = "누락 된 정보";
 
 /* No comment provided by engineer. */
@@ -238,7 +238,7 @@
 /* No comment provided by engineer. */
 "setting.sort_order.recent.title" = "최근 거래에 추가";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.sort_order.title" = "항목 정렬 순서";
 
 /* No comment provided by engineer. */

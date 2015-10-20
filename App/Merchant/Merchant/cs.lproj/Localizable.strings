@@ -1,11 +1,14 @@
+/* No comment provided by engineer. */
+"%@" = "%@";
+
 /* (No Commment) */
-"Cancel" = "Storno";
+"Cancel" = "Zrušit";
 
 /* No comment provided by engineer. */
 "action.add" = "Přidat";
 
 /* No comment provided by engineer. */
-"action.cancel" = "Storno";
+"action.cancel" = "Zrušit";
 
 /* No comment provided by engineer. */
 "action.charge" = "Poplatek";
@@ -28,7 +31,7 @@
 /* No comment provided by engineer. */
 "action_picker.currency" = "Měna";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "action_picker.sort_order" = "Pořadí řazení položek";
 
 /* No comment provided by engineer. */
@@ -44,7 +47,7 @@
 "addItem.error.missing.price.detail" = "Položka vyžaduje cenu.";
 
 /* No comment provided by engineer. */
-"addItem.error.zero.price" = "Neplatná cena";
+"addItem.error.zero.price" = "Platná cena";
 
 /* No comment provided by engineer. */
 "addItem.error.zero.price.detail" = "Cena hodnota musí být větší než 0";
@@ -68,7 +71,7 @@
 "general.save" = "Uloženo";
 
 /* No comment provided by engineer. */
-"item.list.custom" = "Vlastní";
+"item.list.custom" = "Vlastní částka";
 
 /* No comment provided by engineer. */
 "item.list.noitems" = "Žádné položky";
@@ -80,7 +83,7 @@
 "item.list.number_of_items" = "(%lu položky)";
 
 /* (No Commment) */
-"locations" = "Kavárna/nápoje/jíst/utrácet";
+"locations" = "Cafe/nápoje/jíst/utrácet";
 
 /* No comment provided by engineer. */
 "merchant.email.error_not_supported" = "E-mail není podporován";
@@ -122,7 +125,7 @@
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
-"navigation.price_news" = "Cena & novinky";
+"navigation.price_news" = "Cena a novinky";
 
 /* No comment provided by engineer. */
 "navigation.settings" = "Nastavení";
@@ -146,7 +149,7 @@
 "pin.entry.enter_passcode" = "Zadejte své heslo";
 
 /* No comment provided by engineer. */
-"pin.entry.password_incorrect" = "Nesprávné heslo";
+"pin.entry.password_incorrect" = "Chybné heslo";
 
 /* No comment provided by engineer. */
 "pin.entry.re_enter_passcode" = "Znovu zadat své heslo";
@@ -159,6 +162,12 @@
 
 /* No comment provided by engineer. */
 "pin.info.set_pin" = "Stavěcí kolík";
+
+/* No comment provided by engineer. */
+"qr.insufficient.payment.message" = "Požadované %@, obdržel %@ BTC. QR obrázek byl změněn na odrážet dlužné částky.";
+
+/* No comment provided by engineer. */
+"qr.insufficient.payment.title" = "Neúplná platba";
 
 /* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Přejděte na nastavení a povolit přístup kamery pro obchodníka Blockchain.";
@@ -187,7 +196,7 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Popis";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.directory_listing.title" = "Výpis adresáře";
 
 /* No comment provided by engineer. */
@@ -197,7 +206,7 @@
 "setting.location_services.disabled.title" = "Umístění služby jsou zakázány";
 
 /* No comment provided by engineer. */
-"setting.location_services.locating" = "Vyhledání";
+"setting.location_services.locating" = "Hledání";
 
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.detail" = "Zkuste to prosím znovu";
@@ -205,10 +214,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Chyba při hledání umístění";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.detail" = "Výpis adresáře vyžaduje poskytnutí obchodní jméno, adresa, město, PSČ, telefon, webová adresa url a popis.";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.title" = "Chybějící informace";
 
 /* No comment provided by engineer. */
@@ -229,7 +238,7 @@
 /* No comment provided by engineer. */
 "setting.sort_order.recent.title" = "Nedávno přidané k transakci";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.sort_order.title" = "Pořadí řazení položek";
 
 /* No comment provided by engineer. */

@@ -80,7 +80,7 @@
 "p15-9T-TQh.normalTitle" = "저장";
 
 /* Class = "UILabel"; text = "0 BTC"; ObjectID = "rO9-Mi-F4d"; */
-"rO9-Mi-F4d.text" = "레이블";
+"rO9-Mi-F4d.text" = "0 BTC";
 
 /* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "vKq-5i-XnY"; */
 "vKq-5i-XnY.normalTitle" = "취소";

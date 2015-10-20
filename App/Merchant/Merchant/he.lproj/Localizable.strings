@@ -1,3 +1,6 @@
+/* No comment provided by engineer. */
+"%@" = "%@";
+
 /* (No Commment) */
 "Cancel" = "ביטול";
 
@@ -28,7 +31,7 @@
 /* No comment provided by engineer. */
 "action_picker.currency" = "מטבע";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "action_picker.sort_order" = "סדר המיון פריט";
 
 /* No comment provided by engineer. */
@@ -78,9 +81,6 @@
 
 /* No comment provided by engineer. */
 "item.list.number_of_items" = "(%lu פריטים)";
-
-/* (No Commment) */
-"item.list.payment" = "התשלום";
 
 /* (No Commment) */
 "locations" = "בית קפה/לשתות/לאכול/לבלות";
@@ -196,7 +196,7 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "תיאור";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.directory_listing.title" = "מפירוט הספריה";
 
 /* No comment provided by engineer. */
@@ -214,10 +214,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "שגיאה מציאת מיקום";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.detail" = "מפירוט הספריה דורש ממך לספק שם העסק, כתובת, עיר, מיקוד, טלפון, כתובת אינטרנט, ותיאור.";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.title" = "מידע חסר";
 
 /* No comment provided by engineer. */
@@ -238,7 +238,7 @@
 /* No comment provided by engineer. */
 "setting.sort_order.recent.title" = "נוסף לאחרונה עסקה";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.sort_order.title" = "סדר המיון פריט";
 
 /* No comment provided by engineer. */

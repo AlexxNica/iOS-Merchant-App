@@ -1,3 +1,6 @@
+/* No comment provided by engineer. */
+"%@" = "%@";
+
 /* (No Commment) */
 "Cancel" = "Prekliči";
 
@@ -28,7 +31,7 @@
 /* No comment provided by engineer. */
 "action_picker.currency" = "Valute";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "action_picker.sort_order" = "Artikel vrstni red";
 
 /* No comment provided by engineer. */
@@ -78,9 +81,6 @@
 
 /* No comment provided by engineer. */
 "item.list.number_of_items" = "(%lu točk)";
-
-/* (No Commment) */
-"item.list.payment" = "Plačilo";
 
 /* (No Commment) */
 "locations" = "Cafe/pijačo/jesti/preživijo";
@@ -196,7 +196,7 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Opis";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.directory_listing.title" = "Naslovnik obrobljanje";
 
 /* No comment provided by engineer. */
@@ -214,10 +214,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Napaka pri iskanju mesto";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.detail" = "Naslovnik obrobljanje zahteva, da zagotovi poslovno ime, naslov, mesto, poštno številko, telefonsko, web url in opis.";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.title" = "Manjkajoče informacije";
 
 /* No comment provided by engineer. */
@@ -238,7 +238,7 @@
 /* No comment provided by engineer. */
 "setting.sort_order.recent.title" = "Nedavno dodano transakcije";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.sort_order.title" = "Artikel vrstni red";
 
 /* No comment provided by engineer. */

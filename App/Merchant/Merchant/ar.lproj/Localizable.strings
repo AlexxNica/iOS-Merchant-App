@@ -1,3 +1,6 @@
+/* No comment provided by engineer. */
+"%@" = "%@";
+
 /* (No Commment) */
 "Cancel" = "إلغاء الأمر";
 
@@ -28,7 +31,7 @@
 /* No comment provided by engineer. */
 "action_picker.currency" = "تحويل العملات";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "action_picker.sort_order" = "ترتيب فرز العناصر";
 
 /* No comment provided by engineer. */
@@ -78,9 +81,6 @@
 
 /* No comment provided by engineer. */
 "item.list.number_of_items" = "(مواد%lu)";
-
-/* (No Commment) */
-"item.list.payment" = "الدفع";
 
 /* (No Commment) */
 "locations" = "مقهى/الشراب/أكل/قضاء";
@@ -196,7 +196,7 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "الوصف";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.directory_listing.title" = "سرد الدليل";
 
 /* No comment provided by engineer. */
@@ -214,10 +214,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "خطأ في البحث عن موقع";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.detail" = "سرد الدليل يتطلب منك توفير اسم المؤسسة والعنوان والمدينة، الرمز البريدي، هاتف، محدد موقع معلومات ويب ووصفاً.";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.title" = "المعلومات المفقودة";
 
 /* No comment provided by engineer. */
@@ -238,7 +238,7 @@
 /* No comment provided by engineer. */
 "setting.sort_order.recent.title" = "وأضاف مؤخرا للحركة";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.sort_order.title" = "ترتيب فرز العناصر";
 
 /* No comment provided by engineer. */

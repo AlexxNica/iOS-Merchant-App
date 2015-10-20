@@ -80,7 +80,7 @@
 "p15-9T-TQh.normalTitle" = "Guardar";
 
 /* Class = "UILabel"; text = "0 BTC"; ObjectID = "rO9-Mi-F4d"; */
-"rO9-Mi-F4d.text" = "Etiqueta";
+"rO9-Mi-F4d.text" = "BTC 0";
 
 /* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "vKq-5i-XnY"; */
 "vKq-5i-XnY.normalTitle" = "Cancelar";

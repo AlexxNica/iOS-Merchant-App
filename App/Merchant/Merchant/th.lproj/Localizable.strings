@@ -1,3 +1,6 @@
+/* No comment provided by engineer. */
+"%@" = "%@";
+
 /* (No Commment) */
 "Cancel" = "ยกเลิก";
 
@@ -28,7 +31,7 @@
 /* No comment provided by engineer. */
 "action_picker.currency" = "สกุลเงิน";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "action_picker.sort_order" = "ลำดับการจัดเรียงสินค้า";
 
 /* No comment provided by engineer. */
@@ -78,9 +81,6 @@
 
 /* No comment provided by engineer. */
 "item.list.number_of_items" = "(สินค้า%lu)";
-
-/* (No Commment) */
-"item.list.payment" = "การชำระเงิน";
 
 /* (No Commment) */
 "locations" = "คาเฟ่/เครื่องดื่ม/กิน/ใช้";
@@ -196,7 +196,7 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "คำอธิบาย";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.directory_listing.title" = "รายไดเรกทอรี";
 
 /* No comment provided by engineer. */
@@ -214,10 +214,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "ตำแหน่งค้นหาข้อผิดพลาด";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.detail" = "ไดเรกทอรีรายการต้องให้คุณให้ชื่อธุรกิจ ที่อยู่ เมือง รหัสไปรษณีย์ โทรศัพท์ url เว็บ และคำอธิบาย";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.title" = "ข้อมูลที่หายไป";
 
 /* No comment provided by engineer. */
@@ -238,7 +238,7 @@
 /* No comment provided by engineer. */
 "setting.sort_order.recent.title" = "เพิ่ง เพิ่มธุรกรรม";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.sort_order.title" = "ลำดับการจัดเรียงสินค้า";
 
 /* No comment provided by engineer. */

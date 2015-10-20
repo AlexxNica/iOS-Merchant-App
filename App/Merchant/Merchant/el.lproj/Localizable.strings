@@ -1,3 +1,6 @@
+/* No comment provided by engineer. */
+"%@" = "%@";
+
 /* (No Commment) */
 "Cancel" = "\"Άκυρο\"";
 
@@ -28,7 +31,7 @@
 /* No comment provided by engineer. */
 "action_picker.currency" = "Νόμισμα";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "action_picker.sort_order" = "Προβλέπει σειρά ταξινόμησης";
 
 /* No comment provided by engineer. */
@@ -78,9 +81,6 @@
 
 /* No comment provided by engineer. */
 "item.list.number_of_items" = "(%lu αντικείμενα)";
-
-/* (No Commment) */
-"item.list.payment" = "Πληρωμής";
 
 /* (No Commment) */
 "locations" = "Καφέ/ποτό/τρώνε/περνούν";
@@ -196,7 +196,7 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Περιγραφή";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.directory_listing.title" = "Λίστα καταλόγου";
 
 /* No comment provided by engineer. */
@@ -214,10 +214,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Σφάλμα διαπίστωση θέση";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.detail" = "Λίστα καταλόγου απαιτεί από εσάς να παρέχουν μια εταιρική επωνυμία, διεύθυνση, πόλη, ταχυδρομικό κώδικα, τηλέφωνο, web διεύθυνση url και μια περιγραφή.";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.title" = "Πληροφορίες που λείπουν";
 
 /* No comment provided by engineer. */
@@ -238,7 +238,7 @@
 /* No comment provided by engineer. */
 "setting.sort_order.recent.title" = "Αύξησα πρόσφατα συναλλαγή";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.sort_order.title" = "Προβλέπει σειρά ταξινόμησης";
 
 /* No comment provided by engineer. */

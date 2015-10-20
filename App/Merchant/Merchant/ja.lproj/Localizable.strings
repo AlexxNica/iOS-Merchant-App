@@ -1,3 +1,6 @@
+/* No comment provided by engineer. */
+"%@" = "%@";
+
 /* (No Commment) */
 "Cancel" = "キャンセル";
 
@@ -28,7 +31,7 @@
 /* No comment provided by engineer. */
 "action_picker.currency" = "通貨";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "action_picker.sort_order" = "アイテムの並べ替え順序";
 
 /* No comment provided by engineer. */
@@ -78,9 +81,6 @@
 
 /* No comment provided by engineer. */
 "item.list.number_of_items" = "(%lu 件)";
-
-/* (No Commment) */
-"item.list.payment" = "お支払い";
 
 /* (No Commment) */
 "locations" = "カフェ/飲む/食べる/を使う";
@@ -196,7 +196,7 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "説明";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.directory_listing.title" = "ディレクトリ一覧";
 
 /* No comment provided by engineer. */
@@ -214,10 +214,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "エラー発見の場所";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.detail" = "ディレクトリ一覧では、ビジネスの名前、アドレス、都市、郵便番号、電話、web url、および説明を提供する必要があります。";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.merchant_listing.value_error.title" = "不足している情報";
 
 /* No comment provided by engineer. */
@@ -238,7 +238,7 @@
 /* No comment provided by engineer. */
 "setting.sort_order.recent.title" = "最近トランザクションに追加";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "setting.sort_order.title" = "アイテムの並べ替え順序";
 
 /* No comment provided by engineer. */
