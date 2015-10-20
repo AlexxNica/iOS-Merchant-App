@@ -679,6 +679,8 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"merchant.email.error_not_supported", nil) message:NSLocalizedString(@"merchant.email.error_not_supported_detail", nil) delegate:self cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"alert.ok", nil), nil];
         [alert show];
     }
+    
+    [self.customAmountView clear];
 }
 
 #pragma mark - MFMailComposeViewControllerDelegate
