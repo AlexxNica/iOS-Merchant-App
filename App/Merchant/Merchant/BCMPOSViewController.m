@@ -555,6 +555,7 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
     [self.view bringSubviewToFront:self.customAmountContainerView];
     self.topMarginConstraint.constant = 2.0f;
     [self.customAmountView.customAmountTextField becomeFirstResponder];
+    [self.view bringSubviewToFront:self.bitcoinAmountLabel];
 }
 
 - (void)customAmountView:(BCMCustomAmountView *)amountView addCustomAmount:(CGFloat)amount
