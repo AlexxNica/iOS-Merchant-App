@@ -51,11 +51,11 @@ NSString *const kBCMBusinessWalletAddress = @"BCMBusinessWalletAddress";
     }
     
     if (self.latitude) {
-        [dict setObjectOrNil:[self.latitude stringValue] forKey:@"LATITUDE"];
+        [dict setObjectOrNil:self.latitude forKey:@"LATITUDE"];
     }
 
     if (self.longitude) {
-        [dict setObjectOrNil:[self.longitude stringValue] forKey:@"LONGITUDE"];
+        [dict setObjectOrNil:self.longitude forKey:@"LONGITUDE"];
     }
     
     if ([self.telephone length] > 0) {

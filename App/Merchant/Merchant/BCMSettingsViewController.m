@@ -53,6 +53,7 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
     BCMSettingsRowWebsite,
     BCMSettingsRowCurrency,
     BCMSettingsRowWalletAddress,
+    BCMSettingsRowDirectoryListing,
     BCMSettingsRowSetPin,
     BCMSettingsRowCount
 };
@@ -202,8 +203,8 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
 {
     [self.settings setObject:@"" forKey:kBCMBusinessLongitude];
     [self.settings setObject:@"" forKey:kBCMBusinessLatitude];
-    [self.settings setObject:[NSNumber numberWithLong:newLocation.coordinate.longitude] forKey:kBCMBusinessLongitude];
-    [self.settings setObject:[NSNumber numberWithLong:newLocation.coordinate.latitude] forKey:kBCMBusinessLatitude];
+    [self.settings setObject:[NSNumber numberWithDouble:newLocation.coordinate.longitude] forKey:kBCMBusinessLongitude];
+    [self.settings setObject:[NSNumber numberWithDouble:newLocation.coordinate.latitude] forKey:kBCMBusinessLatitude];
     
     [self reverseGeocode:newLocation];
     
@@ -218,7 +219,7 @@ typedef NS_ENUM(NSUInteger, BCMSettingsRow) {
 }
 
 static NSString *const kSettingsTextFieldCellId = @"settingTextFieldCellId";
-static NSString *const kSettingsSwitchCellId = @"settingSwitchCellId";
+static NSString *const kSettingsDirectoryListingCellId = @"settingDirectoryListingCellId";
 static NSString *const kSettingsCurrentLocationCellId = @"currentLocationCellId";
 static NSString *const kSettingsWithDetailCellId = @"settingWithDetailCellId";
 
@@ -279,6 +280,11 @@ static NSString *const kSettingsWithDetailCellId = @"settingWithDetailCellId";
             settingTitle = NSLocalizedString(@"setting.currency.title", nil);
             canEdit = NO;
             settingKey = kBCMBusinessCurrency;
+            break;
+        case BCMSettingsRowDirectoryListing:
+            settingTitle = NSLocalizedString(@"setting.directory_listing.title", nil);
+            settingKey = kBCMBusinessDirectoryListing;
+            reuseCellId = kSettingsDirectoryListingCellId;
             break;
         case BCMSettingsRowWalletAddress:
             settingTitle = NSLocalizedString(@"setting.wallet_address.title", nil);
@@ -364,11 +370,7 @@ static NSString *const kSettingsWithDetailCellId = @"settingWithDetailCellId";
         cell.textLabel.text = settingTitle;
         cell.detailTextLabel.text = settingValue;
     } else {
-        BCMSwitchTableViewCell *switchCell = [tableView dequeueReusableCellWithIdentifier:kSettingsSwitchCellId];
-        switchCell.delegate = self;
-        switchCell.switchTitle = settingTitle;
-        switchCell.switchStateOn = [BCMMerchantManager sharedInstance].activeMerchant.directoryListingValue;
-        cell = switchCell;
+        cell = [tableView dequeueReusableCellWithIdentifier:kSettingsDirectoryListingCellId];
     }
 
     return cell;
@@ -714,6 +716,11 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
 
 - (IBAction)saveAction:(id)sender
 {
+    [self save];
+}
+
+- (Merchant *)save
+{
     NSString *businessName = [self.settings safeObjectForKey:kBCMBusinessName];
     NSString *walletAddress = [self.settings safeObjectForKey:kBCMBusinessWalletAddress];
     
@@ -729,7 +736,7 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
         [[BCMMerchantManager sharedInstance] updateActiveMerchantNameIfNeeded:businessName];
         
         Merchant *activeMerchant = [BCMMerchantManager sharedInstance].activeMerchant;
-
+        
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.mode = MBProgressHUDModeCustomView;
         hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check"]];
@@ -799,11 +806,44 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
         merchant.webURL = businessWebURL;
         merchant.businessDescription = businessDescription;
         merchant.longitude = businessLongitude;
-        merchant.longitude = businessLatitude;
+        merchant.latitude = businessLatitude;
         merchant.currency =  businessCurrency;
         merchant.walletAddress = businessWalletAddress;
+        
+        NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+        [localContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+        }];
+        [self.settingsTableView reloadData];
+        
+        return merchant;
+        
     } else {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"signup.alert.title", nil) message:NSLocalizedString(@"signup.warning", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
+        [alertView show];
+        return nil;
+    }
+}
+
+- (IBAction)suggestMerchant:(UIButton *)sender
+{
+    BOOL validEntries = [self validateValuesForMerchantListing];
+    if (validEntries) {
+        
+        Merchant *merchant = [self save];
+        
+        if (merchant) {
+            [[BCMNetworking sharedInstance] postSuggestMerchant:merchant success:^(NSURLRequest *request, NSDictionary *dict) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"setting.directory_listing.success.title", nil)  message:NSLocalizedString(@"setting.directory_listing.success.message", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles: nil];
+                    [alert show];
+                });
+                } error:^(NSURLRequest *request, NSError *error) {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"setting.directory_listing.error.title", nil)  message:NSLocalizedString(@"setting.directory_listing.error.message", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles: nil];
+                    [alert show];
+            }];
+        }
+    } else {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"setting.merchant_listing.value_error.title", nil) message:NSLocalizedString(@"setting.merchant_listing.value_error.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
         [alertView show];
     }
 }

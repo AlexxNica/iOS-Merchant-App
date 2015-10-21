@@ -134,14 +134,13 @@ static NSString *const kSuggestMerchantResultKey = @"result";
 {
     NSDictionary *merchantAsDict = [merchant merchantAsSuggestionDict];
     
-    NSData *merchantData = [self encodeDictionary:merchantAsDict];
-    
-    NSString *urlString = [NSString stringWithFormat:@"%@/api/%@", kBCDevBaseURL, kBCMerchangeSuggestRoute];
+    NSString *urlString = [NSString stringWithFormat:@"%@/api/%@", @"http://service-merchant-dir.dev.blockchain.co.uk", kBCMerchangeSuggestRoute];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
-    [urlRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-type"];
-    [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [urlRequest setHTTPMethod:@"POST"];
-    [urlRequest setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[merchantData length]] forHTTPHeaderField:@"Content-Length"];
+    
+    NSError *error;
+    NSData *merchantData = [NSJSONSerialization dataWithJSONObject:merchantAsDict options:0 error:&error];
     [urlRequest setHTTPBody:merchantData];
 
     [NSURLConnection sendAsynchronousRequest:urlRequest queue:self.mediumPriorityRequestQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -149,7 +148,7 @@ static NSString *const kSuggestMerchantResultKey = @"result";
             failure(urlRequest, connectionError);
         } else {
             NSError *error = nil;
-            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
             NSNumber *result = [responseDict safeObjectForKey:kSuggestMerchantResultKey];
             if ([result integerValue] == 1) {
                 success(urlRequest, responseDict);
