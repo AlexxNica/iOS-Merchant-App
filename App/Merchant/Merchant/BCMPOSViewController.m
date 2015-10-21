@@ -690,6 +690,7 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
     }
     
     [self.customAmountView clear];
+    [self.customAmountView.customAmountTextField becomeFirstResponder];
 }
 
 #pragma mark - MFMailComposeViewControllerDelegate
