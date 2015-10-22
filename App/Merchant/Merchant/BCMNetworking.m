@@ -134,7 +134,7 @@ static NSString *const kSuggestMerchantResultKey = @"result";
 {
     NSDictionary *merchantAsDict = [merchant merchantAsSuggestionDict];
     
-    NSString *urlString = [NSString stringWithFormat:@"%@/api/%@", @"http://service-merchant-dir.dev.blockchain.co.uk", kBCMerchangeSuggestRoute];
+    NSString *urlString = [NSString stringWithFormat:@"%@/api/%@", kBCDevBaseURL, kBCMerchangeSuggestRoute];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [urlRequest setHTTPMethod:@"POST"];
