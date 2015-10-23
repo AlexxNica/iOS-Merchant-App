@@ -142,8 +142,6 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     [self.itemsTableView registerNib:[UINib nibWithNibName:@"BCMItemTableViewCell" bundle:nil] forCellReuseIdentifier:kBCMItemCellId];
     
     self.bitcoinAmountLabel.adjustsFontSizeToFitWidth = YES;
-    
-    [self showCustomAmountView];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -157,6 +155,10 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     self.customAmountView.currencyLabel.text = [BCMMerchantManager sharedInstance].activeMerchant.currency;
     
     [self.itemsTableView reloadData];
+    
+    if ([BCMMerchantManager sharedInstance].activeMerchant) {
+        [self showCustomAmountView];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
