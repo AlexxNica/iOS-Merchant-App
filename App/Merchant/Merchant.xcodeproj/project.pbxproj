@@ -10,6 +10,7 @@
 		234CA8AD1BD6953300AB7DA2 /* BCMPaymentReceivedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 234CA8AF1BD6953300AB7DA2 /* BCMPaymentReceivedView.xib */; };
 		234CA8FC1BD695A900AB7DA2 /* BCMQRCodeTransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 234CA8FE1BD695A900AB7DA2 /* BCMQRCodeTransactionView.xib */; };
 		234CA9521BD69F0000AB7DA2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 234CA9541BD69F0000AB7DA2 /* InfoPlist.strings */; };
+		23FF84CF1BDAAC3C00D183E6 /* blockchain_vertical_header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23FF84CE1BDAAC3C00D183E6 /* blockchain_vertical_header@2x.png */; };
 		DB30FC0C0492FD3BCF38E04C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E653431E28EC983287D12D53 /* libPods.a */; };
 		FA0614821A1355C1004F71F4 /* BCMSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0614811A1355C1004F71F4 /* BCMSwitchTableViewCell.m */; };
 		FA0614841A135E09004F71F4 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614831A135E09004F71F4 /* check@2x.png */; };
@@ -36,7 +37,6 @@
 		FA74B6A01A08C6CC0045A4EF /* green_check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74B69F1A08C6CC0045A4EF /* green_check@2x.png */; };
 		FA74B6A31A0923490045A4EF /* BCMTransactionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74B6A21A0923490045A4EF /* BCMTransactionDetailViewController.m */; };
 		FA7900211A26ADFC001FCB3D /* red_check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7900201A26ADFC001FCB3D /* red_check@2x.png */; };
-		FA7900231A295D32001FCB3D /* blockchain_header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7900221A295D32001FCB3D /* blockchain_header@2x.png */; };
 		FA7D9F801A0BACB500B7B5CE /* close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7D9F7F1A0BACB500B7B5CE /* close_button@2x.png */; };
 		FA95A1C81AD1B70C00D3315D /* splash_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA95A1C71AD1B70C00D3315D /* splash_logo@2x.png */; };
 		FA95A1CB1AD2BB8E00D3315D /* BCMSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA95A1CA1AD2BB8E00D3315D /* BCMSignUpViewController.m */; };
@@ -332,6 +332,7 @@
 		23E7E5F21BD487E60051402E /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		23E7E5F51BD487F90051402E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		23E7E5F61BD487F90051402E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		23FF84CE1BDAAC3C00D183E6 /* blockchain_vertical_header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blockchain_vertical_header@2x.png"; path = "../blockchain_vertical_header@2x.png"; sourceTree = "<group>"; };
 		2BD1471CFB71554E6214BDCE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E653431E28EC983287D12D53 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA0614801A1355C1004F71F4 /* BCMSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMSwitchTableViewCell.h; sourceTree = "<group>"; };
@@ -399,7 +400,6 @@
 		FA74B6A11A0923490045A4EF /* BCMTransactionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMTransactionDetailViewController.h; sourceTree = "<group>"; };
 		FA74B6A21A0923490045A4EF /* BCMTransactionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMTransactionDetailViewController.m; sourceTree = "<group>"; };
 		FA7900201A26ADFC001FCB3D /* red_check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red_check@2x.png"; path = "../../../Assets/red_check@2x.png"; sourceTree = "<group>"; };
-		FA7900221A295D32001FCB3D /* blockchain_header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blockchain_header@2x.png"; path = "../../../Assets/blockchain_header@2x.png"; sourceTree = "<group>"; };
 		FA7D9F7F1A0BACB500B7B5CE /* close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "close_button@2x.png"; path = "../../../Assets/close_button@2x.png"; sourceTree = "<group>"; };
 		FA95A1C71AD1B70C00D3315D /* splash_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "splash_logo@2x.png"; path = "../../../Assets/splash_logo@2x.png"; sourceTree = "<group>"; };
 		FA95A1C91AD2BB8E00D3315D /* BCMSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMSignUpViewController.h; sourceTree = "<group>"; };
@@ -765,7 +765,7 @@
 				FAB117531A11D77800E876BA /* Icons */,
 				FAEC7A0E1A30B38A00DB9578 /* block_chain_signature.png */,
 				FA0614E01A1CE287004F71F4 /* pin_delete@2x.png */,
-				FA7900221A295D32001FCB3D /* blockchain_header@2x.png */,
+				23FF84CE1BDAAC3C00D183E6 /* blockchain_vertical_header@2x.png */,
 				FA20E67D1A2644C400B70DCF /* current_location@2x.png */,
 				FAB117141A11135200E876BA /* bitcoin_marker_white@2x.png */,
 				FAB1170A1A10FF8600E876BA /* bitcoin_marker@2x.png */,
@@ -973,6 +973,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23FF84CF1BDAAC3C00D183E6 /* blockchain_vertical_header@2x.png in Resources */,
 				FAB117701A11D77800E876BA /* Icon-Small-50.png in Resources */,
 				234CA9521BD69F0000AB7DA2 /* InfoPlist.strings in Resources */,
 				FAD05B2A1AD34E8E00A14EDA /* logo_merchant@2x.png in Resources */,
@@ -1010,7 +1011,6 @@
 				FA7D9F801A0BACB500B7B5CE /* close_button@2x.png in Resources */,
 				FAB117151A11135200E876BA /* bitcoin_marker_white@2x.png in Resources */,
 				FAEB498519F95F4F00B774EC /* nav_settings@2x.png in Resources */,
-				FA7900231A295D32001FCB3D /* blockchain_header@2x.png in Resources */,
 				FAB1176A1A11D77800E876BA /* Icon-72@2x.png in Resources */,
 				FAB116E21A108EF100E876BA /* Setup.storyboard in Resources */,
 				FA99823B1A020A01006C7D2F /* BCMSearchView.xib in Resources */,
