@@ -20,7 +20,11 @@ NSString *const kBCMNetworkingErrorDetailKey = @"BCMErrorDetail";
 NSString *kBlockChainTxURL = @"https://blockchain.info/tx";
 
 static const NSString *kBCBaseURL = @"https://blockchain.info";
+#ifdef DEBUG
+static const NSString *kBCDevBaseURL = @"http://service-merchant-dir.dev.blockchain.co.uk";
+#else
 static const NSString *kBCDevBaseURL = @"https://merchant-directory.blockchain.info";
+#endif
 static const NSString *kBCExchangeRatesRoute = @"ticker";
 static const NSString *kBCConvertToBitcoin = @"tobtc";
 static const NSString *kBCConvertToFiat = @"frombtc";
