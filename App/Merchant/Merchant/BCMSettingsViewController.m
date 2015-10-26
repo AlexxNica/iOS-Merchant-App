@@ -340,10 +340,10 @@ static NSString *const kSettingsWithDetailCellId = @"settingWithDetailCellId";
         
         textFieldCell.canEdit = canEdit;
         
-        if (indexPath.row != BCMSettingsRowWalletAddress) {
+        if (row != BCMSettingsRowWalletAddress) {
             textFieldCell.showRightImage = NO;
         } else {
-            if (indexPath.row == BCMSettingsRowWalletAddress) {
+            if (row == BCMSettingsRowWalletAddress) {
                 NSString *walletAddress = [self.settings safeObjectForKey:kBCMBusinessWalletAddress];
                 if ([walletAddress length] > 0) {
                     if ([BTCAddress addressWithBase58String:walletAddress]) {
@@ -354,6 +354,12 @@ static NSString *const kSettingsWithDetailCellId = @"settingWithDetailCellId";
                 }
                 textFieldCell.showRightImage = YES;
             }
+        }
+        
+        if (row == BCMSettingsRowWebsite || row == BCMSettingsRowTelephone || row == BCMSettingsRowBusinessZipCode) {
+            textFieldCell.textField.autocorrectionType = UITextAutocorrectionTypeNo;
+        } else {
+            textFieldCell.textField.autocorrectionType = UITextAutocorrectionTypeDefault;
         }
         
         cell = textFieldCell;

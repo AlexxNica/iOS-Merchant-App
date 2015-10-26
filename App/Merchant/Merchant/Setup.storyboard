@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -13,6 +13,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="pQF-Ax-In0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <connections>
                         <segue destination="2p6-XA-SHf" kind="relationship" relationship="rootViewController" id="S0q-RU-cO1"/>
@@ -31,11 +32,12 @@
                         <viewControllerLayoutGuide type="bottom" id="G26-H0-Snf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="EU9-a3-8GX">
-                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roQ-aI-gKD">
                                 <rect key="frame" x="40" y="320" width="240" height="44"/>
+                                <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="jAi-fz-hih">
@@ -54,6 +56,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Set up your merchant acount" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eQ-7X-q9Y">
                                 <rect key="frame" x="49" y="276" width="223" height="21"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" priority="200" constant="223" id="NXX-8Q-JPH"/>
                                     <constraint firstAttribute="height" constant="21" id="sQB-vy-tOh"/>
@@ -64,12 +67,14 @@
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="KuL-Qo-bFZ">
                                 <rect key="frame" x="68" y="94" width="184" height="144"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="144" id="9Ws-ca-x6L"/>
                                     <constraint firstAttribute="width" constant="184" id="DHS-k2-iz7"/>
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" red="0.058823529411764705" green="0.47058823529411764" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="6eQ-7X-q9Y" secondAttribute="centerX" id="2CH-jn-dbx"/>
@@ -119,6 +124,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="7Db-2p-Scx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <connections>
                         <segue destination="dDV-6H-Gs1" kind="relationship" relationship="rootViewController" id="u5U-zG-vpN"/>
@@ -137,7 +143,7 @@
                         <viewControllerLayoutGuide type="bottom" id="L6b-mb-71U"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tay-65-1ko">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQg-ph-fKo">
@@ -145,6 +151,7 @@
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Currency" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L9W-cf-dzu" customClass="BCMTextField">
                                         <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="630-iq-DHu"/>
                                             <constraint firstAttribute="width" constant="248" id="OLW-LL-jVQ">
@@ -171,6 +178,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQv-x3-lgk">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="6kc-JB-1Yr"/>
                                             <constraint firstAttribute="width" constant="36" id="PXT-HJ-vW5">
@@ -206,12 +214,13 @@
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Wallet Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xI9-AF-ljK" customClass="BCMTextField">
                                         <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="wx7-vI-6WK"/>
                                             <constraint firstAttribute="height" constant="36" id="zr9-IF-Hpb"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="wx7-vI-6WK"/>
@@ -230,6 +239,7 @@
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Currency" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="364-Mg-HxD" customClass="BCMTextField">
                                         <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="DMT-0P-j2N"/>
                                             <constraint firstAttribute="width" constant="248" id="TCw-mZ-JmK">
@@ -256,6 +266,7 @@
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Business Names" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ocp-YL-OmR" customClass="BCMTextField">
                                         <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="248" id="0y0-Tb-kej">
                                                 <variation key="widthClass=compact" constant="292"/>
@@ -282,6 +293,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="200" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZv-l4-RN2">
                                         <rect key="frame" x="21" y="390" width="127.5" height="30"/>
+                                        <animations/>
                                         <color key="backgroundColor" red="0.47058823529999999" green="0.66666666669999997" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" priority="200" constant="46" id="5HI-9B-JxC"/>
@@ -311,6 +323,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="200" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7Q-sL-Fks">
                                         <rect key="frame" x="21" y="390" width="127.5" height="30"/>
+                                        <animations/>
                                         <color key="backgroundColor" red="0.73333333329999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" priority="200" constant="46" id="a2Y-in-44d"/>
@@ -340,6 +353,7 @@
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green_check.png" translatesAutoresizingMaskIntoConstraints="NO" id="MYx-T8-KiN">
                                         <rect key="frame" x="0.0" y="0.0" width="34" height="128"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="19" id="iPf-vd-jM7">
                                                 <variation key="widthClass=compact" constant="34"/>
@@ -362,6 +376,7 @@
                                         </variation>
                                     </imageView>
                                 </subviews>
+                                <animations/>
                                 <constraints>
                                     <constraint firstItem="364-Mg-HxD" firstAttribute="top" secondItem="Ocp-YL-OmR" secondAttribute="bottom" constant="8" id="6lL-QG-jE2"/>
                                     <constraint firstItem="XZv-l4-RN2" firstAttribute="leading" secondItem="O7Q-sL-Fks" secondAttribute="trailing" constant="155" id="BDp-2K-NMZ">
@@ -458,6 +473,7 @@
                                 </variation>
                             </scrollView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xQg-ph-fKo" firstAttribute="top" secondItem="HvU-Pr-Re1" secondAttribute="bottom" id="OyE-UY-4Vj"/>
