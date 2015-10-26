@@ -28,6 +28,7 @@
     self.customAmountTextField.rightView = self.currencyLabel;
     self.customAmountTextField.rightViewMode = UITextFieldViewModeAlways;
     self.customAmountTextField.textEditingInset = UIEdgeInsetsMake(0, 50, 0, 50);
+    self.customAmountTextField.minimumFontSize = 20;
 }
 
 - (void)clear
