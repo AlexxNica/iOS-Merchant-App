@@ -404,6 +404,15 @@ const CGFloat kBBSettingsItemDefaultRowHeight = 55.0f;
 
 #pragma mark - UITableViewDelegate
 
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == BCMSettingsRowDirectoryListing) {
+        return NO;
+    }
+    
+    return YES;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
