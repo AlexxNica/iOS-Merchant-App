@@ -110,7 +110,7 @@
 
 - (void)accessoryDoneAction:(id)sender
 {
-    NSString *amountText = self.customAmountTextField.text;
+    NSString *amountText = [self.customAmountTextField.text stringByReplacingOccurrencesOfString:[[NSLocale currentLocale] objectForKey:NSLocaleDecimalSeparator] withString:@"."];
     
     if ([amountText length] == 0) {
         amountText = @"0.00";
