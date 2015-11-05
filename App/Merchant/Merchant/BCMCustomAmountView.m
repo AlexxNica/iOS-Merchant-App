@@ -91,6 +91,7 @@
         [compButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
         [compButton addTarget:self action:@selector(accessoryDoneAction:)
              forControlEvents:UIControlEventTouchUpInside];
+        compButton.titleLabel.adjustsFontSizeToFitWidth = YES;
         self.compButton = compButton;
 
         [self.inputAccessoryView addSubview:compButton];
@@ -101,6 +102,7 @@
         [cancelButton setTitle: NSLocalizedString(@"action.cancel", nil) forState:UIControlStateNormal];
         [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [cancelButton addTarget:self action:@selector(accessoryClearAction:) forControlEvents:UIControlEventTouchUpInside];
+        cancelButton.titleLabel.adjustsFontSizeToFitWidth = YES;
         [self.inputAccessoryView addSubview:cancelButton];
     }
     return _inputAccessoryView;
