@@ -18,6 +18,8 @@
 #import "UIView+Utilities.h"
 #import "UIColor+Utilities.h"
 
+#import "DebugTableViewController.h"
+
 NSString *const kNavStoryboardSetupVCId = @"navSetupStoryBoardId";
 NSString *const kStoryboardSetupVCId = @"setupStoryBoardId";
 
@@ -29,6 +31,7 @@ NSString *const kStoryboardSetupVCId = @"setupStoryBoardId";
 
 @property (copy, nonatomic) NSString *temporaryPin;
 
+@property (strong, nonatomic) IBOutlet UIView *debugView;
 @end
 
 @implementation BCMSetupViewController
@@ -36,6 +39,10 @@ NSString *const kStoryboardSetupVCId = @"setupStoryBoardId";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+    longPressGesture.minimumPressDuration = 2.0;
+    [self.debugView addGestureRecognizer:longPressGesture];
     
     self.view.backgroundColor = [UIColor colorWithHexValue:BCM_BLUE];
     
@@ -104,6 +111,22 @@ NSString *const kStoryboardSetupVCId = @"setupStoryBoardId";
 
 - (IBAction)signUpAction:(id)sender
 {
+}
+
+- (void)handleLongPress:(UILongPressGestureRecognizer *)longPress
+{
+    if (longPress.state == UIGestureRecognizerStateBegan) {
+        [self showDebugMenu];
+    }
+}
+
+- (void)showDebugMenu
+{
+    DebugTableViewController *debugViewController = [[DebugTableViewController alloc] init];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:debugViewController];
+    
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 #pragma mark - BCMSignUpViewDelegate

@@ -51,7 +51,7 @@
     self.doneButton.alpha = self.transaction ? 0.0f : 1.0f;
 
     if (self.transaction) {
-        NSString *transactionURLString = [NSString stringWithFormat:@"%@/%@", kBlockChainTxURL, self.transaction.transactionHash];
+        NSString *transactionURLString = [NSString stringWithFormat:@"%@/%@", TRANSACTION_URL, self.transaction.transactionHash];
         [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:transactionURLString]]];
 
         UIBarButtonItem *barButtonItem = nil;

@@ -17,14 +17,6 @@ NSString *const kBCMNetworkingErrorDomain = @"com.blockchain.networking";
 NSString *const kBCMNetworkingErrorKey = @"BCMError";
 NSString *const kBCMNetworkingErrorDetailKey = @"BCMErrorDetail";
 
-NSString *kBlockChainTxURL = @"https://blockchain.info/tx";
-
-static const NSString *kBCBaseURL = @"https://blockchain.info";
-#ifdef DEBUG
-static const NSString *kBCDevBaseURL = @"http://service-merchant-dir.dev.blockchain.co.uk";
-#else
-static const NSString *kBCDevBaseURL = @"https://merchant-directory.blockchain.info";
-#endif
 static const NSString *kBCExchangeRatesRoute = @"ticker";
 static const NSString *kBCConvertToBitcoin = @"tobtc";
 static const NSString *kBCConvertToFiat = @"frombtc";
@@ -63,7 +55,7 @@ static const NSString *kBCMValidateAddress = @"rawaddr";
 
 - (NSURLRequest *)retrieveBitcoinCurrenciesSuccess:(BCMNetworkingSuccess)success error:(BCMNetworkingFailure)failure
 {
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@", kBCBaseURL, kBCExchangeRatesRoute];
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@", BASE_URL, kBCExchangeRatesRoute];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     
     [NSURLConnection sendAsynchronousRequest:urlRequest queue:self.mediumPriorityRequestQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -81,7 +73,7 @@ static const NSString *kBCMValidateAddress = @"rawaddr";
 
 - (NSURLRequest *)convertToBitcoinFromAmount:(CGFloat)amount fromCurrency:(NSString *)currency success:(BCMNetworkingSuccess)success error:(BCMNetworkingFailure)failure
 {
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@?currency=%@&value=%.4f", kBCBaseURL, kBCConvertToBitcoin, currency, amount];
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@?currency=%@&value=%.4f", BASE_URL, kBCConvertToBitcoin, currency, amount];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     
     [NSURLConnection sendAsynchronousRequest:urlRequest queue:self.mediumPriorityRequestQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -98,7 +90,7 @@ static const NSString *kBCMValidateAddress = @"rawaddr";
 
 - (NSURLRequest *)convertToCurrency:(NSString *)currency fromAmount:(uint64_t)amount success:(BCMNetworkingSuccess)success error:(BCMNetworkingFailure)failure
 {
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@?currency=%@&value=%lld", kBCBaseURL, kBCConvertToFiat, currency, amount];
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@?currency=%@&value=%lld", BASE_URL, kBCConvertToFiat, currency, amount];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     
     [NSURLConnection sendAsynchronousRequest:urlRequest queue:self.mediumPriorityRequestQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -117,7 +109,7 @@ static const NSString *kBCMValidateAddress = @"rawaddr";
 
 - (NSURLRequest *)retrieveSuggestMerchantsSuccess:(BCMNetworkingSuccess)success error:(BCMNetworkingFailure)failure
 {
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@", kBCBaseURL, kBCMerchangeSuggestRoute];
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@", BASE_URL, kBCMerchangeSuggestRoute];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     
     [NSURLConnection sendAsynchronousRequest:urlRequest queue:self.mediumPriorityRequestQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -138,7 +130,7 @@ static NSString *const kSuggestMerchantResultKey = @"result";
 {
     NSDictionary *merchantAsDict = [merchant merchantAsSuggestionDict];
     
-    NSString *urlString = [NSString stringWithFormat:@"%@/api/%@", kBCDevBaseURL, kBCMerchangeSuggestRoute];
+    NSString *urlString = [NSString stringWithFormat:@"%@/api/%@", MERCHANT_DIRECTORY_URL, kBCMerchangeSuggestRoute];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [urlRequest setHTTPMethod:@"POST"];

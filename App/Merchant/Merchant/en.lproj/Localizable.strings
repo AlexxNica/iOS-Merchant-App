@@ -152,3 +152,11 @@
 "welcome.lets_go" = "Lets Go!";
 "qr.insufficient.payment.title" = "Insufficient Payment";
 "qr.insufficient.payment.message" = "Requested %@, received %@ BTC. QR image has been changed to reflect amount due.";
+
+// Debug
+"debug.debug" = "Debug";
+"debug.reset" = "Reset";
+"debug.merchant_directory_url" = "Merchant URL";
+"debug.base_url" = "Base URL";
+"debug.transaction_url" = "Transaction URL";
+"debug.web_socket_url" = "Websocket URL";

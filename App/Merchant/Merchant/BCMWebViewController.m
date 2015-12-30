@@ -48,7 +48,7 @@
 {
     _transaction = transaction;
     
-    self.transactionURLString = [NSString stringWithFormat:@"%@/%@", kBlockChainTxURL, transaction.transactionHash];
+    self.transactionURLString = [NSString stringWithFormat:@"%@/%@", TRANSACTION_URL, transaction.transactionHash];
 }
 
 #pragma mark - Actions

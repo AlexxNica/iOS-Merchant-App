@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		234CA8AD1BD6953300AB7DA2 /* BCMPaymentReceivedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 234CA8AF1BD6953300AB7DA2 /* BCMPaymentReceivedView.xib */; };
 		234CA8FC1BD695A900AB7DA2 /* BCMQRCodeTransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 234CA8FE1BD695A900AB7DA2 /* BCMQRCodeTransactionView.xib */; };
+		23F720F51C34299800577738 /* DebugTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F720F31C34299800577738 /* DebugTableViewController.m */; };
 		23FF84CF1BDAAC3C00D183E6 /* blockchain_vertical_header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23FF84CE1BDAAC3C00D183E6 /* blockchain_vertical_header@2x.png */; };
 		DB30FC0C0492FD3BCF38E04C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E653431E28EC983287D12D53 /* libPods.a */; };
 		FA0614821A1355C1004F71F4 /* BCMSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0614811A1355C1004F71F4 /* BCMSwitchTableViewCell.m */; };
@@ -298,6 +299,8 @@
 		23E7E5F21BD487E60051402E /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		23E7E5F51BD487F90051402E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		23E7E5F61BD487F90051402E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		23F720F31C34299800577738 /* DebugTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugTableViewController.m; sourceTree = "<group>"; };
+		23F720F41C34299800577738 /* DebugTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugTableViewController.h; sourceTree = "<group>"; };
 		23FF84CE1BDAAC3C00D183E6 /* blockchain_vertical_header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blockchain_vertical_header@2x.png"; path = "../blockchain_vertical_header@2x.png"; sourceTree = "<group>"; };
 		2BD1471CFB71554E6214BDCE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E653431E28EC983287D12D53 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -812,6 +815,8 @@
 				FAB116DF1A0D30E000E876BA /* BCMWebViewController.m */,
 				FA0614C71A1B84C9004F71F4 /* BCMQRCodeScannerViewController.h */,
 				FA0614C81A1B84C9004F71F4 /* BCMQRCodeScannerViewController.m */,
+				23F720F41C34299800577738 /* DebugTableViewController.h */,
+				23F720F31C34299800577738 /* DebugTableViewController.m */,
 			);
 			name = "Primary View Controllers";
 			sourceTree = "<group>";
@@ -1110,6 +1115,7 @@
 				FA95A1CB1AD2BB8E00D3315D /* BCMSignUpViewController.m in Sources */,
 				FA99822219FE8C67006C7D2F /* BCMTextField.m in Sources */,
 				FAB117131A1103F800E876BA /* NSDate+Utilities.m in Sources */,
+				23F720F51C34299800577738 /* DebugTableViewController.m in Sources */,
 				FA0614CD1A1BADFA004F71F4 /* BCPinEntryView.m in Sources */,
 				FA99825F1A03E849006C7D2F /* BCMQRCodeTransactionView.m in Sources */,
 				FA0614821A1355C1004F71F4 /* BCMSwitchTableViewCell.m in Sources */,

@@ -31,6 +31,8 @@
 #import "NSDate+Utilities.h"
 #import "UIColor+Utilities.h"
 
+#import "DebugTableViewController.h"
+
 #import <MessageUI/MessageUI.h>
 
 typedef NS_ENUM(NSUInteger, BCMPOSSection) {
@@ -142,6 +144,12 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     [self.itemsTableView registerNib:[UINib nibWithNibName:@"BCMItemTableViewCell" bundle:nil] forCellReuseIdentifier:kBCMItemCellId];
     
     self.bitcoinAmountLabel.adjustsFontSizeToFitWidth = YES;
+    
+    UIView *debugView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 80, 0, 80, 51)];
+    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+    longPressGesture.minimumPressDuration = 2.0;
+    [debugView addGestureRecognizer:longPressGesture];
+    [self.navigationController.navigationBar addSubview:debugView];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -271,6 +279,15 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     }
 }
 
+- (void)showDebugMenu
+{
+    DebugTableViewController *debugViewController = [[DebugTableViewController alloc] init];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:debugViewController];
+    
+    [self presentViewController:navigationController animated:YES completion:nil];
+}
+
 #pragma mark - Actions
 
 - (IBAction)clearSearchAction:(id)sender
@@ -384,6 +401,13 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     [self.simpleItems removeAllObjects];
     
     [self.itemsTableView reloadData];
+}
+
+- (void)handleLongPress:(UILongPressGestureRecognizer *)longPress
+{
+    if (longPress.state == UIGestureRecognizerStateBegan) {
+        [self showDebugMenu];
+    }
 }
 
 #pragma mark - UITableViewDataSource

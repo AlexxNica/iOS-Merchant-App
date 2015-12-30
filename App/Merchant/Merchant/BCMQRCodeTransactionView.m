@@ -142,7 +142,7 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
 
 - (void)openSocket
 {
-    NSString *urlString = kBlockChainSockURL;
+    NSString *urlString = WEB_SOCKET_URL;
     self.transactionSocket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:urlString]];
     self.transactionSocket.delegate = self;
     [self.transactionSocket open];
@@ -159,8 +159,6 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
         [alert show];
     }
 }
-
-static NSString *const kBlockChainSockURL = @"wss://ws.blockchain.info/inv";
 
 @synthesize activeTransaction = _activeTransaction;
 
