@@ -401,8 +401,10 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
         });
     } error:^(NSURLRequest *request, NSError *error) {
         // Display alert to prevent the user from continuing
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"network.problem.title", nil) message:NSLocalizedString(@"network.problem.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
-        [alertView show];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"network.problem.title", nil) message:NSLocalizedString(@"network.problem.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
+            [alertView show];
+        });
     }];
 }
 
