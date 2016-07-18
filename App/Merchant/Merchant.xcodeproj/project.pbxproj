@@ -11,7 +11,7 @@
 		234CA8FC1BD695A900AB7DA2 /* BCMQRCodeTransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 234CA8FE1BD695A900AB7DA2 /* BCMQRCodeTransactionView.xib */; };
 		23F720F51C34299800577738 /* DebugTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F720F31C34299800577738 /* DebugTableViewController.m */; };
 		23FF84CF1BDAAC3C00D183E6 /* blockchain_vertical_header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23FF84CE1BDAAC3C00D183E6 /* blockchain_vertical_header@2x.png */; };
-		DB30FC0C0492FD3BCF38E04C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E653431E28EC983287D12D53 /* libPods.a */; };
+		934DBEF373D84CF7401EC045 /* libPods-Merchant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD656CBA20F71AC04D19A31 /* libPods-Merchant.a */; };
 		FA0614821A1355C1004F71F4 /* BCMSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0614811A1355C1004F71F4 /* BCMSwitchTableViewCell.m */; };
 		FA0614841A135E09004F71F4 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0614831A135E09004F71F4 /* check@2x.png */; };
 		FA0614C11A13BF35004F71F4 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0614C01A13BF35004F71F4 /* UIImage+Utils.m */; };
@@ -134,7 +134,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04DA42D0F37DCEB38EA7DB91 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		1AD656CBA20F71AC04D19A31 /* libPods-Merchant.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Merchant.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		234CA81A1BD4883700AB7DA2 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Main.strings; sourceTree = "<group>"; };
 		234CA81B1BD4883700AB7DA2 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		234CA81E1BD4886D00AB7DA2 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Main.strings; sourceTree = "<group>"; };
@@ -302,8 +302,8 @@
 		23F720F31C34299800577738 /* DebugTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugTableViewController.m; sourceTree = "<group>"; };
 		23F720F41C34299800577738 /* DebugTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugTableViewController.h; sourceTree = "<group>"; };
 		23FF84CE1BDAAC3C00D183E6 /* blockchain_vertical_header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blockchain_vertical_header@2x.png"; path = "../blockchain_vertical_header@2x.png"; sourceTree = "<group>"; };
-		2BD1471CFB71554E6214BDCE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		E653431E28EC983287D12D53 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		40715C5CD3DF54797803D399 /* Pods-Merchant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merchant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Merchant/Pods-Merchant.debug.xcconfig"; sourceTree = "<group>"; };
+		84176F1B7F79F01F86B20C40 /* Pods-Merchant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merchant.release.xcconfig"; path = "Pods/Target Support Files/Pods-Merchant/Pods-Merchant.release.xcconfig"; sourceTree = "<group>"; };
 		FA0614801A1355C1004F71F4 /* BCMSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMSwitchTableViewCell.h; sourceTree = "<group>"; };
 		FA0614811A1355C1004F71F4 /* BCMSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMSwitchTableViewCell.m; sourceTree = "<group>"; };
 		FA0614831A135E09004F71F4 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check@2x.png"; path = "../../../Assets/check@2x.png"; sourceTree = "<group>"; };
@@ -502,7 +502,7 @@
 			files = (
 				FAC3A1FC1A2657FE00ADA872 /* CoreLocation.framework in Frameworks */,
 				FAC3A1FA1A2657F900ADA872 /* MapKit.framework in Frameworks */,
-				DB30FC0C0492FD3BCF38E04C /* libPods.a in Frameworks */,
+				934DBEF373D84CF7401EC045 /* libPods-Merchant.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,24 +516,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0FD58BCAA148187EEEA8F983 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				04DA42D0F37DCEB38EA7DB91 /* Pods.debug.xcconfig */,
-				2BD1471CFB71554E6214BDCE /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		8926809DB7CF39BDF91E1B56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				FAC3A1FB1A2657FE00ADA872 /* CoreLocation.framework */,
 				FAC3A1F91A2657F900ADA872 /* MapKit.framework */,
 				FA0614E31A1E307D004F71F4 /* Crashlytics.framework */,
-				E653431E28EC983287D12D53 /* libPods.a */,
+				1AD656CBA20F71AC04D19A31 /* libPods-Merchant.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C5FDC06CA87D34B6D54B5804 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				40715C5CD3DF54797803D399 /* Pods-Merchant.debug.xcconfig */,
+				84176F1B7F79F01F86B20C40 /* Pods-Merchant.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		FA99821619FE0F04006C7D2F /* Model */ = {
@@ -605,8 +605,8 @@
 				FAA4189F19F789A000023B25 /* Merchant */,
 				FAA418B919F789A000023B25 /* MerchantTests */,
 				FAA4189E19F789A000023B25 /* Products */,
-				0FD58BCAA148187EEEA8F983 /* Pods */,
 				8926809DB7CF39BDF91E1B56 /* Frameworks */,
+				C5FDC06CA87D34B6D54B5804 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -828,13 +828,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAA418C019F789A000023B25 /* Build configuration list for PBXNativeTarget "Merchant" */;
 			buildPhases = (
-				38E52064572CDF844748DE8C /* Check Pods Manifest.lock */,
+				966FD1768FD639CE3C771A8C /* [CP] Check Pods Manifest.lock */,
 				FAA4189919F789A000023B25 /* Sources */,
 				FAA4189A19F789A000023B25 /* Frameworks */,
 				FAA4189B19F789A000023B25 /* Resources */,
-				F54FA44F4398475CE7B28781 /* Copy Pods Resources */,
 				FA0614E21A1E3043004F71F4 /* ShellScript */,
-				89CA4CAC39A06045F1FC3FA7 /* Embed Pods Frameworks */,
+				9692AA490F6E97A80DBD82A3 /* [CP] Embed Pods Frameworks */,
+				64B6C2CDDF77EB39024C2086 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1017,14 +1017,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		38E52064572CDF844748DE8C /* Check Pods Manifest.lock */ = {
+		64B6C2CDDF77EB39024C2086 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Merchant/Pods-Merchant-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		966FD1768FD639CE3C771A8C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1032,34 +1047,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		89CA4CAC39A06045F1FC3FA7 /* Embed Pods Frameworks */ = {
+		9692AA490F6E97A80DBD82A3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F54FA44F4398475CE7B28781 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Merchant/Pods-Merchant-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FA0614E21A1E3043004F71F4 /* ShellScript */ = {
@@ -1462,7 +1462,7 @@
 		};
 		FAA418C119F789A000023B25 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04DA42D0F37DCEB38EA7DB91 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 40715C5CD3DF54797803D399 /* Pods-Merchant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1484,7 +1484,7 @@
 		};
 		FAA418C219F789A000023B25 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2BD1471CFB71554E6214BDCE /* Pods.release.xcconfig */;
+			baseConfigurationReference = 84176F1B7F79F01F86B20C40 /* Pods-Merchant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
