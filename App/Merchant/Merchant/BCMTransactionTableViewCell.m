@@ -31,7 +31,10 @@
 {
     _transaction = transaction;
     
-    self.amountLbl.text = [NSString stringWithFormat:@"%1.4f BTC", transaction.bitcoinAmountValue];
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setMinimumIntegerDigits:1];
+    [numberFormatter setMinimumFractionDigits:8];
+    self.amountLbl.text = [NSString stringWithFormat:@"%1@ BTC", [numberFormatter stringFromNumber:[transaction decimalBitcoinAmountValue]]];
     
     
     NSDate *transactionDate = _transaction.creation_date;

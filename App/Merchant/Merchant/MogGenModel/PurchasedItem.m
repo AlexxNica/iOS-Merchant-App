@@ -10,6 +10,10 @@
 
 @implementation PurchasedItem
 
+- (NSDecimalNumber *)decimalPrice
+{
+    return [NSDecimalNumber decimalNumberWithDecimal:[self.price decimalValue]];
+}
 // Custom logic goes here.
 
 @end

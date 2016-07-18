@@ -10,15 +10,25 @@
 
 @implementation Transaction
 
-- (CGFloat)transactionTotal
+- (NSDecimalNumber *)transactionTotal
 {
-    CGFloat purchaseSum = 0.0f;
+    NSDecimalNumber *purchaseSum = [NSDecimalNumber zero];
     
     for (PurchasedItem *item in [self.purchasedItems allObjects]) {
-        purchaseSum += [item.price floatValue];
+        purchaseSum = [purchaseSum decimalNumberByAdding:item.decimalPrice];
     }
     
     return purchaseSum;
+}
+
+- (NSDecimalNumber *)decimalBitcoinAmountValue
+{
+    return [NSDecimalNumber decimalNumberWithDecimal:[self.bitcoinAmount decimalValue]];
+}
+
+- (void)setDecimalBitcoinAmountValue:(NSString *)value
+{
+    self.bitcoinAmount = [NSDecimalNumber decimalNumberWithString:value];
 }
 
 @end

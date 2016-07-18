@@ -108,7 +108,7 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
                 break;
             }
         }
-        uint64_t amountRequested = self.activeTransaction.bitcoinAmountValue * SATOSHI;
+        uint64_t amountRequested = [[[self.activeTransaction decimalBitcoinAmountValue] decimalNumberByMultiplyingBy:(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:SATOSHI]] longLongValue];
                 
         if (amountReceived >= amountRequested) {
             [self transactionCompleted];
@@ -180,10 +180,16 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
     NSString *currencySymbol = [[BCMMerchantManager sharedInstance] currencySymbol];
     if ([activeTransaction.purchasedItems count] > 0) {
         NSString *price = @"";
+        
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setMinimumIntegerDigits:1];
+        
         if ([[BCMMerchantManager sharedInstance].activeMerchant.currency isEqualToString:BITCOIN_CURRENCY]) {
-            price = [NSString stringWithFormat:@"%@%.4f", currencySymbol, [activeTransaction transactionTotal]];
+            [numberFormatter setMinimumFractionDigits:4];
+            price = [NSString stringWithFormat:@"%@%@", currencySymbol, [numberFormatter stringFromNumber:[activeTransaction transactionTotal]]];
         } else {
-            price = [NSString stringWithFormat:@"%@%.2f", currencySymbol, [activeTransaction transactionTotal]];
+            [numberFormatter setMinimumFractionDigits:2];
+            price = [NSString stringWithFormat:@"%@%@", currencySymbol, [numberFormatter stringFromNumber:[activeTransaction transactionTotal]]];
         }
         total = price;
     }
@@ -201,7 +207,7 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
             merchantAddress = [merchantAddress stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             NSString *qrEncodeString = [NSString stringWithFormat:@"bitcoin://%@?amount=%@", merchantAddress, bitcoinValue];
             self.qrCodeImageView.image = [BTCQRCode imageForString:qrEncodeString size:self.qrCodeImageView.frame.size scale:[[UIScreen mainScreen] scale]];
-            self.activeTransaction.bitcoinAmountValue = [bitcoinValue floatValue];
+            [self.activeTransaction setDecimalBitcoinAmountValue:bitcoinValue];
             self.successfulTransaction = NO;
 #ifdef MOCK_BTC_TRANSACTION
             [self performSelector:@selector(transactionCompleted) withObject:nil afterDelay:1.0f];
@@ -255,9 +261,9 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
 
 - (void)resetQRCodeAfterPartialPayment:(uint64_t)partialPayment
 {
-    if (self.activeTransaction.bitcoinAmountValue > 0 && partialPayment > 0) {
+    if ([self.activeTransaction decimalBitcoinAmountValue] > 0 && partialPayment > 0) {
         NSDecimalNumber *convertedAmountReceived = [(NSDecimalNumber*)[NSDecimalNumber numberWithLongLong:partialPayment] decimalNumberByDividingBy:(NSDecimalNumber*)[NSDecimalNumber numberWithDouble:SATOSHI]];
-        NSDecimalNumber *amountLeftToPay = [(NSDecimalNumber*)[NSDecimalNumber numberWithFloat:self.activeTransaction.bitcoinAmountValue] decimalNumberBySubtracting:convertedAmountReceived];
+        NSDecimalNumber *amountLeftToPay = [[self.activeTransaction decimalBitcoinAmountValue] decimalNumberBySubtracting:convertedAmountReceived];
         uint64_t amountLeftToPayConverted = [([amountLeftToPay decimalNumberByMultiplyingBy:(NSDecimalNumber*)[NSDecimalNumber numberWithDouble:SATOSHI]]) longLongValue];
         NSString *currency = [BCMMerchantManager sharedInstance].activeMerchant.currency;
         
@@ -269,7 +275,7 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
                 [insufficientPaymentAlert show];
                 
                 if ([self.delegate respondsToSelector:@selector(transactionViewWillRequestAdditionalAmount:)]) {
-                    [self.delegate transactionViewWillRequestAdditionalAmount:[amountLeftToPayFiat floatValue]];
+                    [self.delegate transactionViewWillRequestAdditionalAmount:[NSDecimalNumber decimalNumberWithString:amountLeftToPayFiat]];
                 }
             });
         } error:^(NSURLRequest *request, NSError *error) {

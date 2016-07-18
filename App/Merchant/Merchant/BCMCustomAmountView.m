@@ -117,7 +117,7 @@
     }
     
     if ([self.delegate respondsToSelector:@selector(customAmountView:addCustomAmount:)]) {
-        [self.delegate customAmountView:self addCustomAmount:[amountText floatValue]];
+        [self.delegate customAmountView:self addCustomAmount:[NSDecimalNumber decimalNumberWithString:amountText]];
         
         if ([self.delegate respondsToSelector:@selector(chargeAction:)]) {
             [self.delegate chargeAction:nil];

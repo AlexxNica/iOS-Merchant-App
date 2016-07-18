@@ -363,8 +363,14 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
 
 - (void)updateBitcoinAmountLabel:(NSString *)convertedText
 {
+    NSCharacterSet *whiteSpaceSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    
+    if ([convertedText isEqualToString:@""] || [[convertedText stringByTrimmingCharactersInSet:whiteSpaceSet] length] == 0) {
+        convertedText = @"0";
+    }
+    
     NSString *currency = [BCMMerchantManager sharedInstance].activeMerchant.currency;
-    [[BCMNetworking sharedInstance] convertToBitcoinFromAmount:[convertedText floatValue] fromCurrency:[currency uppercaseString] success:^(NSURLRequest *request, NSDictionary *dict) {
+    [[BCMNetworking sharedInstance] convertToBitcoinFromAmount:[NSDecimalNumber decimalNumberWithString:convertedText] fromCurrency:[currency uppercaseString] success:^(NSURLRequest *request, NSDictionary *dict) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSString *bitcoinValue = [dict safeObjectForKey:@"btcValue"];
             NSString *bitcoinAmount = [NSString stringWithFormat:@"%@ BTC", bitcoinValue];
@@ -584,18 +590,18 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
     [self.view bringSubviewToFront:self.bitcoinAmountLabel];
 }
 
-- (void)customAmountView:(BCMCustomAmountView *)amountView addCustomAmount:(CGFloat)amount
+- (void)customAmountView:(BCMCustomAmountView *)amountView addCustomAmount:(NSDecimalNumber *)amount
 {
     if (amount > 0) {
         [self.simpleItems removeAllObjects];
-        NSDictionary *itemDict = @{ kItemNameKey : @"Payment" , kItemPriceKey : [NSNumber numberWithFloat:amount] };
+        NSDictionary *itemDict = @{ kItemNameKey : @"Payment" , kItemPriceKey : amount };
         [self.simpleItems addObject:itemDict];
     }
 }
 
 #pragma mark - BCMQRCodeTransactionViewDelegate
 
-- (void)transactionViewWillRequestAdditionalAmount:(CGFloat)amount
+- (void)transactionViewWillRequestAdditionalAmount:(NSDecimalNumber *)amount
 {
     [self customAmountView:nil addCustomAmount:amount];
     [self chargeAction:nil];
@@ -682,10 +688,14 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
             Transaction *activeTransaction = self.activeTransition;
             if ([activeTransaction.purchasedItems count] > 0) {
                 NSString *transactionTotal = @"";
+                NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+                [numberFormatter setMinimumIntegerDigits:1];
                 if ([[BCMMerchantManager sharedInstance].activeMerchant.currency isEqualToString:BITCOIN_CURRENCY]) {
-                    transactionTotal = [NSString stringWithFormat:@"%@%.4f", currencySymbol, [activeTransaction transactionTotal]];
+                    [numberFormatter setMinimumFractionDigits:4];
+                    transactionTotal = [NSString stringWithFormat:@"%@%@", currencySymbol, [numberFormatter stringFromNumber:[activeTransaction transactionTotal]]];
                 } else {
-                    transactionTotal = [NSString stringWithFormat:@"%@%.2f", currencySymbol, [activeTransaction transactionTotal]];
+                    [numberFormatter setMinimumFractionDigits:2];
+                    transactionTotal = [NSString stringWithFormat:@"%@%@", currencySymbol, [numberFormatter stringFromNumber:[activeTransaction transactionTotal]]];
                 }
                 total = transactionTotal;
             }

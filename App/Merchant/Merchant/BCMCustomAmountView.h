@@ -14,7 +14,7 @@
 
 @protocol BCMCustomAmountViewDelegate <NSObject>
 
-- (void)customAmountView:(BCMCustomAmountView *)amountView addCustomAmount:(CGFloat)amount;
+- (void)customAmountView:(BCMCustomAmountView *)amountView addCustomAmount:(NSDecimalNumber *)amount;
 - (void)chargeAction:(id)sender;
 - (void)updateBitcoinAmountLabel:(NSString *)convertedText;
 

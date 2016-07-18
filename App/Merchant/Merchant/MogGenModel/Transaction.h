@@ -2,6 +2,7 @@
 
 @interface Transaction : _Transaction {}
 
-- (CGFloat)transactionTotal;
-
+- (NSDecimalNumber *)transactionTotal;
+- (NSDecimalNumber *)decimalBitcoinAmountValue;
+- (void)setDecimalBitcoinAmountValue:(NSString *)value;
 @end
