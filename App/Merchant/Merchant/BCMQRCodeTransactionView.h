@@ -16,7 +16,7 @@
 
 - (void)transactionViewDidComplete:(BCMQRCodeTransactionView *)transactionView;
 - (void)transactionViewDidClear:(BCMQRCodeTransactionView *)transactionView;
-- (void)transactionViewWillRequestAdditionalAmount:(NSDecimalNumber *)amount;
+- (void)transactionViewWillRequestAdditionalAmount:(NSDecimalNumber *)amount  bitcoinAmount:(uint64_t)bitcoinAmount;
 
 @end
 

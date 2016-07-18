@@ -2,6 +2,7 @@
 
 NSString *const kItemNameKey = @"name";
 NSString *const kItemPriceKey = @"price";
+NSString *const kItemBtcPriceKey = @"btcPrice";
 
 @interface Item ()
 

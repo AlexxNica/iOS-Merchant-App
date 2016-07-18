@@ -83,6 +83,7 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchContainerToTableMargin;
 
 @property (strong, nonatomic) NSString *currencySign;
+
 @end
 
 @implementation BCMPOSViewController
@@ -308,11 +309,14 @@ typedef NS_ENUM(NSUInteger, BCMPOSMode) {
     
     // Create purchased items
     for (NSDictionary *dict in self.simpleItems) {
-        // Creating purchased items from known items in transactin
+        // Creating purchased items from known items in transaction
         PurchasedItem *pItem = [PurchasedItem MR_createEntity];
         pItem.name = [dict safeObjectForKey:kItemNameKey];
         pItem.price = [dict safeObjectForKey:kItemPriceKey];
         [transaction addPurchasedItemsObject:pItem];
+        
+        [transaction setDecimalBitcoinAmountValue:[dict safeObjectForKey:kItemBtcPriceKey]
+        ];
     }
     
     if (!self.trasactionOverlay) {
@@ -590,20 +594,22 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
     [self.view bringSubviewToFront:self.bitcoinAmountLabel];
 }
 
-- (void)customAmountView:(BCMCustomAmountView *)amountView addCustomAmount:(NSDecimalNumber *)amount
+- (void)customAmountView:(BCMCustomAmountView *)amountView addCustomAmount:(NSDecimalNumber *)amount bitcoinAmount:(NSString *)bitcoinAmount
 {
-    if (amount > 0) {
+    if ([[NSDecimalNumber decimalNumberWithString:bitcoinAmount] compare:[NSDecimalNumber zero]] == NSOrderedDescending) {
         [self.simpleItems removeAllObjects];
-        NSDictionary *itemDict = @{ kItemNameKey : @"Payment" , kItemPriceKey : amount };
+        NSDictionary *itemDict = @{ kItemNameKey : @"Payment" , kItemPriceKey : amount, kItemBtcPriceKey : bitcoinAmount};
         [self.simpleItems addObject:itemDict];
     }
 }
 
 #pragma mark - BCMQRCodeTransactionViewDelegate
 
-- (void)transactionViewWillRequestAdditionalAmount:(NSDecimalNumber *)amount
+- (void)transactionViewWillRequestAdditionalAmount:(NSDecimalNumber *)amount bitcoinAmount:(uint64_t)bitcoinAmount
 {
-    [self customAmountView:nil addCustomAmount:amount];
+    NSString *bitcoinAmountString = [[(NSDecimalNumber *)[NSDecimalNumber numberWithLongLong:bitcoinAmount] decimalNumberByDividingBy:(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:SATOSHI]] stringValue];
+    
+    [self customAmountView:nil addCustomAmount:amount bitcoinAmount:bitcoinAmountString];
     [self chargeAction:nil];
 }
 

@@ -28,8 +28,6 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
 
 @interface BCMQRCodeTransactionView () <SRWebSocketDelegate>
 
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
-
 @property (weak, nonatomic) IBOutlet UILabel *currencyPriceLbl;
 @property (weak, nonatomic) IBOutlet UILabel *bitcoinPriceLbl;
 @property (weak, nonatomic) IBOutlet UIImageView *qrCodeImageView;
@@ -56,7 +54,6 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
     [super awakeFromNib];
     
     self.networking = [BCMNetworking sharedInstance];
-    [self.spinner startAnimating];
     self.infoLbl.text = NSLocalizedString(@"qr.trasnasction.info.waiting", nil);
     
     [self.cancelButton setBackgroundColor:[UIColor colorWithHexValue:@"ff8889"]];
@@ -171,9 +168,6 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
     if (previousTransaction != _activeTransaction) {
         self.qrCodeImageView.image = nil;
         self.bitcoinPriceLbl.text = @"...";
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.spinner startAnimating];
-        });
     }
     
     NSString *total = NSLocalizedString(@"general.NA", nil);
@@ -194,36 +188,16 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
         total = price;
     }
     
-    NSString *currency = [BCMMerchantManager sharedInstance].activeMerchant.currency;
-    [self.networking convertToBitcoinFromAmount:activeTransaction.transactionTotal fromCurrency:[currency uppercaseString] success:^(NSURLRequest *request, NSDictionary *dict) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.spinner stopAnimating];
-            // Need to set bitcoin price
-            NSString *bitcoinValue = [dict safeObjectForKey:@"btcValue"];
-            NSString *bitcoinAmount = [NSString stringWithFormat:@"%@ BTC", bitcoinValue];
-            ;
-            self.bitcoinPriceLbl.text = bitcoinAmount;
-            NSString *merchantAddress = [BCMMerchantManager sharedInstance].activeMerchant.walletAddress;
-            merchantAddress = [merchantAddress stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            NSString *qrEncodeString = [NSString stringWithFormat:@"bitcoin://%@?amount=%@", merchantAddress, bitcoinValue];
-            self.qrCodeImageView.image = [BTCQRCode imageForString:qrEncodeString size:self.qrCodeImageView.frame.size scale:[[UIScreen mainScreen] scale]];
-            [self.activeTransaction setDecimalBitcoinAmountValue:bitcoinValue];
-            self.successfulTransaction = NO;
-#ifdef MOCK_BTC_TRANSACTION
-            [self performSelector:@selector(transactionCompleted) withObject:nil afterDelay:1.0f];
-#endif
-        });
-    } error:^(NSURLRequest *request, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.spinner stopAnimating];
-#ifdef MOCK_BTC_TRANSACTION
-            [self performSelector:@selector(transactionCompleted) withObject:nil afterDelay:1.0f];
-#endif
-            // Display alert to prevent the user from continuing
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"network.problem.title", nil) message:NSLocalizedString(@"network.problem.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
-            [alertView show];
-        });
-    }];
+    // Need to set bitcoin price
+    NSString *bitcoinValue = [[activeTransaction decimalBitcoinAmountValue] stringValue];
+    NSString *bitcoinAmount = [NSString stringWithFormat:@"%@ BTC", bitcoinValue];
+    self.bitcoinPriceLbl.text = bitcoinAmount;
+    NSString *merchantAddress = [BCMMerchantManager sharedInstance].activeMerchant.walletAddress;
+    merchantAddress = [merchantAddress stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *qrEncodeString = [NSString stringWithFormat:@"bitcoin://%@?amount=%@", merchantAddress, bitcoinValue];
+    self.qrCodeImageView.image = [BTCQRCode imageForString:qrEncodeString size:self.qrCodeImageView.frame.size scale:[[UIScreen mainScreen] scale]];
+    [self.activeTransaction setDecimalBitcoinAmountValue:bitcoinValue];
+    self.successfulTransaction = NO;
     
     self.currencyPriceLbl.text = total;
     
@@ -274,8 +248,8 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
                 UIAlertView *insufficientPaymentAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"qr.insufficient.payment.title", @"") message:[[NSString alloc] initWithFormat:NSLocalizedString(@"qr.insufficient.payment.message", @""), self.bitcoinPriceLbl.text, convertedAmountReceived] delegate:nil cancelButtonTitle:NSLocalizedString(@"alert.ok", @"") otherButtonTitles:nil];
                 [insufficientPaymentAlert show];
                 
-                if ([self.delegate respondsToSelector:@selector(transactionViewWillRequestAdditionalAmount:)]) {
-                    [self.delegate transactionViewWillRequestAdditionalAmount:[NSDecimalNumber decimalNumberWithString:amountLeftToPayFiat]];
+                if ([self.delegate respondsToSelector:@selector(transactionViewWillRequestAdditionalAmount:bitcoinAmount:)]) {
+                    [self.delegate transactionViewWillRequestAdditionalAmount:[NSDecimalNumber decimalNumberWithString:amountLeftToPayFiat] bitcoinAmount:amountLeftToPayConverted];
                 }
             });
         } error:^(NSURLRequest *request, NSError *error) {

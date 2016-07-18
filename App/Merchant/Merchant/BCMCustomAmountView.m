@@ -9,6 +9,10 @@
 #import "BCMCustomAmountView.h"
 
 #import "BCMTextField.h"
+#import "BCMNetworking.h"
+#import "BCMMerchantManager.h"
+#import "Merchant.h"
+#import "Foundation-Utility.h"
 
 #import "UIColor+Utilities.h"
 
@@ -116,13 +120,32 @@
         amountText = @"0.00";
     }
     
-    if ([self.delegate respondsToSelector:@selector(customAmountView:addCustomAmount:)]) {
-        [self.delegate customAmountView:self addCustomAmount:[NSDecimalNumber decimalNumberWithString:amountText]];
-        
-        if ([self.delegate respondsToSelector:@selector(chargeAction:)]) {
-            [self.delegate chargeAction:nil];
-        }
-    }
+    NSString *currency = [BCMMerchantManager sharedInstance].activeMerchant.currency;
+    [[BCMNetworking sharedInstance] convertToBitcoinFromAmount:[NSDecimalNumber decimalNumberWithString:amountText] fromCurrency:[currency uppercaseString] success:^(NSURLRequest *request, NSDictionary *dict) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // Need to set bitcoin price
+            NSString *bitcoinValue = [dict safeObjectForKey:@"btcValue"];
+            if ([self.delegate respondsToSelector:@selector(customAmountView:addCustomAmount:bitcoinAmount:)]) {
+                [self.delegate customAmountView:self addCustomAmount:[NSDecimalNumber decimalNumberWithString:amountText] bitcoinAmount:bitcoinValue];
+                
+                if ([self.delegate respondsToSelector:@selector(chargeAction:)]) {
+                    [self.delegate chargeAction:nil];
+                }
+            }
+#ifdef MOCK_BTC_TRANSACTION
+            [self performSelector:@selector(transactionCompleted) withObject:nil afterDelay:1.0f];
+#endif
+        });
+    } error:^(NSURLRequest *request, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+#ifdef MOCK_BTC_TRANSACTION
+            [self performSelector:@selector(transactionCompleted) withObject:nil afterDelay:1.0f];
+#endif
+            // Display alert to prevent the user from continuing
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"network.problem.title", nil) message:NSLocalizedString(@"network.problem.detail", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert.ok", nil) otherButtonTitles:nil];
+            [alertView show];
+        });
+    }];
     
     [self endEditing:YES];
 }
