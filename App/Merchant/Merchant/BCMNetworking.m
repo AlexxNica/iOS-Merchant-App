@@ -74,6 +74,7 @@ static const NSString *kBCMValidateAddress = @"rawaddr";
 - (NSURLRequest *)convertToBitcoinFromAmount:(NSDecimalNumber *)amount fromCurrency:(NSString *)currency success:(BCMNetworkingSuccess)success error:(BCMNetworkingFailure)failure
 {
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setDecimalSeparator:@"."];
     [numberFormatter setMinimumIntegerDigits:1];
     [numberFormatter setMinimumFractionDigits:4];
     
