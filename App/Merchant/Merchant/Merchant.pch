@@ -28,6 +28,7 @@ previously used debug URL: @"http://service-merchant-dir.dev.blockchain.co.uk";
 */
 
 #define DEFAULT_TRANSACTION_URL @"https://blockchain.info/tx"
+#define DEFAULT_TRANSACTION_RESULT_URL_HASH_ARGUMENT_ADDRESS_ARGUMENT @"https://blockchain.info/q/txresult/%@/%@"
 #define DEFAULT_WEB_SOCKET_URL @"wss://ws.blockchain.info/inv"
 
 #define BASE_URL [[NSUserDefaults standardUserDefaults] objectForKey:USER_DEFAULTS_KEY_BASE_URL] == nil ? DEFAULT_BASE_URL : [[NSUserDefaults standardUserDefaults] objectForKey:USER_DEFAULTS_KEY_BASE_URL]

@@ -92,28 +92,38 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
         NSDictionary *transtionDict = [jsonDict safeObjectForKey:@"x"];
         NSString *transactionHash = [transtionDict safeObjectForKey:@"hash"];
         self.activeTransaction.transactionHash = transactionHash;
+        NSString *merchantAddress = [BCMMerchantManager sharedInstance].activeMerchant.walletAddress;
+        NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:DEFAULT_TRANSACTION_RESULT_URL_HASH_ARGUMENT_ADDRESS_ARGUMENT, transactionHash, merchantAddress]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:URL];
         
-        NSArray *outArray = transtionDict[@"out"];
-        NSString *merchantAddress;
-        uint64_t amountReceived = 0;
-        for (int index = 0; index < [outArray count]; index++) {
-            NSString *address = [outArray[index] safeObjectForKey:@"addr"];
-            merchantAddress = [BCMMerchantManager sharedInstance].activeMerchant.walletAddress;
-            merchantAddress = [merchantAddress stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            if ([merchantAddress isEqualToString:address]) {
-                amountReceived = [[outArray[index] safeObjectForKey:@"value"] longLongValue];
-                break;
+        NSURLSession *session = [NSURLSession sharedSession];
+        NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            
+            if (error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"We encountered a problem please try to charge this transaction again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alert show];
+                });
+                return;
             }
-        }
-        uint64_t amountRequested = [[[self.activeTransaction decimalBitcoinAmountValue] decimalNumberByMultiplyingBy:(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:SATOSHI]] longLongValue];
-                
-        if (amountReceived >= amountRequested) {
-            [self transactionCompleted];
-        } else {
-            NSLog(@"Insufficient payment: requested %lld, received %lld", amountRequested, amountReceived);
-            self.successfulTransaction = NO;
-            [self resetQRCodeAfterPartialPayment:amountReceived];
-        }
+            
+            uint64_t amountRequested = [[[self.activeTransaction decimalBitcoinAmountValue] decimalNumberByMultiplyingBy:(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:SATOSHI]] longLongValue];
+            uint64_t amountReceived = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] longLongValue];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (amountReceived >= amountRequested) {
+                    [self transactionCompleted];
+                } else {
+                    NSLog(@"Insufficient payment: requested %lld, received %lld", amountRequested, amountReceived);
+                    self.successfulTransaction = NO;
+                    [self resetQRCodeAfterPartialPayment:amountReceived];
+                }
+            });
+        }];
+        
+        [task resume];
+        
+        [session finishTasksAndInvalidate];
     }
 }
 
