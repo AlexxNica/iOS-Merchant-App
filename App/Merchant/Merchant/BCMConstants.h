@@ -22,6 +22,9 @@
 #define BLOCK_CHAIN_SECONDARY_GRAY @"ebebeb"
 #define BLOCK_CHAIN_SEND_GREEN @"8ab75e"
 
+#define SOCKET_STATE_CLOSING 2
+#define SOCKET_STATE_CLOSED 3
+
 #define SATOSHI 1e8 // 100,000,000
 
 #define BITCOIN_LIMIT 21e6 // 21,000,000 (Total possible Bitcoins)

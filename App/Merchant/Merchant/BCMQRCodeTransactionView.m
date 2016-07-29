@@ -211,7 +211,9 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
     
     self.currencyPriceLbl.text = total;
     
-    [self openSocket];
+    if (!self.transactionSocket || self.transactionSocket.readyState == SOCKET_STATE_CLOSING || self.transactionSocket.readyState == SOCKET_STATE_CLOSED) {
+        [self openSocket];
+    }
 }
 
 - (UIImage *) generateQRCodeWithString:(NSString *)string scale:(CGFloat)scale
