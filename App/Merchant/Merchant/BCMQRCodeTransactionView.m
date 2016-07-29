@@ -10,6 +10,7 @@
 
 
 #import "Transaction.h"
+#import "PurchasedItem.h"
 #import "Merchant.h"
 
 #import "BCMMerchantManager.h"
@@ -260,8 +261,25 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
                 UIAlertView *insufficientPaymentAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"qr.insufficient.payment.title", @"") message:[[NSString alloc] initWithFormat:NSLocalizedString(@"qr.insufficient.payment.message", @""), self.bitcoinPriceLbl.text, convertedAmountReceived] delegate:nil cancelButtonTitle:NSLocalizedString(@"alert.ok", @"") otherButtonTitles:nil];
                 [insufficientPaymentAlert show];
                 
+                NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+                [localContext deleteObject:self.activeTransaction];
+                
+                NSString *bitcoinAmountString = [[(NSDecimalNumber *)[NSDecimalNumber numberWithLongLong:amountLeftToPayConverted] decimalNumberByDividingBy:(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:SATOSHI]] stringValue];
+                
+                Transaction *transaction = [Transaction MR_createEntity];
+                transaction.creation_date = [NSDate date];
+                transaction.transactionHash = self.activeTransaction.transactionHash;
+                PurchasedItem *pItem = [PurchasedItem MR_createEntity];
+                pItem.name = @"Partial Payment";
+                pItem.price = [NSDecimalNumber decimalNumberWithString:amountLeftToPayFiat];
+                [transaction addPurchasedItemsObject:pItem];
+                [transaction setDecimalBitcoinAmountValue:bitcoinAmountString
+                 ];
+                
+                [localContext MR_saveToPersistentStoreAndWait];
+                
                 if ([self.delegate respondsToSelector:@selector(transactionViewWillRequestAdditionalAmount:bitcoinAmount:)]) {
-                    [self.delegate transactionViewWillRequestAdditionalAmount:[NSDecimalNumber decimalNumberWithString:amountLeftToPayFiat] bitcoinAmount:amountLeftToPayConverted];
+                    [self.delegate transactionViewWillRequestAdditionalAmount:[NSDecimalNumber decimalNumberWithString:amountLeftToPayFiat] bitcoinAmount:bitcoinAmountString];
                 }
             });
         } error:^(NSURLRequest *request, NSError *error) {

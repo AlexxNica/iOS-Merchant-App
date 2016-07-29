@@ -607,11 +607,9 @@ const CGFloat kBBPOSItemDefaultRowHeight = 56.0f;
 
 #pragma mark - BCMQRCodeTransactionViewDelegate
 
-- (void)transactionViewWillRequestAdditionalAmount:(NSDecimalNumber *)amount bitcoinAmount:(uint64_t)bitcoinAmount
+- (void)transactionViewWillRequestAdditionalAmount:(NSDecimalNumber *)amount bitcoinAmount:(NSString *)bitcoinAmount
 {
-    NSString *bitcoinAmountString = [[(NSDecimalNumber *)[NSDecimalNumber numberWithLongLong:bitcoinAmount] decimalNumberByDividingBy:(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:SATOSHI]] stringValue];
-    
-    [self customAmountView:nil addCustomAmount:amount bitcoinAmount:bitcoinAmountString];
+    [self customAmountView:nil addCustomAmount:amount bitcoinAmount:bitcoinAmount];
     [self chargeAction:nil];
 }
 
