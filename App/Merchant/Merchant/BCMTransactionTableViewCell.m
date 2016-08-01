@@ -9,6 +9,7 @@
 #import "BCMTransactionTableViewCell.h"
 
 #import "Transaction.h"
+#import "PurchasedItem.h"
 
 #import "NSDate+Utilities.h"
 
@@ -16,6 +17,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *timeLbl;
 @property (weak, nonatomic) IBOutlet UILabel *amountLbl;
+@property (weak, nonatomic) IBOutlet UIImageView *checkImageView;
 
 @end
 
@@ -35,7 +37,12 @@
     [numberFormatter setMinimumIntegerDigits:1];
     [numberFormatter setMinimumFractionDigits:8];
     self.amountLbl.text = [NSString stringWithFormat:@"%1@ BTC", [numberFormatter stringFromNumber:[transaction decimalBitcoinAmountValue]]];
-    
+    PurchasedItem *item = transaction.purchasedItems.allObjects.firstObject;
+    if ([item.name isEqualToString:NSLocalizedString(@"qr.insufficient.payment.title", @"")]) {
+        self.checkImageView.hidden = YES;
+    } else {
+        self.checkImageView.hidden = NO;
+    }
     
     NSDate *transactionDate = _transaction.creation_date;
     
