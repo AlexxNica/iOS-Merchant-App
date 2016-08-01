@@ -270,7 +270,7 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
                 transaction.creation_date = [NSDate date];
                 transaction.transactionHash = self.activeTransaction.transactionHash;
                 PurchasedItem *pItem = [PurchasedItem MR_createEntity];
-                pItem.name = @"Partial Payment";
+                pItem.name = NSLocalizedString(@"qr.insufficient.payment.title", nil);
                 pItem.price = [NSDecimalNumber decimalNumberWithString:amountLeftToPayFiat];
                 [transaction addPurchasedItemsObject:pItem];
                 [transaction setDecimalBitcoinAmountValue:bitcoinAmountString

@@ -79,7 +79,7 @@ static NSString *const kSideNavigationDefaultCellId = @"navigationCellId";
     switch (row) {
         case BBSideNavigationItemPOS: {
             navigationImageName = @"nav_pos";
-            navigationTitle = NSLocalizedString(@"navigation.pos", nil);
+            navigationTitle = NSLocalizedString(@"action.charge", nil);
             break;
         }
         case BBSideNavigationItemTransactions: {
