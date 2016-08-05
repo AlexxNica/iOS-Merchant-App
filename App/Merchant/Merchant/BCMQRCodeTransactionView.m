@@ -94,12 +94,7 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
         NSString *transactionHash = [transtionDict safeObjectForKey:@"hash"];
         self.activeTransaction.transactionHash = transactionHash;
         NSString *merchantAddress = [BCMMerchantManager sharedInstance].activeMerchant.walletAddress;
-        NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:DEFAULT_TRANSACTION_RESULT_URL_HASH_ARGUMENT_ADDRESS_ARGUMENT, transactionHash, merchantAddress]];
-        NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-        
-        NSURLSession *session = [NSURLSession sharedSession];
-        NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-            
+        [self.networking lookUpTransactionResultWithHash:transactionHash address:merchantAddress completion:^(NSData *data, NSURLResponse *response, NSError *error) {
             if (error) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"We encountered a problem please try to charge this transaction again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -112,23 +107,26 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
             uint64_t amountReceived = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] longLongValue];
             
             NSString *currency = [BCMMerchantManager sharedInstance].activeMerchant.currency;
-
+            
             [self.networking convertToCurrency:[currency uppercaseString] fromAmount:amountReceived success:^(NSURLRequest *request, NSDictionary *dict) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
                     NSString *amountReceivedFiat = [dict safeObjectForKey:@"fiatValue"];
-
+                    
                     if (amountReceived >= amountRequested) {
                         
                         if (amountReceived > amountRequested) {
                             PurchasedItem *currentItem = self.activeTransaction.purchasedItems.allObjects.firstObject;
                             [self.activeTransaction removePurchasedItemsObject:currentItem];
                             PurchasedItem *pItem = [PurchasedItem MR_createEntity];
-                            pItem.name = currentItem.name;
+                            pItem.name = NSLocalizedString(@"qr.overpaid.title", @"");
                             pItem.price = [NSDecimalNumber decimalNumberWithString:amountReceivedFiat];
                             [self.activeTransaction setDecimalBitcoinAmountValue:[[(NSDecimalNumber *)[NSDecimalNumber numberWithLongLong:amountReceived] decimalNumberByDividingBy:(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:SATOSHI]] stringValue]];
-
+                            
                             [self.activeTransaction addPurchasedItemsObject:pItem];
+                            
+                            UIAlertView *insufficientPaymentAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"qr.overpaid.title", @"") message:[[NSString alloc] initWithFormat:NSLocalizedString(@"qr.overpaid.message", @""), amountReceived, amountRequested] delegate:nil cancelButtonTitle:NSLocalizedString(@"alert.ok", @"") otherButtonTitles:nil];
+                            [insufficientPaymentAlert show];
                         }
                         
                         [self transactionCompleted];
@@ -144,10 +142,6 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
                 [alertView show];
             }];
         }];
-        
-        [task resume];
-        
-        [session finishTasksAndInvalidate];
     }
 }
 
@@ -277,7 +271,7 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
         uint64_t amountLeftToPayConverted = [([amountLeftToPay decimalNumberByMultiplyingBy:(NSDecimalNumber*)[NSDecimalNumber numberWithDouble:SATOSHI]]) longLongValue];
                 
         UIAlertView *insufficientPaymentAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"qr.insufficient.payment.title", @"") message:[[NSString alloc] initWithFormat:NSLocalizedString(@"qr.insufficient.payment.message", @""), self.bitcoinPriceLbl.text, convertedAmountReceived] delegate:nil cancelButtonTitle:NSLocalizedString(@"alert.ok", @"") otherButtonTitles:nil];
-                [insufficientPaymentAlert show];
+        [insufficientPaymentAlert show];
                 
         NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
         [localContext deleteObject:self.activeTransaction];

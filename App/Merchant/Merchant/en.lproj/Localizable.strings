@@ -152,6 +152,8 @@
 "welcome.lets_go" = "Lets Go!";
 "qr.insufficient.payment.title" = "Insufficient Payment";
 "qr.insufficient.payment.message" = "Requested %@, received %@ BTC. QR image has been changed to reflect amount due.";
+"qr.overpaid.title" = "Overpaid transaction";
+"qr.overpaid.message" = "Amount received (%lld BTC) greater than amount requested (%lld BTC)";
 
 // Debug
 "debug.debug" = "Debug";

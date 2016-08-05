@@ -110,6 +110,21 @@ static const NSString *kBCMValidateAddress = @"rawaddr";
     return urlRequest;
 }
 
+- (void)lookUpTransactionResultWithHash:(NSString *)transactionHash address:(NSString *)merchantAddress completion:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler
+{
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:DEFAULT_TRANSACTION_RESULT_URL_HASH_ARGUMENT_ADDRESS_ARGUMENT, transactionHash, merchantAddress]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (completionHandler) completionHandler(data, response, error);
+    }];
+    
+    [task resume];
+    
+    [session finishTasksAndInvalidate];
+}
+
 // Merchant Listing
 
 - (NSURLRequest *)retrieveSuggestMerchantsSuccess:(BCMNetworkingSuccess)success error:(BCMNetworkingFailure)failure
