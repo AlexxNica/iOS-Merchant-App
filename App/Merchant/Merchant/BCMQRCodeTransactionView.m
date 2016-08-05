@@ -121,12 +121,14 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
                             PurchasedItem *pItem = [PurchasedItem MR_createEntity];
                             pItem.name = NSLocalizedString(@"qr.overpaid.title", @"");
                             pItem.price = [NSDecimalNumber decimalNumberWithString:amountReceivedFiat];
-                            [self.activeTransaction setDecimalBitcoinAmountValue:[[(NSDecimalNumber *)[NSDecimalNumber numberWithLongLong:amountReceived] decimalNumberByDividingBy:(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:SATOSHI]] stringValue]];
                             
+                            NSDecimalNumber *amountReceivedDecimal = [(NSDecimalNumber *)[NSDecimalNumber numberWithLongLong:amountReceived] decimalNumberByDividingBy:(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:SATOSHI]];
+                            
+                            UIAlertView *overpaidAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"qr.overpaid.title", @"") message:[[NSString alloc] initWithFormat:NSLocalizedString(@"qr.overpaid.message", @""), amountReceivedDecimal, [self.activeTransaction decimalBitcoinAmountValue]] delegate:nil cancelButtonTitle:NSLocalizedString(@"alert.ok", @"") otherButtonTitles:nil];
+                            [overpaidAlert show];
+                            
+                            [self.activeTransaction setDecimalBitcoinAmountValue:[amountReceivedDecimal stringValue]];
                             [self.activeTransaction addPurchasedItemsObject:pItem];
-                            
-                            UIAlertView *insufficientPaymentAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"qr.overpaid.title", @"") message:[[NSString alloc] initWithFormat:NSLocalizedString(@"qr.overpaid.message", @""), amountReceived, amountRequested] delegate:nil cancelButtonTitle:NSLocalizedString(@"alert.ok", @"") otherButtonTitles:nil];
-                            [insufficientPaymentAlert show];
                         }
                         
                         [self transactionCompleted];
@@ -277,20 +279,21 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
         [localContext deleteObject:self.activeTransaction];
                 
         NSString *bitcoinAmountString = [[(NSDecimalNumber *)[NSDecimalNumber numberWithLongLong:amountLeftToPayConverted] decimalNumberByDividingBy:(NSDecimalNumber *)[NSDecimalNumber numberWithDouble:SATOSHI]] stringValue];
-                
+        NSDecimalNumber *amountLeftToPayFiat = [[self.activeTransaction transactionTotal] decimalNumberBySubtracting:[NSDecimalNumber decimalNumberWithString:amountReceivedFiat]];
+        
         Transaction *transaction = [Transaction MR_createEntity];
         transaction.creation_date = [NSDate date];
         transaction.transactionHash = self.activeTransaction.transactionHash;
         PurchasedItem *pItem = [PurchasedItem MR_createEntity];
         pItem.name = NSLocalizedString(@"qr.insufficient.payment.title", nil);
-        pItem.price = [[self.activeTransaction transactionTotal] decimalNumberBySubtracting:[NSDecimalNumber decimalNumberWithString:amountReceivedFiat]];
+        pItem.price = [NSDecimalNumber decimalNumberWithString:amountReceivedFiat];
         [transaction addPurchasedItemsObject:pItem];
         [transaction setDecimalBitcoinAmountValue:[convertedAmountReceived stringValue]];
                 
         [localContext MR_saveToPersistentStoreAndWait];
                 
         if ([self.delegate respondsToSelector:@selector(transactionViewWillRequestAdditionalAmount:bitcoinAmount:)]) {
-            [self.delegate transactionViewWillRequestAdditionalAmount:[NSDecimalNumber decimalNumberWithString:amountReceivedFiat] bitcoinAmount:bitcoinAmountString];
+            [self.delegate transactionViewWillRequestAdditionalAmount:amountLeftToPayFiat bitcoinAmount:bitcoinAmountString];
         }
     }
 }
