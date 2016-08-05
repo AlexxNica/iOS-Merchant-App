@@ -271,9 +271,9 @@ static NSString *const kBlockChainWebSocketSubscribeAddressFormat = @"{\"op\":\"
                 transaction.transactionHash = self.activeTransaction.transactionHash;
                 PurchasedItem *pItem = [PurchasedItem MR_createEntity];
                 pItem.name = NSLocalizedString(@"qr.insufficient.payment.title", nil);
-                pItem.price = [NSDecimalNumber decimalNumberWithString:amountLeftToPayFiat];
+                pItem.price = [[self.activeTransaction transactionTotal] decimalNumberBySubtracting:[NSDecimalNumber decimalNumberWithString:amountLeftToPayFiat]];
                 [transaction addPurchasedItemsObject:pItem];
-                [transaction setDecimalBitcoinAmountValue:bitcoinAmountString
+                [transaction setDecimalBitcoinAmountValue:[convertedAmountReceived stringValue]
                  ];
                 
                 [localContext MR_saveToPersistentStoreAndWait];
