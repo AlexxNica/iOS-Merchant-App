@@ -59,6 +59,24 @@
 "currency.picker.title" = "Valuta";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "Base URL";
+
+/* No comment provided by engineer. */
+"debug.debug" = "Debug";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "Købmand URL";
+
+/* No comment provided by engineer. */
+"debug.reset" = "Nulstille";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "Transaktionen URL";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "WebSocket URL";
+
+/* No comment provided by engineer. */
 "general.NA" = "NIELSEN";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "Logout";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "Utilstrækkelig betaling";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "Beløb modtaget (%lld BTC) større end beløb, der anmodes om (%lld BTC)";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "Overbetalte transaktion";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Gå til indstillinger, og aktiver kamera adgang for Blockchain købmand.";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Beskrivelse";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "Der opstod en fejl under din anmodning. Prøv igen senere.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "Fejl";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "Vi vil gennemgå du for tilføjelse til vores købmand bibliotek.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "Tak!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "Bibliotek katalogiserer";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Fejl Finding placering";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "Biblioteksvisning skal du angive et firmanavn, adresse, by, postnummer, telefon, webadresse og en beskrivelse.";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "Manglende oplysninger";
 
 /* No comment provided by engineer. */

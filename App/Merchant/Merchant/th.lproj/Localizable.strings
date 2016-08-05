@@ -59,6 +59,24 @@
 "currency.picker.title" = "สกุลเงิน";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "เยี่ยมชม";
+
+/* No comment provided by engineer. */
+"debug.debug" = "ตรวจแก้จุดบกพร่อง";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "URL ของร้านค้า";
+
+/* No comment provided by engineer. */
+"debug.reset" = "รีเซ็ต";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "URL ของธุรกรรม";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "Websocket URL";
+
+/* No comment provided by engineer. */
 "general.NA" = "N/A";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "ออกจากระบบ";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "ชำระเงินไม่เพียงพอ";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "จำนวนที่ได้รับ (%lld BTC) มากกว่ายอดเงินที่ร้องขอ (%lld BTC)";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "ธุรกรรมแทน";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "ไปตั้งค่าการเข้าถึงกล้องเปิดใช้งานร้านค้า Blockchain";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "คำอธิบาย";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "เกิดข้อผิดพลาดในระหว่างการร้องขอ โปรดลองอีกครั้ง";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "ข้อผิดพลาด";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "เราจะทบทวนคุณสำหรับไดเรกทอรีร้านค้าของเรา";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "ขอบคุณ";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "รายไดเรกทอรี";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "ตำแหน่งค้นหาข้อผิดพลาด";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "ไดเรกทอรีรายการต้องให้คุณให้ชื่อธุรกิจ ที่อยู่ เมือง รหัสไปรษณีย์ โทรศัพท์ url เว็บ และคำอธิบาย";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "ข้อมูลที่หายไป";
 
 /* No comment provided by engineer. */

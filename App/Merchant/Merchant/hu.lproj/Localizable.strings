@@ -59,6 +59,24 @@
 "currency.picker.title" = "Pénznem";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "Alap URL-címe";
+
+/* No comment provided by engineer. */
+"debug.debug" = "Debug";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "Kereskedő URL";
+
+/* No comment provided by engineer. */
+"debug.reset" = "Reset";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "Tranzakció URL";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "A WebSocket URL";
+
+/* No comment provided by engineer. */
 "general.NA" = "NINCS ADAT";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "Kijelentkezés";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "Elégtelen fizetési";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "Kapott összeg (%lld BTC) nagyobb, mint a kért összeg (%lld BTC)";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "Túlfizetett tranzakció";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Megy beállítások és kamera-hozzáférés engedélyezése a kereskedő Blockchain.";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Leírás";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "Hiba történt a kérelem során. Kérjük, próbálkozzon később.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "Hiba";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "Ellenőrizni fogjuk, mellett a kereskedő könyvtárba.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "kösz!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "Könyvtárlista";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Hiba megállapítás helyének";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "Könyvtárlista megköveteli, hogy egy üzleti neve, címe, város, irányítószám, telefon, web url, és egy leírást.";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "Hiányzó információ";
 
 /* No comment provided by engineer. */

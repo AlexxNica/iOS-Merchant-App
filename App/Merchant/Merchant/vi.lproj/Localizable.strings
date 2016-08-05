@@ -59,6 +59,24 @@
 "currency.picker.title" = "Thu";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "URL cơ sở";
+
+/* No comment provided by engineer. */
+"debug.debug" = "Gỡ lỗi";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "Thương mại URL";
+
+/* No comment provided by engineer. */
+"debug.reset" = "Thiết lập lại";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "Giao dịch URL";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "Websocket URL";
+
+/* No comment provided by engineer. */
 "general.NA" = "N/A";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "Đăng xuất";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "Không đủ thanh toán";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "Số tiền nhận được (%lld BTC) lớn hơn số tiền yêu cầu (%lld BTC)";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "Thừa giao dịch";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Đi để cài đặt và kích hoạt tính năng Camera truy cập cho thương gia Blockchain.";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Mô tả";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "Lỗi xuất hiện khi có yêu cầu của bạn. Xin vui lòng thử lại sau.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "Lỗi";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "Chúng tôi sẽ xem xét bạn bổ sung vào thư mục thương mại của chúng tôi.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "Cảm ơn!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "Danh sách thư mục";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Lỗi tìm kiếm vị trí";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "Danh sách thư mục yêu cầu bạn cung cấp một tên doanh nghiệp, địa chỉ, thành phố, zipcode, điện thoại, web url và mô tả.";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "Thiếu thông tin";
 
 /* No comment provided by engineer. */

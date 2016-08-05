@@ -59,6 +59,24 @@
 "currency.picker.title" = "מטבע";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "כתובת URL בסיסית";
+
+/* No comment provided by engineer. */
+"debug.debug" = "איתור באגים";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "כתובת url של סוחר";
+
+/* No comment provided by engineer. */
+"debug.reset" = "איפוס";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "כתובת url של התנועה";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "כתובת URL Websocket";
+
+/* No comment provided by engineer. */
 "general.NA" = "N/A";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "יציאה מהמערכת";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "התשלום לא מספיק";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "הסכום המתקבל (%lld BTC) גדול מהסכום המבוקש (%lld BTC)";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "עסקת יותר מדי כסף";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "ללכת הגדרות המצלמה אפשר גישה עבור הסוחר Blockchain.";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "תיאור";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "אירעה שגיאה במהלך הבקשה שלך. נא נסה שוב מאוחר יותר.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "שגיאה";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "אנו נסקור את בנוסף למדריך הסוחר שלנו.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "תודה!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "מפירוט הספריה";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "שגיאה מציאת מיקום";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "מפירוט הספריה דורש ממך לספק שם העסק, כתובת, עיר, מיקוד, טלפון, כתובת אינטרנט, ותיאור.";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "מידע חסר";
 
 /* No comment provided by engineer. */

@@ -59,6 +59,24 @@
 "currency.picker.title" = "تحويل العملات";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "محدد موقع المعلومات الأساسي";
+
+/* No comment provided by engineer. */
+"debug.debug" = "التصحيح";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "رابط التاجر";
+
+/* No comment provided by engineer. */
+"debug.reset" = "إعادة تعيين";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "عنوان الحركة";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "رابط ويبسوكيت";
+
+/* No comment provided by engineer. */
 "general.NA" = "N/A";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "تسجيل الخروج";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "نقاط البيع";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "الدفع غير كافية";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "المبلغ المستلم (%lld BTC) أكبر من الكمية المطلوبة (%lld BTC)";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "حركة زائدة";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "انتقل إلى إعدادات وتمكين الوصول للكاميرا للتاجر بلوكتشين.";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "الوصف";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "حدث خطأ أثناء الطلب الخاص بك. الرجاء المحاولة مرة أخرى لاحقاً.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "خطأ";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "سوف نستعرض لك لإضافة إلى أعمالنا دليل التاجر.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "شكرا!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "سرد الدليل";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "خطأ في البحث عن موقع";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "سرد الدليل يتطلب منك توفير اسم المؤسسة والعنوان والمدينة، الرمز البريدي، هاتف، محدد موقع معلومات ويب ووصفاً.";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "المعلومات المفقودة";
 
 /* No comment provided by engineer. */

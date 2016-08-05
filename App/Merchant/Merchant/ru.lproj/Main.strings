@@ -1,3 +1,6 @@
+/* Class = "UIButton"; normalTitle = "Show in Blockchain Merchant Directory"; ObjectID = "1k2-dS-o7Z"; */
+"1k2-dS-o7Z.normalTitle" = "Показать в каталоге Blockchain купец";
+
 /* Class = "UITextField"; placeholder = "Item Name"; ObjectID = "2Tb-n2-tNM"; */
 "2Tb-n2-tNM.placeholder" = "Имя элемента";
 
@@ -39,9 +42,6 @@
 
 /* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "alT-7M-2vB"; */
 "alT-7M-2vB.title" = "Отмена";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "bBa-VH-ZHx"; */
-"bBa-VH-ZHx.text" = "Лейбл";
 
 /* Class = "UILabel"; text = "Detail"; ObjectID = "cQe-R6-hla"; */
 "cQe-R6-hla.text" = "Деталь";

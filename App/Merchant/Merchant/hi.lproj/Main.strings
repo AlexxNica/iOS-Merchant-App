@@ -1,3 +1,6 @@
+/* Class = "UIButton"; normalTitle = "Show in Blockchain Merchant Directory"; ObjectID = "1k2-dS-o7Z"; */
+"1k2-dS-o7Z.normalTitle" = "लॉकचेन व्यापारी निर्देशिका में दिखाएँ";
+
 /* Class = "UITextField"; placeholder = "Item Name"; ObjectID = "2Tb-n2-tNM"; */
 "2Tb-n2-tNM.placeholder" = "मद का नाम";
 
@@ -39,9 +42,6 @@
 
 /* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "alT-7M-2vB"; */
 "alT-7M-2vB.title" = "रद्द करें";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "bBa-VH-ZHx"; */
-"bBa-VH-ZHx.text" = "लेबल";
 
 /* Class = "UILabel"; text = "Detail"; ObjectID = "cQe-R6-hla"; */
 "cQe-R6-hla.text" = "विस्तार";

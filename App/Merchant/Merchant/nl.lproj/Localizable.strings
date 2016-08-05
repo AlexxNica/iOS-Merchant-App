@@ -59,6 +59,24 @@
 "currency.picker.title" = "Valuta";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "Basis-URL";
+
+/* No comment provided by engineer. */
+"debug.debug" = "Debug";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "Merchant URL";
+
+/* No comment provided by engineer. */
+"debug.reset" = "Reset";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "Transactie URL";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "WebSocket URL";
+
+/* No comment provided by engineer. */
 "general.NA" = "N/B";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "Logout";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "Onvoldoende betaling";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "Ontvangen bedrag (%lld BTC) groter is dan het gevraagde bedrag (%lld BTC)";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "Teveel betaalde transactie";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Ga naar instellingen en Camera toegang voor Blockchain handelaar.";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Beschrijving";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "Er is een fout opgetreden tijdens uw aanvraag. Probeer het later nog eens.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "Fout";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "We bekijken u voor toevoeging aan onze merchant directory.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "Bedankt!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "Directory Listing";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Fout vinden locatie";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "Folderlijst moet u een bedrijfsnaam, adres, stad, postcode, telefoon, web-url en een beschrijving.";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "Ontbrekende informatie";
 
 /* No comment provided by engineer. */

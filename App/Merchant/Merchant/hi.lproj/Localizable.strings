@@ -59,6 +59,24 @@
 "currency.picker.title" = "मुद्रा";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "आधार URL";
+
+/* No comment provided by engineer. */
+"debug.debug" = "डीबग करें";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "व्यापारी URL";
+
+/* No comment provided by engineer. */
+"debug.reset" = "रीसेट करें";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "लेन-देन URL";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "Websocket URL";
+
+/* No comment provided by engineer. */
 "general.NA" = "N/A";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "लॉग आउट";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "अपर्याप्त भुगतान";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "प्राप्त राशि (%lld बीटीसी) अनुरोध की गई राशि से (%lld बीटीसी) अधिक";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "Overpaid हस्तांतरण";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Blockchain व्यापारी के लिए सेटिंग्स और सक्षम करें कैमरा का उपयोग करने के लिए जाओ।";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "विवरण";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "आपके अनुरोध के दौरान कोई त्रुटि उत्पन्न हुई। कृपया बाद में पुन: प्रयास करें।";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "त्रुटि";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "हम आप के लिए इसके अलावा करने के लिए हमारे व्यापारी निर्देशिका की समीक्षा करेंगे।";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "धन्यवाद!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "निर्देशिका लिस्टिंग";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "त्रुटि ढूँढना स्थान";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "निर्देशिका लिस्टिंग आप एक व्यवसाय के नाम, पता, शहर, ज़िपकोड, टेलीफोन, वेब url और वर्णन प्रदान करने की आवश्यकता है।";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "अनुपलब्ध जानकारी";
 
 /* No comment provided by engineer. */

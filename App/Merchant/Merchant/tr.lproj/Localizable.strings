@@ -59,6 +59,24 @@
 "currency.picker.title" = "Para birimi";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "Temel URL";
+
+/* No comment provided by engineer. */
+"debug.debug" = "Hata ayıklama";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "Tüccar URL";
+
+/* No comment provided by engineer. */
+"debug.reset" = "Sıfırlama";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "İşlem URL'si";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "WebSocket URL";
+
+/* No comment provided by engineer. */
 "general.NA" = "N/A";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "Oturum kapatma";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "Yetersiz ödeme";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "Tutar (%lld BTC) istenen tutardan (%lld BTC) daha fazla alınan";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "Ödenme hareket";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Ayarları ve kamera erişimi etkinleştir Blockchain tüccar için gidin.";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Açıklama";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "İsteğinizi sırasında bir hata oluştu. Lütfen daha sonra yeniden deneyin.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "Hata";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "Biz bizim tüccar dizine eklenmesi için gözden geçirilecektir.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "Teşekkürler!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "Dizin listesi";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Hata bulma konum";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "Dizin listesi, bir işletme adı, adres, şehir, posta kodu, telefon, web URL'sini ve açıklamasını sağlamak gerekir.";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "Eksik bilgileri";
 
 /* No comment provided by engineer. */

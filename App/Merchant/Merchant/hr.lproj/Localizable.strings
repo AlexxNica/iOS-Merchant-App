@@ -59,6 +59,24 @@
 "currency.picker.title" = "Valuta";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "Osnovni URL";
+
+/* No comment provided by engineer. */
+"debug.debug" = "Ispravljanje pogrešaka";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "Trgovac URL";
+
+/* No comment provided by engineer. */
+"debug.reset" = "Vrati izvorno";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "Transakcije URL";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "Websocket URL";
+
+/* No comment provided by engineer. */
 "general.NA" = "N/A";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "Odjava";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "Dovoljno da plati";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "Primljeni iznos (%lld BTC) veći iznos koji se traži (%lld BTC)";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "Preplaćeni transakcije";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Idite na postavke i omogući pristup fotoaparatu za Blockchain trgovac.";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Opis";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "Došlo je do pogreške tijekom vašeg zahtjeva. Pokušajte ponovo kasnije.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "Pogreška";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "Mi ćemo pregledati te za dodatak na naš trgovački direktorij.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "Hvala!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "Popis datoteka";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Pogreške pronalaženje lokacije";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "Popis datoteka potrebno osigurati naziv tvrtke, adresa, grad, poštanski broj, telefon, web url i opis.";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "Nedostaju podaci";
 
 /* No comment provided by engineer. */

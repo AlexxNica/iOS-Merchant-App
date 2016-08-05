@@ -59,6 +59,24 @@
 "currency.picker.title" = "Měna";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "Základní adresa URL";
+
+/* No comment provided by engineer. */
+"debug.debug" = "Ladění";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "Obchodní adresa URL";
+
+/* No comment provided by engineer. */
+"debug.reset" = "Obnovit";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "Adresa URL transakce";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "WebSocket URL";
+
+/* No comment provided by engineer. */
 "general.NA" = "NENÍ K DISPOZICI";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "Odhlášení";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "Neúplná platba";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "Přijatá částka (%lld BTC) vyšší než požadovaná částka (%lld BTC)";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "Přeplacení transakce";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Přejděte na nastavení a povolit přístup kamery pro obchodníka Blockchain.";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Popis";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "Během vašeho požadavku došlo k chybě. Opakujte akci později.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "Chyba";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "Zkontrolujeme vám pro sčítání na naše obchodní adresář.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "Dík!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "Výpis adresáře";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Chyba při hledání umístění";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "Výpis adresáře vyžaduje poskytnutí obchodní jméno, adresa, město, PSČ, telefon, webová adresa url a popis.";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "Chybějící informace";
 
 /* No comment provided by engineer. */

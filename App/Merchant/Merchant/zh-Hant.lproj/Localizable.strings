@@ -59,6 +59,24 @@
 "currency.picker.title" = "貨幣";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "基 URL";
+
+/* No comment provided by engineer. */
+"debug.debug" = "調試";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "商人的 URL";
+
+/* No comment provided by engineer. */
+"debug.reset" = "重置";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "交易記錄的 URL";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "Websocket URL";
+
+/* No comment provided by engineer. */
 "general.NA" = "N/A";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "登出";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "支付不足";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "收到的金額 (%lld BTC) 大於請求的數額 (%lld BTC)";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "多付的款項的交易";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "有關詳細資訊，請轉到設置和啟用相機訪問 Blockchain 商人。";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "描述";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "您的請求時出錯。請稍後再試。";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "錯誤";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "我們會檢討你加入到我們商人的目錄。";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "謝謝你 ！";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "目錄清單";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "錯誤查找位置";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "目錄清單要求您提供企業名稱、 位址、 城市、 郵編、 電話、 web url 和描述。";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "缺少的資訊";
 
 /* No comment provided by engineer. */

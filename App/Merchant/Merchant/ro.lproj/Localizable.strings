@@ -59,6 +59,24 @@
 "currency.picker.title" = "Moneda";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "URL-ul de bază";
+
+/* No comment provided by engineer. */
+"debug.debug" = "Depanare";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "URL-ul comerciant";
+
+/* No comment provided by engineer. */
+"debug.reset" = "Resetare";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "Tranzacţie URL";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "WebSocket URL";
+
+/* No comment provided by engineer. */
 "general.NA" = "N/A";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "Deconectare";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "Plată insuficientă";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "Suma primită (%lld BTC) mai mare decât suma solicitată (%lld BTC)";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "Tranzacţie plătite în plus";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Du-te la setări şi Enable Camera acces pentru Blockchain comerciant.";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Descriere";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "Eroare în timpul cererea dvs. Vă rugăm să încercaţi din nou mai târziu.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "Eroare";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "Noi vă va revizui pentru adăugarea la directorul nostru de comerciant.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "mulţumesc!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "Listare Director";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Locaţie de constatare erori";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "Directorul de listare a cere tu pentru a furniza un nume de afaceri, adresă, oraş, cod postal, telefon, URL-ul web şi o descriere.";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "Lipsesc informaţii";
 
 /* No comment provided by engineer. */

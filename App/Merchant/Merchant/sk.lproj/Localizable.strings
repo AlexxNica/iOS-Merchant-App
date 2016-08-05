@@ -59,6 +59,24 @@
 "currency.picker.title" = "Meny";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "Základné URL";
+
+/* No comment provided by engineer. */
+"debug.debug" = "Ladenie";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "Obchodné adresy URL";
+
+/* No comment provided by engineer. */
+"debug.reset" = "Obnoviť";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "Transakcia URL";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "WebSocket URL";
+
+/* No comment provided by engineer. */
 "general.NA" = "N/A";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "Odhlásiť";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "Nedostatočná platba";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "Množstvo prijatých (%lld BTC) väčšia ako požadovaná suma (%lld BTC)";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "Preplatok transakcie";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Prejsť na nastavenie a povoliť prístup k fotoaparátu Blockchain obchodníka.";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Popis";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "Počas vašej požiadavky sa vyskytla chyba. Skúste znova neskôr.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "Chyba";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "Budeme vám doplnenie k nášmu obchodníka.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "vďaka!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "Výpis adresára";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Zistenie umiestnenia";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "Výpis adresára vyžaduje, aby ste poskytnúť obchodný názov, adresu, mesto, PSČ, telefón, web url a popis.";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "Chýbajúce informácie";
 
 /* No comment provided by engineer. */

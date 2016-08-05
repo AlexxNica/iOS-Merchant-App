@@ -59,6 +59,24 @@
 "currency.picker.title" = "通貨";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "ベース URL";
+
+/* No comment provided by engineer. */
+"debug.debug" = "デバッグ";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "商人の URL";
+
+/* No comment provided by engineer. */
+"debug.reset" = "リセット";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "トランザクション URL";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "Websocket URL";
+
+/* No comment provided by engineer. */
 "general.NA" = "N/A";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "ログアウト";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "不十分な支払";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "量受けた (%lld BTC) 要求された量 (%lld BTC) より大きい";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "過払いトランザクション";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Blockchain 商人の設定とカメラ アクセスの有効化に移動します。";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "説明";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "あなたの要求中にエラーが発生しました。後でもう一度試してください。";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "エラー";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "私達の商人のディレクトリには、追加するを確認します。";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "ありがとう!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "ディレクトリ一覧";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "エラー発見の場所";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "ディレクトリ一覧では、ビジネスの名前、アドレス、都市、郵便番号、電話、web url、および説明を提供する必要があります。";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "不足している情報";
 
 /* No comment provided by engineer. */

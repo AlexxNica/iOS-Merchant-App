@@ -59,6 +59,24 @@
 "currency.picker.title" = "Waluta";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "Podstawowy adres URL";
+
+/* No comment provided by engineer. */
+"debug.debug" = "Debugowania";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "Kupiec URL";
+
+/* No comment provided by engineer. */
+"debug.reset" = "Reset";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "Adres URL transakcji";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "WebSocket URL";
+
+/* No comment provided by engineer. */
 "general.NA" = "N/D!";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "Logout";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "Niewystarczające płatności";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "Kwota otrzymana (%lld BTC) większa niż wnioskowana Kwota (%lld BTC)";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "Nadpłaty transakcji";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Przejdź do ustawienia i włączyć aparat dostępu dla kupca Blockchain.";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Opis";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "Wystąpił błąd podczas żądania. Proszę spróbować ponownie później.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "Błąd";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "Dokonamy przeglądu Ci na dodanie do naszego katalogu kupiec.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "Dzięki!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "Katalog aukcji";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Ustalenie lokalizacji błędu";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "Katalog aukcji wymaga podać nazwę firmy, adres, miasto, kod pocztowy, telefon, adres url sieci web i opis.";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "Brak informacji o";
 
 /* No comment provided by engineer. */

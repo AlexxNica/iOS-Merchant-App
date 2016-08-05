@@ -59,6 +59,24 @@
 "currency.picker.title" = "Валюти";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "Основна URL-адреса";
+
+/* No comment provided by engineer. */
+"debug.debug" = "Налагодження";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "Купець URL";
+
+/* No comment provided by engineer. */
+"debug.reset" = "Скидання";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "Транзакції URL";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "WebSocket URL";
+
+/* No comment provided by engineer. */
 "general.NA" = "N/A";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "Вихід із системи";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "Недостатня оплата";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "Суми отримали (%lld БТД) більше, ніж сума, що запитується (%lld БТД)";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "Переплати транзакції";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Перейти до налаштування і дозволити камери доступ для Blockchain купця.";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Опис";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "Під час вашого запиту сталася помилка. Будь ласка, спробуйте ще раз пізніше.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "Помилка";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "Ми розглянемо ви для додавання до наших торгових каталогів.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "Дякую!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "Створювати список файлів каталогу";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Помилка місце знаходження";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "Створювати список файлів каталогу, необхідно забезпечити бізнес ім'я, адресу, місто, поштовий індекс, телефон, веб-ресурсу та опис.";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "Відсутні відомості";
 
 /* No comment provided by engineer. */

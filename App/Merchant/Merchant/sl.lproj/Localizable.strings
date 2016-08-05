@@ -59,6 +59,24 @@
 "currency.picker.title" = "Valute";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "Osnovni URL";
+
+/* No comment provided by engineer. */
+"debug.debug" = "Iskanje napak";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "Trgovec URL";
+
+/* No comment provided by engineer. */
+"debug.reset" = "Ponastavitev";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "Transakcije URL";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "Websocket URL";
+
+/* No comment provided by engineer. */
 "general.NA" = "N/V";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "Logout";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "Nezadostno plačilo";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "Znesek prejetih (%lld BTC) večja od zaprošeni znesek (%lld BTC)";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "Preveč transakcije";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Pojdite na nastavitve in omogoči dostop do kamere za Blockchain trgovec.";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Opis";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "Med vaše zahteve je prišlo do napake. Poskusite znova pozneje.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "Napaka";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "Pregledali bomo vam za dodajanje naše trgovske imenik.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "hvala!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "Naslovnik obrobljanje";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Napaka pri iskanju mesto";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "Naslovnik obrobljanje zahteva, da zagotovi poslovno ime, naslov, mesto, poštno številko, telefonsko, web url in opis.";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "Manjkajoče informacije";
 
 /* No comment provided by engineer. */

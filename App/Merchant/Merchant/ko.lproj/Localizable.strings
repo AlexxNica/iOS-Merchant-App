@@ -59,6 +59,24 @@
 "currency.picker.title" = "통화";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "기본 URL";
+
+/* No comment provided by engineer. */
+"debug.debug" = "디버그";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "가맹점 URL";
+
+/* No comment provided by engineer. */
+"debug.reset" = "리셋";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "트랜잭션 URL";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "Websocket URL";
+
+/* No comment provided by engineer. */
 "general.NA" = "N/A";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "로그 아웃";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "포스";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "부족 한 지불";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "받은 금액 (BTC%lld) 금액 요청 (BTC %lld) 보다 큰";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "과 거래";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Blockchain 상인에 대 한 설정 및 사용 카메라 액세스로 이동 합니다.";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "설명";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "요청 하는 동안 오류가 발생 했습니다. 나중에 다시 시도 하십시오.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "오류";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "우리 또한 우리의 상인 디렉토리에 당신을 검토할 것입니다.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "감사!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "디렉토리 목록";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "오류 발견 위치";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "디렉터리 목록에서는 회사 이름, 주소, 도시, 우편 번호, 전화, 웹 url 및 설명을 제공 해야 합니다.";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "누락 된 정보";
 
 /* No comment provided by engineer. */

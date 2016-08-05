@@ -59,6 +59,24 @@
 "currency.picker.title" = "Mata uang";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "Base URL";
+
+/* No comment provided by engineer. */
+"debug.debug" = "Debug";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "Pedagang URL";
+
+/* No comment provided by engineer. */
+"debug.reset" = "Reset";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "Transaksi URL";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "WebSocket URL";
+
+/* No comment provided by engineer. */
 "general.NA" = "N/A";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "Logout";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "Pembayaran tidak mencukupi";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "Jumlah diterima (%lld BTC) lebih besar dari jumlah yang diminta (%lld BTC)";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "Kelebihan pembayaran transaksi";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Pergi ke pengaturan dan memungkinkan kamera akses untuk pedagang Blockchain.";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Deskripsi";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "Kesalahan terjadi selama permintaan Anda. Harap coba lagi nanti.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "Kesalahan";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "Kami akan meninjau Anda untuk penambahan ke direktori pedagang kami.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "Terima kasih!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "Listing direktori";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Kesalahan menemukan lokasi";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "Daftar direktori mengharuskan Anda untuk memberikan nama bisnis, alamat, kota, kode pos, telepon, web url dan deskripsi.";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "Informasi yang hilang";
 
 /* No comment provided by engineer. */

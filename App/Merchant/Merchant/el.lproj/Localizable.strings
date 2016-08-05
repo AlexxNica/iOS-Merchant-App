@@ -59,6 +59,24 @@
 "currency.picker.title" = "Νόμισμα";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "Βασική διεύθυνση URL";
+
+/* No comment provided by engineer. */
+"debug.debug" = "Εντοπισμός σφαλμάτων";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "Έμπορος URL";
+
+/* No comment provided by engineer. */
+"debug.reset" = "Επαναφορά";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "Συναλλαγή URL";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "Διεύθυνση URL WebSocket";
+
+/* No comment provided by engineer. */
 "general.NA" = "Δ/Υ";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "Αποσύνδεση";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "ΠΩΣ";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "Ανεπαρκής πληρωμή";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "Εισπραχθέντος ποσού (%lld BTC) μεγαλύτερο από το ποσό που ζητήθηκε (%lld BTC)";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "Υπερβάλλοντος συναλλαγής";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Πηγαίνετε στο ρυθμίσεις και ενεργοποίηση πρόσβασης κάμερα για έμπορο Blockchain.";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Περιγραφή";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "Παρουσιάστηκε σφάλμα κατά τη διάρκεια το αίτημά σας. Παρακαλούμε δοκιμάστε ξανά αργότερα.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "Σφάλμα";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "Θα εξετάσουμε σας για επιπλέον να Κατάλογος εμπόρων μας.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "Ευχαριστώ!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "Λίστα καταλόγου";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Σφάλμα διαπίστωση θέση";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "Λίστα καταλόγου απαιτεί από εσάς να παρέχουν μια εταιρική επωνυμία, διεύθυνση, πόλη, ταχυδρομικό κώδικα, τηλέφωνο, web διεύθυνση url και μια περιγραφή.";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "Πληροφορίες που λείπουν";
 
 /* No comment provided by engineer. */

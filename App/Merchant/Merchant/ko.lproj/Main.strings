@@ -1,3 +1,6 @@
+/* Class = "UIButton"; normalTitle = "Show in Blockchain Merchant Directory"; ObjectID = "1k2-dS-o7Z"; */
+"1k2-dS-o7Z.normalTitle" = "Blockchain 상인 디렉터리에 표시";
+
 /* Class = "UITextField"; placeholder = "Item Name"; ObjectID = "2Tb-n2-tNM"; */
 "2Tb-n2-tNM.placeholder" = "항목 이름";
 
@@ -39,9 +42,6 @@
 
 /* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "alT-7M-2vB"; */
 "alT-7M-2vB.title" = "취소";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "bBa-VH-ZHx"; */
-"bBa-VH-ZHx.text" = "레이블";
 
 /* Class = "UILabel"; text = "Detail"; ObjectID = "cQe-R6-hla"; */
 "cQe-R6-hla.text" = "세부 사항";
