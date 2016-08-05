@@ -188,7 +188,7 @@
 "qr.insufficient.payment.title" = "支付不足";
 
 /* No comment provided by engineer. */
-"qr.overpaid.message" = "收到的金額 (%lld BTC) 大於請求的數額 (%lld BTC)";
+"qr.overpaid.message" = "收到的金額 (%@ BTC) 大於請求的數額 (%@ BTC)";
 
 /* No comment provided by engineer. */
 "qr.overpaid.title" = "多付的款項的交易";

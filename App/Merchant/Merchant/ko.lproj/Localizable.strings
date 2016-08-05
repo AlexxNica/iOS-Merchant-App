@@ -188,7 +188,7 @@
 "qr.insufficient.payment.title" = "부족 한 지불";
 
 /* No comment provided by engineer. */
-"qr.overpaid.message" = "받은 금액 (BTC%lld) 금액 요청 (BTC %lld) 보다 큰";
+"qr.overpaid.message" = "받은 금액 (BTC%@) 금액 요청 (BTC %@) 보다 큰";
 
 /* No comment provided by engineer. */
 "qr.overpaid.title" = "과 거래";

@@ -188,7 +188,7 @@
 "qr.insufficient.payment.title" = "Yetersiz ödeme";
 
 /* No comment provided by engineer. */
-"qr.overpaid.message" = "Tutar (%lld BTC) istenen tutardan (%lld BTC) daha fazla alınan";
+"qr.overpaid.message" = "Tutar (%@ BTC) istenen tutardan (%@ BTC) daha fazla alınan";
 
 /* No comment provided by engineer. */
 "qr.overpaid.title" = "Ödenme hareket";

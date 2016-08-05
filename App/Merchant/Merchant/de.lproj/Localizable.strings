@@ -188,7 +188,7 @@
 "qr.insufficient.payment.title" = "Nicht ausreichende Zahlung";
 
 /* No comment provided by engineer. */
-"qr.overpaid.message" = "Betrag (%lld BTC) größer als der geforderte Betrag (%lld BTC)";
+"qr.overpaid.message" = "Betrag (%@ BTC) größer als der geforderte Betrag (%@ BTC)";
 
 /* No comment provided by engineer. */
 "qr.overpaid.title" = "Überbezahlte Transaktion";

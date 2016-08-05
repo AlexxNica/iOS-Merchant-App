@@ -188,7 +188,7 @@
 "qr.insufficient.payment.title" = "Недостаточная оплата";
 
 /* No comment provided by engineer. */
-"qr.overpaid.message" = "Полученная сумма (%lld БТД) больше, чем сумма, испрашиваемая (%lld БТД)";
+"qr.overpaid.message" = "Полученная сумма (%@ БТД) больше, чем сумма, испрашиваемая (%@ БТД)";
 
 /* No comment provided by engineer. */
 "qr.overpaid.title" = "Излишне уплаченных транзакции";

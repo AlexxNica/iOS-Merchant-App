@@ -188,7 +188,7 @@
 "qr.insufficient.payment.title" = "Onvoldoende betaling";
 
 /* No comment provided by engineer. */
-"qr.overpaid.message" = "Ontvangen bedrag (%lld BTC) groter is dan het gevraagde bedrag (%lld BTC)";
+"qr.overpaid.message" = "Ontvangen bedrag (%@ BTC) groter is dan het gevraagde bedrag (%@ BTC)";
 
 /* No comment provided by engineer. */
 "qr.overpaid.title" = "Teveel betaalde transactie";

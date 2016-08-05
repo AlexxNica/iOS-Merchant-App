@@ -59,6 +59,24 @@
 "currency.picker.title" = "Moneda";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "URL base";
+
+/* No comment provided by engineer. */
+"debug.debug" = "De depuración";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "ENLACE mercantil";
+
+/* No comment provided by engineer. */
+"debug.reset" = "RESET";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "URL de la transacción";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "URL de WebSocket";
+
+/* No comment provided by engineer. */
 "general.NA" = "N / A";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "Cierre de sesión";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "Pago insuficiente";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "Cantidad recibida (%@ BTC) mayor monto solicitado (%@ BTC)";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "Transacciones pagado";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Vaya a configuración y activar cámara acceso para comerciante de Blockchain.";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Descripción";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "Se ha producido un error durante su solicitud. Por favor Inténtalo más tarde.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "Error";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "Vamos a revisar le para incorporación a nuestro directorio comercial.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "¡ Gracias!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "Listado en el directorio";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Error encontrar ubicación";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "Listado en el directorio requiere que proporcione un nombre de empresa, dirección, ciudad, código postal, teléfono, enlace web y una descripción.";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "Información que falta";
 
 /* No comment provided by engineer. */

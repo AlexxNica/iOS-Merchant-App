@@ -188,7 +188,7 @@
 "qr.insufficient.payment.title" = "不十分な支払";
 
 /* No comment provided by engineer. */
-"qr.overpaid.message" = "量受けた (%lld BTC) 要求された量 (%lld BTC) より大きい";
+"qr.overpaid.message" = "量受けた (%@ BTC) 要求された量 (%@ BTC) より大きい";
 
 /* No comment provided by engineer. */
 "qr.overpaid.title" = "過払いトランザクション";

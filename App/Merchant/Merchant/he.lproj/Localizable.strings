@@ -188,7 +188,7 @@
 "qr.insufficient.payment.title" = "התשלום לא מספיק";
 
 /* No comment provided by engineer. */
-"qr.overpaid.message" = "הסכום המתקבל (%lld BTC) גדול מהסכום המבוקש (%lld BTC)";
+"qr.overpaid.message" = "הסכום המתקבל (%@ BTC) גדול מהסכום המבוקש (%@ BTC)";
 
 /* No comment provided by engineer. */
 "qr.overpaid.title" = "עסקת יותר מדי כסף";

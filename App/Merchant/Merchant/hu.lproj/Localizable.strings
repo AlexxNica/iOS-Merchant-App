@@ -188,7 +188,7 @@
 "qr.insufficient.payment.title" = "Elégtelen fizetési";
 
 /* No comment provided by engineer. */
-"qr.overpaid.message" = "Kapott összeg (%lld BTC) nagyobb, mint a kért összeg (%lld BTC)";
+"qr.overpaid.message" = "Kapott összeg (%@ BTC) nagyobb, mint a kért összeg (%@ BTC)";
 
 /* No comment provided by engineer. */
 "qr.overpaid.title" = "Túlfizetett tranzakció";

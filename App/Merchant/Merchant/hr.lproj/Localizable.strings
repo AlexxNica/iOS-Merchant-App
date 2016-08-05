@@ -188,7 +188,7 @@
 "qr.insufficient.payment.title" = "Dovoljno da plati";
 
 /* No comment provided by engineer. */
-"qr.overpaid.message" = "Primljeni iznos (%lld BTC) veći iznos koji se traži (%lld BTC)";
+"qr.overpaid.message" = "Primljeni iznos (%@ BTC) veći iznos koji se traži (%@ BTC)";
 
 /* No comment provided by engineer. */
 "qr.overpaid.title" = "Preplaćeni transakcije";

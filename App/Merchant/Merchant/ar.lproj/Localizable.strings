@@ -188,7 +188,7 @@
 "qr.insufficient.payment.title" = "الدفع غير كافية";
 
 /* No comment provided by engineer. */
-"qr.overpaid.message" = "المبلغ المستلم (%lld BTC) أكبر من الكمية المطلوبة (%lld BTC)";
+"qr.overpaid.message" = "المبلغ المستلم (%@ BTC) أكبر من الكمية المطلوبة (%@ BTC)";
 
 /* No comment provided by engineer. */
 "qr.overpaid.title" = "حركة زائدة";

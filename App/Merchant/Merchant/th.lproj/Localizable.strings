@@ -188,7 +188,7 @@
 "qr.insufficient.payment.title" = "ชำระเงินไม่เพียงพอ";
 
 /* No comment provided by engineer. */
-"qr.overpaid.message" = "จำนวนที่ได้รับ (%lld BTC) มากกว่ายอดเงินที่ร้องขอ (%lld BTC)";
+"qr.overpaid.message" = "จำนวนที่ได้รับ (%@ BTC) มากกว่ายอดเงินที่ร้องขอ (%@ BTC)";
 
 /* No comment provided by engineer. */
 "qr.overpaid.title" = "ธุรกรรมแทน";

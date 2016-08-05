@@ -59,6 +59,24 @@
 "currency.picker.title" = "Moneda";
 
 /* No comment provided by engineer. */
+"debug.base_url" = "Base URL";
+
+/* No comment provided by engineer. */
+"debug.debug" = "Depuració";
+
+/* No comment provided by engineer. */
+"debug.merchant_directory_url" = "Mercant URL";
+
+/* No comment provided by engineer. */
+"debug.reset" = "Restablir";
+
+/* No comment provided by engineer. */
+"debug.transaction_url" = "Transacció URL";
+
+/* No comment provided by engineer. */
+"debug.web_socket_url" = "Websocket URL";
+
+/* No comment provided by engineer. */
 "general.NA" = "N/A";
 
 /* No comment provided by engineer. */
@@ -121,7 +139,7 @@
 /* (No Commment) */
 "navigation.logout" = "Logout";
 
-/* No comment provided by engineer. */
+/* (No Commment) */
 "navigation.pos" = "POS";
 
 /* No comment provided by engineer. */
@@ -170,6 +188,12 @@
 "qr.insufficient.payment.title" = "Pagament insuficient";
 
 /* No comment provided by engineer. */
+"qr.overpaid.message" = "Import (%@ BTC) major que la quantitat sol • licitada (%@ BTC)";
+
+/* No comment provided by engineer. */
+"qr.overpaid.title" = "Operació sobrepagats";
+
+/* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Aneu a configuració i permetre accés de càmera per Blockchain Mercader.";
 
 /* No comment provided by engineer. */
@@ -196,7 +220,19 @@
 /* No comment provided by engineer. */
 "setting.description.title" = "Descripció";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
+"setting.directory_listing.error.message" = "S'ha produït un error durant la seva petició. Intenteu-ho més tard.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.error.title" = "Error";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.message" = "Revisarem vostè per addició al nostre directori mercant.";
+
+/* No comment provided by engineer. */
+"setting.directory_listing.success.title" = "Gràcies!";
+
+/* No comment provided by engineer. */
 "setting.directory_listing.title" = "Llista de directoris";
 
 /* No comment provided by engineer. */
@@ -214,10 +250,10 @@
 /* No comment provided by engineer. */
 "setting.location_services.trouble_finding.title" = "Localització de descobriment d'error";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.detail" = "Llista de directoris requereix que faciliti un nom d'empresa, adreça, ciutat, zipcode, telèfon, web url i descripció.";
 
-/* (No Commment) */
+/* No comment provided by engineer. */
 "setting.merchant_listing.value_error.title" = "Falta informació";
 
 /* No comment provided by engineer. */

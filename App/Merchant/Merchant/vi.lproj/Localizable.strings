@@ -188,7 +188,7 @@
 "qr.insufficient.payment.title" = "Không đủ thanh toán";
 
 /* No comment provided by engineer. */
-"qr.overpaid.message" = "Số tiền nhận được (%lld BTC) lớn hơn số tiền yêu cầu (%lld BTC)";
+"qr.overpaid.message" = "Số tiền nhận được (%@ BTC) lớn hơn số tiền yêu cầu (%@ BTC)";
 
 /* No comment provided by engineer. */
 "qr.overpaid.title" = "Thừa giao dịch";

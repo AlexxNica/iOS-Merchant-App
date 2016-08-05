@@ -169,6 +169,10 @@
 /* No comment provided by engineer. */
 "qr.insufficient.payment.title" = "Otillräcklig betalning";
 
+"qr.overpaid.title" = "Överskjutande transaktion";
+
+"qr.overpaid.message" = "Belopp som erhållits (%@ BTC) större än begärt belopp (%@ BTC)";
+
 /* No comment provided by engineer. */
 "qr.scanning.permission.detail" = "Gå till inställningar och aktivera kameraåtkomst för Blockchain köpman.";
 

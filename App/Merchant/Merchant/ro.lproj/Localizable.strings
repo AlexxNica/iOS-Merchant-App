@@ -188,7 +188,7 @@
 "qr.insufficient.payment.title" = "Plată insuficientă";
 
 /* No comment provided by engineer. */
-"qr.overpaid.message" = "Suma primită (%lld BTC) mai mare decât suma solicitată (%lld BTC)";
+"qr.overpaid.message" = "Suma primită (%@ BTC) mai mare decât suma solicitată (%@ BTC)";
 
 /* No comment provided by engineer. */
 "qr.overpaid.title" = "Tranzacţie plătite în plus";

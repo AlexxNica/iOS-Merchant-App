@@ -135,6 +135,11 @@
 
 /* Begin PBXFileReference section */
 		1AD656CBA20F71AC04D19A31 /* libPods-Merchant.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Merchant.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2324F7CE1D551D3C00CD06E7 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/BCMQRCodeTransactionView.strings; sourceTree = "<group>"; };
+		2324F7D01D551D3D00CD06E7 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		2324F7D11D551D3D00CD06E7 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/BCMPaymentReceivedView.strings; sourceTree = "<group>"; };
+		2324F7D21D551D3D00CD06E7 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2324F7D31D551D3E00CD06E7 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
 		234CA81A1BD4883700AB7DA2 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Main.strings; sourceTree = "<group>"; };
 		234CA81B1BD4883700AB7DA2 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		234CA81E1BD4886D00AB7DA2 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Main.strings; sourceTree = "<group>"; };
@@ -1195,6 +1200,7 @@
 				234CA8F71BD6955D00AB7DA2 /* th */,
 				234CA8F91BD6955E00AB7DA2 /* zh-CN */,
 				234CA8FB1BD6955F00AB7DA2 /* zh-TW */,
+				2324F7D11D551D3D00CD06E7 /* sv */,
 			);
 			name = BCMPaymentReceivedView.xib;
 			sourceTree = "<group>";
@@ -1241,6 +1247,7 @@
 				234CA9461BD695D200AB7DA2 /* th */,
 				234CA9481BD695D300AB7DA2 /* zh-CN */,
 				234CA94A1BD695D300AB7DA2 /* zh-TW */,
+				2324F7CE1D551D3C00CD06E7 /* sv */,
 			);
 			name = BCMQRCodeTransactionView.xib;
 			sourceTree = "<group>";
@@ -1287,6 +1294,7 @@
 				234CA8831BD489D700AB7DA2 /* th */,
 				234CA8941BD48A0300AB7DA2 /* zh-CN */,
 				234CA8991BD48A3200AB7DA2 /* zh-TW */,
+				2324F7D21D551D3D00CD06E7 /* sv */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1332,6 +1340,7 @@
 				234CA89D1BD48AA500AB7DA2 /* zh-Hant */,
 				234CA89F1BD48AA700AB7DA2 /* es */,
 				234CA8A11BD48AA900AB7DA2 /* pt */,
+				2324F7D31D551D3E00CD06E7 /* sv */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1377,6 +1386,7 @@
 				234CA8A51BD48ABA00AB7DA2 /* zh-Hant */,
 				234CA8A71BD48ABB00AB7DA2 /* es */,
 				234CA8A91BD48ABD00AB7DA2 /* pt */,
+				2324F7D01D551D3D00CD06E7 /* sv */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

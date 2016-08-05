@@ -188,7 +188,7 @@
 "qr.insufficient.payment.title" = "Nezadostno plačilo";
 
 /* No comment provided by engineer. */
-"qr.overpaid.message" = "Znesek prejetih (%lld BTC) večja od zaprošeni znesek (%lld BTC)";
+"qr.overpaid.message" = "Znesek prejetih (%@ BTC) večja od zaprošeni znesek (%@ BTC)";
 
 /* No comment provided by engineer. */
 "qr.overpaid.title" = "Preveč transakcije";

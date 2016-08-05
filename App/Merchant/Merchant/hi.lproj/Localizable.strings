@@ -188,7 +188,7 @@
 "qr.insufficient.payment.title" = "अपर्याप्त भुगतान";
 
 /* No comment provided by engineer. */
-"qr.overpaid.message" = "प्राप्त राशि (%lld बीटीसी) अनुरोध की गई राशि से (%lld बीटीसी) अधिक";
+"qr.overpaid.message" = "प्राप्त राशि (%@ बीटीसी) अनुरोध की गई राशि से (%@ बीटीसी) अधिक";
 
 /* No comment provided by engineer. */
 "qr.overpaid.title" = "Overpaid हस्तांतरण";

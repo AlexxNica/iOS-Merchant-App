@@ -188,7 +188,7 @@
 "qr.insufficient.payment.title" = "Riittämätön maksu";
 
 /* No comment provided by engineer. */
-"qr.overpaid.message" = "Saatu summa (%lld BTC) suurempi kuin haettu määrä (%lld BTC)";
+"qr.overpaid.message" = "Saatu summa (%@ BTC) suurempi kuin haettu määrä (%@ BTC)";
 
 /* No comment provided by engineer. */
 "qr.overpaid.title" = "Liikaa tapahtuman";

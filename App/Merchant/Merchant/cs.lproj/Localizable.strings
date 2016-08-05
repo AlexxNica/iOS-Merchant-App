@@ -188,7 +188,7 @@
 "qr.insufficient.payment.title" = "Neúplná platba";
 
 /* No comment provided by engineer. */
-"qr.overpaid.message" = "Přijatá částka (%lld BTC) vyšší než požadovaná částka (%lld BTC)";
+"qr.overpaid.message" = "Přijatá částka (%@ BTC) vyšší než požadovaná částka (%@ BTC)";
 
 /* No comment provided by engineer. */
 "qr.overpaid.title" = "Přeplacení transakce";

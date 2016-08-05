@@ -188,7 +188,7 @@
 "qr.insufficient.payment.title" = "Ανεπαρκής πληρωμή";
 
 /* No comment provided by engineer. */
-"qr.overpaid.message" = "Εισπραχθέντος ποσού (%lld BTC) μεγαλύτερο από το ποσό που ζητήθηκε (%lld BTC)";
+"qr.overpaid.message" = "Εισπραχθέντος ποσού (%@ BTC) μεγαλύτερο από το ποσό που ζητήθηκε (%@ BTC)";
 
 /* No comment provided by engineer. */
 "qr.overpaid.title" = "Υπερβάλλοντος συναλλαγής";
