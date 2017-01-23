@@ -21,7 +21,7 @@
 #define USER_DEFAULTS_KEY_WEB_SOCKET_URL @"webSocketURL"
 
 #define DEFAULT_BASE_URL @"https://blockchain.info"
-#define DEFAULT_MERCHANT_DIRECTORY_URL @"https://merchant-directory.blockchain.info"
+#define DEFAULT_MERCHANT_DIRECTORY_URL @"https://api.blockchain.info/merchant"
 
 /*
 previously used debug URL: @"http://service-merchant-dir.dev.blockchain.co.uk";
